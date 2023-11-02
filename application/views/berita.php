@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block text-center">
-                    <span class="text-white">Our blog</span>
-                    <h1 class="text-capitalize mb-5 text-lg">Blog articles</h1>
+                    <h1 class="text-capitalize mb-5 text-lg">BERITA</h1>
                 </div>
             </div>
         </div>

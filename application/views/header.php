@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body id="top">
 
     <header>
-        <div class="header-top-bar">
+        <!-- <div class="header-top-bar">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
@@ -61,7 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo base_url('/'); ?>">

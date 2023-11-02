@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block text-center">
-                    <span class="text-white">About Us</span>
-                    <h1 class="text-capitalize mb-5 text-lg">About Us</h1>
+                    <h1 class="text-capitalize mb-5 text-lg">PROFIL</h1>
                 </div>
             </div>
         </div>

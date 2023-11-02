@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block text-center">
-                    <span class="text-white">GALERI</span>
-                    <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+                    <h1 class="text-capitalize mb-5 text-lg">GALERI</h1>
                 </div>
             </div>
         </div>
