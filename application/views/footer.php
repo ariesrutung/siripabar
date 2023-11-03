@@ -1,126 +1,157 @@
-<!-- footer Start -->
-<footer class="footer section gray-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mr-auto col-sm-6">
-                <div class="widget mb-5 mb-lg-0">
-                    <div class="logo mb-4">
-                        <img src="<?php echo base_url(); ?>public/frontend/images/logo.png" alt="" class="img-fluid">
+<!-- footer -->
+<footer class="bg-secondary">
+    <div class="py-100 border-bottom" style="border-color: #454547 !important">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-5 mb-md-0 text-center text-md-left">
+                        <!-- logo -->
+                        <img class="mb-30" src="images/logo-footer.png" alt="logo">
+                        <p class="text-white mb-30">Lorem ipsum dolor amet consectetur adipisicing elit sed eiusm tempor incididunt
+                            labore dolore magna aliqua enim.</p>
+                        <!-- social icon -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="social-icon-outline" href="#">
+                                    <i class="ti-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-icon-outline" href="#">
+                                    <i class="ti-twitter-alt"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-icon-outline" href="#">
+                                    <i class="ti-vimeo-alt"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-icon-outline" href="#">
+                                    <i class="ti-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
-
-                    <ul class="list-inline footer-socials mt-4">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a>
+                </div>
+                <!-- footer links -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">Company History</a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a>
+                        <li>
+                            <a href="about.html">About Us</a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.pinterest.com/themefisher/"><i class="icofont-linkedin"></i></a>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="service.html">Service</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-sm-6">
-                <div class="widget mb-5 mb-lg-0">
-                    <h4 class="text-capitalize mb-3">Department</h4>
-                    <div class="divider mb-4"></div>
-
-                    <ul class="list-unstyled footer-menu lh-35">
-                        <li><a href="#!">Surgery </a></li>
-                        <li><a href="#!">Wome's Health</a></li>
-                        <li><a href="#!">Radiology</a></li>
-                        <li><a href="#!">Cardioc</a></li>
-                        <li><a href="#!">Medicine</a></li>
+                <!-- footer links -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h4 class="text-white mb-4">Quick Link</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">Company History</a>
+                        </li>
+                        <li>
+                            <a href="about-2.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="service-2.html">Service</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-sm-6">
-                <div class="widget mb-5 mb-lg-0">
-                    <h4 class="text-capitalize mb-3">Support</h4>
-                    <div class="divider mb-4"></div>
-
-                    <ul class="list-unstyled footer-menu lh-35">
-                        <li><a href="#!">Terms & Conditions</a></li>
-                        <li><a href="#!">Privacy Policy</a></li>
-                        <li><a href="#!">Company Support </a></li>
-                        <li><a href="#!">FAQuestions</a></li>
-                        <li><a href="#!">Company Licence</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="widget widget-contact mb-5 mb-lg-0">
-                    <h4 class="text-capitalize mb-3">Get in Touch</h4>
-                    <div class="divider mb-4"></div>
-
-                    <div class="footer-contact-block mb-4">
-                        <div class="icon d-flex align-items-center">
-                            <i class="icofont-email mr-3"></i>
-                            <span class="h6 mb-0">Support Available for 24/7</span>
-                        </div>
-                        <h4 class="mt-2"><a href="mailto:support@email.com">Support@email.com</a></h4>
-                    </div>
-
-                    <div class="footer-contact-block">
-                        <div class="icon d-flex align-items-center">
-                            <i class="icofont-support mr-3"></i>
-                            <span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
-                        </div>
-                        <h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-btm py-4 mt-5">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-6">
-                    <div class="copyright">
-                        Copyright &copy; 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="subscribe-form text-lg-right mt-5 mt-lg-0">
-                        <form action="#" class="subscribe">
-                            <input type="text" class="form-control" placeholder="Your Email address" required>
-                            <button type="submit" class="btn btn-main-2 btn-round-full">Subscribe</button>
+                <!-- subscribe form -->
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="mt-5 mt-lg-0 text-center text-md-left">
+                        <h4 class="mb-4 text-white">Subscribe Us</h4>
+                        <p class="text-white mb-4">Lorem ipsum dolor sit amet, consect etur adipisicing. elit sed do
+                            eiusmod. </p>
+                        <form action="#" class="position-relative">
+                            <input type="text" class="form-control subscribe" name="subscribe" id="Subscribe" placeholder="Enter Your Email">
+                            <button class="btn-subscribe" type="submit" value="send">
+                                <i class="ti-arrow-right"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="pt-4 pb-3 position-relative">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <a class="backtop scroll-top-to" href="#top">
-                        <i class="icofont-long-arrow-up"></i>
-                    </a>
+                <div class="col-lg-6 col-md-5">
+                    <p class="text-white text-center text-md-left">
+                        <span class="text-primary">Bizpro</span> &copy; 2017 All Right Reserved
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-7">
+                    <ul class="list-inline text-center text-md-right">
+                        <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
+                            <a class="font-secondary text-white" href="#">Legal</a>
+                        </li>
+                        <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
+                            <a class="font-secondary text-white" href="#">Sitemap</a>
+                        </li>
+                        <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
+                            <a class="font-secondary text-white" href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item ml-lg-3 my-lg-0 ml-2 my-2 ml-0">
+                            <a class="font-secondary text-white" href="#">Terms &amp; Conditions</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <!-- back to top -->
+        <button class="back-to-top">
+            <i class="ti-angle-up"></i>
+        </button>
     </div>
 </footer>
+<!-- /footer -->
 
-
-
-<!-- 
-    Essential Scripts
-    =====================================-->
-<script src="<?php echo base_url(); ?>public/frontend/plugins/jquery/jquery.js"></script>
-<script src="<?php echo base_url(); ?>public/frontend/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>public/frontend/plugins/slick-carousel/slick/slick.min.js"></script>
-<script src="<?php echo base_url(); ?>public/frontend/plugins/shuffle/shuffle.min.js"></script>
-
+<!-- jQuery -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- magnific popup -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/magnific-popup/jquery.magnific.popup.min.js"></script>
+<!-- slick slider -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
-<script src="<?php echo base_url(); ?>public/frontend/plugins/google-map/gmap.js"></script>
-
-<script src="<?php echo base_url(); ?>public/frontend/js/script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/google-map/gmap.js"></script>
+<!-- Syo Timer -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/syotimer/jquery.syotimer.js"></script>
+<!-- aos -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/aos/aos.js"></script>
+<!-- swiper -->
+<script src="<?php echo base_url(); ?>public/frontend2/plugins/swiper/swiper.min.js"></script>
+<!-- Main Script -->
+<script src="<?php echo base_url(); ?>public/frontend2/js/script.js"></script>
 
 </body>
+
+<!-- Mirrored from demo.themefisher.com/biztrox-bootstrap/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Nov 2023 15:21:56 GMT -->
 
 </html>

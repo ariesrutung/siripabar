@@ -1,236 +1,228 @@
-<section class="page-title bg-1">
-    <div class="overlay"></div>
+<section class="page-title overlay" style="background-image: url(images/background/page-title.jpg);">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="block text-center">
-                    <h1 class="text-capitalize mb-5 text-lg">PROFIL</h1>
+            <div class="col-12 text-center">
+                <h2 class="text-white font-weight-bold">PROFIL</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Beranda</a>
+                    </li>
+                    <li>Profil</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- philosophy -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- philosophy video -->
+            <div class="col-lg-5 align-self-center">
+                <div class="overlay overlay-rounded mb-md-50">
+                    <img class="img-fluid w-100 rounded" src="<?php echo base_url(); ?>public/frontend2/images/about/about-video-thumbnail.jpg" alt="video-thumbnail">
+                    <a class="play-icon popup-youtube centralized" href="https://www.youtube.com/watch?v=mr9kK0_7x08"><i class="ti-control-play"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h5 class="section-title-sm">Know About</h5>
+                <h2 class="section-title section-title-border-half">Our Philosophy</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor didunt laboris nisi ut aliquip
+                    ex commodo consequat. duis aute irure dolor in reprehenderivoluptate velit esse cillum dolore fugiat
+                    nulla pariatur.Excepteur sint ocaecat cupidatat noproident sunt culpa qui officia deserunt mollit anim
+                    id est laborum.</p>
+                <a href="service-2.html" class="btn btn-primary">Explore More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- philosophy -->
+
+<section class="about section-sm overlay" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/background/about-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 ml-auto">
+                <div class="rounded p-sm-5 px-3 py-5 bg-secondary">
+                    <h3 class="section-title section-title-border-half text-white">Who We Are?</h3>
+                    <p class="text-white mb-40">Excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div>
+                        <ul class="d-inline-block pl-0 mr-5">
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
+                            </li>
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
+                            </li>
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
+                            </li>
+                        </ul>
+                        <ul class="d-inline-block pl-0">
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
+                            </li>
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
+                            </li>
+                            <li class="font-secondary mb-10 text-white">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="service.html" class="btn btn-primary mt-4">Explore More</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section about-page">
+<!-- ceo section -->
+<section class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <h2 class="title-color">Personal care for your healthy living</h2>
+        <div class="row rounded bg-gray">
+            <div class="col-lg-7">
+                <!-- ceo content -->
+                <div class="p-5">
+                    <h2 class="section-title section-title-border-half">We are efficient to
+                        <br> make your business rise
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor didunt laboris nisi ut aliquip
+                        ex commodo consequat. duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat
+                        nulla pariatur.Excepteur sint ocaecat cupidatat non proident sunt culpa qui officia deserunt mollit
+                        anim id est laborum.</p>
+                    <img src="<?php echo base_url(); ?>public/frontend2/images/about/ceo-signature-2.png" alt="ceo-signature">
+                    <h5>Ema Rao</h5>
+                    <h6>CEO</h6>
+                </div>
             </div>
-            <div class="col-lg-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, quod laborum alias. Vitae dolorum, officia sit! Saepe ullam facere at, consequatur incidunt, quae esse, quis ut reprehenderit dignissimos, libero delectus.</p>
-                <img src="<?php echo base_url(); ?>public/frontend/images/about/sign.png" alt="" class="img-fluid">
-            </div>
+            <!-- ceo image -->
+            <div class="col-lg-5 rounded-right ceo-image" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/about/ceo-2.jpg);"></div>
         </div>
     </div>
 </section>
+<!-- /ceo section -->
 
-<section class="fetaure-page ">
+<section class="cta overlay-primary py-50 text-center text-lg-left" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/background/cta.jpg);">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="about-block-item mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/about/about-1.jpg" alt="" class="img-fluid w-100">
-                    <h4 class="mt-3">Healthcare for Kids</h4>
-                    <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="about-block-item mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/about/about-2.jpg" alt="" class="img-fluid w-100">
-                    <h4 class="mt-3">Medical Counseling</h4>
-                    <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="about-block-item mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/about/about-3.jpg" alt="" class="img-fluid w-100">
-                    <h4 class="mt-3">Modern Equipments</h4>
-                    <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="about-block-item">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/about/about-4.jpg" alt="" class="img-fluid w-100">
-                    <h4 class="mt-3">Qualified Doctors</h4>
-                    <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section awards">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-4">
-                <h2 class="title-color">Our Doctors achievements </h2>
-                <div class="divider mt-4 mb-5 mb-lg-0"></div>
-            </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/3.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/4.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/1.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/2.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/5.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="award-img">
-                            <img src="<?php echo base_url(); ?>public/frontend/images/about/6.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section team">
-    <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-between">
             <div class="col-lg-6">
-                <div class="section-title text-center">
-                    <h2 class="mb-4">Meet Our Specialist</h2>
-                    <div class="divider mx-auto my-4"></div>
-                    <p>Today’s users expect effortless experiences. Don’t let essential people and processes stay stuck in the past. Speed it up, skip the hassles</p>
-                </div>
+                <h3 class="text-white">Biztrox give the smart solution for your business</h3>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-block mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/team/1.jpg" alt="" class="img-fluid w-100">
-
-                    <div class="content">
-                        <h4 class="mt-4 mb-0"><a href="doctor-single.html">John Marshal</a></h4>
-                        <p>Internist, Emergency Physician</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-block mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/team/2.jpg" alt="" class="img-fluid w-100">
-
-                    <div class="content">
-                        <h4 class="mt-4 mb-0"><a href="doctor-single.html">Marshal Root</a></h4>
-                        <p>Surgeon, Сardiologist</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-block mb-5 mb-lg-0">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/team/3.jpg" alt="" class="img-fluid w-100">
-
-                    <div class="content">
-                        <h4 class="mt-4 mb-0"><a href="doctor-single.html">Siamon john</a></h4>
-                        <p>Internist, General Practitioner</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-block">
-                    <img src="<?php echo base_url(); ?>public/frontend/images/team/4.jpg" alt="" class="img-fluid w-100">
-
-                    <div class="content">
-                        <h4 class="mt-4 mb-0"><a href="doctor-single.html">Rishat Ahmed</a></h4>
-                        <p>Orthopedic Surgeon</p>
-                    </div>
-                </div>
+            <div class="col-lg-6 text-lg-right align-self-center">
+                <a href="contact.html" class="btn btn-light">GET AN QUOTE</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section testimonial">
+<!-- skill -->
+<section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-6">
-                <div class="section-title">
-                    <h2 class="mb-4">What they say about us</h2>
-                    <div class="divider  my-4"></div>
+            <div class="col-12">
+                <h5 class="section-title-sm">Best Reason</h5>
+                <h2 class="section-title section-title-border-half">Why Choose Us</h2>
+            </div>
+            <!-- accordion -->
+            <div class="col-lg-6">
+                <div id="accordion" class="mb-md-50">
+                    <div class="card border-0 mb-4">
+                        <div class="card-header bg-gray border p-0">
+                            <a class="card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseOne">
+                                <i class="ti-minus text-primary mr-2"></i> Our Company Mission
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                            <div class="card-body font-secondary text-color pl-0 pb-0">
+                                Duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+                                non proident sunt culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-4">
+                        <div class="card-header bg-gray border p-0">
+                            <a class="collapsed card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseTwo">
+                                <i class="ti-plus text-primary mr-2"></i> Our Company Mission
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body font-secondary text-color pl-0 pb-0">
+                                Duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+                                non proident sunt culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-4">
+                        <div class="card-header bg-gray border p-0">
+                            <a class="collapsed card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseThree">
+                                <i class="ti-plus text-primary mr-2"></i> Our Company Mission
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                            <div class="card-body font-secondary text-color pl-0 pb-0">
+                                Duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+                                non proident sunt culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-lg-6 testimonial-wrap offset-lg-6">
-                <div class="testimonial-block">
-                    <div class="client-info ">
-                        <h4>Amazing service!</h4>
-                        <span>John Partho</span>
+            <!-- progressbar -->
+            <div class="col-lg-6">
+                <div class="progressbar">
+                    <h5 class="progressbar-title">Branding</h5>
+                    <div class="progress" data-percent="85%">
+                        <div class="progress-bar progress-bar-striped" style="width: 85%;">
+                            <div class="progress-bar-value">85%</div>
+                        </div>
                     </div>
-                    <p>
-                        They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-                    </p>
-                    <i class="icofont-quote-right"></i>
-
                 </div>
-
-                <div class="testimonial-block">
-                    <div class="client-info">
-                        <h4>Expert doctors!</h4>
-                        <span>Mullar Sarth</span>
+                <div class="progressbar">
+                    <h5 class="progressbar-title">Branding</h5>
+                    <div class="progress" data-percent="75%">
+                        <div class="progress-bar progress-bar-striped" style="width: 75%;">
+                            <div class="progress-bar-value">75%</div>
+                        </div>
                     </div>
-                    <p>
-                        They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-                    </p>
-                    <i class="icofont-quote-right"></i>
                 </div>
-
-                <div class="testimonial-block">
-                    <div class="client-info">
-                        <h4>Good Support!</h4>
-                        <span>Kolis Mullar</span>
+                <div class="progressbar">
+                    <h5 class="progressbar-title">Consulting</h5>
+                    <div class="progress" data-percent="90%">
+                        <div class="progress-bar progress-bar-striped" style="width: 90%;">
+                            <div class="progress-bar-value">90%</div>
+                        </div>
                     </div>
-                    <p>
-                        They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-                    </p>
-                    <i class="icofont-quote-right"></i>
                 </div>
-
-                <div class="testimonial-block">
-                    <div class="client-info">
-                        <h4>Nice Environment!</h4>
-                        <span>Partho Sarothi</span>
+                <div class="progressbar">
+                    <h5 class="progressbar-title">Business</h5>
+                    <div class="progress" data-percent="75%">
+                        <div class="progress-bar progress-bar-striped" style="width: 75%;">
+                            <div class="progress-bar-value">75%</div>
+                        </div>
                     </div>
-                    <p>
-                        They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-                    </p>
-                    <i class="icofont-quote-right"></i>
-                </div>
-
-                <div class="testimonial-block">
-                    <div class="client-info">
-                        <h4>Modern Service!</h4>
-                        <span>Kolis Mullar</span>
-                    </div>
-                    <p>
-                        They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-                    </p>
-                    <i class="icofont-quote-right"></i>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- /skill -->
+
+<!-- client logo slider -->
+<section class="bg-gray py-4">
+    <div class="container">
+        <div class="client-logo-slider align-self-center">
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-1.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-2.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-3.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-4.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-5.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-1.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-2.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-3.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-4.png" alt="client-logo"></a>
+            <a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-5.png" alt="client-logo"></a>
+        </div>
+    </div>
+</section>
+<!-- /client logo slider -->

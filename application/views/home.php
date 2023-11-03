@@ -1,459 +1,695 @@
-<!-- Slider Start -->
-<section class="banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-12 col-xl-7">
-				<div class="block">
-					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
-					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
-
-					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
-					<div class="btn-container ">
-						<a href="<?php echo base_url(); ?>public/frontend/appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+<section>
+	<div class="hero-slider position-relative">
+		<div id="slidera_1" class="hero-slider-item py-160" style="background-image: url(images/banner/banner-1.jpg);" data-icon="ti-comments" data-text="Consultation">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="hero-content">
+							<h4 class="text-uppercase mb-1" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".1">We
+								are here to</h4>
+							<h1 class="font-weight-bold mb-3" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".5">
+								Planning Business</h1>
+							<p class="text-dark mb-50" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".9">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								<br> incididunt ut labore et dolore magna aliqua.
+							</p>
+							<a data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in="1.3" href="about.html" class="btn btn-outline text-uppercase">more details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="slidera_2" class="hero-slider-item py-160" style="background-image: url(images/banner/banner-2.jpg);" data-icon="ti-bar-chart" data-text="Marketting">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="hero-content">
+							<h4 class="text-uppercase mb-1" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".1">
+								Get your</h4>
+							<h1 class="font-weight-bold mb-3" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".5">
+								Business Consultant</h1>
+							<p class="text-dark mb-50" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".9">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								<br> incididunt ut labore et dolore magna aliqua.
+							</p>
+							<a data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in="1.3" href="about-2.html" class="btn btn-outline text-uppercase">more details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="slidera_3" class="hero-slider-item py-160" style="background-image: url(images/banner/banner-3.jpg);" data-icon="ti-money" data-text="Finance">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="hero-content">
+							<h4 class="text-uppercase mb-1" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".1">
+								Start your</h4>
+							<h1 class="font-weight-bold mb-3" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".5">
+								Future Plan</h1>
+							<p class="text-dark mb-50" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".9">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								<br> incididunt ut labore et dolore magna aliqua.
+							</p>
+							<a data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in="1.3" href="about.html" class="btn btn-outline text-uppercase">more details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="slidera_4" class="hero-slider-item py-160" style="background-image: url(images/banner/banner-4.jpg);" data-icon="ti-package" data-text="Human Resources">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="hero-content">
+							<h4 class="text-uppercase mb-1" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".1">We
+								are always</h4>
+							<h1 class="font-weight-bold mb-3" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".5">
+								Be Inspired By Best</h1>
+							<p class="text-dark mb-50" data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in=".9">Lorem
+								ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								<br> incididunt ut labore et dolore magna aliqua.
+							</p>
+							<a data-duration-in=".5" data-animation-in="fadeInDown" data-delay-in="1.3" href="about-2.html" class="btn btn-outline text-uppercase">more details</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="features">
+
+<!-- service -->
+<section class="section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 text-center">
+				<h5 class="section-title-sm">Best Service</h5>
+				<h2 class="section-title section-title-border">Service We Provide</h2>
+			</div>
+			<!-- service item -->
+			<div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+				<div class="card text-center">
+					<h4 class="card-title pt-3">Business Consulting</h4>
+					<div class="card-img-wrapper">
+						<img class="card-img-top rounded-0" src="<?php echo base_url(); ?>public/frontend2/images/service/service-1.jpg" alt="service-image">
+					</div>
+					<div class="card-body p-0">
+						<i class="square-icon translateY-33 rounded ti-bar-chart"></i>
+						<p class="card-text mx-2 mb-0">Lorem ipsum dolor amet consecte tur
+							adipisicing elit sed done eius mod tempor enim ad minim veniam quis
+							nostrud.</p>
+						<a href="service-single.html" class="btn btn-secondary translateY-25">Read
+							More</a>
+					</div>
+				</div>
+			</div>
+			<!-- service item -->
+			<div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+				<div class="card text-center">
+					<h4 class="card-title pt-3">Valuable Idea</h4>
+					<div class="card-img-wrapper">
+						<img class="card-img-top rounded-0" src="<?php echo base_url(); ?>public/frontend2/images/service/service-2.jpg" alt="service-image">
+					</div>
+					<div class="card-body p-0">
+						<i class="square-icon translateY-33 rounded ti-thought"></i>
+						<p class="card-text mx-2 mb-0">Lorem ipsum dolor amet consecte tur
+							adipisicing elit sed done eius mod tempor enim ad minim veniam quis
+							nostrud.</p>
+						<a href="service-single.html" class="btn btn-secondary translateY-25">Read
+							More</a>
+					</div>
+				</div>
+			</div>
+			<!-- service item -->
+			<div class="col-lg-4 col-sm-6">
+				<div class="card text-center">
+					<h4 class="card-title pt-3">Market Strategy</h4>
+					<div class="card-img-wrapper">
+						<img class="card-img-top rounded-0" src="<?php echo base_url(); ?>public/frontend2/images/service/service-3.jpg" alt="service-image">
+					</div>
+					<div class="card-body p-0">
+						<i class="square-icon translateY-33 rounded ti-server"></i>
+						<p class="card-text mx-2 mb-0">Lorem ipsum dolor amet consecte tur
+							adipisicing elit sed done eius mod tempor enim ad minim veniam quis
+							nostrud.</p>
+						<a href="service-single.html" class="btn btn-secondary translateY-25">Read
+							More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="about section-sm overlay" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/background/about-bg.jpg);">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="feature-block d-lg-flex">
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-surgeon-alt"></i>
-						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
-						<a href="<?php echo base_url(); ?>public/frontend/appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
-					</div>
-
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-ui-clock"></i>
-						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
-						<ul class="w-hours list-unstyled">
-							<li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+			<div class="col-lg-6 ml-auto">
+				<div class="rounded p-sm-5 px-3 py-5 bg-secondary">
+					<h3 class="section-title section-title-border-half text-white">Who We Are?</h3>
+					<p class="text-white mb-40">Excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum.</p>
+					<div>
+						<ul class="d-inline-block pl-0 mr-5">
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
+							</li>
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
+							</li>
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
+							</li>
+						</ul>
+						<ul class="d-inline-block pl-0">
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
+							</li>
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
+							</li>
+							<li class="font-secondary mb-10 text-white">
+								<i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
+							</li>
 						</ul>
 					</div>
-
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-support"></i>
-						</div>
-						<span>Emegency Cases</span>
-						<h4 class="mb-3">1-800-700-6200</h4>
-						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
-					</div>
+					<a href="service.html" class="btn btn-primary mt-4">Explore More</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-
-<section class="section about">
+<!-- skill -->
+<section class="section">
 	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/img-1.jpg" alt="" class="img-fluid">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/img-2.jpg" alt="" class="img-fluid mt-4">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="about-img mt-4 mt-lg-0">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="about-content pl-4 mt-4 mt-lg-0">
-					<h2 class="title-color">Personal care <br>& healthy living</h2>
-					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>
-
-					<a href="<?php echo base_url(); ?>public/frontend/service.html" class="btn btn-main-2 btn-round-full btn-icon">Services<i class="icofont-simple-right ml-3"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="cta-section ">
-	<div class="container">
-		<div class="cta position-relative">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-doctor"></i>
-						<span class="h3 counter" data-count="58">0</span>k
-						<p>Happy People</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-flag"></i>
-						<span class="h3 counter" data-count="700">0</span>+
-						<p>Surgery Comepleted</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-badge"></i>
-						<span class="h3 counter" data-count="40">0</span>+
-						<p>Expert Doctors</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="counter-stat">
-						<i class="icofont-globe"></i>
-						<span class="h3 counter" data-count="20">0</span>
-						<p>Worldwide Branch</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section service gray-bg">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<div class="section-title">
-					<h2>Award winning patient care</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
-				</div>
-			</div>
-		</div>
-
 		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-laboratory text-lg"></i>
-						<h4 class="mt-3 mb-3">Laboratory services</h4>
-					</div>
-
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
+			<div class="col-12">
+				<h5 class="section-title-sm">Best Service</h5>
+				<h2 class="section-title section-title-border-half">Why Choose Us</h2>
 			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-heart-beat-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Heart Disease</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
+			<div class="col-lg-7">
+				<div class="mb-40">
+					<p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed eiusmod tempor incididunt laboris nisi
+						ut aliquip ex ea commodo consequat. </p>
+					<p class="text-dark mb-30">Duis aute irure dolor in reprehenderit voluptate
+						velit esse cillum dolore fugiat nulla pariatur.Excepteur
+						sint ocaecat cupidatat non proident sunt culpa qui officia deserunt mollit
+						anim id est laborum. sed
+						perspiciatis unde omnisiste natus error sit voluptatem
+						accusantium.doloremque ladantium totam rem
+						aperieaque ipsa quae ab illo inventore.veritatis. et quasi architecto beatae
+						vitae dicta sunt explicabo.</p>
 				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-tooth text-lg"></i>
-						<h4 class="mt-3 mb-3">Dental Care</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-crutch text-lg"></i>
-						<h4 class="mt-3 mb-3">Body Surgery</h4>
-					</div>
-
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-brain-alt text-lg"></i>
-						<h4 class="mt-3 mb-3">Neurology Sargery</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-item mb-4">
-					<div class="icon d-flex align-items-center">
-						<i class="icofont-dna-alt-1 text-lg"></i>
-						<h4 class="mt-3 mb-3">Gynecology</h4>
-					</div>
-					<div class="content">
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section appoinment">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-6 ">
-				<div class="appoinment-content">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/img-3.jpg" alt="" class="img-fluid">
-					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+23 345 67980</h2>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-10 ">
-				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appoinment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
-					<form id="#" class="appoinment-form" method="post" action="#">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<select class="form-control" id="exampleFormControlSelect1">
-										<option>Choose Department</option>
-										<option>Software Design</option>
-										<option>Development cycle</option>
-										<option>Software Development</option>
-										<option>Maintenance</option>
-										<option>Process Query</option>
-										<option>Cost and Duration</option>
-										<option>Modal Delivery</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<select class="form-control" id="exampleFormControlSelect2">
-										<option>Select Doctors</option>
-										<option>Software Design</option>
-										<option>Development cycle</option>
-										<option>Software Development</option>
-										<option>Maintenance</option>
-										<option>Process Query</option>
-										<option>Cost and Duration</option>
-										<option>Modal Delivery</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-								</div>
-							</div>
-
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input name="time" id="time" type="text" class="form-control" placeholder="Time">
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-								</div>
-							</div>
-
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
+				<!-- fun-fact -->
+				<div class="mb-md-50">
+					<div class="row">
+						<div class="col-4">
+							<div class="d-flex flex-column flex-sm-row align-items-center">
+								<i class="round-icon mr-sm-3 ti-server"></i>
+								<div class="text-center text-sm-left">
+									<h2 class="count mb-0" data-count="230">0</h2>
+									<p class="mb-0">Projects Done</p>
 								</div>
 							</div>
 						</div>
-						<div class="form-group-2 mb-4">
-							<textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+						<div class="col-4">
+							<div class="d-flex flex-column flex-sm-row align-items-center">
+								<i class="round-icon mr-sm-3 ti-face-smile"></i>
+								<div class="text-center text-sm-left">
+									<h2 class="count mb-0" data-count="789">0</h2>
+									<p class="mb-0">Satisfied Clients</p>
+								</div>
+							</div>
 						</div>
-
-						<a class="btn btn-main btn-round-full" href="<?php echo base_url(); ?>public/frontend/appoinment.html">Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
-					</form>
+						<div class="col-4">
+							<div class="d-flex flex-column flex-sm-row align-items-center">
+								<i class="round-icon mr-sm-3 ti-thumb-up"></i>
+								<div class="text-center text-sm-left">
+									<h2 class="count mb-0" data-count="580">0</h2>
+									<p class="mb-0">Cup Of Coffee</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- progressbar -->
+			<div class="col-lg-4 offset-lg-1">
+				<div class="progressbar">
+					<h5 class="progressbar-title">Branding</h5>
+					<div class="progress" data-percent="85%">
+						<div class="progress-bar progress-bar-striped" style="width: 85%;">
+							<div class="progress-bar-value">85%</div>
+						</div>
+					</div>
+				</div>
+				<div class="progressbar">
+					<h5 class="progressbar-title">Consulting</h5>
+					<div class="progress" data-percent="90%">
+						<div class="progress-bar progress-bar-striped" style="width: 90%;">
+							<div class="progress-bar-value">90%</div>
+						</div>
+					</div>
+				</div>
+				<div class="progressbar">
+					<h5 class="progressbar-title">Business</h5>
+					<div class="progress" data-percent="75%">
+						<div class="progress-bar progress-bar-striped" style="width: 75%;">
+							<div class="progress-bar-value">75%</div>
+						</div>
+					</div>
+				</div>
+				<div class="progressbar">
+					<h5 class="progressbar-title">Promotion</h5>
+					<div class="progress" data-percent="90%">
+						<div class="progress-bar progress-bar-striped" style="width: 90%;">
+							<div class="progress-bar-value">90%</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="section testimonial-2 gray-bg">
+<!-- /skill -->
+
+<!-- work -->
+<section class="section bg-gray">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h5 class="section-title-sm">Our Works</h5>
+				<h2 class="section-title section-title-border-gray">Latest Projects</h2>
+			</div>
+		</div>
+		<!-- work slider -->
+		<div class="row work-slider">
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-1.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-2.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-3.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 px-0">
+				<div class="work-slider-image">
+					<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg" alt="work-image">
+					<div class="image-overlay">
+						<a class="popup-image" data-effect="mfp-zoom-in" href="<?php echo base_url(); ?>public/frontend2/images/works/work-4.jpg">
+							<i class="ti-search"></i>
+						</a>
+						<a class="h4" href="project-single.html">Cras Sed Elit Sit Amet.</a>
+						<p>by Admin</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /work -->
+
+<!-- mission -->
+<section class="mission section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h5 class="section-title-sm">Our Goal</h5>
+				<h2 class="section-title section-title-border-half">Company Mission</h2>
+				<div class="row">
+					<div class="col-lg-6">
+						<p class="mb-40">Lorem ipsum dolor sit amet consectetur adipisicing elit sed
+							eiusmod tempor didunt laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<!-- accordion -->
+				<div id="accordion" class="mb-md-50">
+					<div class="card border-0 mb-4">
+						<div class="card-header bg-gray border p-0">
+							<a class="card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseOne">
+								<i class="ti-minus text-primary mr-2"></i> Our Company Mission
+							</a>
+						</div>
+						<div id="collapseOne" class="collapse show" data-parent="#accordion">
+							<div class="card-body font-secondary text-color pl-0 pb-0">
+								Duis aute irure dolor in reprehenderit voluptate velit esse cillum
+								dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+								non proident sunt culpa qui officia deserunt mollit anim id est
+								laborum.
+							</div>
+						</div>
+					</div>
+					<div class="card border-0 mb-4">
+						<div class="card-header bg-gray border p-0">
+							<a class="collapsed card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseTwo">
+								<i class="ti-plus text-primary mr-2"></i> Our Company Mission
+							</a>
+						</div>
+						<div id="collapseTwo" class="collapse" data-parent="#accordion">
+							<div class="card-body font-secondary text-color pl-0 pb-0">
+								Duis aute irure dolor in reprehenderit voluptate velit esse cillum
+								dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+								non proident sunt culpa qui officia deserunt mollit anim id est
+								laborum.
+							</div>
+						</div>
+					</div>
+					<div class="card border-0 mb-4">
+						<div class="card-header bg-gray border p-0">
+							<a class="collapsed card-link h5 d-block text-dark mb-0 py-10 px-4" data-toggle="collapse" href="#collapseThree">
+								<i class="ti-plus text-primary mr-2"></i> Our Company Mission
+							</a>
+						</div>
+						<div id="collapseThree" class="collapse" data-parent="#accordion">
+							<div class="card-body font-secondary text-color pl-0 pb-0">
+								Duis aute irure dolor in reprehenderit voluptate velit esse cillum
+								dolore fugiat nulla pariatur.Excepteur sint ocaecat cupidatat
+								non proident sunt culpa qui officia deserunt mollit anim id est
+								laborum.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- chart -->
+			<div class="col-lg-6">
+				<img src="<?php echo base_url(); ?>public/frontend2/images/chart.png" alt="chart" class="img-fluid w-100">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /mission -->
+
+<!-- promo-video -->
+<section class="promo-video overlay section" style="background-image: url(images/background/promo-video.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="text-white mb-20 font-weight-normal">We Are Alawys <br> Comited</h1>
+				<div class="d-flex">
+					<a class="popup-youtube play-icon mr-4" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8">
+						<i class="ti-control-play"></i>
+					</a>
+					<p class="text-white align-self-center h4">Lorem ipsum dolor <br> sit amet con.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /promo-video -->
+
+<!-- testimonial -->
+<section class="section pb-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h5 class="section-title-sm">Clients</h5>
+				<h2 class="section-title section-title-border"> What client Say </h2>
+			</div>
+			<div class="col-lg-5 col-md-5 pr-0 align-self-center">
+				<img class="img-fluid w-100" src="images/client.png" alt="clients-image">
+			</div>
+			<div class="col-lg-7 col-md-7 align-self-center pl-0">
+				<div class="testimonial-slider p-5">
+					<!-- slider item -->
+					<div class="outline-0">
+						<i class="testimonial-icon ti-quote-left"></i>
+						<p class="text-dark">Lorem ipsum dolor sit amet constur adipisicing elit sed eiusmtempor incid sed dolore magna aliqu enim minim veniam quis nostrud exercittion ullamco labo ris nisi aliquip excepteur.</p>
+						<h4 class="font-weight-normal">Julia Robertson</h4>
+						<h6 class="font-secondary text-color">Happy Clients</h6>
+					</div>
+					<!-- slider item -->
+					<div class="outline-0">
+						<i class="testimonial-icon ti-quote-left"></i>
+						<p class="text-dark">Lorem ipsum dolor sit amet constur adipisicing elit sed eiusmtempor incid sed dolore magna aliqu enim minim veniam quis nostrud exercittion ullamco labo ris nisi aliquip excepteur.</p>
+						<h4 class="font-weight-normal">Julia Robertson</h4>
+						<h6 class="font-secondary text-color">Happy Clients</h6>
+					</div>
+					<!-- slider item -->
+					<div class="outline-0">
+						<i class="testimonial-icon ti-quote-left"></i>
+						<p class="text-dark">Lorem ipsum dolor sit amet constur adipisicing elit sed eiusmtempor incid sed dolore magna aliqu enim minim veniam quis nostrud exercittion ullamco labo ris nisi aliquip excepteur.</p>
+						<h4 class="font-weight-normal">Julia Robertson</h4>
+						<h6 class="font-secondary text-color">Happy Clients</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /testimonial -->
+
+<section class="cta overlay-primary py-50 text-center text-lg-left" style="background-image: url(images/background/cta.jpg);">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-6">
+				<h3 class="text-white">Biztrox give the smart solution for your business</h3>
+			</div>
+			<div class="col-lg-6 text-lg-right align-self-center">
+				<a href="contact.html" class="btn btn-light">GET AN QUOTE</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- blog -->
+<section class="section bg-gray">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-lg-7">
-				<div class="section-title text-center">
-					<h2>We served over 5000+ Patients</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+			<div class="col-12 text-center">
+				<h5 class="section-title-sm">Latest News</h5>
+				<h2 class="section-title section-title-border-gray">Company News</h2>
+			</div>
+			<!-- blog-item -->
+			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+				<div class="card">
+					<div class="card-img-wrapper overlay-rounded-top">
+						<img class="card-img-top" src="images/blog/blog-1.jpg" alt="blog-thumbnail">
+					</div>
+					<div class="card-body p-0">
+						<div class="d-flex">
+							<div class="py-3 px-4 border-right text-center">
+								<h3 class="text-primary mb-0">25</h3>
+								<p class="mb-0">Nov</p>
+							</div>
+							<div class="p-3">
+								<a href="blog-single.html" class="h4 font-primary text-dark">Cras
+									sed elit sit amet.</a>
+								<p>by Admin</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-12 testimonial-wrap-2">
-				<div class="testimonial-block style-2  gray-bg">
-					<i class="icofont-quote-right"></i>
-
-					<div class="testimonial-thumb">
-						<img src="<?php echo base_url(); ?>public/frontend/images/team/test-thumb1.jpg" alt="" class="img-fluid">
+			<!-- blog-item -->
+			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+				<div class="card">
+					<div class="card-img-wrapper overlay-rounded-top">
+						<img class="card-img-top" src="images/blog/blog-2.jpg" alt="blog-thumbnail">
 					</div>
-
-					<div class="client-info ">
-						<h4>Amazing service!</h4>
-						<span>John Partho</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
+					<div class="card-body p-0">
+						<div class="d-flex">
+							<div class="py-3 px-4 border-right text-center">
+								<h3 class="text-primary mb-0">25</h3>
+								<p class="mb-0">Nov</p>
+							</div>
+							<div class="p-3">
+								<a href="blog-single.html" class="h4 font-primary text-dark">Cras
+									sed elit sit amet.</a>
+								<p>by Admin</p>
+							</div>
+						</div>
 					</div>
 				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo base_url(); ?>public/frontend/images/team/test-thumb2.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Expert doctors!</h4>
-						<span>Mullar Sarth</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo base_url(); ?>public/frontend/images/team/test-thumb3.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Good Support!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo base_url(); ?>public/frontend/images/team/test-thumb4.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Nice Environment!</h4>
-						<span>Partho Sarothi</span>
-						<p class="mt-4">
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
-
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="<?php echo base_url(); ?>public/frontend/images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
-
-					<div class="client-info">
-						<h4>Modern Service!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
+			</div>
+			<!-- blog-list -->
+			<div class="col-lg-4 col-12">
+				<ul class="bg-white border rounded pl-0">
+					<li class="d-flex border-bottom">
+						<div class="py-3 px-4 border-right text-center">
+							<h3 class="text-primary mb-0">25</h3>
+							<p class="mb-2">Nov</p>
+						</div>
+						<div class="p-3">
+							<a href="blog-single.html" class="h4 font-primary text-dark">Cras sed
+								elit sit amet.</a>
+							<p>by Admin</p>
+						</div>
+					</li>
+					<li class="d-flex border-bottom">
+						<div class="py-3 px-4 border-right text-center">
+							<h3 class="text-primary mb-0">25</h3>
+							<p class="mb-2">Nov</p>
+						</div>
+						<div class="p-3">
+							<a href="blog-single.html" class="h4 font-primary text-dark">Cras sed
+								elit sit amet.</a>
+							<p>by Admin</p>
+						</div>
+					</li>
+					<li class="d-flex">
+						<div class="py-3 px-4 border-right text-center">
+							<h3 class="text-primary mb-0">25</h3>
+							<p class="mb-2">Nov</p>
+						</div>
+						<div class="p-3">
+							<a href="blog-single.html" class="h4 font-primary text-dark">Cras sed
+								elit sit amet.</a>
+							<p>by Admin</p>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="section clients">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7">
-				<div class="section-title text-center">
-					<h2>Partners who support us</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- /blog -->
 
+<!-- client logo slider -->
+<section class="bg-white py-4">
 	<div class="container">
-		<div class="row clients-logo">
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/1.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/2.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="<?php echo base_url(); ?>public/frontend/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
+		<div class="client-logo-slider align-self-center">
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-1.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-2.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-3.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-4.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-5.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-1.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-2.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-3.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-4.png" alt="client-logo"></a>
+			<a href="#" class="text-center d-block outline-0 py-3 px-2"><img class="d-unset" src="<?php echo base_url(); ?>public/frontend2/images/client-logo/client-logo-5.png" alt="client-logo"></a>
 		</div>
 	</div>
 </section>
+<!-- /client logo slider -->
