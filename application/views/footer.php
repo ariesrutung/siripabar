@@ -172,7 +172,25 @@
     if (currentURL.includes("berita")) {
         document.querySelector('a[href*="berita"]').parentElement.classList.add('active');
     }
+
+    if (currentURL.includes("galeri")) {
+        document.querySelector('a[href*="galeri"]').parentElement.classList.add('active');
+    }
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Saat tab diklik
+        $('.control').click(function() {
+            // Hapus kelas "active" dari semua tab
+            $('.control').removeClass('active');
+            // Tambahkan kelas "active" ke tab yang diklik
+            $(this).addClass('active');
+        });
+    });
+</script>
+
 
 
 

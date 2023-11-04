@@ -41,38 +41,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             flex-direction: column;
         }
 
-        #slick-slide00 {
-            /* background-image: url(public/frontend2/images/banner/banner-1.jpg) !important; */
-            background-image: url(https://images.pexels.com/photos/6870623/pexels-photo-6870623.jpeg) !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-        }
-
-        #slick-slide01 {
-            /* background-image: url(public/frontend2/images/banner/banner-2.jpg) !important; */
-            background-image: url(https://images.pexels.com/photos/11678439/pexels-photo-11678439.jpeg) !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-        }
-
-        #slick-slide02 {
-            /* background-image: url(public/frontend2/images/banner/banner-3.jpg) !important; */
-            background-image: url(https://images.pexels.com/photos/9871904/pexels-photo-9871904.jpeg) !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-        }
-
-        #slick-slide03 {
-            /* background-image: url(public/frontend2/images/banner/banner-4.jpg) !important; */
-            background-image: url(https://images.pexels.com/photos/10907291/pexels-photo-10907291.png) !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-        }
-
         .active {
             color: #e84444;
         }
@@ -97,8 +65,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             color: #fff !important;
         }
 
-        section.page-title.overlay {
-            background-image: url(https://images.pexels.com/photos/6870623/pexels-photo-6870623.jpeg) !important;
+        ul.controls.list-inline {
+            padding: 0;
+            display: flex;
+            margin-bottom: 20px;
+            overflow: visible;
+            white-space: nowrap !important;
+            width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            white-space: nowrap !important;
+            -webkit-overflow-scrolling: touch !important;
         }
 
         .page-title {
@@ -106,7 +83,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background-repeat: no-repeat;
             background-size: cover;
             padding: 70px 0 !important;
+            /* margin-top: 110px !important; */
+        }
 
+        p.m-0 {
+            font-size: 12px;
+        }
+
+        /* .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        } */
+
+        .signup {
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -123,7 +122,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- navigation -->
     <header>
         <!-- top header -->
-        <div class="top-header">
+        <!-- <div class="top-header">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -136,16 +135,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <span class="ml-2"> 123 456 5523</span>
                                 </a>
                             </li>
-                            <!-- <li class="list-inline-item">
-                                <a href="#" id="searchOpen">
-                                    <i class="ti-search"></i>
-                                </a>
-                            </li> -->
+
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- nav bar -->
         <div class="navigation">
             <div class="container">
