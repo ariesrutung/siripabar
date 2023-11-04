@@ -83,22 +83,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background-repeat: no-repeat;
             background-size: cover;
             padding: 70px 0 !important;
-            /* margin-top: 110px !important; */
         }
 
         p.m-0 {
             font-size: 12px;
         }
-
-        /* .navigation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #fff;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        } */
 
         .signup {
             border-radius: 5px;
@@ -111,8 +100,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-
-
     <!-- preloader start -->
     <div class="preloader">
         <img src="<?php echo base_url(); ?>public/frontend2/images/preloader.gif" alt="preloader">
@@ -121,26 +108,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <!-- navigation -->
     <header>
-        <!-- top header -->
-        <!-- <div class="top-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <ul class="list-inline text-lg-right text-center">
-                            <li class="list-inline-item">
-                                <a href="mailto:info@companyname.com">info@companyname.com</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="callto:1234565523">Call Us Now:
-                                    <span class="ml-2"> 123 456 5523</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <!-- nav bar -->
         <div class="navigation">
             <div class="container">
@@ -175,75 +142,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('kontak'); ?>">Kontak</a>
                             </li>
-
-                            <!-- <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Beranda
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    About Us
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.html">About page</a>
-                                    <a class="dropdown-item" href="about-2.html">About page-2</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Service
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="service.html">Service page</a>
-                                    <a class="dropdown-item" href="service-2.html">Service page-2</a>
-                                    <a class="dropdown-item" href="service-single.html">Service Single</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="team.html">Team Page</a>
-                                    <a class="dropdown-item" href="pricing.html">Pricing Page</a>
-                                    <a class="dropdown-item" href="project.html">project Page</a>
-                                    <a class="dropdown-item" href="faqs.html">FAQs Page</a>
-                                    <a class="dropdown-item" href="project-single.html">Project Single</a>
-                                    <a class="dropdown-item" href="team-single.html">Team Single</a>
-                                    <a class="dropdown-item" href="404.html">404 Page</a>
-                                    <a class="dropdown-item" href="signup.html">Sign Up Page</a>
-                                    <a class="dropdown-item" href="login.html">Login Page</a>
-                                    <a class="dropdown-item" href="comming-soon.html">Comming Soon Page</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Blog
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog.html">Blog Page</a>
-                                    <a class="dropdown-item" href="blog-sidebar.html">Blog with Sidebar</a>
-                                    <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Elements
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="components/buttons.html">Buttons</a>
-                                    <a class="dropdown-item" href="components/icons.html">Icons</a>
-                                    <a class="dropdown-item" href="components/typography.html">Typography</a>
-                                    <a class="dropdown-item" href="components/accordions.html">Accordions</a>
-                                    <a class="dropdown-item" href="components/blog-contents.html">Blog Contents</a>
-                                    <a class="dropdown-item" href="components/service-contents.html">Service Contents</a>
-                                    <a class="dropdown-item" href="components/team-contents.html">Team Contents</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
-                            </li> -->
                         </ul>
                     </div>
                 </nav>
