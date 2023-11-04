@@ -5,7 +5,8 @@ class Kontak extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('header');
+        $data['title'] = 'SIRIPABAR - Kontak';
+        $this->load->view('header', $data);
         $this->load->view('kontak');
         $this->load->view('footer');
     }

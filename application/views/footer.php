@@ -6,7 +6,7 @@
                 <div class="col-md-4">
                     <div class="mb-5 mb-md-0 text-center text-md-left">
                         <!-- logo -->
-                        <img class="mb-30" src="images/logo-footer.png" alt="logo">
+                        <img class="mb-30" src="<?php echo base_url(); ?>public/frontend2/images/logo-footer.png" alt="logo">
                         <p class="text-white mb-30">Lorem ipsum dolor amet consectetur adipisicing elit sed eiusm tempor incididunt
                             labore dolore magna aliqua enim.</p>
                         <!-- social icon -->
@@ -150,8 +150,22 @@
 <!-- Main Script -->
 <script src="<?php echo base_url(); ?>public/frontend2/js/script.js"></script>
 
-</body>
+<script>
+    // Mendapatkan URL halaman saat ini
+    var currentURL = window.location.href;
 
-<!-- Mirrored from demo.themefisher.com/biztrox-bootstrap/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Nov 2023 15:21:56 GMT -->
+    // Daftar elemen <a> dalam menu
+    var menuLinks = document.querySelectorAll('.navbar-nav a.nav-link');
+
+    // Iterasi melalui setiap tautan menu
+    menuLinks.forEach(function(link) {
+        // Memeriksa apakah URL tautan cocok dengan URL halaman saat ini
+        if (link.href === currentURL) {
+            // Menambahkan kelas "active" ke elemen <li> yang mengandung tautan tersebut
+            link.parentElement.classList.add('active');
+        }
+    });
+</script>
+</body>
 
 </html>

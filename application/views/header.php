@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <head>
     <meta charset="utf-8">
-    <title>SIRIPABAR - HEADER</title>
+    <title><?php echo $title; ?></title>
 
 
     <!-- mobile responsive meta -->
@@ -33,8 +33,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>public/frontend2/css/style.css" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>public/frontend2/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="<?php echo base_url(); ?>public/frontend2/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/d/de/Coat_of_arms_of_West_Papua.svg" type="image/x-icon">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/de/Coat_of_arms_of_West_Papua.svg" type="image/x-icon">
 
     <style>
         .d-flex.justify-content-start {
@@ -48,25 +48,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background-repeat: no-repeat;
         }
 
-        #slick-slide02 {
+        #slick-slide01 {
             background-image: url(public/frontend2/images/banner/banner-2.jpg) !important;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        #slick-slide03 {
+        #slick-slide02 {
             background-image: url(public/frontend2/images/banner/banner-3.jpg) !important;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        #slick-slide04 {
+        #slick-slide03 {
             background-image: url(public/frontend2/images/banner/banner-4.jpg) !important;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        .active {
+            color: #e84444;
+        }
+
+        .site_title {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -110,10 +118,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="navigation">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="d-flex justify-content-start">
-                        <h3 class="m-0">SIRIPABAR</h3>
+                    <a href="<?php echo base_url('/'); ?>" class="d-flex justify-content-start">
+                        <h3 class="m-0 site_title">SIRIPABAR</h3>
                         <p class="m-0">Sistem Informasi Infrastruktur Irigasi Papua Barat</p>
-                    </div>
+                    </a>
                     <!-- <img src="<?php //echo base_url(); 
                                     ?>public/frontend2/images/logo.png" alt="logo"> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -537,7 +537,7 @@
 				<h2 class="section-title section-title-border"> What client Say </h2>
 			</div>
 			<div class="col-lg-5 col-md-5 pr-0 align-self-center">
-				<img class="img-fluid w-100" src="images/client.png" alt="clients-image">
+				<img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/client.png" alt="clients-image">
 			</div>
 			<div class="col-lg-7 col-md-7 align-self-center pl-0">
 				<div class="testimonial-slider p-5">
@@ -594,7 +594,7 @@
 			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
 				<div class="card">
 					<div class="card-img-wrapper overlay-rounded-top">
-						<img class="card-img-top" src="images/blog/blog-1.jpg" alt="blog-thumbnail">
+						<img class="card-img-top" src="<?php echo base_url(); ?>public/frontend2/images/blog/blog-1.jpg" alt="blog-thumbnail">
 					</div>
 					<div class="card-body p-0">
 						<div class="d-flex">
@@ -615,7 +615,7 @@
 			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
 				<div class="card">
 					<div class="card-img-wrapper overlay-rounded-top">
-						<img class="card-img-top" src="images/blog/blog-2.jpg" alt="blog-thumbnail">
+						<img class="card-img-top" src="<?php echo base_url(); ?>public/frontend2/images/blog/blog-2.jpg" alt="blog-thumbnail">
 					</div>
 					<div class="card-body p-0">
 						<div class="d-flex">
