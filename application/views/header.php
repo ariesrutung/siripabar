@@ -42,31 +42,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
         #slick-slide00 {
-            background-image: url(public/frontend2/images/banner/banner-1.jpg) !important;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* background-image: url(public/frontend2/images/banner/banner-1.jpg) !important; */
+            background-image: url(https://images.pexels.com/photos/6870623/pexels-photo-6870623.jpeg) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
 
         #slick-slide01 {
-            background-image: url(public/frontend2/images/banner/banner-2.jpg) !important;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* background-image: url(public/frontend2/images/banner/banner-2.jpg) !important; */
+            background-image: url(https://images.pexels.com/photos/11678439/pexels-photo-11678439.jpeg) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
 
         #slick-slide02 {
-            background-image: url(public/frontend2/images/banner/banner-3.jpg) !important;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* background-image: url(public/frontend2/images/banner/banner-3.jpg) !important; */
+            background-image: url(https://images.pexels.com/photos/9871904/pexels-photo-9871904.jpeg) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
 
         #slick-slide03 {
-            background-image: url(public/frontend2/images/banner/banner-4.jpg) !important;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* background-image: url(public/frontend2/images/banner/banner-4.jpg) !important; */
+            background-image: url(https://images.pexels.com/photos/10907291/pexels-photo-10907291.png) !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
 
         .active {
@@ -75,6 +79,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         .site_title {
             font-weight: bold;
+        }
+
+        a.btn.btn-outline.text-uppercase.fadeInDown.animated {
+            background: #e84444;
+            color: #fff;
+            border: 0;
+        }
+
+        .hero-slider-item.py-160.slick-slide .container {
+            background-color: rgb(0 0 0 / 50%) !important;
+            border-radius: 20px;
+            padding: 40px 20px;
+        }
+
+        .hero-slider-item.py-160.slick-slide .container * {
+            color: #fff !important;
+        }
+
+        section.page-title.overlay {
+            background-image: url(https://images.pexels.com/photos/6870623/pexels-photo-6870623.jpeg) !important;
+        }
+
+        .page-title {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 70px 0 !important;
+
         }
     </style>
 </head>
@@ -104,11 +136,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <span class="ml-2"> 123 456 5523</span>
                                 </a>
                             </li>
-                            <li class="list-inline-item">
+                            <!-- <li class="list-inline-item">
                                 <a href="#" id="searchOpen">
                                     <i class="ti-search"></i>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

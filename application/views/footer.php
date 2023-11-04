@@ -163,9 +163,19 @@
         if (link.href === currentURL) {
             // Menambahkan kelas "active" ke elemen <li> yang mengandung tautan tersebut
             link.parentElement.classList.add('active');
+        } else {
+            link.parentElement.classList.remove('active'); // Hapus kelas "active" dari elemen <li>
         }
     });
+
+    // Menambahkan kelas "active" pada menu "BERITA" jika Anda berada di halaman berita atau detail_berita
+    if (currentURL.includes("berita")) {
+        document.querySelector('a[href*="berita"]').parentElement.classList.add('active');
+    }
 </script>
+
+
+
 </body>
 
 </html>

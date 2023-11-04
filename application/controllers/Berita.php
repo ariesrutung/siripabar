@@ -10,4 +10,12 @@ class Berita extends CI_Controller
         $this->load->view('berita');
         $this->load->view('footer');
     }
+
+    public function detail_berita()
+    {
+        $data['title'] = 'SIRIPABAR - Detail Berita';
+        $this->load->view('header', $data);
+        $this->load->view('detail_berita');
+        $this->load->view('footer');
+    }
 }
