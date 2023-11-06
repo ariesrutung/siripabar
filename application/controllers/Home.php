@@ -7,8 +7,13 @@ class Home extends CI_Controller
 	{
 		// $data['title'] = 'SIRIPABAR - Beranda';
 		// $this->load->view('header', $data);
-		$this->load->view('comming-soon');
+		// $this->load->view('comming-soon');
 		// $this->load->view('footer');
+
+
+		$this->load->view('company/header');
+		$this->load->view('company/home');
+		$this->load->view('company/footer');
 	}
 
 	public function login()
