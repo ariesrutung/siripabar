@@ -24,166 +24,112 @@
                     <br> tempor incididunt ut labore et dolore magna aliqua.
                 </p>
             </div>
+
+
+            <?php
+            $gal_cat = array(
+                'mobilisasi-peralatan' => 'MOBILISASI PERALATAN',
+                'direksi-keet' => 'DIREKSI KEET',
+                'smk3' => 'SMK3',
+                'pekerjaan-galian-saluran' => 'PEKERJAAN GALIAN SALURAN',
+                'penulangan' => 'PENULANGAN',
+                'pekerjaan-bekisting' => 'PEKERJAAN BEKISTING',
+                'pekerjaan-beton' => 'PEKERJAAN BETON',
+                'pekerjaan-jalan-inspeksi' => 'PEKERJAAN JALAN INSPEKSI',
+            );
+            ?>
             <div class="col-12">
                 <div class="project-menu text-center">
                     <ul class="controls list-inline">
-                        <!-- filter item list -->
-                        <li class="list-inline-item control active" data-filter="all">All</li>
-                        <li class="list-inline-item control" data-filter="Marketing-Online">Marketing Online</li>
-                        <li class="list-inline-item control" data-filter="Business-Strategy">Business Strategy</li>
-                        <li class="list-inline-item control" data-filter="Ecomerce-Advice">Ecomerce Advice</li>
-                        <li class="list-inline-item control" data-filter="Dynamic-Development">Dynamic Development</li>
-                        <li class="list-inline-item control" data-filter="Financing">Financing</li>
+
+                        <?php foreach ($gal_cat as $gc => $x) {
+                            if ($gc == "penulangan") {
+                                $active = "active";
+                            } else {
+                                $active = "";
+                            }
+                            echo '<li class="list-inline-item control ' . $active . '" data-filter="' . $gc . '">' . $x . '</li>';
+                        }
+                        ?>
+
                     </ul>
                 </div>
             </div>
         </div>
+        <style>
+            .img-fluid {
+                height: 150px !important;
+            }
+        </style>
         <div class="row filtr-container">
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="direksi-keet">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/direksi-keet/dk (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Business-Strategy">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-1.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="mobilisasi-peralatan">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/mobilisasi-peralatan/mp (<?php echo $i; ?>).jpg" alt="project-image">
 
-
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Marketing-Online, Dynamic-Development">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-2.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="pekerjaan-bekisting">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/pekerjaan-bekisting/pb (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Financing">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-3.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 9; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="pekerjaan-beton">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/pekerjaan-beton/pbt (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Marketing-Online">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-4.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 7; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="pekerjaan-galian-saluran">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/pekerjaan-galian-saluran/pgs (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Ecomerce-Advice">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-5.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 12; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="pekerjaan-jalan-inspeksi">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/pekerjaan-jalan-inspeksi/pji (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Marketing-Online, Business-Strategy">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-6.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 9; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="penulangan">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/penulangan/pn (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Ecomerce-Advice">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-7.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="smk3">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/galeri/smk3/sm (<?php echo $i; ?>).jpg" alt="project-image">
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Dynamic-Development">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-8.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Business-Strategy Ecomerce-Advice">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-9.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Dynamic-Development, Financing">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-1.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Financing">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-5.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="m-2 col-lg-3 col-md-4 col-sm-6 p-0 filtr-item" data-category="Business-Strategy, Ecomerce-Advice">
-                <div class="position-relative m-2">
-                    <img class="img-fluid w-100" src="<?php echo base_url(); ?>public/frontend2/images/project/project-2.jpg" alt="project-image">
-                    <div class="project-info">
-                        <a href="<?php echo base_url('galeri/detail_galeri'); ?>" class="h4">Finance Consultancy</a>
-                        <p>
-                            <i class="ti-tag"></i>Ecommerce Advice
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>

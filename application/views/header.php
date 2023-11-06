@@ -36,6 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/d/de/Coat_of_arms_of_West_Papua.svg" type="image/x-icon">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/de/Coat_of_arms_of_West_Papua.svg" type="image/x-icon">
 
+
     <style>
         .d-flex.justify-content-start {
             flex-direction: column;
@@ -69,13 +70,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
             padding: 0;
             display: flex;
             margin-bottom: 20px;
-            overflow: visible;
             white-space: nowrap !important;
-            width: 100% !important;
-            overflow-x: auto !important;
+            /* width: 100% !important; */
+            overflow-x: scroll !important;
             overflow-y: hidden !important;
             white-space: nowrap !important;
-            -webkit-overflow-scrolling: touch !important;
+            /* -webkit-overflow-scrolling: touch !important; */
+        }
+
+        .project-menu ul li {
+            /* width: 100% !important;
+            min-width: 80% !important; */
+            display: inline-block !important;
+            border-radius: 10px;
         }
 
         .page-title {
@@ -83,6 +90,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background-repeat: no-repeat;
             background-size: cover;
             padding: 70px 0 !important;
+            margin-top: 12vh;
         }
 
         p.m-0 {
@@ -99,6 +107,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         .navigation .navbar .dropdown-menu {
             padding: 0px 30px 20px 25px !important;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title.overlay {
+            background-position: center top -160px !important;
+            background-size: 100% !important;
+            height: 300px !important;
+        }
+
+        .row.filtr-container {
+            padding: 0px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap !important;
+            height: 400px;
+        }
+
+        .position-relative {
+            padding: 5px;
         }
     </style>
 </head>
@@ -117,8 +154,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a href="<?php echo base_url('/'); ?>" class="d-flex justify-content-start">
-                        <h3 class="m-0 site_title text-primary">SIRIPABAR</h3>
-                        <p class="m-0">Sistem Informasi Infrastruktur Irigasi Papua Barat</p>
+                        <!-- <h3 class="m-0 site_title text-primary">SIRIPABAR</h3>
+                        <p class="m-0">Sistem Informasi Infrastruktur Irigasi Papua Barat</p> -->
+                        <img src="<?php echo base_url(); ?>/public/frontend2/images/logo_siripabar.png" alt="logo" class="w-50">
                     </a>
                     <!-- <img src="<?php //echo base_url(); 
                                     ?>public/frontend2/images/logo.png" alt="logo"> -->
@@ -137,14 +175,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('berita'); ?>">Berita</a>
                             </li>
+
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Daerah Irigasi</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="index.html">Kewenangan Kementerian</a>
+                                    <a class="dropdown-item" href="<?php echo base_url('datairigasi'); ?>">Kewenangan Provinsi</a>
+                                    <a class="dropdown-item" href="homepage-3.html">Kewenangan Kabupaten</a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('galeri'); ?>">Galeri</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('lapor'); ?>">Lapor</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('kontak'); ?>">Kontak</a>
                             </li>
 
                         </ul>

@@ -7,6 +7,20 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="hero-content">
+							<video width="320" height="240" controls>
+								<source src="<?php echo base_url(); ?>/movie.mp4" type="video/mp4">
+							</video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hero-slider-item py-160" style="background-image: url('./public/frontend2/images/banner/banner-1.jpeg');">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="hero-content">
 							<h4 class="text-uppercase mb-1" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".1">We are here to</h4>
 							<h1 class="font-weight-bold mb-3" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".5">Planning Business</h1>
 							<p class="text-dark mb-50" data-duration-in=".5" data-animation-in="fadeInLeft" data-delay-in=".9">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
