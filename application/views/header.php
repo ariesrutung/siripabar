@@ -137,6 +137,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
         .position-relative {
             padding: 5px;
         }
+
+        .hero-slider-item.py-160 {
+            height: 700px !important;
+        }
     </style>
 </head>
 
