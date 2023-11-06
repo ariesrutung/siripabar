@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
         .active {
-            color: #e84444;
+            color: #030f6b;
         }
 
         .site_title {
@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
         a.btn.btn-outline.text-uppercase.fadeInDown.animated {
-            background: #e84444;
+            background: #030f6b;
             color: #fff;
             border: 0;
         }
@@ -96,6 +96,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
         }
+
+        .navigation .navbar .dropdown-menu {
+            padding: 0px 30px 20px 25px !important;
+        }
     </style>
 </head>
 
@@ -113,7 +117,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a href="<?php echo base_url('/'); ?>" class="d-flex justify-content-start">
-                        <h3 class="m-0 site_title">SIRIPABAR</h3>
+                        <h3 class="m-0 site_title text-primary">SIRIPABAR</h3>
                         <p class="m-0">Sistem Informasi Infrastruktur Irigasi Papua Barat</p>
                     </a>
                     <!-- <img src="<?php //echo base_url(); 
@@ -142,6 +146,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url('kontak'); ?>">Kontak</a>
                             </li>
+
                         </ul>
                     </div>
                 </nav>

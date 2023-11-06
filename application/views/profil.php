@@ -26,12 +26,9 @@
                 </div>
             </div>
             <div class="col-lg-7">
-                <h5 class="section-title-sm">Know About</h5>
-                <h2 class="section-title section-title-border-half">Our Philosophy</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor didunt laboris nisi ut aliquip
-                    ex commodo consequat. duis aute irure dolor in reprehenderivoluptate velit esse cillum dolore fugiat
-                    nulla pariatur.Excepteur sint ocaecat cupidatat noproident sunt culpa qui officia deserunt mollit anim
-                    id est laborum.</p>
+                <!-- <h5 class="section-title-sm">Know About</h5> -->
+                <h2 class="section-title section-title-border-half">Visi</h2>
+                <p>TERWUJUDNYA INFRASTRUKTUR PEKERJAAN UMUM DAN PERUMAHAN RAKYAT YANG HANDAL DALAM MENDUKUNG INDONESIA YANG BERDAULAT, MANDIRI, DAN BERKEPRIBADIAN BERLANDASKAN GOTONG ROYONG.</p>
                 <a href="service-2.html" class="btn btn-primary">Explore More</a>
             </div>
         </div>
@@ -39,69 +36,37 @@
 </section>
 <!-- philosophy -->
 
-<section class="about section-sm overlay" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/background/about-bg.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 ml-auto">
-                <div class="rounded p-sm-5 px-3 py-5 bg-secondary">
-                    <h3 class="section-title section-title-border-half text-white">Who We Are?</h3>
-                    <p class="text-white mb-40">Excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div>
-                        <ul class="d-inline-block pl-0 mr-5">
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
-                            </li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
-                            </li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
-                            </li>
-                        </ul>
-                        <ul class="d-inline-block pl-0">
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Business Services
-                            </li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Audit &amp; Assurance
-                            </li>
-                            <li class="font-secondary mb-10 text-white">
-                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>IT Control Solutions
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="service.html" class="btn btn-primary mt-4">Explore More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ceo section -->
 <section class="section">
     <div class="container">
-        <div class="row rounded bg-gray">
-            <div class="col-lg-7">
-                <!-- ceo content -->
-                <div class="p-5">
-                    <h2 class="section-title section-title-border-half">We are efficient to
-                        <br> make your business rise
-                    </h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor didunt laboris nisi ut aliquip
-                        ex commodo consequat. duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat
-                        nulla pariatur.Excepteur sint ocaecat cupidatat non proident sunt culpa qui officia deserunt mollit
-                        anim id est laborum.</p>
-                    <img src="<?php echo base_url(); ?>public/frontend2/images/about/ceo-signature-2.png" alt="ceo-signature">
-                    <h5>Ema Rao</h5>
-                    <h6>CEO</h6>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <!-- <h5 class="section-title-sm">About Us</h5> -->
+                    <h3 class="section-title section-title-border-half">Misi</h3>
+                    <p class="text-dark">Misi Kementerian Pekerjaan Umum dan Perumahan Rakyat yang merupakan rumusan upaya yang akan dilaksanakan selama periode Renstra 2015 – 2019 dalam rangka mencapai visi serta mendukung upaya pencapaian target pembangunan nasional, berdasarkan mandat yang diemban oleh Kementerian Pekerjaan Umum dan Perumahan Rakyat sebagaimana yang tercantum di dalam Peraturan Pemerintah Nomor 165 Tahun 2014 tentang Penataan Tugas dan Fungsi Kabinet Kerja, amanat RPJMN tahap ketiga serta perubahan kondisi lingkungan strategis yang dinamis adalah sebagai berikut:
+                    </p>
+                    <div class="about-item">
+                        <ul class="pl-0 d-inline-block float-sm-left mr-sm-5">
+                            <li class="font-secondary text-color mb-10">
+                                <i class="text-primary mr-2 ti-arrow-circle-right"></i>Mempercepat pembangunan infrastruktur sumberdaya air termasuk sumber daya maritim untuk mendukung ketahanan air, kedaulatan pangan, dan kedaulatan energi, guna menggerakkan sektor-sektor strategis ekonomi domestik dalam rangka kemandirian ekonomi;
+                            </li>
+                        </ul>
+
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mb-md-50 mt-4">Contact Us</a>
                 </div>
             </div>
-            <!-- ceo image -->
-            <div class="col-lg-5 rounded-right ceo-image" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/about/ceo-2.jpg);"></div>
+            <div class="col-lg-6">
+                <div class="about-slider">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>public/frontend2/images/about/about-1.jpg" alt="about-image">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>public/frontend2/images/about/about-2.jpg" alt="about-image">
+                    <img class="img-fluid" src="<?php echo base_url(); ?>public/frontend2/images/about/about-3.jpg" alt="about-image">
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!-- /ceo section -->
+<!-- /about -->
 
 <section class="cta overlay-primary py-50 text-center text-lg-left" style="background-image: url(<?php echo base_url(); ?>public/frontend2/images/background/cta.jpg);">
     <div class="container">

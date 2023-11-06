@@ -6,9 +6,10 @@
                 <div class="col-md-4">
                     <div class="mb-5 mb-md-0 text-center text-md-left">
                         <!-- logo -->
-                        <img class="mb-30" src="<?php echo base_url(); ?>public/frontend2/images/logo-footer.png" alt="logo">
-                        <p class="text-white mb-30">Lorem ipsum dolor amet consectetur adipisicing elit sed eiusm tempor incididunt
-                            labore dolore magna aliqua enim.</p>
+                        <!-- <img class="mb-30" src="<?php // echo base_url(); 
+                                                        ?>public/frontend2/images/logo-footer.png" alt="logo"> -->
+                        <h3 class="strong text-primary">SIRIPABAR</h3>
+                        <p class="text-white mb-30">Sistem Informasi Infrastruktur Irigasi Papua Barat.</p>
                         <!-- social icon -->
                         <ul class="list-inline">
                             <li class="list-inline-item">
@@ -97,12 +98,12 @@
     <div class="pt-4 pb-3 position-relative">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-5">
+                <div class="col-lg-12 col-md-12 text-center d-flex justify-content-center">
                     <p class="text-white text-center text-md-left">
-                        <span class="text-primary">Bizpro</span> &copy; 2017 All Right Reserved
+                        <span class="text-primary">SIRIPABAR </span>Hak Cipta &copy; 2023 - Sistem Informasi Infrastruktur Irigasi Papua Barat. All Rights Reserved
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-7">
+                <!-- <div class="col-lg-6 col-md-7">
                     <ul class="list-inline text-center text-md-right">
                         <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
                             <a class="font-secondary text-white" href="#">Legal</a>
@@ -117,7 +118,7 @@
                             <a class="font-secondary text-white" href="#">Terms &amp; Conditions</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- back to top -->
@@ -175,6 +176,10 @@
 
     if (currentURL.includes("galeri")) {
         document.querySelector('a[href*="galeri"]').parentElement.classList.add('active');
+    }
+
+    if (currentURL.includes("profil")) {
+        document.querySelector('a[href*="profil"]').parentElement.classList.add('active');
     }
 </script>
 
