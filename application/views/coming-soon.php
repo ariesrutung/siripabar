@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-
-<!-- Mirrored from demo.themefisher.com/biztrox-bootstrap/comming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Nov 2023 15:22:14 GMT -->
-
 <head>
     <meta charset="utf-8">
-    <title>BIZTROX</title>
+    <title>SIRIPABAR</title>
 
 
     <!-- mobile responsive meta -->
