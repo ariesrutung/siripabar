@@ -297,7 +297,7 @@
                         <div class="recent-comment m-t-15">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/4.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-primary">john doe</h4>
@@ -307,7 +307,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/2.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-success">Mr. John</h4>
@@ -317,7 +317,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/3.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-danger">Mr. John</h4>
@@ -327,7 +327,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/4.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-primary">john doe</h4>
@@ -337,7 +337,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/2.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-success">Mr. John</h4>
@@ -347,7 +347,7 @@
                             </div>
                             <div class="media no-border">
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                    <a href="#"><img class="media-object mr-3" src="<?php echo base_url(); ?>/public/focus-theme/images/avatar/3.png" alt="..."></a>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading text-info">Mr. John</h4>

@@ -1,3 +1,8 @@
+<style>
+    .blog .blog-title {
+        justify-content: space-between;
+    }
+</style>
 <!-- Blog Start -->
 <div class="blog">
     <div class="container">
