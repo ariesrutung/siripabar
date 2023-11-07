@@ -1,4 +1,3 @@
-
 <?php echo $map['js']; ?>
 
 <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
@@ -6,15 +5,26 @@
 <!-- === Tambahan CSS Halaman Admin Edit Berita === -->
 <link href="<?php echo base_url('public/company/css/lapor.css'); ?>" rel="stylesheet">
 
+
+<!-- Contact Start -->
+<div class="contact wow fadeInUp">
+  <div class="container">
+    <div class="section-header text-center">
+      <p>FORMULIR</p>
+      <h2>LAPORAN PENGADUAN INFRASTRUKTUR IRIGASI</h2>
+    </div>
+  </div>
+</div>
+<!-- Contact End -->
+
 <!-- Contact Us Section -->
 <section id="laporanpengaduan" class="Material-contact-section section-padding section-dark">
   <div class="container">
-    <div class="row judulsection">
-      <!-- Section Titile -->
+    <!-- <div class="row judulsection">
       <div class="col-md-12">
         <h1 class="text-center">FORMULIR LAPORAN PENGADUAN INFRASTRUKTUR SDA</h1>
       </div>
-    </div>
+    </div> -->
 
     <div class="row mb-3 header-formlap mt-3">
       <div class="left-text col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-2">
@@ -27,8 +37,8 @@
         <div class="col-lg-6">
           <div id="buktiLaporan" class="row">
             <div class="col-md-12">
-              <div class="form-group mt-0">
-                <label class="hitam">Kartu Identitas Pelapor</label>
+              <div class="form-group mt-0 mb-0">
+                <label class="hitam mb-0">Kartu Identitas Pelapor</label>
               </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -45,7 +55,7 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-          <div class="col-md-12 col-sm-12 col-xs-12 wow animated fadeInRight" data-wow-delay=".2s">
+          <div class="col-md-12 col-sm-12 col-xs-12 wow animated fadeInRight px-0" data-wow-delay=".2s">
             <!-- Name -->
             <div class="form-group label-floating">
               <label class="hitam" for="nik">NIK</label>
@@ -54,7 +64,7 @@
             </div>
           </div>
 
-          <div class="col-md-12 col-sm-12 col-xs-12 wow animated fadeInRight">
+          <div class="col-md-12 col-sm-12 col-xs-12 wow animated fadeInRight px-0">
             <div class="form-group label-floating">
               <label class="hitam" for="nama_pelapor">Nama Lengkap</label>
               <input class="form-control" id="nama_pelapor" type="text" name="nama_pelapor" required data-error="Silakan isi nama Anda">
@@ -171,7 +181,7 @@
             </div>
           </div>
 
-          <div class="row jenisinfra mb-3">
+          <!-- <div class="row jenisinfra mb-3">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="form-group mb-0">
                 <label class="hitam">Jenis Infrastruktur</label>
@@ -181,7 +191,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="row">
                 <div class="col-md-4">
-                  <input type="checkbox" id="infrastruktur" name="infrastruktur" value="Irigasi">
+                  <input type="checkbox" id="infrastruktur" name="infrastruktur" value="Irigasi" checked>
                   <label for="Irigasi" class="hitam"> Irigasi</label>
                 </div>
                 <div class="col-md-4">
@@ -195,7 +205,7 @@
 
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="row">
             <div class="col-md-6">
@@ -323,7 +333,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <button type="submit" name="submit" id="btnSubmit" class="btn btn-common disabled kirimLaporan">Kirim Laporan</button>
+                <button type="submit" name="submit" id="btnSubmit" class="btn btn-common disabled kirimLaporan">KIRIM LAPORAN</button>
               </div>
             </div>
           </div>

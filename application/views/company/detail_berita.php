@@ -1,20 +1,3 @@
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>Single Page</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Home</a>
-                <a href="">Single Page</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
-
-
 <!-- Single Post Start-->
 <div class="single">
     <div class="container">

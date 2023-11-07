@@ -1,23 +1,39 @@
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>PROFIL</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Beranda</a>
-                <a href="">Profil</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
+<style>
+    .about .about-img {
+        position: relative;
+        height: 100%;
+        height: 250px;
+    }
 
+    .section-header h3 {
+        color: #fdbe33;
+    }
+
+    .about-text li {
+        padding: 5px;
+        line-height: 1.9;
+    }
+
+    .about-text li::marker {
+        color: #fdbe33;
+    }
+
+    .about-text ul {
+        padding-left: 25px;
+    }
+
+    .about.wow.fadeInUp.fact-left {
+        color: #fff;
+        background: #030f27;
+    }
+</style>
 
 <!-- About Start -->
 <div class="about wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
+        <div class="section-header text-center">
+            <h2>PROFIL</h2>
+        </div>
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">
@@ -26,7 +42,7 @@
             </div>
             <div class="col-lg-7 col-md-6">
                 <div class="section-header text-left">
-                    <h2>Latar Belakang</h2>
+                    <h3>Latar Belakang</h3>
                 </div>
                 <div class="about-text">
                     <ul>
@@ -42,13 +58,13 @@
 <!-- About End -->
 
 <!-- About Start -->
-<div class="about wow fadeInUp" data-wow-delay="0.1s">
+<div class="about wow fadeInUp fact-left fadeInLeft" data-wow-delay="0.3s">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-lg-7 col-md-6">
                 <div class="section-header text-left">
-                    <h2>Tujuan</h2>
+                    <h3>Tujuan</h3>
                 </div>
                 <div class="about-text">
                     <ul>
@@ -79,7 +95,7 @@
             </div>
             <div class="col-lg-7 col-md-6">
                 <div class="section-header text-left">
-                    <h2>Manfaat</h2>
+                    <h3>Manfaat</h3>
                 </div>
                 <div class="about-text">
                     <ul>

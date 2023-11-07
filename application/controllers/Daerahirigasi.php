@@ -6,8 +6,7 @@ class Daerahirigasi extends CI_Controller
     public function index()
     {
         $data['title'] = 'DAERAH IRIGASI';
-        $this->load->view('company/header', $data);
-        $this->load->view('company/daerahirigasi');
-        $this->load->view('company/footer');
+        $data['_view'] = "company/daerahirigasi";
+        $this->load->view('company/layout', $data);
     }
 }

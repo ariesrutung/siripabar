@@ -1,25 +1,7 @@
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>BERITA</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Beranda</a>
-                <a href="">Berita</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
-
-
 <!-- Blog Start -->
 <div class="blog">
     <div class="container">
         <div class="section-header text-center">
-            <p>Latest Blog</p>
             <h2>BERITA</h2>
         </div>
         <div class="row blog-page">

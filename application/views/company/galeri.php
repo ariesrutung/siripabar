@@ -5,128 +5,111 @@
         margin-bottom: 20px;
         white-space: nowrap !important;
         overflow-x: scroll !important;
-        overflow-y: scroll !important;
+        overflow-y: hidden !important;
         white-space: nowrap !important;
     }
 </style>
 
-<!-- Page Header Start -->
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>GALERI</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Beranda</a>
-                <a href="">Galeri</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
-
-
-<!-- Portfolio Start -->
 <div class="portfolio">
     <div class="container">
         <div class="section-header text-center">
-            <!-- <p>GALERI</p> -->
             <h2>GALERI</h2>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">Semua</li>
-                    <li data-filter="mobilisasi-peralatan">MOBILISASI PERALATAN</li>
-                    <li data-filter="direksi-keet">DIREKSI KEET</li>
-                    <li data-filter="smk3">SMK3</li>
-                    <li data-filter="pekerjaan-galian-saluran">PEKERJAAN GALIAN SALURAN</li>
-                    <li data-filter="penulangan">PENULANGAN</li>
-                    <li data-filter="pekerjaan-bekisting">PEKERJAAN BEKISTING</li>
-                    <li data-filter="pekerjaan-beton">PEKERJAAN BETON</li>
-                    <li data-filter="pekerjaan-jalan-inspeksi">PEKERJAAN JALAN INSPEKSI</li>
-                    <li data-filter="pekerjaan-jalan-inspeksi">PEKERJAAN JALAN INSPEKSI</li>
 
-                    <li data-filter=".first">Complete</li>
-                    <li data-filter=".second">Running</li>
-                    <li data-filter=".third">Upcoming</li>
+        <div class="row">
+            <?php
+            $gal_cat = array(
+                'mobilisasi-peralatan' => 'MOBILISASI PERALATAN',
+                'direksi-keet' => 'DIREKSI KEET',
+                'smk3' => 'SMK3',
+                'pekerjaan-galian-saluran' => 'PEKERJAAN GALIAN SALURAN',
+                'penulangan' => 'PENULANGAN',
+                'pekerjaan-bekisting' => 'PEKERJAAN BEKISTING',
+                'pekerjaan-beton' => 'PEKERJAAN BETON',
+                'pekerjaan-jalan-inspeksi' => 'PEKERJAAN JALAN INSPEKSI',
+            );
+            ?>
+            <div class="col-12">
+                <ul id="portfolio-flters" class="controls list-inline">
+                    <?php foreach ($gal_cat as $gc => $x) {
+                        if ($gc == "penulangan") {
+                            $active = "active";
+                        } else {
+                            $active = "";
+                        }
+                        echo '<li class="filter-active' . $active . '" data-filter="' . '.' . $gc . '">' . $x . '</li>';
+                    }
+                    ?>
+
                 </ul>
             </div>
         </div>
+
         <div class="row portfolio-container">
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-1.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-1.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                        </a>
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp direksi-keet direksi-keet">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img  w-100" src="<?php echo base_url(); ?>public/company/img/galeri/direksi-keet/dk (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second wow fadeInUp" data-wow-delay="0.2s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-2.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-2.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                        </a>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp mobilisasi-peralatan">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/mobilisasi-peralatan/mp (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-3.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-3.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                        </a>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-bekisting">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-bekisting/pb (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp" data-wow-delay="0.4s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-4.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-4.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                        </a>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 9; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-beton">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-beton/pbt (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-5.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-5.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                        </a>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 7; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-galian-saluran">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-galian-saluran/pgs (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item third wow fadeInUp" data-wow-delay="0.6s">
-                <div class="portfolio-warp">
-                    <div class="portfolio-img">
-                        <a href="<?php echo  base_url(); ?>/public/company/img/portfolio-6.jpg" data-lightbox="portfolio">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/portfolio-6.jpg" alt="Image">
-                            <div class="portfolio-overlay">
-                            </div>
-                            </< /a>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 12; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-jalan-inspeksi">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-jalan-inspeksi/pji (<?php echo $i; ?>).jpg" alt="project-image">
+
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 9; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp penulangan">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/penulangan/pn (<?php echo $i; ?>).jpg" alt="project-image">
+
+                    </div>
+                </div>
+            <?php } ?>
+            <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp smk3">
+                    <div class="portfolio-warp">
+                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/smk3/sm (<?php echo $i; ?>).jpg" alt="project-image">
+
+                    </div>
+                </div>
+            <?php } ?>
         </div>
-        <!-- <div class="row">
-            <div class="col-12 load-more">
-                <a class="btn" href="#">Load More</a>
-            </div>
-        </div> -->
     </div>
 </div>
-<!-- Portfolio End -->
