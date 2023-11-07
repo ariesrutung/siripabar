@@ -31,13 +31,14 @@
             ?>
             <div class="col-12">
                 <ul id="portfolio-flters" class="controls list-inline">
+                    <li class="filter-active" data-filter="*">Semua</li>
                     <?php foreach ($gal_cat as $gc => $x) {
-                        if ($gc == "penulangan") {
+                        if ($gc == "mobilisasi-peralatan") {
                             $active = "active";
                         } else {
                             $active = "";
                         }
-                        echo '<li class="filter-active' . $active . '" data-filter="' . '.' . $gc . '">' . $x . '</li>';
+                        echo '<li class="' .  '" data-filter="' . '.' . $gc . '">' . $x . '</li>';
                     }
                     ?>
 
@@ -47,7 +48,7 @@
 
         <div class="row portfolio-container">
             <?php for ($i = 1; $i <= 6; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp direksi-keet direksi-keet">
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp direksi-keet">
                     <div class="portfolio-warp">
                         <img class="portfolio-img  w-100" src="<?php echo base_url(); ?>public/company/img/galeri/direksi-keet/dk (<?php echo $i; ?>).jpg" alt="project-image">
 
