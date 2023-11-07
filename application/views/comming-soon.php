@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mx-auto text-center">
-                    <h1 class="text-white">COMING SOON BARTHO</h1>
+                    <h1 class="text-white">COMING SOON</h1>
                     <p class="text-white mb-40">We are currently working on making our new website. We will be launching soon. Subscribe to be notified.</p>
                     <!-- syo-timer -->
                     <!-- form -->
