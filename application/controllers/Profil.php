@@ -5,9 +5,8 @@ class Profil extends CI_Controller
 {
     public function index()
     {
-        $data['title'] = 'SIRIPABAR - Profil';
-        $this->load->view('header', $data);
-        $this->load->view('profil');
-        $this->load->view('footer');
+        $data['title'] = 'PROFIL';
+        $data['_view'] = "company/profil";
+        $this->load->view('company/layout', $data);
     }
 }
