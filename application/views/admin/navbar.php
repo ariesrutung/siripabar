@@ -3,21 +3,21 @@
         <div class="nano-content">
             <ul>
                 <div class="logo"><a href="<?php echo base_url('admin/dashboard'); ?>"><!-- <img src="<?php echo base_url(); ?>public/focus-theme/assets/images/logo.png" alt="" /> --><span>Focus</span></a></div>
-                <li class="active"><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard </a>
+                <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-home"></i> Dashboard </a>
                 </li>
 
                 <li class="label">MANAJEMEN LAPORAN</li>
-                <li><a href="<?php echo base_url('admin/pengaduan'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Data Pengaduan</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Unduh Laporan Pengaduan</a></li>
+                <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>" ><i class="ti-bar-chart-alt"></i> Data Pengaduan</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Unduh Laporan Pengaduan</a></li>
 
                 <li class="label">MANAJEMEN DAERAH IRIGASI</li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Daerah Irigasi</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Data Kontrak</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Daerah Irigasi</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Data Kontrak</a></li>
 
                 <li class="label">MANAJEMEN WEBSITE</li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Berita</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Galeri</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Profil</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Berita</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Galeri</a></li>
+                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Profil</a></li>
             </ul>
         </div>
     </div>

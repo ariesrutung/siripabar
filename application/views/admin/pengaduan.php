@@ -415,6 +415,8 @@
 
     <script>
         $(document).ready(function() {
+            $('#menupengaduan').last().addClass( "active" );
+
             //action button terima laporan/pengaduan
             $('.btnTerima').click(function() {
                 //deklarasi variabel untuk mengangkap id laporand dari anchor/button terima dgn atribut data-idlaporan
