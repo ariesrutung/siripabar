@@ -63,7 +63,7 @@ class Lapor extends CI_Controller
             'no_hp' => $this->input->post('no_hp'),
             'email' => $this->input->post('email'),
             'isi_laporan' => $this->input->post('isi_laporan'),
-            'infrastruktur' => $this->input->post('infrastruktur'),
+            'infrastruktur' => 'Irigasi',
             'nama_ruasjalan' => $this->input->post('nama_ruasjalan'),
             'lokasi_kabkota' => $this->input->post('lokasi_kabkota'),
             'lokasi_distrik' => $this->input->post('lokasi_distrik'),
@@ -80,7 +80,7 @@ class Lapor extends CI_Controller
         $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
         $this->wasendpelapor($nowapelapor, $namapelapor, $ruasjalan, $distrik, $kabupaten);
 
-        $nowakabid = '081212981189'; //anggap aja km sebagai kabid, tapi km jg melapor sbg pelapor
+        $nowakabid = '+6285244146207'; //anggap aja km sebagai kabid, tapi km jg melapor sbg pelapor
         $kodelap = $this->input->post('kodelaporan');
         $image = $this->M_setting->get_image($kodelap);
         $imageurl = base_url() . 'upload/dokumentasi/' . $image;
