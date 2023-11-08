@@ -10,7 +10,7 @@ class Daerahirigasi extends CI_Controller
         $this->load->view('company/layout', $data);
     }
 
-    public function detail_daerahirigasi()
+    public function detail()
     {
         $data['title'] = 'DETAIL DAERAH IRIGASI';
         $data['_view'] = "company/detail_daerahirigasi";

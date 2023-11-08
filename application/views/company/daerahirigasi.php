@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <a href="<?php echo base_url('daerahirigasi/detail_daerahirigasi'); ?>">
+                <a href="<?php echo base_url('daerahirigasi/detail'); ?>">
                     <div class="service-item">
                         <div class="service-img">
                             <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
