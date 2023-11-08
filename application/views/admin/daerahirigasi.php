@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Focus Admin: Blank</title>
+    <title><?=$title;?></title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -25,7 +25,7 @@
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/menubar/sidebar.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/bootstrap.min.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>public/focus-theme/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/helper.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/style.css" rel="stylesheet">
 </head>
@@ -42,28 +42,56 @@
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title pr">
+                                <h4>Data Daerah Irigasi</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example2" class="display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Provinsi</th>
+                                                <th>Kab/Kota</th>
+                                                <th>Kode D.I.</th>
+                                                <th>Nama Daerah Irigasi</th>
+                                                <th>Jenis Irigasi</th>
+                                                <th>Luas Fungsional</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($daerahirigasi AS $di) { ?>
+                                            <tr>
+                                                <td><?php echo $di->provinsi;?></td>
+                                                <td><?php echo $di->kabupaten;?></td>
+                                                <td><?php echo $di->kode_di;?></td>
+                                                <td><?php echo $di->nama_di;?></td>
+                                                <td><?php echo $di->jenis_di;?></td>
+                                                <td><?php echo $di->luas_fungsional;?></td>
+                                                <td><a href="#" class="btn btn-sm btn-primary"><i class="fa fa-map-marker"></i> Skema</a><a href="#" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a></td>
+                                            </tr>
+                                           <?php } ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Provinsi</th>
+                                                <th>Kab/Kota</th>
+                                                <th>Kode D.I.</th>
+                                                <th>Nama Daerah Irigasi</th>
+                                                <th>Jenis Irigasi</th>
+                                                <th>Luas Fungsional</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">UI-Blank</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                </div>
-                <!-- /# row -->
-                <section id="main-content">
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="extra-area-chart"></div>
@@ -73,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                
             </div>
         </div>
     </div>
@@ -110,6 +138,9 @@
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
+    <!-- Datatable -->
+    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/js/plugins-init/datatables.init.js"></script>
 
     <script>
         $(document).ready(function() {
