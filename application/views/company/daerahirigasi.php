@@ -18,155 +18,24 @@
             <p>Kewenangan Provinsi Papua Barat</p>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <a href="<?php echo base_url('daerahirigasi/detail'); ?>">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
-                            <div class="service-overlay">
+            <?php foreach ($daerahirigasi as $di) { ?>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="<?php echo base_url('daerahirigasi/detail'); ?>">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
+                                <div class="service-overlay">
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3 class="text-center"><?php echo $di->nama_di ?></h3>
                             </div>
                         </div>
-                        <div class="service-text">
-                            <h3 class="text-center">Makbusun</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-2.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <a href=""></a>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3 class="text-center">Matawolot</h3>
-                    </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-3.jpg" alt="Image">
-                        <div class="service-overlay">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Majener</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-4.jpg" alt="Image">
-                        <div class="service-overlay">
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Aimasi</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-4.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-5.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Sidey</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-5.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Muturi</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Maryat</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Majaran</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Prafi</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service-text">
-                        <h3>Waigo/Moswaren</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-6.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
+
     </div>
 </div>
 <!-- Service End -->
