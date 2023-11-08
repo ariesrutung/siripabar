@@ -1,3 +1,15 @@
+<style>
+    .service .service-text {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        background: #030f27;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        justify-content: space-between;
+    }
+</style>
 <!-- Service Start -->
 <div class="service">
     <div class="container">
@@ -7,34 +19,29 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <div class="service-img">
-                        <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
+                <a href="<?php echo base_url('daerahirigasi/detail_daerahirigasi'); ?>">
+                    <div class="service-item">
+                        <div class="service-img">
+                            <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
+                            <div class="service-overlay">
+                            </div>
+                        </div>
+                        <div class="service-text">
+                            <h3 class="text-center">Makbusun</h3>
                         </div>
                     </div>
-                    <div class="service-text">
-                        <h3>Makbusun</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" data-lightbox="service">+</a>
-                    </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-item">
                     <div class="service-img">
                         <img src="<?php echo  base_url(); ?>/public/company/img/service-2.jpg" alt="Image">
                         <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
+                            <a href=""></a>
                         </div>
                     </div>
                     <div class="service-text">
-                        <h3>Matawolot</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-2.jpg" data-lightbox="service">+</a>
+                        <h3 class="text-center">Matawolot</h3>
                     </div>
                 </div>
             </div>
@@ -43,14 +50,10 @@
                     <div class="service-img">
                         <img src="<?php echo  base_url(); ?>/public/company/img/service-3.jpg" alt="Image">
                         <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
                         </div>
                     </div>
                     <div class="service-text">
                         <h3>Majener</h3>
-                        <a class="btn" href="<?php echo  base_url(); ?>/public/company/img/service-3.jpg" data-lightbox="service">+</a>
                     </div>
                 </div>
             </div>
@@ -59,9 +62,6 @@
                     <div class="service-img">
                         <img src="<?php echo  base_url(); ?>/public/company/img/service-4.jpg" alt="Image">
                         <div class="service-overlay">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
                         </div>
                     </div>
                     <div class="service-text">

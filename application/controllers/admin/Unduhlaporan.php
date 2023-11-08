@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Daerahirigasi extends CI_Controller
+class Unduhlaporan extends CI_Controller
 {
     public function index()
     {
-        $data['title'] = 'DAERAH IRIGASI';
+        $data['title'] = 'UNDUH LAPORAN';
         $data['menu'] = "admin/navbar";
-        $this->load->view('admin/daerahirigasi', $data);
+        $this->load->view('admin/unduhlaporan', $data);
     }
 }

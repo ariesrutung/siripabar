@@ -3,21 +3,21 @@
         <div class="nano-content">
             <ul>
                 <div class="logo"><a href="<?php echo base_url('admin/dashboard'); ?>"><!-- <img src="<?php echo base_url(); ?>public/focus-theme/assets/images/logo.png" alt="" /> --><span>Focus</span></a></div>
-                <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-home"></i> Dashboard </a>
+                <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i> Dashboard </a>
                 </li>
 
                 <li class="label">MANAJEMEN LAPORAN</li>
-                <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>" ><i class="ti-bar-chart-alt"></i> Data Pengaduan</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Unduh Laporan Pengaduan</a></li>
+                <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i> Data Pengaduan</a></li>
+                <li id="menuunduhlaporan"><a href="<?php echo base_url('admin/unduhlaporan'); ?>"><i class="ti-import"></i> Unduh Laporan Pengaduan</a></li>
 
                 <li class="label">MANAJEMEN DAERAH IRIGASI</li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Daerah Irigasi</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Data Kontrak</a></li>
+                <li id="menudaerahirigasi"><a href="<?php echo base_url('admin/daerahirigasi'); ?>"><i class="ti-location-pin"></i> Daerah Irigasi</a></li>
+                <li id="menudatakontrak"><a href="<?php echo base_url('admin/datakontrak'); ?>"><i class="ti-file"></i> Data Kontrak</a></li>
 
                 <li class="label">MANAJEMEN WEBSITE</li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Berita</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Galeri</a></li>
-                <li><a href="<?php echo base_url('admin/dashboard'); ?>" ><i class="ti-bar-chart-alt"></i> Profil</a></li>
+                <li id="menuberita"><a href="<?php echo base_url('admin/berita'); ?>"><i class="ti-comment-alt"></i> Berita</a></li>
+                <li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-camera"></i> Galeri</a></li>
+                <li id="menuprofil"><a href="<?php echo base_url('admin/profil'); ?>"><i class="ti-receipt"></i> Profil</a></li>
             </ul>
         </div>
     </div>
