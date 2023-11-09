@@ -34,6 +34,10 @@
     .faqs .container {
         padding: 0;
     }
+
+    td {
+        font-size: 14px;
+    }
 </style>
 <div class="single">
     <div class="container">
@@ -61,7 +65,7 @@
                                                         <tr>
                                                             <td width="50%" class="strong">Daerah Irigasi</td>
                                                             <td>:</td>
-                                                            <td><?php echo strtoupper($ddi->nama_di);?></td>
+                                                            <td><?php echo strtoupper($ddi->nama_di); ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Kewenangan</td>
@@ -71,7 +75,7 @@
                                                         <tr>
                                                             <td class="strong">Download Skema Jaringan</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>/</td>
                                                         </tr>
 
                                                     </tbody>
@@ -83,17 +87,17 @@
                                                         <tr>
                                                             <td width="50%" class="strong">Jumlah Aset (PAI)</td>
                                                             <td>:</td>
-                                                            <td>Edinburgh</td>
+                                                            <td>191 Saluran / 583 Bangunan / 17 Nonfisik / 88 Nonjaringan / 41 Petak Tersier</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Jumlah Subsistem</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>0 Subsistem</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Data AKNOP</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>670 Bangunan / 191 Saluran</td>
                                                         </tr>
 
                                                     </tbody>
@@ -106,19 +110,45 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>Daerah Irigasi</td>
+                                                            <td class="btn-danger px-2">Panjang Saluran Induk</td>
                                                             <td>:</td>
-                                                            <td>Edinburgh</td>
+                                                            <td>10.27 Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Kewenangan</td>
+                                                            <td class="px-2">Panjang Saluran Muka</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>0.00 Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Download Skema Jaringan</td>
+                                                            <td class="px-2">Panjang Saluran Pengelak Banjir</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>0.00 Km</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-2">Panjang Saluran Pembuang (Tersier)</td>
+                                                            <td>:</td>
+                                                            <td>0.00 Km</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <table id="example" class="display" style="width:100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="btn-primary px-2">Panjang Saluran Sekunder</td>
+                                                            <td>:</td>
+                                                            <td>13.90 Km</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-2">Panjang Saluran Pembuang</td>
+                                                            <td>:</td>
+                                                            <td>3.98 Km</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="btn-success px-2">Panjang Saluran Tersier</td>
+                                                            <td>:</td>
+                                                            <td>35.84 Km</td>
                                                         </tr>
 
                                                     </tbody>
@@ -128,41 +158,19 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>Jumlah Aset (PAI)</td>
+                                                            <td class="px-2">Panjang Saluran Suplesi</td>
                                                             <td>:</td>
-                                                            <td>Edinburgh</td>
+                                                            <td>3.72 Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Jumlah Subsistem</td>
+                                                            <td class="px-2">Panjang Saluran Gendong</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>0.00 Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Data AKNOP</td>
+                                                            <td class="btn-warning px-2">Panjang Saluran Kuarter</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <table id="example" class="display" style="width:100%">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Jumlah Aset (PAI)</td>
-                                                            <td>:</td>
-                                                            <td>Edinburgh</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Jumlah Subsistem</td>
-                                                            <td>:</td>
-                                                            <td>Tokyo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Data AKNOP</td>
-                                                            <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>0.00 Km</td>
                                                         </tr>
 
                                                     </tbody>
@@ -195,11 +203,21 @@
                                                                     <table class="table-bordered table-striped" style="width:100%">
                                                                         <thead>
                                                                             <tr style="font-size: 14px;">
-                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
-                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
-                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
-                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
-                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
+                                                                                <th style="background-color: #6495ED;" colspan="4">
+                                                                                    <center>DASAR KONTRAK</center>
+                                                                                </th>
+                                                                                <th style="background-color: #F0FFF0;" colspan="2">
+                                                                                    <center>SUMBER PENDANAAN</center>
+                                                                                </th>
+                                                                                <th style="background-color: #F08080;" colspan="3">
+                                                                                    <center>MASA KONTRAK AWAL</center>
+                                                                                </th>
+                                                                                <th style="background-color: #ADD8E6;" colspan="2">
+                                                                                    <center>LOKASI</center>
+                                                                                </th>
+                                                                                <th style="background-color: #F0E68C;" colspan="4">
+                                                                                    <center>DOKUMEN</center>
+                                                                                </th>
                                                                             </tr>
                                                                             <tr style="font-size: 12px; text-align: center;">
                                                                                 <th>Nama Paket Fisik</th>
@@ -220,99 +238,121 @@
                                                                             </tr>
                                                                         </thead>
                                                                     </table>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
-                                                        <div class="card-header">
-                                                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
-                                                                2022
-                                                            </a>
-                                                        </div>
-                                                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
-                                                            <div class="card-body">
-                                                               
-                                                                <div class="table-responsive">
-                                                                    <table class="table-bordered table-striped" style="width:100%">
-                                                                        <thead>
-                                                                            <tr style="font-size: 14px;">
-                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
-                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
-                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
-                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
-                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
-                                                                            </tr>
-                                                                            <tr style="font-size: 12px; text-align: center;">
-                                                                                <th>Nama Paket Fisik</th>
-                                                                                <th>Penyedia Jasa Kontraktor</th>
-                                                                                <th>No. Kontrak Kontraktor</th>
-                                                                                <th>Tgl Kontrak</th>
-                                                                                <th>Sumber Dana</th>
-                                                                                <th>Nilai Kontrak Kontraktor</th>
-                                                                                <th>Bulan</th>
-                                                                                <th>Hari</th>
-                                                                                <th>Tgl. PHO</th>
-                                                                                <th>Kab.</th>
-                                                                                <th>Koordinat</th>
-                                                                                <th>Dok. Kontrak</th>
-                                                                                <th>Gambar Rencana</th>
-                                                                                <th>Gambar As Build Drawing</th>
-                                                                                <th>Dokumentasi</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                    </table>
+                                                        <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                                                            <div class="card-header">
+                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
+                                                                    2022
+                                                                </a>
                                                             </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
-                                                        <div class="card-header">
-                                                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
-                                                                2021
-                                                            </a>
-                                                        </div>
-                                                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
-                                                            <div class="card-body">
+                                                            <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                                                                <div class="card-body">
 
-                                                                <div class="table-responsive">
-                                                                    <table class="table-bordered table-striped" style="width:100%">
-                                                                        <thead>
-                                                                            <tr style="font-size: 14px;">
-                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
-                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
-                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
-                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
-                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
-                                                                            </tr>
-                                                                            <tr style="font-size: 12px; text-align: center;">
-                                                                                <th>Nama Paket Fisik</th>
-                                                                                <th>Penyedia Jasa Kontraktor</th>
-                                                                                <th>No. Kontrak Kontraktor</th>
-                                                                                <th>Tgl Kontrak</th>
-                                                                                <th>Sumber Dana</th>
-                                                                                <th>Nilai Kontrak Kontraktor</th>
-                                                                                <th>Bulan</th>
-                                                                                <th>Hari</th>
-                                                                                <th>Tgl. PHO</th>
-                                                                                <th>Kab.</th>
-                                                                                <th>Koordinat</th>
-                                                                                <th>Dok. Kontrak</th>
-                                                                                <th>Gambar Rencana</th>
-                                                                                <th>Gambar As Build Drawing</th>
-                                                                                <th>Dokumentasi</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                    </table>
-                                                            </div>                                                            </div>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table-bordered table-striped" style="width:100%">
+                                                                            <thead>
+                                                                                <tr style="font-size: 14px;">
+                                                                                    <th style="background-color: #6495ED;" colspan="4">
+                                                                                        <center>DASAR KONTRAK</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F0FFF0;" colspan="2">
+                                                                                        <center>SUMBER PENDANAAN</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F08080;" colspan="3">
+                                                                                        <center>MASA KONTRAK AWAL</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #ADD8E6;" colspan="2">
+                                                                                        <center>LOKASI</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F0E68C;" colspan="4">
+                                                                                        <center>DOKUMEN</center>
+                                                                                    </th>
+                                                                                </tr>
+                                                                                <tr style="font-size: 12px; text-align: center;">
+                                                                                    <th>Nama Paket Fisik</th>
+                                                                                    <th>Penyedia Jasa Kontraktor</th>
+                                                                                    <th>No. Kontrak Kontraktor</th>
+                                                                                    <th>Tgl Kontrak</th>
+                                                                                    <th>Sumber Dana</th>
+                                                                                    <th>Nilai Kontrak Kontraktor</th>
+                                                                                    <th>Bulan</th>
+                                                                                    <th>Hari</th>
+                                                                                    <th>Tgl. PHO</th>
+                                                                                    <th>Kab.</th>
+                                                                                    <th>Koordinat</th>
+                                                                                    <th>Dok. Kontrak</th>
+                                                                                    <th>Gambar Rencana</th>
+                                                                                    <th>Gambar As Build Drawing</th>
+                                                                                    <th>Dokumentasi</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card wow fadeInLeft" data-wow-delay="0.5s">
+                                                            <div class="card-header">
+                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
+                                                                    2021
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapseFive" class="collapse" data-parent="#accordion-1">
+                                                                <div class="card-body">
+
+                                                                    <div class="table-responsive">
+                                                                        <table class="table-bordered table-striped" style="width:100%">
+                                                                            <thead>
+                                                                                <tr style="font-size: 14px;">
+                                                                                    <th style="background-color: #6495ED;" colspan="4">
+                                                                                        <center>DASAR KONTRAK</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F0FFF0;" colspan="2">
+                                                                                        <center>SUMBER PENDANAAN</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F08080;" colspan="3">
+                                                                                        <center>MASA KONTRAK AWAL</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #ADD8E6;" colspan="2">
+                                                                                        <center>LOKASI</center>
+                                                                                    </th>
+                                                                                    <th style="background-color: #F0E68C;" colspan="4">
+                                                                                        <center>DOKUMEN</center>
+                                                                                    </th>
+                                                                                </tr>
+                                                                                <tr style="font-size: 12px; text-align: center;">
+                                                                                    <th>Nama Paket Fisik</th>
+                                                                                    <th>Penyedia Jasa Kontraktor</th>
+                                                                                    <th>No. Kontrak Kontraktor</th>
+                                                                                    <th>Tgl Kontrak</th>
+                                                                                    <th>Sumber Dana</th>
+                                                                                    <th>Nilai Kontrak Kontraktor</th>
+                                                                                    <th>Bulan</th>
+                                                                                    <th>Hari</th>
+                                                                                    <th>Tgl. PHO</th>
+                                                                                    <th>Kab.</th>
+                                                                                    <th>Koordinat</th>
+                                                                                    <th>Dok. Kontrak</th>
+                                                                                    <th>Gambar Rencana</th>
+                                                                                    <th>Gambar As Build Drawing</th>
+                                                                                    <th>Dokumentasi</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- FAQs End -->
+                                    <!-- FAQs End -->
 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -320,4 +360,3 @@
             </div>
         </div>
     </div>
-</div>
