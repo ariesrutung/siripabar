@@ -59,14 +59,14 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="strong">Daerah Irigasi</td>
+                                                            <td width="50%" class="strong">Daerah Irigasi</td>
                                                             <td>:</td>
-                                                            <td>Edinburgh</td>
+                                                            <td><?php echo strtoupper($ddi->nama_di);?></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Kewenangan</td>
                                                             <td>:</td>
-                                                            <td>Tokyo</td>
+                                                            <td>PROV. PABAR</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Download Skema Jaringan</td>
@@ -81,7 +81,7 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="strong">Jumlah Aset (PAI)</td>
+                                                            <td width="50%" class="strong">Jumlah Aset (PAI)</td>
                                                             <td>:</td>
                                                             <td>Edinburgh</td>
                                                         </tr>
@@ -186,61 +186,124 @@
                                                     <div class="card wow fadeInLeft" data-wow-delay="0.1s">
                                                         <div class="card-header">
                                                             <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                Lorem ipsum dolor sit amet?
+                                                                2023
                                                             </a>
                                                         </div>
                                                         <div id="collapseOne" class="collapse" data-parent="#accordion-1">
                                                             <div class="card-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
-                                                        <div class="card-header">
-                                                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwo">
-                                                                Lorem ipsum dolor sit amet?
-                                                            </a>
-                                                        </div>
-                                                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
-                                                            <div class="card-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
-                                                        <div class="card-header">
-                                                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseThree">
-                                                                Lorem ipsum dolor sit amet?
-                                                            </a>
-                                                        </div>
-                                                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
-                                                            <div class="card-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                                                                <div class="table-responsive">
+                                                                    <table class="table-bordered table-striped" style="width:100%">
+                                                                        <thead>
+                                                                            <tr style="font-size: 14px;">
+                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
+                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
+                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
+                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
+                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
+                                                                            </tr>
+                                                                            <tr style="font-size: 12px; text-align: center;">
+                                                                                <th>Nama Paket Fisik</th>
+                                                                                <th>Penyedia Jasa Kontraktor</th>
+                                                                                <th>No. Kontrak Kontraktor</th>
+                                                                                <th>Tgl Kontrak</th>
+                                                                                <th>Sumber Dana</th>
+                                                                                <th>Nilai Kontrak Kontraktor</th>
+                                                                                <th>Bulan</th>
+                                                                                <th>Hari</th>
+                                                                                <th>Tgl. PHO</th>
+                                                                                <th>Kab.</th>
+                                                                                <th>Koordinat</th>
+                                                                                <th>Dok. Kontrak</th>
+                                                                                <th>Gambar Rencana</th>
+                                                                                <th>Gambar As Build Drawing</th>
+                                                                                <th>Dokumentasi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card wow fadeInLeft" data-wow-delay="0.4s">
                                                         <div class="card-header">
                                                             <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
-                                                                Lorem ipsum dolor sit amet?
+                                                                2022
                                                             </a>
                                                         </div>
                                                         <div id="collapseFour" class="collapse" data-parent="#accordion-1">
                                                             <div class="card-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                                                               
+                                                                <div class="table-responsive">
+                                                                    <table class="table-bordered table-striped" style="width:100%">
+                                                                        <thead>
+                                                                            <tr style="font-size: 14px;">
+                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
+                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
+                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
+                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
+                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
+                                                                            </tr>
+                                                                            <tr style="font-size: 12px; text-align: center;">
+                                                                                <th>Nama Paket Fisik</th>
+                                                                                <th>Penyedia Jasa Kontraktor</th>
+                                                                                <th>No. Kontrak Kontraktor</th>
+                                                                                <th>Tgl Kontrak</th>
+                                                                                <th>Sumber Dana</th>
+                                                                                <th>Nilai Kontrak Kontraktor</th>
+                                                                                <th>Bulan</th>
+                                                                                <th>Hari</th>
+                                                                                <th>Tgl. PHO</th>
+                                                                                <th>Kab.</th>
+                                                                                <th>Koordinat</th>
+                                                                                <th>Dok. Kontrak</th>
+                                                                                <th>Gambar Rencana</th>
+                                                                                <th>Gambar As Build Drawing</th>
+                                                                                <th>Dokumentasi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card wow fadeInLeft" data-wow-delay="0.5s">
                                                         <div class="card-header">
                                                             <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
-                                                                Lorem ipsum dolor sit amet?
+                                                                2021
                                                             </a>
                                                         </div>
                                                         <div id="collapseFive" class="collapse" data-parent="#accordion-1">
                                                             <div class="card-body">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
-                                                            </div>
+
+                                                                <div class="table-responsive">
+                                                                    <table class="table-bordered table-striped" style="width:100%">
+                                                                        <thead>
+                                                                            <tr style="font-size: 14px;">
+                                                                                <th style="background-color: #6495ED;" colspan="4"><center>DASAR KONTRAK</center></th>
+                                                                                <th style="background-color: #F0FFF0;" colspan="2"><center>SUMBER PENDANAAN</center></th>
+                                                                                <th style="background-color: #F08080;" colspan="3"><center>MASA KONTRAK AWAL</center></th>
+                                                                                <th style="background-color: #ADD8E6;" colspan="2"><center>LOKASI</center></th>
+                                                                                <th style="background-color: #F0E68C;" colspan="4"><center>DOKUMEN</center></th>
+                                                                            </tr>
+                                                                            <tr style="font-size: 12px; text-align: center;">
+                                                                                <th>Nama Paket Fisik</th>
+                                                                                <th>Penyedia Jasa Kontraktor</th>
+                                                                                <th>No. Kontrak Kontraktor</th>
+                                                                                <th>Tgl Kontrak</th>
+                                                                                <th>Sumber Dana</th>
+                                                                                <th>Nilai Kontrak Kontraktor</th>
+                                                                                <th>Bulan</th>
+                                                                                <th>Hari</th>
+                                                                                <th>Tgl. PHO</th>
+                                                                                <th>Kab.</th>
+                                                                                <th>Koordinat</th>
+                                                                                <th>Dok. Kontrak</th>
+                                                                                <th>Gambar Rencana</th>
+                                                                                <th>Gambar As Build Drawing</th>
+                                                                                <th>Dokumentasi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                            </div>                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

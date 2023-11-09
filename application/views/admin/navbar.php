@@ -2,7 +2,7 @@
     <div class="nano">
         <div class="nano-content">
             <ul>
-                <div class="logo"><a href="<?php echo base_url('admin/dashboard'); ?>"><!-- <img src="<?php echo base_url(); ?>public/focus-theme/assets/images/logo.png" alt="" /> --><span>Focus</span></a></div>
+                <div class="logo"><a href="<?php echo base_url('admin/dashboard'); ?>"><!-- <img src="<?php echo base_url(); ?>public/focus-theme/assets/images/logo.png" alt="" /> --><span>Panel Admin</span></a></div>
                 <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i> Dashboard </a>
                 </li>
 
