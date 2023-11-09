@@ -259,8 +259,8 @@ a:focus {
 .carousel {
     position: relative;
     width: 100%;
-    /* height: calc(100vh - 170px); */
-    /* min-height: 400px; */
+    height: calc(100vh - 170px);
+    min-height: 400px;
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
@@ -298,8 +298,8 @@ a:focus {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* height: calc(100vh - 170px); */
-    /* min-height: 400px; */
+    height: calc(100vh - 170px);
+    min-height: 400px;
 }
 
 .carousel .carousel-caption p {

@@ -57,6 +57,23 @@
             background: #030f27;
             color: #ffffff;
         }
+
+        .carousel .carousel-item::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /* background: rgba(0, 0, 0, .3); */
+            background: none !important;
+            z-index: 1;
+        }
+
+        .carousel .carousel-item img {
+            width: 100% !important;
+            height: auto !important;
+        }
     </style>
 </head>
 
