@@ -7,7 +7,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        justify-content: space-between;
+        justify-content: center;
     }
 </style>
 <!-- Service Start -->
@@ -20,7 +20,7 @@
         <div class="row">
             <?php foreach ($daerahirigasi as $di) { ?>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="<?php echo base_url('daerahirigasi/detail/').$di->kode_di; ?>">
+                    <a href="<?php echo base_url('daerahirigasi/detail/') . $di->kode_di; ?>">
                         <div class="service-item">
                             <div class="service-img">
                                 <img src="<?php echo  base_url(); ?>/public/company/img/service-1.jpg" alt="Image">
