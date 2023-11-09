@@ -61,6 +61,12 @@
         margin: 0 15px;
         max-width: 97.5%;
     }
+
+    .faqs .card {
+        margin-bottom: 0;
+        border: none;
+        border-radius: 0;
+    }
 </style>
 <div class="single">
     <div id="container" class="container">
