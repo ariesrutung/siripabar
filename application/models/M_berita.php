@@ -96,11 +96,10 @@ class M_berita extends CI_Model
         // $this->db->update('berita', $data);
         // return TRUE;
 
-        $sql = "UPDATE berita SET judul='" .$data['judul'] ."', isi='" .$data['isi'] ."', tanggal='" .$data['tanggal'] ."', kategori='" .$data['kategori'] ."',slug='" .$data['slug'] ."' WHERE id='" .$data['id'] ."'";
+        $sql = "UPDATE berita SET judul='" . $data['judul'] . "', isi='" . $data['isi'] . "', tanggal='" . $data['tanggal'] . "', kategori='" . $data['kategori'] . "',slug='" . $data['slug'] . "' WHERE id='" . $data['id'] . "'";
 
         $this->db->query($sql);
 
         return $this->db->affected_rows();
     }
-
 }

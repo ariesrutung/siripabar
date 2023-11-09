@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?=$title;?></title>
+    <title><?= $title; ?></title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -41,29 +41,94 @@
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-8 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">UI-Blank</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                </div>
                 <!-- /# row -->
-                <section id="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Unduh Laporan Pengaduan</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="horizontal-form">
+                                    <form class="form-horizontal">
+                                        <p class="mt-4">Filter data laporan pengaduan yang akan diunduh</p>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-0 control-label">Pilih Kab/Kota</label>
+                                                    <div class="col-sm-12 px-0">
+                                                        <select class="form-control" name="kabupaten" id="kabupaten">
+                                                            <option value="Semua">- Semua Kabupaten/Kota -</option>
+                                                            <option value="92.02">KAB. MANOKWARI</option>
+                                                            <option value="92.71">KOTA SORONG</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-0 control-label">Pilih Tanggal Mulai</label>
+                                                    <div class="col-sm-12 px-0">
+                                                        <input type="date" class="form-control" name="startdate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-0 control-label">Pilih Tanggal Akhir</label>
+                                                    <div class="col-sm-12 px-0">
+                                                        <input type="date" class="form-control" name="todate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-lg-3">
+                                                <div class="form-group  px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-2 control-label">Pilih Format Laporan</label><br>
+                                                    <label class="radio-inline col-sm-4 px-4">
+                                                        <input class="form-check-input" type="radio" name="formatcetak" id="pilihinfra" value="cetakpdf"> PDF</label>
+                                                    <label class="radio-inline col-sm-4 px-4">
+                                                        <input class="form-check-input" type="radio" name="formatcetak" id="pilihinfra" value="cetakexcel"> Excel</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-5">
+                                                <div class="form-group  px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-2 control-label">Pilih Status Laporan</label><br>
+                                                    <label class="radio-inline col-sm-3 px-4">
+                                                        <input class="form-check-input" type="radio" name="statuslaporan" value="Menunggu"> Menunggu
+                                                    </label>
+                                                    <label class="radio-inline col-sm-3 px-4">
+                                                        <input class="form-check-input" type="radio" name="statuslaporan" value="Diterima"> Diterima</label>
+                                                    <label class="radio-inline col-sm-3 px-4">
+                                                        <input class="form-check-input" type="radio" name="statuslaporan" value="Ditolak"> Ditolak</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group  px-o py-0 mt-0 mb-0">
+                                                    <label class="py-0 mt-0 mb-2 control-label">Gambar Dokumentasi</label><br>
+                                                    <label class="radio-inline col-sm-3 px-4">
+                                                        <input class="form-check-input" type="radio" name="pilihangambar" value="1"> Ya
+                                                    </label>
+                                                    <label class="radio-inline col-sm-3 px-4">
+                                                        <input class="form-check-input" type="radio" name="pilihangambar" value="0"> Tidak</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group px-o py-0 mt-0 mb-0">
+                                            <div class="col-sm-offset-2 col-sm-10 px-2">
+                                                <button type="submit" class="btn btn-default btn-primary">Unduh Laporan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="extra-area-chart"></div>
@@ -73,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </div>

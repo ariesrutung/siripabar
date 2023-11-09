@@ -30,6 +30,29 @@
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/helper.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/style.css" rel="stylesheet">
+    <style>
+        div#detailLap td {
+            text-align: left;
+        }
+
+        div#detailLap .card,
+        div#identity .card {
+            padding: 0;
+        }
+
+        div#detailLap th,
+        div#detailLap td {
+            padding: 0 0.55rem !important;
+        }
+
+        p#isilaporan,
+        div#detailLap span {
+            color: #373757;
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            line-height: 1.7;
+        }
+    </style>
 </head>
 
 <body>
@@ -237,7 +260,7 @@
                                                             <td><span id="infrastruktur"></span></td>
                                                         </tr>
                                                         <tr>
-                                                            <th>Koordinat Lokasi</th>
+                                                            <th>Lokasi</th>
                                                             <td>: </td>
                                                             <td><a class="btn btn-sm btn-primary" href="<?php echo ('https://www.google.com/maps/place/') . $p->latitude, ',' . $p->longitude; ?>" target="_blank"><i class="fa fa-map-marker"></i> Klik di sini</a></td>
                                                         </tr>
@@ -415,7 +438,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#menupengaduan').last().addClass( "active" );
+            $('#menupengaduan').last().addClass("active");
 
             //action button terima laporan/pengaduan
             $('.btnTerima').click(function() {
