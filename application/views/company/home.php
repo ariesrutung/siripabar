@@ -1,3 +1,33 @@
+<style>
+    .about .about-img {
+        position: relative;
+        height: 100%;
+        height: 250px;
+    }
+
+    .section-header h3 {
+        color: #fdbe33;
+    }
+
+    .about-text li {
+        padding: 5px;
+        line-height: 1.9;
+    }
+
+    .about-text li::marker {
+        color: #fdbe33;
+    }
+
+    .about-text ul {
+        padding-left: 25px;
+    }
+
+    .about.wow.fadeInUp.fact-left {
+        color: #fff;
+        background: #030f27;
+    }
+</style>
+
 <!-- Carousel Start -->
 <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -7,30 +37,30 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="<?php echo base_url(); ?>/public/company/img/carousel-1.jpg" alt="Carousel Image">
-            <div class="carousel-caption">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/pusat.png" alt="Carousel Image">
+            <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">We Are Professional</p>
                 <h1 class="animated fadeInLeft">For Your Dream Project</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div>
+            </div> -->
         </div>
 
         <div class="carousel-item">
-            <img src="<?php echo base_url(); ?>/public/company/img/carousel-2.jpg" alt="Carousel Image">
-            <div class="carousel-caption">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/provinsi.png" alt="Carousel Image">
+            <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">Professional Builder</p>
                 <h1 class="animated fadeInLeft">We Build Your Home</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div>
+            </div> -->
         </div>
 
         <div class="carousel-item">
-            <img src="<?php echo base_url(); ?>/public/company/img/carousel-3.jpg" alt="Carousel Image">
-            <div class="carousel-caption">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/kabupaten.png" alt="Carousel Image">
+            <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">We Are Trusted</p>
                 <h1 class="animated fadeInLeft">For Your Dream Home</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -52,34 +82,37 @@
         <div class="row align-items-center">
             <div class="col-lg-4 col-md-12">
                 <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="flaticon-worker"></i>
-                    </div>
+                    <img class="w-25" src="<?php echo base_url(); ?>/public/company/img/irigasi-icon.png?>" alt="">
+                    <!-- <i class="flaticon-worker"></i> -->
                     <div class="feature-text">
-                        <h3>Expert Worker</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                        <h3>KEWENANGAN PUSAT</h3>
+                        <p>Sebanyak 3 Daerah Irigasi dengan luas total 9666 Ha</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="feature-item">
-                    <div class="feature-icon">
+                    <img class="w-25" src="<?php echo base_url(); ?>/public/company/img/irigasi-icon.png?>" alt="">
+                    <!-- <div class="feature-icon">
                         <i class="flaticon-building"></i>
-                    </div>
+                    </div> -->
                     <div class="feature-text">
-                        <h3>Quality Work</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                        <h3>KEWENANGAN PROVINSI</h3>
+                        <p>Sebanyak 8 Daerah Irigasi dengan luas total 10460 Ha</p>
+
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="feature-item">
-                    <div class="feature-icon">
+                    <img class="w-25" src="<?php echo base_url(); ?>/public/company/img/irigasi-icon.png?>" alt="">
+                    <!-- <div class="feature-icon">
                         <i class="flaticon-call"></i>
-                    </div>
+                    </div> -->
                     <div class="feature-text">
-                        <h3>24/7 Support</h3>
-                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                        <h3>KEWENANGAN KAB/KOTA</h3>
+                        <p>Sebanyak 22 Daerah Irigasi dengan luas total 7813 Ha</p>
+
                     </div>
                 </div>
             </div>
@@ -90,7 +123,7 @@
 
 
 <!-- About Start -->
-<div class="about wow fadeInUp" data-wow-delay="0.1s">
+<!-- <div class="about wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
@@ -115,12 +148,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- About End -->
 
 
 <!-- Fact Start -->
-<div class="fact">
+<!-- <div class="fact">
     <div class="container-fluid">
         <div class="row counters">
             <div class="col-md-6 fact-left wow slideInLeft">
@@ -169,12 +202,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Fact End -->
 
 
 <!-- Service Start -->
-<div class="service">
+<!-- <div class="service">
     <div class="container">
         <div class="section-header text-center">
             <p>Our Services</p>
@@ -279,19 +312,19 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Service End -->
 
 
 <!-- Video Start -->
-<div class="video wow fadeIn" data-wow-delay="0.1s">
+<!-- <div class="video wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
             <span></span>
         </button>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -299,19 +332,18 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Video End -->
 
 
 <!-- Team Start -->
-<div class="team">
+<!-- <div class="team">
     <div class="container">
         <div class="section-header text-center">
             <p>Our Team</p>
@@ -388,12 +420,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Team End -->
 
 
 <!-- FAQs Start -->
-<div class="faqs">
+<!-- <div class="faqs">
     <div class="container">
         <div class="section-header text-center">
             <p>Frequently Asked Question</p>
@@ -530,12 +562,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- FAQs End -->
 
 
 <!-- Testimonial Start -->
-<div class="testimonial wow fadeIn" data-wow-delay="0.1s">
+<!-- <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -598,12 +630,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Testimonial End -->
 
 
 <!-- Blog Start -->
-<div class="blog">
+<!-- <div class="blog">
     <div class="container">
         <div class="section-header text-center">
             <p>Latest Blog</p>
@@ -672,10 +704,91 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<!-- About Start -->
+<div class="about wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>PROFIL</h2>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_14.png" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <h3>Latar Belakang</h3>
+                </div>
+                <div class="about-text">
+                    <ul>
+                        <li>Luas wilayah Provinsi Papua Barat sangat luas.</li>
+                        <li>Terbatasnya konektifitas antar wilayah Kab/Kota sehingga Masyarakat kesulitan menyampaikan usulan program/aduan. </li>
+                        <li>Sulitnya mendapatkan informasi infrastruktur sehingga ada stigma pembangunan kurang tepat sasaran.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- About Start -->
+<div class="about wow fadeInUp fact-left fadeInLeft" data-wow-delay="0.3s">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <h3>Tujuan</h3>
+                </div>
+                <div class="about-text">
+                    <ul>
+                        <li>Mendapatkan data laporan masyarakat secara cepat dan sesuai kondisi tekini dengan memanfaatkan TI.</li>
+                        <li>Menentukan Kebijakan dalam Penentuan Program Prioritas.</li>
+                        <li>Menyelenggarakan Pemerintahan yang efektif dan akuntabel dalam Bidang Pembangunan Infrastruktur SDA.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_15.png" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- About Start -->
+<div class="about wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_16.png" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <h3>Manfaat</h3>
+                </div>
+                <div class="about-text">
+                    <ul>
+                        <li>Mempermudah Masyarakat Mendapatkatkan Informasi Pembangunan Infrastruktur SDA di Provinsi Papua Barat.</li>
+                        <li>Memutus birokrasi yang berbelit-belit dalam menyampaikan usulan program/aduan serta menghindarkan Konflik Kepentingan.</li>
+                        <li>Mempermudah Penyelenggara Infrastruktur dalam Menyusun Program Kerja.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Blog End -->
-    <script>
-        $(document).ready(function() {
-            $('#menuberanda').last().addClass("active");
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#menuberanda').last().addClass("active");
+    });
+</script>

@@ -9,23 +9,23 @@
     <meta content="Construction Company Website Template" name="description">
 
     <!-- Favicon -->
-    <link href="<?php echo base_url();?>public/company/img/favicon/favicon-16x16.png" rel="icon">
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url();?>public/company/img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo base_url();?>public/company/img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url();?>public/company/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url();?>public/company/img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>public/company/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo base_url();?>public/company/img/favicon/manifest.json">
+    <link href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png" rel="icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo base_url(); ?>public/company/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo base_url(); ?>public/company/img/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo base_url();?>public/company/img/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?php echo base_url(); ?>public/company/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google Font -->
@@ -49,7 +49,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+    <style>
+        .footer {
+            position: relative;
+            margin-top: 30px;
+            padding-top: 15px;
+            background: #030f27;
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,7 +69,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="logo">
                             <a href="<?php echo base_url('/'); ?>">
-                                <img class="w-75" src="<?php echo base_url('/'); ?>/public/company/img/logo_siripabar.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/siripabar.png" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -119,7 +127,6 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a id="menuberanda" href="<?php echo base_url('/'); ?>" class="nav-item nav-link">Beranda</a>
-                            <a id="menuprofil" href="<?php echo base_url('profil'); ?>" class="nav-item nav-link">Profil</a>
                             <a id="menuberita" href="<?php echo base_url('berita'); ?>" class="nav-item nav-link">Berita</a>
                             <div class="nav-item dropdown">
                                 <a id="menudaerahirigasi" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Daerah Irigasi</a>
@@ -151,7 +158,7 @@
         <!-- footer -->
         <!-- Footer Start -->
         <div class="footer wow fadeIn" data-wow-delay="0.3s">
-          
+
             <div class="container copyright">
                 <div class="row">
                     <div class="col-md-6">
