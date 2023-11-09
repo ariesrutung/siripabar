@@ -528,3 +528,9 @@
     </div>
 </div>
 <!-- Single Post End-->
+
+    <script>
+        $(document).ready(function() {
+            $('#menuberita').last().addClass("active");
+        });
+    </script>

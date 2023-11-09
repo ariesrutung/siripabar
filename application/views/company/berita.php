@@ -157,3 +157,9 @@
     </div>
 </div>
 <!-- Blog End -->
+
+    <script>
+        $(document).ready(function() {
+            $('#menuberita').last().addClass("active");
+        });
+    </script>

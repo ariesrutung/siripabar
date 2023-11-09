@@ -114,3 +114,8 @@
         </div>
     </div>
 </div>
+    <script>
+        $(document).ready(function() {
+            $('#menugaleri').last().addClass("active");
+        });
+    </script>

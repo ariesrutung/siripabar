@@ -389,3 +389,9 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#menudaerahirigasi').last().addClass("active");
+        });
+    </script>

@@ -181,3 +181,8 @@
     </div>
 </div>
 <!-- FAQs End -->
+    <script>
+        $(document).ready(function() {
+            $('#menudaerahirigasi').last().addClass("active");
+        });
+    </script>

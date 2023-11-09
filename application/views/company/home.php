@@ -674,3 +674,8 @@
     </div>
 </div>
 <!-- Blog End -->
+    <script>
+        $(document).ready(function() {
+            $('#menuberanda').last().addClass("active");
+        });
+    </script>

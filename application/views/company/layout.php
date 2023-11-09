@@ -118,20 +118,20 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="<?php echo base_url('/'); ?>" class="nav-item nav-link active">Beranda</a>
-                            <a href="<?php echo base_url('profil'); ?>" class="nav-item nav-link">Profil</a>
-                            <a href="<?php echo base_url('berita'); ?>" class="nav-item nav-link">Berita</a>
+                            <a id="menuberanda" href="<?php echo base_url('/'); ?>" class="nav-item nav-link">Beranda</a>
+                            <a id="menuprofil" href="<?php echo base_url('profil'); ?>" class="nav-item nav-link">Profil</a>
+                            <a id="menuberita" href="<?php echo base_url('berita'); ?>" class="nav-item nav-link">Berita</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Daerah Irigasi</a>
+                                <a id="menudaerahirigasi" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Daerah Irigasi</a>
                                 <div class="dropdown-menu">
                                     <a href="#" class="dropdown-item">Kewenangan Kementerian</a>
                                     <a href="<?php echo base_url('daerahirigasi'); ?>" class="dropdown-item">Kewenangan Provinsi</a>
                                     <a href="#" class="dropdown-item">Kewenangan Kabupaten</a>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
+                            <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
 
-                            <a href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
+                            <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
                         </div>
                     </div>
                 </nav>

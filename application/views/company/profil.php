@@ -37,7 +37,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">
-                    <img src="<?php echo base_url(); ?>/public/company/img/about.jpg" alt="Image">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_14.png" alt="Image">
                 </div>
             </div>
             <div class="col-lg-7 col-md-6">
@@ -76,7 +76,7 @@
             </div>
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">
-                    <img src="<?php echo base_url(); ?>/public/company/img/about.jpg" alt="Image">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_15.png" alt="Image">
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">
-                    <img src="<?php echo base_url(); ?>/public/company/img/about.jpg" alt="Image">
+                    <img src="<?php echo base_url(); ?>/public/company/img/Screenshot_16.png" alt="Image">
                 </div>
             </div>
             <div class="col-lg-7 col-md-6">
@@ -161,4 +161,8 @@
     </div>
 </div>
 <!-- Fact End -->
-
+    <script>
+        $(document).ready(function() {
+            $('#menuprofil').last().addClass("active");
+        });
+    </script>
