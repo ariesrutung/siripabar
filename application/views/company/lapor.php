@@ -713,8 +713,8 @@
 </script>
 
 
-    <script>
-        $(document).ready(function() {
-            $('#menulapor').last().addClass("active");
-        });
-    </script>
+<script>
+  $(document).ready(function() {
+    $('#menulapor').last().addClass("active");
+  });
+</script>

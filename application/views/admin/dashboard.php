@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?=$title;?></title>
+    <title><?= $title; ?></title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -17,6 +17,25 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Favicon -->
+    <link href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png" rel="icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo base_url(); ?>public/company/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo base_url(); ?>public/company/img/favicon/manifest.json">
+
+
     <!-- Styles -->
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/calendar2/semantic.ui.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
@@ -152,7 +171,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -163,7 +182,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -174,7 +193,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -185,7 +204,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -196,7 +215,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -207,7 +226,7 @@
                                                             <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                                             nostrud exercitation <i class="fa fa-quote-right"></i>
                                                         </div>
-                                                        <img class="testimonial-author-img" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
+                                                        <img class="testimonial-author-img" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="" />
                                                         <div class="testimonial-author">TYRION LANNISTER</div>
                                                         <div class="testimonial-author-position">Founder-Ceo. Dell Corp</div>
                                                     </div>
@@ -420,7 +439,7 @@
                                 <div class="recent-comment m-t-15">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-primary">john doe</h4>
@@ -430,7 +449,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/2.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/2.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-success">Mr. John</h4>
@@ -440,7 +459,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/3.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/3.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-danger">Mr. John</h4>
@@ -450,7 +469,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/1.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/1.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-primary">john doe</h4>
@@ -460,7 +479,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/2.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/2.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-success">Mr. John</h4>
@@ -470,7 +489,7 @@
                                     </div>
                                     <div class="media no-border">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="<?php echo base_url();?>public/focus-theme/assets/images/avatar/3.jpg" alt="..."></a>
+                                            <a href="#"><img class="media-object" src="<?php echo base_url(); ?>public/focus-theme/assets/images/avatar/3.jpg" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading color-info">Mr. John</h4>
@@ -783,7 +802,7 @@
     <!-- scripit init-->
     <script>
         $(document).ready(function() {
-            $('#menudashboard').last().addClass( "active" );
+            $('#menudashboard').last().addClass("active");
         });
     </script>
 </body>
