@@ -38,9 +38,32 @@
     td {
         font-size: 14px;
     }
+
+    .single #container {
+        margin: 0;
+        padding: 0 75px;
+        max-width: 100%;
+    }
+
+    div#skema,
+    div#laporan {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .container.px-0 {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    div#faqs {
+        margin: 0 15px;
+        max-width: 97.5%;
+    }
 </style>
 <div class="single">
-    <div class="container">
+    <div id="container" class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="sidebar-widget wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
@@ -185,7 +208,7 @@
 
                                 <!-- FAQs Start -->
                                 <div class="faqs">
-                                    <div class="container">
+                                    <div id="faqs" class="container">
                                         <div class="section-header text-center">
                                         </div>
                                         <div class="row">
