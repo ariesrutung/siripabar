@@ -68,9 +68,9 @@
                 </div>
                 <div class="about-text">
                     <ul>
-                        <li>Luas wilayah Provinsi Papua Barat sangat luas.</li>
-                        <li>Terbatasnya konektifitas antar wilayah Kab/Kota sehingga Masyarakat kesulitan menyampaikan usulan program/aduan. </li>
-                        <li>Sulitnya mendapatkan informasi infrastruktur sehingga ada stigma pembangunan kurang tepat sasaran.</li>
+                        <li>Mendapatkan data laporan masyarakat secara cepat dan sesuai kondisi tekini dengan memanfaatkan TI.</li>
+                        <li>Menentukan Kebijakan dalam Penentuan Program Prioritas.</li>
+                        <li>Menyelenggarakan Pemerintahan yang efektif dan akuntabel dalam Bidang Pembangunan Infrastruktur SDA.</li>
                     </ul>
                 </div>
             </div>
@@ -108,58 +108,7 @@
         </div>
     </div>
 </div>
-<!-- About End -->
-<!-- Fact Start -->
-<div class="fact">
-    <div class="container-fluid">
-        <div class="row counters">
-            <div class="col-md-6 fact-left wow slideInLeft">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="fact-icon">
-                            <i class="flaticon-worker"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2 data-toggle="counter-up">109</h2>
-                            <p>Expert Workers</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="fact-icon">
-                            <i class="flaticon-building"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2 data-toggle="counter-up">485</h2>
-                            <p>Happy Clients</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 fact-right wow slideInRight">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="fact-icon">
-                            <i class="flaticon-address"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2 data-toggle="counter-up">789</h2>
-                            <p>Completed Projects</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="fact-icon">
-                            <i class="flaticon-crane"></i>
-                        </div>
-                        <div class="fact-text">
-                            <h2 data-toggle="counter-up">890</h2>
-                            <p>Running Projects</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Fact End -->
     <script>
         $(document).ready(function() {
