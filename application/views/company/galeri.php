@@ -8,6 +8,10 @@
         overflow-y: hidden !important;
         white-space: nowrap !important;
     }
+
+    .portfolio-img {
+        height: 200px;
+    }
 </style>
 
 <div class="portfolio">
