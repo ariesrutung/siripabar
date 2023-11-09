@@ -11,6 +11,7 @@
 
     .portfolio-img {
         height: 200px;
+        object-fit: cover;
     }
 </style>
 
@@ -118,8 +119,8 @@
         </div>
     </div>
 </div>
-    <script>
-        $(document).ready(function() {
-            $('#menugaleri').last().addClass("active");
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#menugaleri').last().addClass("active");
+    });
+</script>

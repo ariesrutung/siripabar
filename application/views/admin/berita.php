@@ -98,11 +98,11 @@
                                     <table class="table student-data-table m-t-20">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Tanggal Berita</th>
+                                                <th class="text-center" width="">No.</th>
+                                                <th class="text-center" width="">Tanggal Berita</th>
                                                 <th>Judul Berita</th>
-                                                <th>Slider</th>
-                                                <th>Aksi</th>
+                                                <th class="text-center" width="">Slider</th>
+                                                <th class="text-center" width="160px">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,8 +110,8 @@
                                             foreach ($berita as $news) :
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $news->tanggal; ?></td>
+                                                    <td class="text-center"><?php echo $no++; ?></td>
+                                                    <td class="text-center"><?php echo $news->tanggal; ?></td>
                                                     <td><?php echo $news->judul; ?></td>
                                                     <?php
                                                     $CI = &get_instance();

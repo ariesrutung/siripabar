@@ -67,6 +67,14 @@
         border: none;
         border-radius: 0;
     }
+
+    .w-20 {
+        width: 20% !important;
+    }
+
+    .w-60 {
+        width: 65% !important;
+    }
 </style>
 <div class="single">
     <div id="container" class="container">
@@ -88,45 +96,47 @@
                                 <div class="faqs mt-5">
                                     <div class="container px-0">
                                         <div class="row mb-4">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-5">
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
                                                             <td width="50%" class="strong">Daerah Irigasi</td>
-                                                            <td>:</td>
-                                                            <td><?php echo strtoupper($ddi->nama_di); ?></td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo strtoupper($ddi->nama_di); ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="strong">Kewenangan</td>
-                                                            <td>:</td>
-                                                            <td>PROV. PABAR</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong">PROV. PABAR</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="strong">Download Skema Jaringan</td>
-                                                            <td>:</td>
-                                                            <td>/</td>
+                                                            <td>Download Skema Jaringan</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong">
+                                                                <a href="" class="strong btn btn-primary btn-sm">Download</a>
+                                                            </td>
                                                         </tr>
 
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-7">
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
-                                                        <tr>
-                                                            <td width="50%" class="strong">Jumlah Aset (PAI)</td>
-                                                            <td>:</td>
-                                                            <td>191 Saluran / 583 Bangunan / 17 Nonfisik / 88 Nonjaringan / 41 Petak Tersier</td>
+                                                        <tr style="vertical-align:top">
+                                                            <td width="50%" class="strong w-20">Jumlah Aset (PAI)</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong w-70"><?php echo $ddi->jumlah_aset; ?></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="strong">Jumlah Subsistem</td>
-                                                            <td>:</td>
-                                                            <td>0 Subsistem</td>
+                                                        <tr style="vertical-align:top">
+                                                            <td class="strong w-20">Jumlah Subsistem</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong w-70"><?php echo ($ddi->jumlah_subsistem) ? $ddi->jumlah_subsistem : '0'; ?> Km</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="strong">Data AKNOP</td>
-                                                            <td>:</td>
-                                                            <td>670 Bangunan / 191 Saluran</td>
+                                                        <tr style="vertical-align:top">
+                                                            <td class="strong w-20">Data AKNOP</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong w-70"><?php echo ($ddi->data_aknop) ? $ddi->data_aknop : '0'; ?> Km</td>
                                                         </tr>
 
                                                     </tbody>
@@ -139,24 +149,24 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="btn-danger px-2">Panjang Saluran Induk</td>
-                                                            <td>:</td>
-                                                            <td>10.27 Km</td>
+                                                            <td class="w-60 btn-danger px-2">Panjang Saluran Induk</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_induk) ? $ddi->saluran_induk : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Muka</td>
-                                                            <td>:</td>
-                                                            <td>0.00 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Muka</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_muka) ? $ddi->saluran_muka : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Pengelak Banjir</td>
-                                                            <td>:</td>
-                                                            <td>0.00 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Pengelak Banjir</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->pengelak_banjir) ? $ddi->pengelak_banjir : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Pembuang (Tersier)</td>
-                                                            <td>:</td>
-                                                            <td>0.00 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Pembuang (Tersier)</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_pembuang_tersier) ? $ddi->saluran_pembuang_tersier : '0'; ?> Km</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -165,19 +175,19 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="btn-primary px-2">Panjang Saluran Sekunder</td>
-                                                            <td>:</td>
-                                                            <td>13.90 Km</td>
+                                                            <td class="w-60 btn-primary px-2">Panjang Saluran Sekunder</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_sekunder) ? $ddi->saluran_sekunder : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Pembuang</td>
-                                                            <td>:</td>
-                                                            <td>3.98 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Pembuang</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_pembuang) ? $ddi->saluran_pembuang : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="btn-success px-2">Panjang Saluran Tersier</td>
-                                                            <td>:</td>
-                                                            <td>35.84 Km</td>
+                                                            <td class="w-60 btn-success px-2">Panjang Saluran Tersier</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_tersier) ? $ddi->saluran_tersier : '0'; ?> Km</td>
                                                         </tr>
 
                                                     </tbody>
@@ -187,19 +197,19 @@
                                                 <table id="example" class="display" style="width:100%">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Suplesi</td>
-                                                            <td>:</td>
-                                                            <td>3.72 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Suplesi</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_suplesi) ? $ddi->saluran_suplesi : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="px-2">Panjang Saluran Gendong</td>
-                                                            <td>:</td>
-                                                            <td>0.00 Km</td>
+                                                            <td class="w-60 px-2">Panjang Saluran Gendong</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_gendong) ? $ddi->saluran_gendong : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="btn-warning px-2">Panjang Saluran Kuarter</td>
-                                                            <td>:</td>
-                                                            <td>0.00 Km</td>
+                                                            <td class="w-60 btn-warning px-2">Panjang Saluran Kuarter</td>
+                                                            <td width="30px" class="text-center">:</td>
+                                                            <td class="strong"><?php echo ($ddi->saluran_kuarter) ? $ddi->saluran_kuarter : '0'; ?> Km</td>
                                                         </tr>
 
                                                     </tbody>
