@@ -75,6 +75,18 @@
     .w-60 {
         width: 65% !important;
     }
+
+    .table-responsive .tex-small,
+    .table-responsive * {
+        font-size: 10px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .table-responsive thead * {
+        font-weight: bold;
+        font-size: 11px;
+    }
 </style>
 <div class="single">
     <div id="container" class="container">
@@ -230,65 +242,61 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div id="accordion-1">
-                                                       <?php 
-                                                            $delay = 0.1;
+                                                    <?php
+                                                    $delay = 0.1;
 
-                                                            foreach($datakontrak AS $dk) { 
-                                                        ?>
-                                                        <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5;?>s">
+                                                    foreach ($datakontrak as $dk) {
+                                                    ?>
+                                                        <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
                                                             <div class="card-header">
-                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $dk->id;?>">
-                                                                    <?php echo $dk->pdn_tahunsumberdana;?>
+                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $dk->id; ?>">
+                                                                    <?php echo $dk->tahun_sumberdana; ?>
                                                                 </a>
                                                             </div>
-                                                            <div id="collapse<?php echo $dk->id;?>" class="collapse" data-parent="#accordion-1">
+                                                            <div id="collapse<?php echo $dk->id; ?>" class="collapse" data-parent="#accordion-1">
                                                                 <div class="card-body">
 
                                                                     <div class="table-responsive">
-                                                                        <table class="table-bordered table-striped" style="width:100%">
+                                                                        <table class="table-bordered table-striped text-small" style="width:100%">
                                                                             <thead>
-                                                                                <tr style="font-size: 11px;">
-                                                                                    <th style="background-color: #6495ED;" colspan="4">
-                                                                                        <center>DASAR KONTRAK</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F0FFF0;" colspan="2">
-                                                                                        <center>SUMBER PENDANAAN</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F08080;" colspan="3">
-                                                                                        <center>MASA KONTRAK AWAL</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #ADD8E6;" colspan="2">
-                                                                                        <center>LOKASI</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F0E68C;" colspan="4">
-                                                                                        <center>DOKUMEN</center>
-                                                                                    </th>
+                                                                                <tr class="tex-small">
+                                                                                    <th rowspan="2">Nama Paket</th>
+                                                                                    <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
+                                                                                    <th rowspan="2">No Kontrak</th>
+                                                                                    <th rowspan="2">Tgl Kontrak</th>
+                                                                                    <th rowspan="2">Nilai Kontrak</th>
+                                                                                    <th rowspan="2">Sumber Dana</th>
+                                                                                    <th style="padding:2.5px;" colspan="3">Lokasi</th>
+                                                                                    <th rowspan="2">Output/Capaian/Produk Akhir </th>
+                                                                                    <th rowspan="2">Dokumentasi </th>
                                                                                 </tr>
-                                                                                <tr style="font-size: 10px; text-align: center;">
-                                                                                    <th>Nama Paket Fisik</th>
-                                                                                    <th>Penyedia Jasa Kontraktor</th>
-                                                                                    <th>No. Kontrak Kontraktor</th>
-                                                                                    <th>Tgl Kontrak</th>
-                                                                                    <th>Sumber Dana</th>
-                                                                                    <th>Nilai Kontrak Kontraktor</th>
-                                                                                    <th>Bulan</th>
-                                                                                    <th>Hari</th>
-                                                                                    <th>Tgl. PHO</th>
+                                                                                <tr>
                                                                                     <th>Kab.</th>
+                                                                                    <th>Kec.</th>
                                                                                     <th>Koordinat</th>
-                                                                                    <th>Dok. Kontrak</th>
-                                                                                    <th>Gambar Rencana</th>
-                                                                                    <th>Gambar As Build Drawing</th>
-                                                                                    <th>Dokumentasi</th>
                                                                                 </tr>
                                                                             </thead>
+                                                                            <tbody>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                                <td>\</td>
+                                                                            </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <?php } ?>
-                                                        
+                                                    <?php } ?>
+
                                                 </div>
                                             </div>
                                         </div>

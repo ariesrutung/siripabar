@@ -8,13 +8,24 @@
     <meta content="Construction Company Website Template" name="keywords">
     <meta content="Construction Company Website Template" name="description">
 
-     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/site.webmanifest">
-    <link rel="mask-icon" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
+    <!-- Favicon -->
+    <link href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png" rel="icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/company/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo base_url(); ?>public/company/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>public/company/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo base_url(); ?>public/company/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?php echo base_url(); ?>public/company/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google Font -->
@@ -87,7 +98,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="logo">
                             <a href="<?php echo base_url('/'); ?>">
-                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew3.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew4.png" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -157,7 +168,7 @@
                             </div>
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
                             <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
-                            <a id="menulapor" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
+                            <a id="menuemonitoring" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
                         </div>
                     </div>
                 </nav>
@@ -177,16 +188,10 @@
         <!-- footer -->
         <!-- Footer Start -->
         <div class="footer wow fadeIn" data-wow-delay="0.3s">
-
             <div class="container copyright">
                 <div class="row">
-                    <div class="col-md-6">
-                        <p><a href="#">SIRIPABAR</a> &copy; 2023. All Right Reserved.</p>
-                    </div>
-
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    <div class="col-md-6">
-                        <p>Designed By <a href="#">Underground Developer</a></p>
+                    <div class="col-md-12">
+                        <p class="text-center">Copyright &copy; 2023. Sistem Informasi Infrastruktur Irigasi Papua Parat.</p>
                     </div>
                 </div>
             </div>

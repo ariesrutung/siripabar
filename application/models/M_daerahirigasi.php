@@ -39,7 +39,7 @@ class M_daerahirigasi extends CI_Model
         $this->db->from("data_kontrak dk");
         $this->db->join("daerah_irigasi di", "di.kode_di=dk.kode_di");
         $this->db->where("dk.kode_di", $kode);
-        $this->db->order_by("pdn_tahunsumberdana","DESC");
+        $this->db->order_by("tahun_sumberdana", "DESC");
         $query = $this->db->get();
         return $query->result();
     }
