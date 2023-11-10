@@ -20,7 +20,7 @@
         <div class="row justify-content-center align-items-center">
             <?php foreach ($daerahirigasi as $di) { ?>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="<?php echo base_url('daerahirigasi/detail/') . $di->kode_di; ?>">
+                    <!-- <a href="<?php //echo base_url('daerahirigasi/detail/') . $di->kode_di; ?>"> -->
                         <div class="service-item">
                             <div class="service-img">
                                 <img style="height: 200px;" src="<?php echo  base_url(); ?>/public/company/img/skema/<?php echo $di->gambar; ?>" alt="Image">
@@ -31,7 +31,7 @@
                                 <h3 class="text-center"><?php echo $di->nama_di ?></h3>
                             </div>
                         </div>
-                    </a>
+                    <!-- </a> -->
                 </div>
             <?php } ?>
         </div>
