@@ -383,7 +383,3 @@
             });
         });
     </script>
-    <!-- scripit init-->
-</body>
-
-</html>

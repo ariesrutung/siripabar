@@ -20,6 +20,3 @@
             $('#menudatakontrak').last().addClass("active");
         });
     </script>
-</body>
-
-</html>

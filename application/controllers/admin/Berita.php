@@ -22,8 +22,8 @@ class Berita extends CI_Controller
         $data['list_kategori'] = $this->M_berita->get_kategori();
 
         $data['title'] = 'BERITA';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/berita', $data);
+        $data['_view'] = "admin/berita";
+        $this->load->view('admin/layout', $data);
     }
 
     public function generateidberita()

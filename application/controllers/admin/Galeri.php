@@ -6,7 +6,7 @@ class Galeri extends CI_Controller
     public function index()
     {
         $data['title'] = 'GALERI';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/galeri', $data);
+        $data['_view'] = "admin/galeri";
+        $this->load->view('admin/layout', $data);
     }
 }

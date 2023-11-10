@@ -387,6 +387,3 @@
                 $('#menudaerahirigasi').last().addClass("active");
             });
         </script>
-</body>
-
-</html>
