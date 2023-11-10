@@ -148,10 +148,10 @@
                             <div class="nav-item dropdown">
                                 <a id="menudaerahirigasi" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Daerah Irigasi</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Kewenangan Kementerian</a>
-                                    <a href="<?php echo base_url('daerahirigasi'); ?>" class="dropdown-item">Kewenangan Provinsi</a>
-                                    <a href="#" class="dropdown-item">Kewenangan Kab/Kota</a>
-                                    <a href="#" class="dropdown-item">Non Status</a>
+                                    <a href="<?php echo base_url('daerahirigasi/pusat'); ?>" class="dropdown-item">Kewenangan Kementerian</a>
+                                    <a href="<?php echo base_url('daerahirigasi/provinsi'); ?>" class="dropdown-item">Kewenangan Provinsi</a>
+                                    <a href="<?php echo base_url('daerahirigasi/kabkota'); ?>" class="dropdown-item">Kewenangan Kab/Kota</a>
+                                    <a href="<?php echo base_url('daerahirigasi/nonstatus'); ?>" class="dropdown-item">Non Status</a>
                                 </div>
                             </div>
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
