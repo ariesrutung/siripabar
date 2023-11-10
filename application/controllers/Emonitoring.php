@@ -5,7 +5,7 @@ class Emonitoring extends CI_Controller
 {
     public function index()
     {
-        $data['berita'] = $this->M_berita->get_all();
+        $data['emonitoring'] = $this->M_emonitoring->get_all();
         $data['title'] = 'EMONITORING PELAKSANAAN';
         $data['_view'] = "company/emonitor";
         $this->load->view('company/layout', $data);

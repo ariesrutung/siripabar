@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <style>
     .faqs {
         position: relative;
@@ -54,17 +55,27 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="accordion-1">
-                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                    <?php
+                        $delay = 0.1;
+                        foreach ($emonitoring as $emon) {
+                    ?>
+                    <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
                         <div class="card-header">
-                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne">
-                                Lorem ipsum dolor sit amet?
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $emon->tahun_sumberdana; ?>">
+                                <?php echo $emon->tahun_sumberdana; ?>
                             </a>
                         </div>
-                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                        <div id="collapse<?php echo $emon->tahun_sumberdana; ?>" class="collapse" data-parent="#accordion-1">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table-bordered table-striped text-small" style="width:100%">
                                         <thead>
+                                             <?php
+                                                $CI = &get_instance();
+                                                $CI->load->model('M_emonitoring');
+                                                
+                                                $datakontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($emon->tahun_sumberdana);
+                                                ?>
                                             <tr class="tex-small">
                                                 <th rowspan="2">Nama Paket</th>
                                                 <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
@@ -111,254 +122,74 @@
                                                 <th>Dokumentasi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
-                                            <td>\</td>
+
+                                         <tbody>
+                                            <?php foreach($datakontrak as $dk) { ?>
+                                            <tr>
+                                                <td><?php echo $dk->nama_paket; ?></td>
+                                                <td><?php echo $dk->penyedia_jasa; ?></td>
+                                                <td><?php echo $dk->no_kontrak; ?></td>
+                                                <td><?php echo $dk->tgl_kontrak; ?></td>
+                                                <td><?php echo $dk->no_spmk; ?></td>
+                                                <td><?php echo $dk->tgl_spmk; ?></td>
+                                                <td><?php echo $dk->sumber_dana." ".$dk->tahun_sumberdana; ?></td>
+                                                <td><?php echo $dk->nilai_kontrak; ?></td>
+                                                <td><?php echo $dk->lok_kabupaten; ?></td>
+                                                <td><?php echo $dk->lok_distrik; ?></td>
+                                                <td><?php echo $dk->titik_koordinat; ?></td>
+                                                <td><?php echo $dk->output_produk; ?></td>
+                                                <td><?php echo $dk->tgl_rencanapho; ?></td>
+                                                <td><?php echo $dk->masa_pelaksanaan; ?></td>
+                                                <td><?php echo $dk->dokumentasi; ?></td>
+                                                <td><?php echo $dk->pk_januari; ?></td>
+                                                <td><?php echo $dk->pk_februari; ?></td>
+                                                <td><?php echo $dk->pk_maret; ?></td>
+                                                <td><?php echo $dk->pk_april; ?></td>
+                                                <td><?php echo $dk->pk_mei; ?></td>
+                                                <td><?php echo $dk->pk_juni; ?></td>
+                                                <td><?php echo $dk->pk_juli; ?></td>
+                                                <td><?php echo $dk->pk_agustus; ?></td>
+                                                <td><?php echo $dk->pk_september; ?></td>
+                                                <td><?php echo $dk->pk_oktober; ?></td>
+                                                <td><?php echo $dk->pk_november; ?></td>
+                                                <td><?php echo $dk->pk_desember; ?></td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-info open-modalkurva" data-toggle="modal" 
+                                                    data-jan="<?php echo $dk->pk_januari; ?>" 
+                                                    data-feb="<?php echo $dk->pk_februari; ?>"
+                                                    data-mar="<?php echo $dk->pk_maret;?>"
+                                                    data-apr="<?php echo $dk->pk_april;?>"
+                                                    data-mei="<?php echo $dk->pk_mei;?>"
+                                                    data-jun="<?php echo $dk->pk_juni;?>"
+                                                    data-jul="<?php echo $dk->pk_juli;?>"
+                                                    data-agu="<?php echo $dk->pk_agustus;?>"
+                                                    data-sep="<?php echo $dk->pk_september;?>"
+                                                    data-okt="<?php echo $dk->pk_oktober;?>"
+                                                    data-nov="<?php echo $dk->pk_november;?>"
+                                                    data-des="<?php echo $dk->pk_desember;?>"
+                                                    data-namapaket="<?php echo $dk->nama_paket;?>"
+                                                    href="#modalKurva">Kurva</a></td>
+                                                <td><?php echo $dk->dp_dokkontrak; ?></td>
+                                                <td><?php echo $dk->dp_gbrrencana; ?></td>
+                                                <td><?php echo $dk->dp_gbrasbuild; ?></td>
+                                                <td><?php echo $dk->dp_mcnol; ?></td>
+                                                <td><?php echo $dk->dp_lapharian; ?></td>
+                                                <td><?php echo $dk->dp_lapmingguan; ?></td>
+                                                <td><?php echo $dk->dp_lapbulanan; ?></td>
+                                                <td><?php echo $dk->dp_mcseratus; ?></td>
+                                                <td><?php echo $dk->dp_dokumentasi; ?></td>
+                                            </tr>
+                                            <?php } ?>
                                         </tbody>
+                                       
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwo">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table-bordered table-striped" style="width:100%">
-                                        <thead>
-                                            <tr style="font-size: 11px;">
-                                                <th style="background-color: #6495ED;" colspan="4">
-                                                    <center>DASAR KONTRAK</center>
-                                                </th>
-                                                <th style="background-color: #F0FFF0;" colspan="2">
-                                                    <center>SUMBER PENDANAAN</center>
-                                                </th>
-                                                <th style="background-color: #F08080;" colspan="3">
-                                                    <center>MASA KONTRAK AWAL</center>
-                                                </th>
-                                                <th style="background-color: #ADD8E6;" colspan="2">
-                                                    <center>LOKASI</center>
-                                                </th>
-                                                <th style="background-color: #F0E68C;" colspan="4">
-                                                    <center>DOKUMEN</center>
-                                                </th>
-                                            </tr>
-                                            <tr style="font-size: 10px; text-align: center;">
-                                                <th>Nama Paket Fisik</th>
-                                                <th>Penyedia Jasa Kontraktor</th>
-                                                <th>No. Kontrak Kontraktor</th>
-                                                <th>Tgl Kontrak</th>
-                                                <th>Sumber Dana</th>
-                                                <th>Nilai Kontrak Kontraktor</th>
-                                                <th>Bulan</th>
-                                                <th>Hari</th>
-                                                <th>Tgl. PHO</th>
-                                                <th>Kab.</th>
-                                                <th>Koordinat</th>
-                                                <th>Dok. Kontrak</th>
-                                                <th>Gambar Rencana</th>
-                                                <th>Gambar As Build Drawing</th>
-                                                <th>Dokumentasi</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseThree">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table-bordered table-striped" style="width:100%">
-                                        <thead>
-                                            <tr style="font-size: 11px;">
-                                                <th style="background-color: #6495ED;" colspan="4">
-                                                    <center>DASAR KONTRAK</center>
-                                                </th>
-                                                <th style="background-color: #F0FFF0;" colspan="2">
-                                                    <center>SUMBER PENDANAAN</center>
-                                                </th>
-                                                <th style="background-color: #F08080;" colspan="3">
-                                                    <center>MASA KONTRAK AWAL</center>
-                                                </th>
-                                                <th style="background-color: #ADD8E6;" colspan="2">
-                                                    <center>LOKASI</center>
-                                                </th>
-                                                <th style="background-color: #F0E68C;" colspan="4">
-                                                    <center>DOKUMEN</center>
-                                                </th>
-                                            </tr>
-                                            <tr style="font-size: 10px; text-align: center;">
-                                                <th>Nama Paket Fisik</th>
-                                                <th>Penyedia Jasa Kontraktor</th>
-                                                <th>No. Kontrak Kontraktor</th>
-                                                <th>Tgl Kontrak</th>
-                                                <th>Sumber Dana</th>
-                                                <th>Nilai Kontrak Kontraktor</th>
-                                                <th>Bulan</th>
-                                                <th>Hari</th>
-                                                <th>Tgl. PHO</th>
-                                                <th>Kab.</th>
-                                                <th>Koordinat</th>
-                                                <th>Dok. Kontrak</th>
-                                                <th>Gambar Rencana</th>
-                                                <th>Gambar As Build Drawing</th>
-                                                <th>Dokumentasi</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table-bordered table-striped" style="width:100%">
-                                        <thead>
-                                            <tr style="font-size: 11px;">
-                                                <th style="background-color: #6495ED;" colspan="4">
-                                                    <center>DASAR KONTRAK</center>
-                                                </th>
-                                                <th style="background-color: #F0FFF0;" colspan="2">
-                                                    <center>SUMBER PENDANAAN</center>
-                                                </th>
-                                                <th style="background-color: #F08080;" colspan="3">
-                                                    <center>MASA KONTRAK AWAL</center>
-                                                </th>
-                                                <th style="background-color: #ADD8E6;" colspan="2">
-                                                    <center>LOKASI</center>
-                                                </th>
-                                                <th style="background-color: #F0E68C;" colspan="4">
-                                                    <center>DOKUMEN</center>
-                                                </th>
-                                            </tr>
-                                            <tr style="font-size: 10px; text-align: center;">
-                                                <th>Nama Paket Fisik</th>
-                                                <th>Penyedia Jasa Kontraktor</th>
-                                                <th>No. Kontrak Kontraktor</th>
-                                                <th>Tgl Kontrak</th>
-                                                <th>Sumber Dana</th>
-                                                <th>Nilai Kontrak Kontraktor</th>
-                                                <th>Bulan</th>
-                                                <th>Hari</th>
-                                                <th>Tgl. PHO</th>
-                                                <th>Kab.</th>
-                                                <th>Koordinat</th>
-                                                <th>Dok. Kontrak</th>
-                                                <th>Gambar Rencana</th>
-                                                <th>Gambar As Build Drawing</th>
-                                                <th>Dokumentasi</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table-bordered table-striped" style="width:100%">
-                                        <thead>
-                                            <tr style="font-size: 11px;">
-                                                <th style="background-color: #6495ED;" colspan="4">
-                                                    <center>DASAR KONTRAK</center>
-                                                </th>
-                                                <th style="background-color: #F0FFF0;" colspan="2">
-                                                    <center>SUMBER PENDANAAN</center>
-                                                </th>
-                                                <th style="background-color: #F08080;" colspan="3">
-                                                    <center>MASA KONTRAK AWAL</center>
-                                                </th>
-                                                <th style="background-color: #ADD8E6;" colspan="2">
-                                                    <center>LOKASI</center>
-                                                </th>
-                                                <th style="background-color: #F0E68C;" colspan="4">
-                                                    <center>DOKUMEN</center>
-                                                </th>
-                                            </tr>
-                                            <tr style="font-size: 10px; text-align: center;">
-                                                <th>Nama Paket Fisik</th>
-                                                <th>Penyedia Jasa Kontraktor</th>
-                                                <th>No. Kontrak Kontraktor</th>
-                                                <th>Tgl Kontrak</th>
-                                                <th>Sumber Dana</th>
-                                                <th>Nilai Kontrak Kontraktor</th>
-                                                <th>Bulan</th>
-                                                <th>Hari</th>
-                                                <th>Tgl. PHO</th>
-                                                <th>Kab.</th>
-                                                <th>Koordinat</th>
-                                                <th>Dok. Kontrak</th>
-                                                <th>Gambar Rencana</th>
-                                                <th>Gambar As Build Drawing</th>
-                                                <th>Dokumentasi</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <?php } ?>
+                  
                 </div>
             </div>
 
@@ -366,8 +197,77 @@
     </div>
 </div>
 
+
+<!-- modal -->
+<div class="modal fade" id="modalKurva" tabindex="-1" role="dialog" aria-labelledby="modalKurvaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div> -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <canvas class="" id="myChart" style="width:100%"></canvas>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+<script>
+$(document).on("click", ".open-modalkurva", function () {
+    var pk_jan = $(this).data('jan');
+    var pk_feb = $(this).data('feb');
+    var pk_mar = $(this).data('mar');
+    var pk_apr = $(this).data('apr');
+    var pk_mei = $(this).data('mei');
+    var pk_jun = $(this).data('jun');
+    var pk_jul = $(this).data('jul');
+    var pk_agu = $(this).data('agu');
+    var pk_sep = $(this).data('sep');
+    var pk_okt = $(this).data('okt');
+    var pk_nov = $(this).data('nov');
+    var pk_des = $(this).data('des');
+    var namapaket = $(this).data('namapaket');
+
+    const xValues = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{ 
+          data: [pk_jan,pk_feb,pk_mar,pk_apr,pk_mei,pk_jun,pk_jul,pk_agu,pk_sep,pk_okt,pk_nov,pk_des],
+          borderColor: "red",
+          fill: true
+        }]
+      },
+      options: {
+        legend: {display: false},
+        
+            title: {
+                display: true,
+                text: namapaket
+            }
+        
+      }
+    });
+// $(".modal-body #bookId").val( myBookId );
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+});
+</script>
 <script>
     $(document).ready(function() {
         $('#menuemonitoring').last().addClass("active");
     });
 </script>
+
+
