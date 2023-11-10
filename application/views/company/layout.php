@@ -86,7 +86,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="logo">
                             <a href="<?php echo base_url('/'); ?>">
-                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/siripabar.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew.png" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                                 <div class="dropdown-menu">
                                     <a href="#" class="dropdown-item">Kewenangan Kementerian</a>
                                     <a href="<?php echo base_url('daerahirigasi'); ?>" class="dropdown-item">Kewenangan Provinsi</a>
-                                    <a href="#" class="dropdown-item">Kewenangan Kabupaten</a>
+                                    <a href="#" class="dropdown-item">Kewenangan Kab/Kota</a>
                                 </div>
                             </div>
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
