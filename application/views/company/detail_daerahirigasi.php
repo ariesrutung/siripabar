@@ -230,69 +230,24 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div id="accordion-1">
-                                                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
-                                                        <div class="card-header">
-                                                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne">
-                                                                2023
-                                                            </a>
-                                                        </div>
-                                                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
-                                                                    <table class="table-bordered table-striped" style="width:100%">
-                                                                        <thead>
-                                                                            <tr style="font-size: 14px;">
-                                                                                <th style="background-color: #6495ED;" colspan="4">
-                                                                                    <center>DASAR KONTRAK</center>
-                                                                                </th>
-                                                                                <th style="background-color: #F0FFF0;" colspan="2">
-                                                                                    <center>SUMBER PENDANAAN</center>
-                                                                                </th>
-                                                                                <th style="background-color: #F08080;" colspan="3">
-                                                                                    <center>MASA KONTRAK AWAL</center>
-                                                                                </th>
-                                                                                <th style="background-color: #ADD8E6;" colspan="2">
-                                                                                    <center>LOKASI</center>
-                                                                                </th>
-                                                                                <th style="background-color: #F0E68C;" colspan="4">
-                                                                                    <center>DOKUMEN</center>
-                                                                                </th>
-                                                                            </tr>
-                                                                            <tr style="font-size: 12px; text-align: center;">
-                                                                                <th>Nama Paket Fisik</th>
-                                                                                <th>Penyedia Jasa Kontraktor</th>
-                                                                                <th>No. Kontrak Kontraktor</th>
-                                                                                <th>Tgl Kontrak</th>
-                                                                                <th>Sumber Dana</th>
-                                                                                <th>Nilai Kontrak Kontraktor</th>
-                                                                                <th>Bulan</th>
-                                                                                <th>Hari</th>
-                                                                                <th>Tgl. PHO</th>
-                                                                                <th>Kab.</th>
-                                                                                <th>Koordinat</th>
-                                                                                <th>Dok. Kontrak</th>
-                                                                                <th>Gambar Rencana</th>
-                                                                                <th>Gambar As Build Drawing</th>
-                                                                                <th>Dokumentasi</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                                                       <?php 
+                                                            $delay = 0.1;
+
+                                                            foreach($datakontrak AS $dk) { 
+                                                        ?>
+                                                        <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5;?>s">
                                                             <div class="card-header">
-                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
-                                                                    2022
+                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $dk->id;?>">
+                                                                    <?php echo $dk->pdn_tahunsumberdana;?>
                                                                 </a>
                                                             </div>
-                                                            <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                                                            <div id="collapse<?php echo $dk->id;?>" class="collapse" data-parent="#accordion-1">
                                                                 <div class="card-body">
 
                                                                     <div class="table-responsive">
                                                                         <table class="table-bordered table-striped" style="width:100%">
                                                                             <thead>
-                                                                                <tr style="font-size: 14px;">
+                                                                                <tr style="font-size: 11px;">
                                                                                     <th style="background-color: #6495ED;" colspan="4">
                                                                                         <center>DASAR KONTRAK</center>
                                                                                     </th>
@@ -309,7 +264,7 @@
                                                                                         <center>DOKUMEN</center>
                                                                                     </th>
                                                                                 </tr>
-                                                                                <tr style="font-size: 12px; text-align: center;">
+                                                                                <tr style="font-size: 10px; text-align: center;">
                                                                                     <th>Nama Paket Fisik</th>
                                                                                     <th>Penyedia Jasa Kontraktor</th>
                                                                                     <th>No. Kontrak Kontraktor</th>
@@ -332,65 +287,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="card wow fadeInLeft" data-wow-delay="0.5s">
-                                                            <div class="card-header">
-                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
-                                                                    2021
-                                                                </a>
-                                                            </div>
-                                                            <div id="collapseFive" class="collapse" data-parent="#accordion-1">
-                                                                <div class="card-body">
-
-                                                                    <div class="table-responsive">
-                                                                        <table class="table-bordered table-striped" style="width:100%">
-                                                                            <thead>
-                                                                                <tr style="font-size: 14px;">
-                                                                                    <th style="background-color: #6495ED;" colspan="4">
-                                                                                        <center>DASAR KONTRAK</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F0FFF0;" colspan="2">
-                                                                                        <center>SUMBER PENDANAAN</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F08080;" colspan="3">
-                                                                                        <center>MASA KONTRAK AWAL</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #ADD8E6;" colspan="2">
-                                                                                        <center>LOKASI</center>
-                                                                                    </th>
-                                                                                    <th style="background-color: #F0E68C;" colspan="4">
-                                                                                        <center>DOKUMEN</center>
-                                                                                    </th>
-                                                                                </tr>
-                                                                                <tr style="font-size: 12px; text-align: center;">
-                                                                                    <th>Nama Paket Fisik</th>
-                                                                                    <th>Penyedia Jasa Kontraktor</th>
-                                                                                    <th>No. Kontrak Kontraktor</th>
-                                                                                    <th>Tgl Kontrak</th>
-                                                                                    <th>Sumber Dana</th>
-                                                                                    <th>Nilai Kontrak Kontraktor</th>
-                                                                                    <th>Bulan</th>
-                                                                                    <th>Hari</th>
-                                                                                    <th>Tgl. PHO</th>
-                                                                                    <th>Kab.</th>
-                                                                                    <th>Koordinat</th>
-                                                                                    <th>Dok. Kontrak</th>
-                                                                                    <th>Gambar Rencana</th>
-                                                                                    <th>Gambar As Build Drawing</th>
-                                                                                    <th>Dokumentasi</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        <?php } ?>
+                                                        
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- FAQs End -->
-
                                 </div>
                             </div>
                         </div>

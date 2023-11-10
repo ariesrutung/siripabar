@@ -6,7 +6,7 @@ class Datakontrak extends CI_Controller
     public function index()
     {
         $data['title'] = 'DATA KONTRAK';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/datakontrak', $data);
+        $data['_view'] = "admin/datakontrak";
+        $this->load->view('admin/layout', $data);
     }
 }

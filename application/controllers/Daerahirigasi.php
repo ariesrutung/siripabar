@@ -27,6 +27,7 @@ class Daerahirigasi extends CI_Controller
     public function detail($kode)
     {
         $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
+        $data['datakontrak'] = $this->M_daerahirigasi->get_datakontrak($kode);
         $data['title'] = 'DETAIL DAERAH IRIGASI';
         $data['_view'] = "company/detail_daerahirigasi";
         $this->load->view('company/layout', $data);

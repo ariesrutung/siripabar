@@ -709,9 +709,7 @@
 <!-- About Start -->
 <div class="about wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
-        <div class="section-header text-center">
-            <h2>PROFIL</h2>
-        </div>
+        
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">

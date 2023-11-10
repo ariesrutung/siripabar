@@ -25,8 +25,8 @@ class Pengaduan extends CI_Controller
         $data['pengaduan'] = $this->M_pengaduan->get_all();
 
         $data['title'] = 'PENGADUAN';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/pengaduan', $data);
+        $data['_view'] = "admin/pengaduan";
+        $this->load->view('admin/layout', $data);
     }
 
     public function terimaLaporan()

@@ -6,7 +6,7 @@ class Unduhlaporan extends CI_Controller
     public function index()
     {
         $data['title'] = 'UNDUH LAPORAN';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/unduhlaporan', $data);
+        $data['_view'] = "admin/unduhlaporan";
+        $this->load->view('admin/layout', $data);
     }
 }

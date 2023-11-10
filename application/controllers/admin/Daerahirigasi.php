@@ -19,7 +19,7 @@ class Daerahirigasi extends CI_Controller
         $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
 
         $data['title'] = 'DAERAH IRIGASI';
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/daerahirigasi', $data);
+        $data['_view'] = "admin/daerahirigasi";
+        $this->load->view('admin/layout', $data);
     }
 }
