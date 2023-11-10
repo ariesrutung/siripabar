@@ -78,11 +78,9 @@ class Berita extends CI_Controller
 
     public function add()
     {
-
-        $data['_view'] = "admin/berita_add";
-        $this->load->view('admin/layout', $data);
-
         $data['idberita'] = date("YmdHis");
+        $data['menu'] = "admin/navbar";
+        $this->load->view('admin/berita_add', $data);
     }
 
     public function edit($idberita)

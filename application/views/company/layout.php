@@ -70,9 +70,18 @@
             z-index: 1;
         }
 
-        .carousel .carousel-item img {
+        /* .carousel .carousel-item img {
             width: 100% !important;
             height: auto !important;
+        } */
+        .nav-bar.nav-sticky,
+        .wrapper {
+            max-width: 100%;
+        }
+
+        .navbar-nav.mr-auto {
+            width: 100% !important;
+            justify-content: center;
         }
     </style>
 </head>
@@ -84,13 +93,16 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-12">
+
+                    </div>
+                    <div class="col-lg-4 col-md-12">
                         <div class="logo">
                             <a href="<?php echo base_url('/'); ?>">
-                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew2.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew3.png" alt="Logo">
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                    <!-- <div class="col-lg-8 col-md-7 d-none d-lg-block">
                         <div class="row">
                             <div class="col-4">
                                 <div class="top-bar-item">
@@ -126,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -155,8 +167,8 @@
                                 </div>
                             </div>
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
-
                             <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
+                            <a id="menulapor" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
                         </div>
                     </div>
                 </nav>

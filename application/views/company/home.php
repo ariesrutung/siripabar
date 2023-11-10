@@ -26,6 +26,11 @@
         color: #fff;
         background: #030f27;
     }
+
+    .navbar-nav.mr-auto a {
+        padding: 5px 20px !important;
+        font-size: 18px;
+    }
 </style>
 
 <!-- Carousel Start -->
@@ -34,33 +39,33 @@
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
         <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="3"></li>
+        <li data-target="#carousel" data-slide-to="4"></li>
+        <li data-target="#carousel" data-slide-to="5"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/pusat.png" alt="Carousel Image">
-            <!-- <div class="carousel-caption">
-                <p class="animated fadeInRight">We Are Professional</p>
-                <h1 class="animated fadeInLeft">For Your Dream Project</h1>
-                <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div> -->
-        </div>
-
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/provinsi.png" alt="Carousel Image">
-            <!-- <div class="carousel-caption">
-                <p class="animated fadeInRight">Professional Builder</p>
-                <h1 class="animated fadeInLeft">We Build Your Home</h1>
-                <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div> -->
-        </div>
-
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider/kabupaten.png" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (4).jpg" alt="Carousel Image">
             <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">We Are Trusted</p>
                 <h1 class="animated fadeInLeft">For Your Dream Home</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
             </div> -->
+        </div>
+        <div class="carousel-item">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (2).jpg" alt="Carousel Image">
+        </div>
+        <div class="carousel-item">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (1).jpg" alt="Carousel Image">
+        </div>
+        <div class="carousel-item">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (3).jpg" alt="Carousel Image">
+        </div>
+        <div class="carousel-item">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (5).jpg" alt="Carousel Image">
+        </div>
+        <div class="carousel-item">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (6).jpg" alt="Carousel Image">
         </div>
     </div>
 
@@ -709,7 +714,7 @@
 <!-- About Start -->
 <div class="about wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
-        
+
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">

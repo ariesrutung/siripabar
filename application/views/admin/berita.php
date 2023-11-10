@@ -47,8 +47,6 @@
 
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
-
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
     <style>
@@ -69,6 +67,17 @@
         .modal-content-scrollable {
             max-height: 670px;
             overflow-y: auto;
+        }
+
+        div#bootstrap-data-table-export_paginate li {
+            background-color: #647dfc;
+            margin: 10px;
+            padding: 10px;
+            color: #fff !important;
+        }
+
+        div#bootstrap-data-table-export_paginate li a {
+            color: #fff;
         }
     </style>
 </head>
@@ -190,7 +199,18 @@
                                 <label class="text-label">Judul Berita</label>
                                 <input type="text" class="form-control" id="judulberita" name="judulberita" required>
                             </div>
+                        </div>
 
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="text-label mb-0">Kategori Berita</label>
+                            <div class="form-group mb-0">
+                                <select id="kategoriberita" name="kategoriberita" aria-controls="kategoriberita" class="custom-select form-control form-select" disabled>
+                                    <option value="0">- Pilih Kategori Berita - </option>
+                                    <option value="Irigasi" selected>Irigasi</option>
+                                    <option value="Sungai">Sungai</option>
+                                    <option value="Pantai">Pantai</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -207,6 +227,27 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12 mb-3">
+                            <label for="" class="">Tampilkan gambar berita sebagai slider di halaman beranda?</label>
+                            <div class="row">
+                                <div class="col-md-6 mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="slider" id="tampil_slider" checked="">
+                                        <label class="form-check-label" for="tampil_slider">
+                                            Ya
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="slider" id="no_slider">
+                                        <label class="form-check-label" for="no_slider">
+                                            Tidak
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group mb-0 mt-0">
                                 <label class="text-label">Gambar Berita</label>
@@ -239,7 +280,6 @@
     <!-- sidebar -->
     <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/bootstrap.min.js">
 
-
     </script>
     <!-- bootstrap -->
 
@@ -253,16 +293,17 @@
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
+    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#menuberita').last().addClass("active");
         });
 
-        $('#isiberita').summernote();
+        tinymce.init({
+            selector: '#isiberita'
+        });
     </script>
 
     <script>
