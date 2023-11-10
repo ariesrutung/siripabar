@@ -17,7 +17,7 @@
             <h2>DAERAH IRIGASI</h2>
             <p>Kewenangan Kab/Kota</p>
         </div>
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
             <?php foreach ($daerahirigasi as $di) { ?>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a href="<?php echo base_url('daerahirigasi/detail/') . $di->kode_di; ?>">
