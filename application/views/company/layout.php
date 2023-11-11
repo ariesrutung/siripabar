@@ -159,6 +159,11 @@
                             <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
                             <!-- Menu untuk user login -->
                                 <a id="menuemonitoring" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
+
+                               <!-- tombol logout untuk tamu login -->
+                                <?php if ($this->session->userdata('username') && !$this->ion_auth->is_admin()) { ?>
+                                <a href="<?php echo base_url('auth/logout'); ?>" class="nav-item nav-link">Logout</a>
+                            <?php  } ?>
                            
                         </div>
                     </div>

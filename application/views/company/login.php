@@ -96,9 +96,9 @@
                                         <label><strong>Kata Sandi</strong></label>
                                         <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
                                     </div>
-                                    <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
+                                    <!-- <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
                                         <a href="page-forgot-password.html">Lupa Kata Sandi?</a>
-                                    </div>
+                                    </div> -->
                                     <div class="text-center mt-5">
                                         <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
                                     </div>

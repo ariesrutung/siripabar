@@ -45,8 +45,8 @@
                                             <td><?php echo $di->luas_fungsional; ?></td>
                                             <td>
                                                 <a href="#" data-toggle="modal" data-target=".modalSkema" class="btn btn-sm btn-primary"><i class="fa fa-map-marker"></i> Skema</a>
-                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a>
-                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Dok. lain</a>
+                                               <!--  <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a>
+                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Dok. lain</a> -->
                                             </td>
                                         </tr>
                                     <?php } ?>

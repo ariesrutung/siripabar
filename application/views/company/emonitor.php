@@ -67,7 +67,33 @@
             <p></p>
             <h2></h2>
         </div>
-        <div class="row">
+
+        <div class="row justify-content-center align-items-center">
+            <?php if (!$this->session->userdata('username')) { ?>
+            <div class="col-md-6">
+                <div class="auth-form">
+                    <h4 class="text-center mb-4 strong">ANDA HARUS LOGIN <br>UNTUK MENGAKSES MENU E-MONITORING PELAKSANAAN</h4>
+                    <?php echo form_open("auth/logintamu"); ?>
+                    <div class="form-group">
+                        <label class=""><strong>Email</strong></label>
+                        <input type="text" name="identity" class="form-control" id="identity" required placeholder="Ketik email Anda di sini">
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Kata Sandi</strong></label>
+                        <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
+                    </div>
+                    <!-- <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
+                        <a href="page-forgot-password.html">Lupa Kata Sandi?</a>
+                    </div> -->
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+                    </div>
+                    <?php echo form_close(); ?>
+                </div>
+            </div>
+            <?php } ?>
+            <?php if ($this->session->userdata('username')) { ?>
+
             <div class="col-md-12">
                 <div id="accordion-1">
                     <?php
@@ -204,7 +230,7 @@
 
                 </div>
             </div>
-
+            <?php } ?>
         </div>
     </div>
 </div>

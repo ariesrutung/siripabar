@@ -108,6 +108,54 @@ class Auth extends CI_Controller
         }
     }
 
+    public function logintamu()
+    {
+        $this->data['title'] = $this->lang->line('login_heading');
+
+        // validate form input
+        $this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
+        $this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
+
+        if ($this->form_validation->run() === TRUE) {
+            // check to see if the user is logging in
+            // check for "remember me"
+            $remember = (bool)$this->input->post('remember');
+
+            if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
+                //if the login is successful
+                //redirect them back to the home page
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
+                redirect('emonitoring', 'refresh');
+            } else {
+                // if the login was un-successful
+                // redirect them back to the login page
+                // $this->session->set_flashdata('message', $this->ion_auth->errors());
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username/Password salah</div>');
+                redirect('auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
+            }
+        } else {
+            // the user is not logging in so display the login page
+            // set the flash data error message if there is one
+            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+            $this->data['identity'] = [
+                'name' => 'identity',
+                'id' => 'identity',
+                'type' => 'text',
+                'value' => $this->form_validation->set_value('identity'),
+            ];
+
+            $this->data['password'] = [
+                'name' => 'password',
+                'id' => 'password',
+                'type' => 'password',
+            ];
+
+            // $this->_render_page('login', $this->data);
+            $this->load->view('company/login', $this->data);
+        }
+    }
+
     /**
      * Log the user out
      */
@@ -412,6 +460,10 @@ class Auth extends CI_Controller
     /**
      * Create a new user
      */
+    public function buat_user_manual($username)
+    {
+        $this->ion_auth->register($username, "123", "tamu@gmail.com");
+    }
     public function create_user()
     {
         $this->data['title'] = $this->lang->line('create_user_heading');
