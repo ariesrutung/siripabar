@@ -169,17 +169,17 @@
                                                         <td style="text-align: left !important"><?php echo $dk->nama_paket; ?></td>
                                                         <td><?php echo $dk->penyedia_jasa; ?></td>
                                                         <td><?php echo $dk->no_kontrak; ?></td>
-                                                        <td><?php echo $dk->tgl_kontrak; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_kontrak); ?></td>
                                                         <td><?php echo $dk->no_spmk; ?></td>
-                                                        <td><?php echo $dk->tgl_spmk; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_spmk); ?></td>
                                                         <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
                                                         <td><?php echo $dk->nilai_kontrak; ?></td>
                                                         <td><?php echo $dk->lok_kabupaten; ?></td>
                                                         <td><?php echo $dk->lok_distrik; ?></td>
                                                         <td><?php echo $dk->titik_koordinat; ?></td>
                                                         <td><?php echo $dk->output_produk; ?></td>
-                                                        <td><?php echo $dk->tgl_rencanapho; ?></td>
                                                         <td><?php echo $dk->masa_pelaksanaan; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_rencanapho); ?></td>
                                                         <td><?php echo $dk->pk_januari; ?></td>
                                                         <td><?php echo $dk->pk_februari; ?></td>
                                                         <td><?php echo $dk->pk_maret; ?></td>
