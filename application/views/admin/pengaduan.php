@@ -20,103 +20,112 @@
             font-weight: normal;
             line-height: 1.7;
         }
+
+        .table-responsive * {
+            color: #000;
+        }
+
+        .table thead th {
+            vertical-align: middle;
+            border-bottom: 2px solid #EEEEEE;
+        }
     </style>
-<div class="content-body">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Data Pengaduan</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table student-data-table m-t-20">
-                                        <thead>
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Data Pengaduan</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table student-data-table m-t-20">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Aksi</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Tanggal Laporan</th>
+                                            <th class="text-center">Kode Laporan</th>
+                                            <th class="text-center">Kab/Kota</th>
+                                            <th class="text-center">Isi Laporan</th>
+                                            <th class="text-center">Lokasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($pengaduan as $p) :  ?>
+                                            <?php
+                                            $CI = &get_instance();
+                                            $CI->load->model('M_wilayah');
+                                            $CI->load->model('M_pengaduan');
+                                            //   $gb = $CI->M_pengaduan->get_allimage($p->kodelaporan);
+                                            $kab = $CI->M_wilayah->get_by_id($p->lokasi_kabkota);
+                                            $kec = $CI->M_wilayah->get_by_id($p->lokasi_distrik);
+                                            $gbktp = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'ktp');
+                                            $gbdok1 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi1');
+                                            $gbdok2 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi2');
+                                            $gbdok3 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi3');
+                                            $dokadd = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumen_tambahan');
+                                            ?>
                                             <tr>
-                                                <th>Aksi</th>
-                                                <th>Status</th>
-                                                <th>Tanggal Laporan</th>
-                                                <th>Kode Laporan</th>
-                                                <th>Kab/Kota</th>
-                                                <th>Isi Laporan</th>
-                                                <th>Lokasi</th>
+                                                <td>
+
+                                                    <a id="DetailLap" class="btn btn-info btn-sm mb-1" href="" title="Detail" data-toggle="modal" data-target="#detailLap" data-kodelaporan="<?php echo $p->kodelaporan; ?>" data-nik="<?php echo $p->nik; ?>" data-namapelapor="<?php echo $p->nama_pelapor; ?>" data-alamatpelapor="<?php echo $p->alamat_pelapor; ?>" data-email="<?php echo $p->email; ?>" data-nohp="<?php echo $p->no_hp; ?>" data-tgllaporan="<?php echo $p->tgl_laporan; ?>" data-infrastruktur="<?php echo $p->infrastruktur; ?>" data-koordinatlokasi="<?php echo $p->latitude, $p->longitude; ?>" data-namaruasjalan="<?php echo $p->nama_ruasjalan; ?>" data-namakabkota="<?php echo ucwords(strtolower($kab->nama)); ?>" data-namadistrik="<?php echo $kec->nama; ?>" data-isilaporan="<?php echo $p->isi_laporan; ?>" data-gambarktp="<?php echo $gbktp->nama_file; ?>" data-dokumentasi1="<?php echo $gbdok1->nama_file; ?>" data-dokumentasi2="<?php echo $gbdok2->nama_file; ?>" data-dokumentasi3="<?php echo $gbdok3->nama_file; ?>" data-dokumen_tambahan="<?php echo $dokadd->nama_file; ?>">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <?php if ($p->status == 'Diterima') { ?>
+                                                        <a class="btn btn-danger btn-sm btnTolak" href="" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-close"></i></a>
+                                                    <?php } elseif ($p->status == 'Ditolak') { ?>
+                                                        <a class="btn btn-success btn-sm btnTerima" href="" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-check"></i></a>
+                                                    <?php } else { ?>
+                                                        <a class="btn btn-success btn-sm btnTerima mb-1" href="" title="Terima" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-check"></i></a>
+                                                        <a class="btn btn-danger btn-sm btnTolak mb-1" href="" title="Tolak" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-close"></i></a>
+                                                    <?php } ?>
+
+
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    if ($p->status == 'Diterima') {
+                                                        echo '<span class="badge badge-success">Diterima</span>';
+                                                    } elseif ($p->status == 'Ditolak') {
+                                                        echo '<span class="badge badge-danger">Ditolak</span>';
+                                                    } else {
+                                                        echo '<span class="badge badge-warning">Menunggu</span>';
+                                                    }
+                                                    ?>
+
+                                                </td>
+                                                <td>
+                                                    <?php echo $p->tgl_laporan; ?>
+
+                                                </td>
+                                                <td>
+                                                    <?php echo $p->kodelaporan; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo ucwords(strtolower($kab->nama)); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo word_limiter($p->isi_laporan, 55); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $p->nama_ruasjalan; ?>
+                                                </td>
+
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($pengaduan as $p) :  ?>
-                                                <?php
-                                                $CI = &get_instance();
-                                                $CI->load->model('M_wilayah');
-                                                $CI->load->model('M_pengaduan');
-                                                //   $gb = $CI->M_pengaduan->get_allimage($p->kodelaporan);
-                                                $kab = $CI->M_wilayah->get_by_id($p->lokasi_kabkota);
-                                                $kec = $CI->M_wilayah->get_by_id($p->lokasi_distrik);
-                                                $gbktp = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'ktp');
-                                                $gbdok1 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi1');
-                                                $gbdok2 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi2');
-                                                $gbdok3 = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumentasi3');
-                                                $dokadd = $CI->M_pengaduan->get_allimage($p->kodelaporan, 'dokumen_tambahan');
-                                                ?>
-                                                <tr>
-                                                    <td>
-
-                                                        <a id="DetailLap" class="btn btn-info btn-sm mb-1" href="" title="Detail" data-toggle="modal" data-target="#detailLap" data-kodelaporan="<?php echo $p->kodelaporan; ?>" data-nik="<?php echo $p->nik; ?>" data-namapelapor="<?php echo $p->nama_pelapor; ?>" data-alamatpelapor="<?php echo $p->alamat_pelapor; ?>" data-email="<?php echo $p->email; ?>" data-nohp="<?php echo $p->no_hp; ?>" data-tgllaporan="<?php echo $p->tgl_laporan; ?>" data-infrastruktur="<?php echo $p->infrastruktur; ?>" data-koordinatlokasi="<?php echo $p->latitude, $p->longitude; ?>" data-namaruasjalan="<?php echo $p->nama_ruasjalan; ?>" data-namakabkota="<?php echo ucwords(strtolower($kab->nama)); ?>" data-namadistrik="<?php echo $kec->nama; ?>" data-isilaporan="<?php echo $p->isi_laporan; ?>" data-gambarktp="<?php echo $gbktp->nama_file; ?>" data-dokumentasi1="<?php echo $gbdok1->nama_file; ?>" data-dokumentasi2="<?php echo $gbdok2->nama_file; ?>" data-dokumentasi3="<?php echo $gbdok3->nama_file; ?>" data-dokumen_tambahan="<?php echo $dokadd->nama_file; ?>">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <?php if ($p->status == 'Diterima') { ?>
-                                                            <a class="btn btn-danger btn-sm btnTolak" href="" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-close"></i></a>
-                                                        <?php } elseif ($p->status == 'Ditolak') { ?>
-                                                            <a class="btn btn-success btn-sm btnTerima" href="" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-check"></i></a>
-                                                        <?php } else { ?>
-                                                            <a class="btn btn-success btn-sm btnTerima mb-1" href="" title="Terima" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-check"></i></a>
-                                                            <a class="btn btn-danger btn-sm btnTolak mb-1" href="" title="Tolak" data-idlaporan="<?php echo $p->id; ?>"><i class="fa fa-close"></i></a>
-                                                        <?php } ?>
-
-
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                        if ($p->status == 'Diterima') {
-                                                            echo '<span class="badge badge-success">Diterima</span>';
-                                                        } elseif ($p->status == 'Ditolak') {
-                                                            echo '<span class="badge badge-danger">Ditolak</span>';
-                                                        } else {
-                                                            echo '<span class="badge badge-warning">Menunggu</span>';
-                                                        }
-                                                        ?>
-
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $p->tgl_laporan; ?>
-
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $p->kodelaporan; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo ucwords(strtolower($kab->nama)); ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo word_limiter($p->isi_laporan, 55); ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $p->nama_ruasjalan; ?>
-                                                    </td>
-
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
-               
             </div>
+
+
         </div>
+    </div>
 
 
     <div class="modal fade" id="detailLap" tabindex="-1" role="dialog" aria-labelledby="detailLapLabel" aria-hidden="true">

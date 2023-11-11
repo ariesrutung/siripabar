@@ -42,8 +42,8 @@
 
 
 
-    <script>
-        $(document).ready(function() {
-            $('#menudaerahirigasi').last().addClass("active");
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#menudaerahirigasi').last().addClass("active");
+    });
+</script>

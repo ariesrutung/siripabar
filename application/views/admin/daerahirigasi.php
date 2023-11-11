@@ -11,6 +11,29 @@
         margin-top: 0px;
         margin-bottom: 1rem;
     }
+
+    .table-responsive * {
+        color: #000;
+    }
+
+    section {
+        margin: 15px;
+    }
+
+    .form-group {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .modal.fade.modalSkema.show * {
+        color: #000;
+    }
+
+    .modalSkema .gb {
+        height: auto !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -44,8 +67,8 @@
                                             <td><?php echo $di->jenis_di; ?></td>
                                             <td><?php echo $di->luas_fungsional; ?></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target=".modalSkema" class="btn btn-sm btn-primary"><i class="fa fa-map-marker"></i> Skema</a>
-                                               <!--  <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a>
+                                                <a href="#" data-toggle="modal" data-backdrop="static" data-target=".modalSkema" class="btn btn-sm btn-primary text-white"><i class="fa fa-map-marker text-white"></i> Skema</a>
+                                                <!--  <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a>
                                                 <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Dok. lain</a> -->
                                             </td>
                                         </tr>
@@ -74,122 +97,121 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" id="step-form-horizontal" class="step-form-horizontal">
-                    <div>
-                        <section>
+                <?php echo form_open_multipart('admin/daerahirigasi/tambah_dataskemairigasi'); ?>
+                <section>
+                    <div class="row">
+                        <div class="col-lg-6">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Jumlah Aset (PAI)</label>
-                                                <input type="number" name="jumlah_aset" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Jumlah Subsistem</label>
-                                                <input type="number" name="jumlah_subsistem" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Data AKNOP</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="data_aknop" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Induk</label>
-                                                <div class="input-group">
-                                                    <input type="text" name="saluran_induk" class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Muka</label>
-                                                <input type="text" name="salauran_muka" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Pengelak Banjir</label>
-                                                <input type="text" name="saluran_pengelak" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Pembuang (Tersier)</label>
-                                                <div class="input-group">
-                                                    <input name="saluran_pembuang" type="text" class="form-control" id="emial1" required>
-
-                                                </div>
-                                            </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Jumlah Aset (PAI)</label>
+                                        <input type="text" name="jumlah_aset" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Jumlah Subsistem</label>
+                                        <input type="text" name="jumlah_subsistem" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Data AKNOP</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="data_aknop" required>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Induk</label>
+                                        <div class="input-group">
+                                            <input type="number" name="saluran_induk" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Muka</label>
+                                        <input type="number" name="saluran_muka" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Pengelak Banjir</label>
+                                        <input type="number" name="pengelak_banjir" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Pembuang (Tersier)</label>
+                                        <div class="input-group">
+                                            <input name="saluran_pembuang_tersier" type="number" class="form-control gb" required>
 
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Sekunder</label>
-                                                <div class="input-group">
-                                                    <input type="text" name="saluran_sekunder" class="form-control" required>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Pembuang</label>
-                                                <input type="text" name="panjang_pembuang" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Tersier</label>
-                                                <input type="text" name="panjang_tersier" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Pembuang</label>
-                                                <input type="text" name="place" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Suplesi</label>
-                                                <input type="text" name="panjang_suplesi" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Gendong</label>
-                                                <input type="text" name="panjang_gendong" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 px-0 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Panjang Saluran Kuarter</label>
-                                                <input type="text" name="panjang_kuarter" class="form-control" required>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </div>
 
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Sekunder</label>
+                                        <div class="input-group">
+                                            <input type="number" name="saluran_sekunder" class="form-control" required>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Pembuang</label>
+                                        <input type="number" name="saluran_pembuang" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Tersier</label>
+                                        <input type="number" name="saluran_tersier" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Suplesi</label>
+                                        <input type="number" name="saluran_suplesi" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Gendong</label>
+                                        <input type="number" name="saluran_gendong" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Panjang Saluran Kuarter</label>
+                                        <input type="number" name="saluran_kuarter" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 px-0 py-0">
+                                    <div class="form-group">
+                                        <label class="text-label">Dokumen</label>
+                                        <input type="file" name="dokumen" class="form-control gb" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <input class="btn btn-primary text-white" type="submit" value="Tambah Data">
+                    </div>
+                </section>
+
+                <?php echo form_close(); ?>
+
             </div>
         </div>
     </div>

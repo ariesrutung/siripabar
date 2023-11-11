@@ -48,10 +48,14 @@ class M_daerahirigasi extends CI_Model
         $this->db->distinct();
         $this->db->select("tahun_sumberdana");
         $this->db->from("data_kontrak");
-        $this->db->where("kode_di",$kode);
+        $this->db->where("kode_di", $kode);
         $this->db->order_by("tahun_sumberdana", "DESC");
         $query = $this->db->get();
         return $query->result();
+    }
 
+    public function insert_dataskemairigasi($data)
+    {
+        $this->db->insert('skema', $data);
     }
 }

@@ -12,7 +12,7 @@ class M_emonitoring extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
- 
+
     public function get_by_tahun_sumberdana($tahun)
     {
         $this->db->select("*");
@@ -29,5 +29,10 @@ class M_emonitoring extends CI_Model
         $this->db->from("data_kontrak");
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function insert_datakontrak($data)
+    {
+        $this->db->insert('data_kontrak', $data);
     }
 }
