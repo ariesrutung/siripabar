@@ -8,7 +8,7 @@ class M_emonitoring extends CI_Model
         $this->db->distinct();
         $this->db->select("tahun_sumberdana");
         $this->db->from("data_kontrak");
-        $this->db->order_by("tahun_sumberdana","DESC");
+        $this->db->order_by("tahun_sumberdana", "DESC");
         $query = $this->db->get();
         return $query->result();
     }
@@ -17,8 +17,16 @@ class M_emonitoring extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("data_kontrak");
-        $this->db->where("tahun_sumberdana",$tahun);
-        $this->db->order_by("tahun_sumberdana","DESC");
+        $this->db->where("tahun_sumberdana", $tahun);
+        $this->db->order_by("tahun_sumberdana", "DESC");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_all_datakontrak()
+    {
+        $this->db->select("*");
+        $this->db->from("data_kontrak");
         $query = $this->db->get();
         return $query->result();
     }

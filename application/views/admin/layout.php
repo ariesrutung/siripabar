@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><?php echo $title;?> | PANEL ADMIN SIRIPABAR </title>
-   
+    <title><?php echo $title; ?> | PANEL ADMIN SIRIPABAR </title>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/favicon-32x32.png">
@@ -61,7 +61,7 @@
                     <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
             </div>
-        </div> 
+        </div>
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -143,8 +143,7 @@
                                             <span class="notify-time">3:20 am</span>
                                         </li>
                                     </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
-                                            class="ti-arrow-right"></i></a>
+                                    <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown header-profile">
@@ -182,20 +181,23 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i><span class="nav-text"> Dashboard </span> </a></li>
-                	
-                	<li class="nav-label first">MANAJEMEN LAPORAN</li>
-                	<li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
-                	<li id="menuunduhlaporan"><a href="<?php echo base_url('admin/unduhlaporan'); ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li>
 
-                	<li class="nav-label first">MANAJEMEN DAERAH IRIGASI</li>
-                	<li id="menudaerahirigasi"><a href="<?php echo base_url('admin/daerahirigasi'); ?>"><i class="ti-location-pin"></i><span class="nav-text"> Daerah Irigasi</span></a></li>
-                	<li id="menudatakontrak"><a href="<?php echo base_url('admin/datakontrak'); ?>"><i class="ti-file"></i><span class="nav-text"> Data Kontrak</span></a></li>
+                    <li class="nav-label first">MANAJEMEN LAPORAN</li>
+                    <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
+                    <li id="menuunduhlaporan"><a href="<?php echo base_url('admin/unduhlaporan'); ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li>
 
-                	<li class="nav-label first">MANAJEMEN WEBSITE</li>
-                	<li id="menuberita"><a href="<?php echo base_url('admin/berita'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
-                	<li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-camera"></i><span class="nav-text"> Galeri</span></a></li>
-                	<li id="menuprofil"><a href="<?php echo base_url('admin/profil'); ?>"><i class="ti-receipt"></i><span class="nav-text"> Profil</span></a></li>
-            	</ul>
+                    <li class="nav-label first">MANAJEMEN DAERAH IRIGASI</li>
+                    <li id="menudaerahirigasi"><a href="<?php echo base_url('admin/daerahirigasi'); ?>"><i class="ti-location-pin"></i><span class="nav-text"> Daerah Irigasi</span></a></li>
+                    <li id="menudatakontrak"><a href="<?php echo base_url('admin/datakontrak'); ?>"><i class="ti-file"></i><span class="nav-text"> Data Kontrak</span></a></li>
+
+                    <!-- <li class="nav-label first">MANAJEMEN WEBSITE</li>
+                	<li id="menuberita"><a href="<?php // echo base_url('admin/berita'); 
+                                                    ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
+                	<li id="menugaleri"><a href="<?php // echo base_url('admin/galeri'); 
+                                                    ?>"><i class="ti-camera"></i><span class="nav-text"> Galeri</span></a></li>
+                	<li id="menuprofil"><a href="<?php // echo base_url('admin/profil'); 
+                                                    ?>"><i class="ti-receipt"></i><span class="nav-text"> Profil</span></a></li> -->
+                </ul>
             </div>
         </div>
         <!--**********************************

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style>
     .nav-pills .nav-link.active,
     .nav-pills .show>.nav-link {
@@ -125,7 +126,7 @@
                                                             <td>Download Skema Jaringan</td>
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong">
-                                                                <a href="" class="strong btn btn-primary btn-sm">Download</a>
+                                                                <a href="" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
                                                             </td>
                                                         </tr>
 
