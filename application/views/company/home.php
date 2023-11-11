@@ -119,7 +119,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN PROVINSI</h3>
-                        <p>Sebanyak 8 Daerah Irigasi dengan luas total 10460 Ha</p>
+                        <p>Sebanyak 11 Daerah Irigasi dengan luas total 15.010 Ha</p>
 
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN KAB/KOTA</h3>
-                        <p>Sebanyak 22 Daerah Irigasi dengan luas total 7813 Ha</p>
+                        <p>Sebanyak 16 Daerah Irigasi dengan luas total 5.371 Ha</p>
 
                     </div>
                 </div>
