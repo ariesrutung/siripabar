@@ -13,7 +13,7 @@ class Daerahirigasi extends CI_Controller
         //     redirect('Auth');
         // }
         // $this->load->library(['ion_auth', 'form_validation']);
-        $this->load->model(['M_daerahirigasi']);
+        $this->load->model(['M_daerahirigasi','M_emonitoring']);
     }
 
     public function index()
@@ -57,9 +57,10 @@ class Daerahirigasi extends CI_Controller
     }
 
     public function detail($kode)
-    {
+    { 
         $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
         $data['datakontrak'] = $this->M_daerahirigasi->get_datakontrak($kode);
+        $data['laporan'] = $this->M_daerahirigasi->get_laporan_by_kode($kode);
         $data['title'] = 'DETAIL DAERAH IRIGASI';
         $data['_view'] = "company/detail_daerahirigasi";
         $this->load->view('company/layout', $data);

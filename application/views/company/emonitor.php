@@ -104,7 +104,6 @@
                                                     <th rowspan="2">Output/Capaian/Produk Akhir </th>
                                                     <th rowspan="2">Masa Pelaksanaan</th>
                                                     <th rowspan="2">Tanggal Rencana PHO</th>
-                                                    <th rowspan="2">Dokumentasi </th>
                                                     <th colspan="12">Progress Pelaksanaan</th>
                                                     <th rowspan="2">Kurva S</th>
                                                     <th colspan="9">Dokumen Pendukung </th>
@@ -155,7 +154,6 @@
                                                         <td><?php echo $dk->output_produk; ?></td>
                                                         <td><?php echo $dk->tgl_rencanapho; ?></td>
                                                         <td><?php echo $dk->masa_pelaksanaan; ?></td>
-                                                        <td><?php echo $dk->dokumentasi; ?></td>
                                                         <td><?php echo $dk->pk_januari; ?></td>
                                                         <td><?php echo $dk->pk_februari; ?></td>
                                                         <td><?php echo $dk->pk_maret; ?></td>
@@ -173,25 +171,25 @@
                                                         </td>
                                                         <td><?php echo $dk->dp_dokkontrak; ?></td>
                                                         <td>
-                                                            <a href=""><i class="bi bi-file-earmark-pdf"></i></a>
+                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
                                                             <!-- <?php // echo $dk->dp_gbrrencana; 
                                                                     ?> -->
                                                         </td>
                                                         <td>
-                                                            <a href=""><i class="bi bi-file-earmark-pdf"></i></a>
+                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
                                                             <!-- <?php // echo $dk->dp_gbrasbuild; 
                                                                     ?> -->
                                                         </td>
                                                         <td>
-                                                            <a href=""><i class="bi bi-file-earmark-pdf"></i></a>
+                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
                                                             <!-- <?php // echo $dk->dp_mcnol; 
                                                                     ?> -->
                                                         </td>
-                                                        <td><?php echo $dk->dp_lapharian; ?></td>
-                                                        <td><?php echo $dk->dp_lapmingguan; ?></td>
-                                                        <td><?php echo $dk->dp_lapbulanan; ?></td>
-                                                        <td><?php echo $dk->dp_mcseratus; ?></td>
-                                                        <td><?php echo $dk->dp_dokumentasi; ?></td>
+                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapharian; ?></td>
+                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapmingguan; ?></td>
+                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapbulanan; ?></td>
+                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_mcseratus; ?></td>
+                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_dokumentasi; ?></td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

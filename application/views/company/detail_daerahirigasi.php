@@ -88,6 +88,18 @@
         font-weight: bold;
         font-size: 11px;
     }
+     i.bi.bi-file-earmark-pdf {
+        font-size: 20px;
+        color: #fdbe33;
+    }
+
+    i.bi.bi-file-earmark-pdfa:hover,
+    i.bi.bi-file-earmark-pdfa:active,
+    i.bi.bi-file-earmark-pdf a:focus {
+        color: #fdbe33;
+        outline: none;
+        text-decoration: none;
+    }
 </style>
 <div class="single">
     <div id="container" class="container">
@@ -202,7 +214,7 @@
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong"><?php echo ($ddi->saluran_tersier) ? $ddi->saluran_tersier : '0'; ?> Km</td>
                                                         </tr>
-
+ 
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -246,19 +258,25 @@
                                                     <?php
                                                     $delay = 0.1;
 
-                                                    foreach ($datakontrak as $dk) {
+                                                    foreach ($laporan as $lp) {
                                                     ?>
                                                         <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
                                                             <div class="card-header">
-                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $dk->id; ?>">
-                                                                    <?php echo $dk->tahun_sumberdana; ?>
+                                                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $lp->tahun_sumberdana; ?>">
+                                                                    <?php echo $lp->tahun_sumberdana; ?>
                                                                 </a>
                                                             </div>
-                                                            <div id="collapse<?php echo $dk->id; ?>" class="collapse" data-parent="#accordion-1">
+                                                            <div id="collapse<?php echo $lp->tahun_sumberdana; ?>" class="collapse" data-parent="#accordion-1">
                                                                 <div class="card-body">
 
                                                                     <div class="table-responsive">
                                                                         <table class="table-bordered table-striped text-small" style="width:100%">
+                                                                            <?php
+                                                $CI = &get_instance();
+                                                $CI->load->model('M_emonitoring');
+
+                                                $lapkontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($lp->tahun_sumberdana);
+                                                ?>
                                                                             <thead>
                                                                                 <tr class="tex-small">
                                                                                     <th rowspan="2">Nama Paket</th>
@@ -278,18 +296,22 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
+                                                                                <?php foreach ($lapkontrak as $lk) { ?>
+                                                                                <tr>
+                                                                                <td><?php echo $lk->nama_paket;?></td>
+                                                                                <td><?php echo $lk->penyedia_jasa;?></td>
+                                                                                <td><?php echo $lk->no_kontrak;?></td>
 
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
-                                                                                <td>\</td>
+                                                                                <td><?php echo $lk->tgl_kontrak;?></td>
+                                                                                <td><?php echo $lk->nilai_kontrak;?></td>
+                                                                                <td><?php echo $lk->sumber_dana." ".$lk->tahun_sumberdana;?></td>
+                                                                                <td><?php echo $lk->lok_kabupaten;?></td>
+                                                                                <td><?php echo $lk->lok_distrik;?></td>
+                                                                                <td><?php echo $lk->titik_koordinat;?></td>
+                                                                                <td><?php echo $lk->output_produk;?></td>
+                                                                                <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
+                                                                            </tr>
+                                                                        <?php } ?>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
