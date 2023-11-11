@@ -32,6 +32,10 @@
         padding: 0 !important;
         border: 0 !important;
     }
+
+    .table-responsive td {
+        text-align: center;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
