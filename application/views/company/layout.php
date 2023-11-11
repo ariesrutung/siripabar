@@ -158,9 +158,8 @@
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
                             <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
                             <!-- Menu untuk user login -->
-                            <?php if ($this->session->userdata('username')) { ?>
                                 <a id="menuemonitoring" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
-                            <?php } ?>
+                           
                         </div>
                     </div>
                 </nav>
