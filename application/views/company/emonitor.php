@@ -117,7 +117,7 @@
 
                                                 $datakontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($emon->tahun_sumberdana);
                                                 ?>
-                                                <tr class="tex-small">
+                                                <tr class="tex-small" style="background-color:#00008B; color:white">
                                                     <th rowspan="2">Nama Paket</th>
                                                     <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
                                                     <th rowspan="2">No Kontrak</th>
@@ -134,7 +134,7 @@
                                                     <th rowspan="2">Kurva S</th>
                                                     <th colspan="9">Dokumen Pendukung </th>
                                                 </tr>
-                                                <tr>
+                                                <tr style="background-color:#00008B; color:white">
                                                     <th>Kab.</th>
                                                     <th>Kec.</th>
                                                     <th>Koordinat</th>
@@ -166,7 +166,7 @@
                                             <tbody>
                                                 <?php foreach ($datakontrak as $dk) { ?>
                                                     <tr>
-                                                        <td><?php echo $dk->nama_paket; ?></td>
+                                                        <td style="text-align: left !important"><?php echo $dk->nama_paket; ?></td>
                                                         <td><?php echo $dk->penyedia_jasa; ?></td>
                                                         <td><?php echo $dk->no_kontrak; ?></td>
                                                         <td><?php echo $dk->tgl_kontrak; ?></td>

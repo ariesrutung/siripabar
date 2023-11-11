@@ -46,7 +46,7 @@ class M_daerahirigasi extends CI_Model
     public function get_laporan_by_kode($kode)
     {
         $this->db->distinct();
-        $this->db->select("tahun_sumberdana");
+        $this->db->select("tahun_sumberdana,kode_di");
         $this->db->from("data_kontrak");
         $this->db->where("kode_di", $kode);
         $this->db->order_by("tahun_sumberdana", "DESC");
@@ -57,5 +57,16 @@ class M_daerahirigasi extends CI_Model
     public function insert_dataskemairigasi($data)
     {
         $this->db->insert('skema', $data);
+    }
+
+    public function get_laporan_by_kode_by_tahun($tahun,$kode)
+    {
+        $this->db->select("*");
+        $this->db->from("data_kontrak");
+        $this->db->where("tahun_sumberdana", $tahun);
+        $this->db->where("kode_di", $kode);
+        $this->db->order_by("tahun_sumberdana", "DESC");
+        $query = $this->db->get();
+        return $query->result();
     }
 }

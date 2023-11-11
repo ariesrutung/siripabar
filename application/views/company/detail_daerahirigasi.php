@@ -275,10 +275,10 @@
                                                 $CI = &get_instance();
                                                 $CI->load->model('M_emonitoring');
 
-                                                $lapkontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($lp->tahun_sumberdana);
+                                                $lapkontrak = $CI->M_daerahirigasi->get_laporan_by_kode_by_tahun($lp->tahun_sumberdana,$lp->kode_di);
                                                 ?>
                                                                             <thead>
-                                                                                <tr class="tex-small">
+                                                                                <tr class="tex-small" style="background-color:#00008B; color:white">
                                                                                     <th rowspan="2">Nama Paket</th>
                                                                                     <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
                                                                                     <th rowspan="2">No Kontrak</th>
@@ -289,7 +289,7 @@
                                                                                     <th rowspan="2">Output/Capaian/Produk Akhir </th>
                                                                                     <th rowspan="2">Dokumentasi </th>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr style="background-color:#00008B; color:white">
                                                                                     <th>Kab.</th>
                                                                                     <th>Kec.</th>
                                                                                     <th>Koordinat</th>
