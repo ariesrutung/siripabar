@@ -1,3 +1,5 @@
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+
 <style>
     .note-toolbar {
         padding: 10px 5px;
@@ -31,6 +33,17 @@
 
     table.table * {
         color: #000;
+    }
+
+    .ck.ck-editor__main .ck-content {
+        height: 239px;
+    }
+
+    #More {
+        color: #000;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: right;
     }
 </style>
 <div class="content-body">
@@ -68,7 +81,7 @@
                                                         ?></td> -->
                                             <td>
                                                 <span class="p1"><?php echo $news->isiberita; ?></span>
-                                                <button id="More" class="btn btn-secondary text-white">Tampil Penuh</button>
+                                                <a id="More" class="text-bold">Tampil Penuh</a>
                                             </td>
                                             <td>
                                                 <?php if (!empty($news->gambar) && file_exists('upload/berita/' . $news->gambar)) : ?>
@@ -120,27 +133,29 @@
             <div class="modal-body">
                 <div class="row modal-content-scrollable">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mb-0">
+                        <div class="form-group">
                             <label class="text-label">Judul Berita</label>
                             <input type="text" class="form-control" name="judul" required>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mb-0">
+                        <div class="form-group">
                             <label class="text-label">Isi Berita</label>
-                            <textarea class="form-control" name="isiberita" required></textarea>
+                            <textarea class="form-control" id="isiberita" name="isiberita"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mb-0">
+                        <div class="form-group">
                             <label class="text-label">Tanggal Publikasi</label>
-                            <input type="date" class="form-control" name="tanggal" required>
+                            <input type="datetime-local" class="form-control" name="tanggal" required>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group mb-0">
-                            <label class="text-label">Gambar Berita</label>
-                            <input type="file" class="form-control" name="gambar" required>
+                        <div class="form-group">
+                            <label class="text-label">Gambar Berita</label><br>
+                            <!-- <input type="file" class="form-control" name="gambar" required> -->
+                            <input type="file" id="gambar" name="gambar" accept="image/*" onchange="loadFile(event)" required>
+                            <img class="w-25" id="gbr" />
                         </div>
                     </div>
 
@@ -173,18 +188,21 @@
                 </div>
                 <div class="form-group">
                     <label for="edit_isiberita">Isi Berita</label>
-                    <input type="text" class="form-control" id="edit_isiberita" name="edit_isiberita" required>
+                    <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="edit_tanggal">Waktu Publikasi</label>
-                    <input type="date" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
+                    <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
                 </div>
                 <div class="form-group">
-                    <label for="edit_gambar">Gambar Berita</label>
-                    <input type="file" class="form-control" id="edit_gambar" name="edit_gambar" required>
+                    <label for="edit_gambar">Gambar Berita</label><br>
+                    <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
+                    <img class="w-25" id="output" />
                 </div>
                 <!-- Tambahkan bidang lainnya sesuai kebutuhan -->
-                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary text-white">Simpan Perubahan</button>
+                </div>
                 <?php echo form_close(); ?>
             </div>
         </div>
@@ -275,7 +293,7 @@
 </script>
 
 <script>
-    document.querySelectorAll('button#More').forEach(bttn => {
+    document.querySelectorAll('#More').forEach(bttn => {
         bttn.dataset.state = 0;
         bttn.addEventListener('click', function(e) {
             let span = this.previousElementSibling;
@@ -296,4 +314,34 @@
 
 
 <script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('gbr');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#isiberita'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#edit_isiberita'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
