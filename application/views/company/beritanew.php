@@ -30,14 +30,7 @@
                             </div>
                             <div class="blog-title">
                                 <h3><?php echo substr($news->judul, 0, 50); ?></h3>
-
                             </div>
-                            <!-- <div class="blog-text">
-                                <p>
-                                    <?php // echo word_limiter($news->isi, 20) 
-                                    ?>
-                                </p>
-                            </div> -->
                         </div>
                     </a>
                 </div>
