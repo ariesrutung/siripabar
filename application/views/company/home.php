@@ -48,40 +48,40 @@
         <li data-target="#carousel" data-slide-to="9"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (15).jpg" alt="Carousel Image">
+        <!-- <div class="carousel-item active">
+            <img style="background-size: contain !important;" src="<?php //echo base_url(); ?>/public/company/img/slider1/slider (15).jpg" alt="Carousel Image"> -->
             <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">We Are Trusted</p>
                 <h1 class="animated fadeInLeft">For Your Dream Home</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
             </div> -->
+        <!-- </div> -->
+        <div class="carousel-item active">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (3).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (14).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (2).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (7).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (1).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (8).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (4).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (9).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (5).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (10).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (6).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (2).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (7).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (5).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (8).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (4).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (3).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (9).jpg" alt="Carousel Image">
         </div>
     </div>
 
