@@ -35,55 +35,27 @@
 
 <!-- Carousel Start -->
 <div id="carousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
-        <li data-target="#carousel" data-slide-to="3"></li>
-        <li data-target="#carousel" data-slide-to="4"></li>
-        <li data-target="#carousel" data-slide-to="5"></li>
-        <li data-target="#carousel" data-slide-to="6"></li>
-        <li data-target="#carousel" data-slide-to="7"></li>
-        <li data-target="#carousel" data-slide-to="8"></li>
-        <li data-target="#carousel" data-slide-to="9"></li>
-    </ol>
-    <div class="carousel-inner">
-        <!-- <div class="carousel-item active">
-            <img style="background-size: contain !important;" src="<?php //echo base_url(); ?>/public/company/img/slider1/slider (15).jpg" alt="Carousel Image"> -->
-            <!-- <div class="carousel-caption">
-                <p class="animated fadeInRight">We Are Trusted</p>
-                <h1 class="animated fadeInLeft">For Your Dream Home</h1>
-                <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
-            </div> -->
-        <!-- </div> -->
-        <div class="carousel-item active">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (3).jpg" alt="Carousel Image">
+    <?php if (!empty($active_sliders)) : ?>
+        <ol class="carousel-indicators">
+            <?php foreach ($active_sliders as $index => $slider) : ?>
+                <li data-target="#carousel" data-slide-to="<?php echo $index; ?>" <?php echo ($index == 0) ? 'class="active"' : ''; ?>></li>
+            <?php endforeach; ?>
+        </ol>
+        <div class="carousel-inner">
+            <?php foreach ($active_sliders as $index => $slider) : ?>
+                <div class="carousel-item <?php echo ($index == 0) ? 'active' : ''; ?>">
+                    <img style="background-size: contain !important;" src="<?php echo base_url('upload/slider/' . $slider->gambar); ?>" alt="Carousel Image">
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (2).jpg" alt="Carousel Image">
+    <?php else : ?>
+        <!-- Tampilkan gambar default jika tidak ada slider yang aktif -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img style="background-size: contain !important;" src="<?php echo base_url('upload/slider/default.jpg'); ?>" alt="Default Image">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (1).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (4).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (5).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (6).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (7).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (8).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (9).jpg" alt="Carousel Image">
-        </div>
-    </div>
+    <?php endif; ?>
 
     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,6 +66,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
 <!-- Carousel End -->
 
 

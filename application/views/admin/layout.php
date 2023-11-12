@@ -20,7 +20,49 @@
     <link href="<?php echo base_url(); ?>public/focus-theme/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/vendor/chartist/css/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>public/focus-theme/css/style.css" rel="stylesheet">
+    <style>
+        .btn-danger {
+            color: #fff !important;
+            background-color: #dc3545 !important;
+            border-color: #dc3545 !important;
+        }
 
+        .btn-primary {
+            color: #fff !important;
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+        }
+
+        .btn-secondary {
+            color: #fff !important;
+            background-color: #6c757d !important;
+            border-color: #6c757d !important;
+        }
+
+        .btn-success {
+            color: #fff !important;
+            background-color: #28a745 !important;
+            border-color: #28a745 !important;
+        }
+
+        .btn-warning {
+            color: #212529 !important;
+            background-color: #ffc107 !important;
+            border-color: #ffc107 !important;
+        }
+
+        .btn-info {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+            border-color: #17a2b8 !important;
+        }
+
+        .btn-dark {
+            color: #fff !important;
+            background-color: #343a40 !important;
+            border-color: #343a40 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -191,10 +233,8 @@
 
                     <li class="nav-label first">MANAJEMEN WEBSITE</li>
                     <li id="menuberita"><a href="<?php echo base_url('admin/beritanew'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
-                    <!-- <li id="menugaleri"><a href="<?php // echo base_url('admin/galeri'); 
-                                                        ?>"><i class="ti-camera"></i><span class="nav-text"> Galeri</span></a></li>
-                	<li id="menuprofil"><a href="<?php // echo base_url('admin/profil'); 
-                                                    ?>"><i class="ti-receipt"></i><span class="nav-text"> Profil</span></a></li> -->
+                    <li id="menuslider"><a href="<?php echo base_url('admin/slider'); ?>"><i class="ti-camera"></i><span class="nav-text"> Slider</span></a></li>
+                    <li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-receipt"></i><span class="nav-text"> Galeri</span></a></li>
                 </ul>
             </div>
         </div>

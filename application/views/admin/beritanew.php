@@ -31,7 +31,8 @@
         color: #fff;
     }
 
-    table.table * {
+    table.table td,
+    table.table th {
         color: #000;
     }
 
@@ -45,6 +46,69 @@
         margin-top: 10px;
         text-align: right;
     }
+
+    .btn-danger {
+        color: #fff !important;
+        background-color: #dc3545 !important;
+        border-color: #dc3545 !important;
+    }
+
+    .btn-primary {
+        color: #fff !important;
+        background-color: #007bff !important;
+        border-color: #007bff !important;
+    }
+
+    .btn-secondary {
+        color: #fff !important;
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+    }
+
+    .btn-success {
+        color: #fff !important;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    .btn-warning {
+        color: #212529 !important;
+        background-color: #ffc107 !important;
+        border-color: #ffc107 !important;
+    }
+
+    .btn-info {
+        color: #fff !important;
+        background-color: #17a2b8 !important;
+        border-color: #17a2b8 !important;
+    }
+
+    .btn-dark {
+        color: #fff !important;
+        background-color: #343a40 !important;
+        border-color: #343a40 !important;
+    }
+
+    .aksi {
+        width: 143px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    a.btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .text-white-50 {
+        color: rgba(255, 255, 255, 0.5) !important;
+        margin: 2px 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -55,7 +119,7 @@
                         <div class="card-header">
                             <h4>Daftar Berita</h4>
                         </div>
-                        <a data-toggle="modal" data-target=".modalTambahBerita" class="btn btn-info btn-sm text-white">Tambah Berita</a>
+                        <a data-toggle="modal" data-target=".modalTambahBerita" data-backdrop="static" class="btn btn-info btn-sm text-white">Tambah Berita</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -66,7 +130,8 @@
                                         <th class="text-center" width="">Tanggal Publikasi</th>
                                         <th>Judul Berita</th>
                                         <th>Isi Berita</th>
-                                        <th class="text-center" width="160px">Aksi</th>
+                                        <th>Gambar Berita</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -85,25 +150,28 @@
                                             </td>
                                             <td>
                                                 <?php if (!empty($news->gambar) && file_exists('upload/berita/' . $news->gambar)) : ?>
-                                                    <img class="w-100" src="<?php echo base_url('upload/berita/' . $news->gambar); ?>" alt="">
+                                                    <img class="w-70" src="<?php echo base_url('upload/berita/' . $news->gambar); ?>" alt="">
                                                 <?php else : ?>
                                                     <span>Gambar Tidak Tersedia</span>
                                                 <?php endif; ?>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-info btn-icon-split btn-sm editform" data-idberita="<?php echo $news->id; ?>" data-judul="<?php echo $news->judul; ?>" data-isiberita="<?php echo $news->isiberita; ?>" data-tanggal="<?php echo $news->tanggal; ?>" data-gambar="<?php echo $news->gambar; ?>">
-                                                    <span class="icon text-white-50">
-                                                        <i class="fa fa-edit"></i>
-                                                    </span>
-                                                    <span class="text">Edit</span>
-                                                </a>
+                                                <div class="aksi">
+                                                    <a href="#" class="btn btn-primary editform" data-backdrop="static" data-idberita="<?php echo $news->id; ?>" data-judul="<?php echo $news->judul; ?>" data-isiberita="<?php echo $news->isiberita; ?>" data-tanggal="<?php echo $news->tanggal; ?>" data-gambar="<?php echo $news->gambar; ?>">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fa fa-edit"></i>
+                                                        </span>
+                                                        <span class="text"> Edit</span>
+                                                    </a>
 
-                                                <a href="#" class="btn btn-danger btn-icon-split btn-sm deletedata" data-idberita="<?php echo $news->id; ?>">
-                                                    <span class="icon text-white-50">
-                                                        <i class="fa fa-trash"></i>
-                                                    </span>
-                                                    <span class="text">Hapus</span>
-                                                </a>
+                                                    <a href="#" class="btn btn-danger deletedata" data-idberita="<?php echo $news->id; ?>">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fa fa-trash"></i>
+                                                        </span>
+                                                        <span class="text"> Hapus</span>
+                                                    </a>
+                                                </div>
+
                                             </td>
 
                                         </tr>
@@ -127,6 +195,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTambahBeritaLabel">Tambah Berita</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                </button>
             </div>
             <?php echo $this->session->flashdata('notif'); ?>
             <?php echo form_open('admin/beritanew/add_berita', array('method' => 'post', 'enctype' => 'multipart/form-data')); ?>
@@ -211,22 +281,12 @@
 
 <!-- jquery vendor -->
 <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
 <!-- nano scroller -->
 <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
 <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
 <!-- sidebar -->
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/bootstrap.min.js">
-
-</script>
-<!-- bootstrap -->
-
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/morris-chart/raphael-min.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/morris-chart/morris.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/morris-chart/morris-init.js"></script>
-
 
 <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
 <!-- scripit init-->

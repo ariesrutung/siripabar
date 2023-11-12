@@ -36,9 +36,9 @@
         padding: 0;
     }
 
-    /* td {
+    td {
         font-size: 14px;
-    } */
+    }
 
     .single #container {
         margin: 0;
@@ -77,17 +77,17 @@
         width: 65% !important;
     }
 
-    /* .table-responsive .tex-small,
+    .table-responsive .tex-small,
     .table-responsive * {
         font-size: 10px;
         font-weight: 500;
         text-align: center;
-    } */
+    }
 
-    /* .table-responsive thead * {
+    .table-responsive thead * {
         font-weight: bold;
         font-size: 11px;
-    } */
+    }
 
     i.bi.bi-file-earmark-pdf {
         font-size: 20px;
@@ -139,7 +139,7 @@
                                                             <td>Download Skema Jaringan</td>
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong">
-                                                                <a href="<?php echo base_url('daerahirigasi/download_skema/').$ddi->dokumen;?>" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
+                                                                <a href="" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
                                                             </td>
                                                         </tr>
 
@@ -157,7 +157,7 @@
                                                         <tr style="vertical-align:top">
                                                             <td class="strong w-20">Jumlah Subsistem</td>
                                                             <td width="30px" class="text-center">:</td>
-                                                            <td class="strong w-70"><?php echo ($ddi->jumlah_subsistem) ?> </td>
+                                                            <td class="strong w-70"><?php echo ($ddi->jumlah_subsistem) ? $ddi->jumlah_subsistem : '0'; ?> Km</td>
                                                         </tr>
                                                         <tr style="vertical-align:top">
                                                             <td class="strong w-20">Data AKNOP</td>
@@ -254,93 +254,77 @@
                                         <div class="section-header text-center">
                                         </div>
                                         <div class="row">
-                                            <div class="table-responsive">
-                                                <table class="table-bordered table-striped" style="width:100%">
-                                                    <thead class="text-center">
-                                                        <th>Tahun</th>
-                                                        <th>Laporan Kinerja</th>
-                                                        <th>Dokumentasi</th>
-                                                    </thead>
-                                                    <tbody class="text-center">
-                                                        <tr>
-                                                            <td>2023</td>
-                                                            <td>
-                                                                <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                            </td>
-                                                            <td>
-                                                                <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2022</td>
-                                                            <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
-                                                            <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2021</td>
-                                                            <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
-                                                            <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
-                                                        </tr>
+                                            <div class="col-md-12">
+                                                <div id="accordion-1">
+                                                    <?php
+                                                    $delay = 0.1;
+                                                    if ($laporan) {
+                                                        foreach ($laporan as $lp) {
+                                                    ?>
+                                                            <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
+                                                                <div class="card-header">
+                                                                    <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $lp->tahun_sumberdana; ?>">
+                                                                        <?php echo $lp->tahun_sumberdana; ?>
+                                                                    </a>
+                                                                </div>
+                                                                <div id="collapse<?php echo $lp->tahun_sumberdana; ?>" class="collapse" data-parent="#accordion-1">
+                                                                    <div class="card-body">
 
-<<<<<<< Updated upstream
-                                                                    <div class="table-responsive">
-                                                                        <table class="table-bordered table-striped text-small" style="width:100%">
-                                                                            <?php
-                                                $CI = &get_instance();
-                                                $CI->load->model('M_emonitoring');
+                                                                        <div class="table-responsive">
+                                                                            <table class="table-bordered table-striped text-small" style="width:100%">
+                                                                                <?php
+                                                                                $CI = &get_instance();
+                                                                                $CI->load->model('M_emonitoring');
 
-                                                $lapkontrak = $CI->M_daerahirigasi->get_laporan_by_kode_by_tahun($lp->tahun_sumberdana,$lp->kode_di);
-                                                ?>
-                                                                            <thead>
-                                                                                <tr class="tex-small" style="background-color:#00008B; color:white">
-                                                                                    <th rowspan="2">Nama Paket</th>
-                                                                                    <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
-                                                                                    <th rowspan="2">No Kontrak</th>
-                                                                                    <th rowspan="2">Tgl Kontrak</th>
-                                                                                    <th rowspan="2">Nilai Kontrak</th>
-                                                                                    <th rowspan="2">Sumber Dana</th>
-                                                                                    <th style="padding:2.5px;" colspan="3">Lokasi</th>
-                                                                                    <th rowspan="2">Output/Capaian/Produk Akhir </th>
-                                                                                    <th rowspan="2">Dokumentasi </th>
-                                                                                </tr>
-                                                                                <tr style="background-color:#00008B; color:white">
-                                                                                    <th>Kab.</th>
-                                                                                    <th>Kec.</th>
-                                                                                    <th>Koordinat</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php foreach ($lapkontrak as $lk) { ?>
-                                                                                <tr>
-                                                                                <td><?php echo $lk->nama_paket;?></td>
-                                                                                <td><?php echo $lk->penyedia_jasa;?></td>
-                                                                                <td><?php echo $lk->no_kontrak;?></td>
+                                                                                $lapkontrak = $CI->M_daerahirigasi->get_laporan_by_kode_by_tahun($lp->tahun_sumberdana, $lp->kode_di);
+                                                                                ?>
+                                                                                <thead>
+                                                                                    <tr class="tex-small" style="background-color:#00008B; color:white">
+                                                                                        <th rowspan="2">Nama Paket</th>
+                                                                                        <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
+                                                                                        <th rowspan="2">No Kontrak</th>
+                                                                                        <th rowspan="2">Tgl Kontrak</th>
+                                                                                        <th rowspan="2">Nilai Kontrak</th>
+                                                                                        <th rowspan="2">Sumber Dana</th>
+                                                                                        <th style="padding:2.5px;" colspan="3">Lokasi</th>
+                                                                                        <th rowspan="2">Output/Capaian/Produk Akhir </th>
+                                                                                        <th rowspan="2">Dokumentasi </th>
+                                                                                    </tr>
+                                                                                    <tr style="background-color:#00008B; color:white">
+                                                                                        <th>Kab.</th>
+                                                                                        <th>Kec.</th>
+                                                                                        <th>Koordinat</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <?php foreach ($lapkontrak as $lk) { ?>
+                                                                                        <tr>
+                                                                                            <td><?php echo $lk->nama_paket; ?></td>
+                                                                                            <td><?php echo $lk->penyedia_jasa; ?></td>
+                                                                                            <td><?php echo $lk->no_kontrak; ?></td>
 
-                                                                                <td><?php echo $lk->tgl_kontrak;?></td>
-                                                                                <td><?php echo rupiah($lk->nilai_kontrak);?></td>
-                                                                                <td><?php echo $lk->sumber_dana." ".$lk->tahun_sumberdana;?></td>
-                                                                                <td><?php echo $lk->lok_kabupaten;?></td>
-                                                                                <td><?php echo $lk->lok_distrik;?></td>
-                                                                                <td><?php echo $lk->titik_koordinat;?></td>
-                                                                                <td><?php echo $lk->output_produk;?></td>
-                                                                                <td><a href="<?php echo base_url('daerahirigasi/download_dokumentasi/').$lk->dokumentasi;?>"><i class="bi bi-file-earmark-pdf"></i></a></td>
-                                                                            </tr>
-                                                                        <?php } ?>
-                                                                            </tbody>
-                                                                        </table>
+                                                                                            <td><?php echo $lk->tgl_kontrak; ?></td>
+                                                                                            <td><?php echo rupiah($lk->nilai_kontrak); ?></td>
+                                                                                            <td><?php echo $lk->sumber_dana . " " . $lk->tahun_sumberdana; ?></td>
+                                                                                            <td><?php echo $lk->lok_kabupaten; ?></td>
+                                                                                            <td><?php echo $lk->lok_distrik; ?></td>
+                                                                                            <td><?php echo $lk->titik_koordinat; ?></td>
+                                                                                            <td><?php echo $lk->output_produk; ?></td>
+                                                                                            <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
+                                                                                        </tr>
+                                                                                    <?php } ?>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    <?php } } else { ?>
+                                                        <?php }
+                                                    } else { ?>
 
                                                         <center>Belum ada data</center>
                                                     <?php } ?>
                                                 </div>
-=======
-                                                    </tbody>
-                                                </table>
->>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>
@@ -352,10 +336,9 @@
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    $(document).ready(function() {
-        $('#menudaerahirigasi').last().addClass("active");
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#menudaerahirigasi').last().addClass("active");
+        });
+    </script>
