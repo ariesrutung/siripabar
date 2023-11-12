@@ -28,6 +28,10 @@
     div#bootstrap-data-table-export_paginate li a {
         color: #fff;
     }
+
+    table.table * {
+        color: #000;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -60,11 +64,18 @@
                                             <td class="text-center"><?php echo $no++; ?></td>
                                             <td class="text-center"><?php echo $news->tanggal; ?></td>
                                             <td><?php echo $news->judul; ?></td>
-                                            <td><?php echo $news->isiberita; ?></td>
+                                            <!-- <td><?php // echo $news->isiberita; 
+                                                        ?></td> -->
                                             <td>
-                                                <img src="<?php echo base_url('upload/berita/' . $news->gambar); ?>" alt="">
-
-
+                                                <span class="p1"><?php echo $news->isiberita; ?></span>
+                                                <button id="More" class="btn btn-secondary text-white">Tampil Penuh</button>
+                                            </td>
+                                            <td>
+                                                <?php if (!empty($news->gambar) && file_exists('upload/berita/' . $news->gambar)) : ?>
+                                                    <img class="w-100" src="<?php echo base_url('upload/berita/' . $news->gambar); ?>" alt="">
+                                                <?php else : ?>
+                                                    <span>Gambar Tidak Tersedia</span>
+                                                <?php endif; ?>
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-info btn-icon-split btn-sm editform" data-idberita="<?php echo $news->id; ?>" data-judul="<?php echo $news->judul; ?>" data-isiberita="<?php echo $news->isiberita; ?>" data-tanggal="<?php echo $news->tanggal; ?>" data-gambar="<?php echo $news->gambar; ?>">
@@ -74,7 +85,7 @@
                                                     <span class="text">Edit</span>
                                                 </a>
 
-                                                <a href="" class="btn btn-danger btn-icon-split btn-sm deletedata" data-idberita="<?php echo $news->id; ?>">
+                                                <a href="#" class="btn btn-danger btn-icon-split btn-sm deletedata" data-idberita="<?php echo $news->id; ?>">
                                                     <span class="icon text-white-50">
                                                         <i class="fa fa-trash"></i>
                                                     </span>
@@ -207,6 +218,7 @@
 <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
 <script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#menuberita').last().addClass("active");
@@ -236,7 +248,50 @@
             // Buka modal
             $('#modalEditBerita').modal('show');
         });
+
+        $('.deletedata').on('click', function() {
+            var idBerita = $(this).data('idberita');
+
+            // Tampilkan konfirmasi sebelum menghapus
+            if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
+                // Kirim permintaan AJAX untuk penghapusan
+                $.ajax({
+                    url: '<?php echo base_url("admin/beritanew/delete_berita"); ?>',
+                    type: 'POST',
+                    data: {
+                        id_berita: idBerita
+                    },
+                    success: function(response) {
+                        // Refresh halaman atau lakukan tindakan lain yang diperlukan
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
     });
+</script>
+
+<script>
+    document.querySelectorAll('button#More').forEach(bttn => {
+        bttn.dataset.state = 0;
+        bttn.addEventListener('click', function(e) {
+            let span = this.previousElementSibling;
+            span.dataset.tmp = span.textContent;
+            span.textContent = span.dataset.content;
+            span.dataset.content = span.dataset.tmp;
+
+            this.innerHTML = this.dataset.state == 1 ? 'Tampil Penuh' : 'Tampil Sebagian';
+            this.dataset.state = 1 - this.dataset.state;
+        })
+    });
+
+    document.querySelectorAll('span.p1').forEach(span => {
+        span.dataset.content = span.textContent;
+        span.textContent = span.textContent.substr(0, 100) + '...';
+    })
 </script>
 
 

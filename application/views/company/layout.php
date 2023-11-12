@@ -8,7 +8,7 @@
     <meta content="Construction Company Website Template" name="keywords">
     <meta content="Construction Company Website Template" name="description">
 
-     <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>public/focus-theme/images/favicon/favicon-16x16.png">
@@ -145,7 +145,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a id="menuberanda" href="<?php echo base_url('/'); ?>" class="nav-item nav-link">Beranda</a>
-                            <a id="menuberita" href="<?php echo base_url('berita'); ?>" class="nav-item nav-link">Berita</a>
+                            <a id="menuberita" href="<?php echo base_url('beritanew'); ?>" class="nav-item nav-link">Berita</a>
                             <div class="nav-item dropdown">
                                 <a id="menudaerahirigasi" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Daerah Irigasi</a>
                                 <div class="dropdown-menu">
@@ -158,13 +158,13 @@
                             <a id="menugaleri" href="<?php echo base_url('galeri/'); ?>" class="nav-item nav-link">Galeri</a>
                             <a id="menulapor" href="<?php echo base_url('lapor'); ?>" class="nav-item nav-link">Lapor</a>
                             <!-- Menu untuk user login -->
-                                <a id="menuemonitoring" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
+                            <a id="menuemonitoring" href="<?php echo base_url('emonitoring'); ?>" class="nav-item nav-link">E-monitoring Pelaksanaan</a>
 
-                               <!-- tombol logout untuk tamu login -->
-                                <?php if ($this->session->userdata('username') && !$this->ion_auth->is_admin()) { ?>
+                            <!-- tombol logout untuk tamu login -->
+                            <?php if ($this->session->userdata('username') && !$this->ion_auth->is_admin()) { ?>
                                 <a href="<?php echo base_url('auth/logout'); ?>" class="nav-item nav-link">Logout</a>
                             <?php  } ?>
-                           
+
                         </div>
                     </div>
                 </nav>

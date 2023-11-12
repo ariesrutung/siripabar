@@ -1,3 +1,7 @@
+    <link href="<?php echo base_url(); ?>public/focus-theme/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/focus-theme/vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>public/focus-theme/css/style.css" rel="stylesheet">
+
     <style>
         div#detailLap td {
             text-align: left;
@@ -28,6 +32,11 @@
         .table thead th {
             vertical-align: middle;
             border-bottom: 2px solid #EEEEEE;
+        }
+
+        div#detailLap th,
+        div#detailLap span {
+            color: #000 !important;
         }
     </style>
     <div class="content-body">
@@ -293,6 +302,10 @@
             </div>
         </div>
     </div>
+    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
+
 
     <script>
         $(document).ready(function() {

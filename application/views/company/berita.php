@@ -17,14 +17,14 @@
         </div>
         <div class="row blog-page">
             <?php $no = 1;
-            foreach ($berita as $news) : ?>
+            foreach ($news as $br) : ?>
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <?php
                     $CI = &get_instance();
                     $CI->load->model('M_berita');
-                    $gb = $CI->M_berita->get_image($news->id);
+                    $gb = $CI->M_berita->get_image($br->id);
                     ?>
-                    <a href="<?php echo site_url('berita/detail_berita/') . url_title($news->judul, 'dash', true); ?>">
+                    <a href="<?php echo site_url('berita/detail_berita/') . url_title($br->judul, 'dash', true); ?>">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <?php if ($gb) { ?>
@@ -34,7 +34,7 @@
                                 <?php } ?>
                             </div>
                             <div class="blog-title">
-                                <h3><?php echo substr($news->judul, 0, 50); ?></h3>
+                                <h3><?php echo substr($br->judul, 0, 50); ?></h3>
                                 <a class="btn" href="">+</a>
                             </div>
                             <!-- <div class="blog-text">

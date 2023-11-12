@@ -21,4 +21,28 @@ class M_beritanew extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('news', $data);
     }
+
+    public function get_berita_by_id($id)
+    {
+        return $this->db->get_where('news', array('id' => $id))->row();
+    }
+
+    public function delete_berita($idBerita)
+    {
+        // Lakukan operasi penghapusan berita berdasarkan ID
+        $this->db->where('id', $idBerita);
+        $this->db->delete('news');
+    }
+
+    public function get_all_berita()
+    {
+        $query = $this->db->get('news');
+        return $query->result();
+    }
+
+
+    public function get_berita_by_slug($slug)
+    {
+        return $this->db->get_where('news', array('slug' => $slug))->row();
+    }
 }

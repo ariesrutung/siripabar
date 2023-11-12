@@ -13,7 +13,7 @@ class Beritanew extends CI_Controller
     public function index()
     {
 
-        $data['berita'] = $this->M_beritanew->get_semua();
+        $data['berita'] = $this->M_beritanew->get_all_berita();
         $data['title'] = 'BERITA';
         $data['_view'] = "admin/beritanew";
         $this->load->view('admin/layout', $data);
@@ -77,7 +77,13 @@ class Beritanew extends CI_Controller
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('edit_gambar')) {
-                $data['gambar'] = 'upload/berita/' . $newFileName;
+                // Hapus gambar lama sebelum menyimpan yang baru
+                $beritaLama = $this->M_beritanew->get_berita_by_id($idBerita);
+                if (!empty($beritaLama->gambar) && file_exists($beritaLama->gambar)) {
+                    unlink($beritaLama->gambar);
+                }
+
+                $data['gambar'] = $newFileName;
             } else {
                 // Handle error jika upload gagal
                 $error = array('error' => $this->upload->display_errors());
@@ -88,6 +94,20 @@ class Beritanew extends CI_Controller
 
         $this->M_beritanew->update_berita($idBerita, $data);
         // Tambahkan pesan flashdata atau tindakan lain yang sesuai
+        redirect('admin/beritanew');
+    }
+
+    public function delete_berita()
+    {
+        $idBerita = $this->input->post('id_berita');
+
+        // Panggil model untuk menghapus berita
+        $this->M_beritanew->delete_berita($idBerita);
+
+        // Kirim pesan flashdata atau tindakan lain yang sesuai
+        // (opsional)...
+
+        // Redirect ke halaman berita setelah penghapusan
         redirect('admin/beritanew');
     }
 }
