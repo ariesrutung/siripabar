@@ -195,7 +195,8 @@
                                                         <td>
                                                             <a class="btn btn-sm btn-info open-modalkurva" data-toggle="modal" data-jan="<?php echo $dk->pk_januari; ?>" data-feb="<?php echo $dk->pk_februari; ?>" data-mar="<?php echo $dk->pk_maret; ?>" data-apr="<?php echo $dk->pk_april; ?>" data-mei="<?php echo $dk->pk_mei; ?>" data-jun="<?php echo $dk->pk_juni; ?>" data-jul="<?php echo $dk->pk_juli; ?>" data-agu="<?php echo $dk->pk_agustus; ?>" data-sep="<?php echo $dk->pk_september; ?>" data-okt="<?php echo $dk->pk_oktober; ?>" data-nov="<?php echo $dk->pk_november; ?>" data-des="<?php echo $dk->pk_desember; ?>" data-namapaket="<?php echo $dk->nama_paket; ?>" href="#modalKurva"><i class="bi bi-bar-chart-line"></i></a>
                                                         </td>
-                                                        <td><?php echo $dk->dp_dokkontrak; ?></td>
+                                                        <td><a target="_blank" href="<?php echo base_url();?>upload/dokumendatakontrak/<?php echo $dk->dp_dokkontrak; ?>"><i class="bi bi-file-earmark-pdf"></i></a>
+                                                          </td>
                                                         <td>
                                                             <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
                                                             <!-- <?php // echo $dk->dp_gbrrencana; 
