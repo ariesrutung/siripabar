@@ -48,40 +48,40 @@
         <li data-target="#carousel" data-slide-to="9"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (15).jpg" alt="Carousel Image">
+        <!-- <div class="carousel-item active">
+            <img style="background-size: contain !important;" src="<?php //echo base_url(); ?>/public/company/img/slider1/slider (15).jpg" alt="Carousel Image"> -->
             <!-- <div class="carousel-caption">
                 <p class="animated fadeInRight">We Are Trusted</p>
                 <h1 class="animated fadeInLeft">For Your Dream Home</h1>
                 <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
             </div> -->
+        <!-- </div> -->
+        <div class="carousel-item active">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (3).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (14).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (2).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (7).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (1).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (8).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (4).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (9).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (5).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (10).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (6).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (2).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (7).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (5).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (8).jpg" alt="Carousel Image">
         </div>
         <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (4).jpg" alt="Carousel Image">
-        </div>
-        <div class="carousel-item">
-            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/slider (3).jpg" alt="Carousel Image">
+            <img style="background-size: contain !important;" src="<?php echo base_url(); ?>/public/company/img/slider1/new/slider (9).jpg" alt="Carousel Image">
         </div>
     </div>
 
@@ -107,7 +107,7 @@
                     <!-- <i class="flaticon-worker"></i> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN PUSAT</h3>
-                        <p>Sebanyak 3 Daerah Irigasi dengan luas total 9666 Ha</p>
+                        <p>Sebanyak <strong>3 Daerah Irigasi</strong> dengan luas total <strong>9666 Ha</strong></p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN PROVINSI</h3>
-                        <p>Sebanyak 8 Daerah Irigasi dengan luas total 10460 Ha</p>
+                        <p>Sebanyak <strong>11 Daerah Irigasi</strong> dengan luas total <strong>15.010 Ha</strong></p>
 
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN KAB/KOTA</h3>
-                        <p>Sebanyak 22 Daerah Irigasi dengan luas total 7813 Ha</p>
+                        <p>Sebanyak <strong>16 Daerah Irigasi</strong> dengan luas total <strong>5.371 Ha</strong></p>
 
                     </div>
                 </div>

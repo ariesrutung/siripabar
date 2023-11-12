@@ -15,7 +15,7 @@
     <div class="container">
         <div class="section-header text-center">
             <h2>DAERAH IRIGASI</h2>
-            <p>Kewenangan Pusat</p>
+            <p>Kewenangan Kementerian (Pusat)</p>
         </div>
         <div class="row justify-content-center align-items-center">
             <?php foreach ($daerahirigasi as $di) { ?>

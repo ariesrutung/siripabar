@@ -117,7 +117,7 @@
 
                                                 $datakontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($emon->tahun_sumberdana);
                                                 ?>
-                                                <tr class="tex-small">
+                                                <tr class="tex-small" style="background-color:#00008B; color:white">
                                                     <th rowspan="2">Nama Paket</th>
                                                     <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
                                                     <th rowspan="2">No Kontrak</th>
@@ -134,7 +134,7 @@
                                                     <th rowspan="2">Kurva S</th>
                                                     <th colspan="9">Dokumen Pendukung </th>
                                                 </tr>
-                                                <tr>
+                                                <tr style="background-color:#00008B; color:white">
                                                     <th>Kab.</th>
                                                     <th>Kec.</th>
                                                     <th>Koordinat</th>
@@ -166,20 +166,20 @@
                                             <tbody>
                                                 <?php foreach ($datakontrak as $dk) { ?>
                                                     <tr>
-                                                        <td><?php echo $dk->nama_paket; ?></td>
+                                                        <td style="text-align: left !important"><?php echo $dk->nama_paket; ?></td>
                                                         <td><?php echo $dk->penyedia_jasa; ?></td>
                                                         <td><?php echo $dk->no_kontrak; ?></td>
-                                                        <td><?php echo $dk->tgl_kontrak; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_kontrak); ?></td>
                                                         <td><?php echo $dk->no_spmk; ?></td>
-                                                        <td><?php echo $dk->tgl_spmk; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_spmk); ?></td>
                                                         <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
                                                         <td><?php echo $dk->nilai_kontrak; ?></td>
                                                         <td><?php echo $dk->lok_kabupaten; ?></td>
                                                         <td><?php echo $dk->lok_distrik; ?></td>
                                                         <td><?php echo $dk->titik_koordinat; ?></td>
                                                         <td><?php echo $dk->output_produk; ?></td>
-                                                        <td><?php echo $dk->tgl_rencanapho; ?></td>
                                                         <td><?php echo $dk->masa_pelaksanaan; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_rencanapho); ?></td>
                                                         <td><?php echo $dk->pk_januari; ?></td>
                                                         <td><?php echo $dk->pk_februari; ?></td>
                                                         <td><?php echo $dk->pk_maret; ?></td>
@@ -294,9 +294,25 @@
                 title: {
                     display: true,
                     text: namapaket
+                },
+                tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                        }
+                        return label;
+                    }
                 }
+            }
 
             }
+
         });
 
     });
