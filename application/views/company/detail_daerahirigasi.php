@@ -257,7 +257,7 @@
                                                 <div id="accordion-1">
                                                     <?php
                                                     $delay = 0.1;
-
+                                                    if($laporan) {
                                                     foreach ($laporan as $lp) {
                                                     ?>
                                                         <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
@@ -318,8 +318,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    <?php } ?>
+                                                    <?php } } else { ?>
 
+                                                        <center>Belum ada data</center>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
