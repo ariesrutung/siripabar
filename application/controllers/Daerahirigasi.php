@@ -65,4 +65,16 @@ class Daerahirigasi extends CI_Controller
         $data['_view'] = "company/detail_daerahirigasi";
         $this->load->view('company/layout', $data);
     }
+
+    public function download_skema($namafile)
+    {
+        $url = "upload/skema_DI/".$namafile;
+        force_download($url,NULL);
+    }
+
+    public function download_dokumentasi($namafile)
+    {
+        $url = "upload/datakontrak/".$namafile;
+        force_download($url,NULL);
+    }
 }

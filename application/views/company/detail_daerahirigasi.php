@@ -138,7 +138,7 @@
                                                             <td>Download Skema Jaringan</td>
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong">
-                                                                <a href="" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
+                                                                <a href="<?php echo base_url('daerahirigasi/download_skema/').$ddi->dokumen;?>" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
                                                             </td>
                                                         </tr>
 
@@ -156,7 +156,7 @@
                                                         <tr style="vertical-align:top">
                                                             <td class="strong w-20">Jumlah Subsistem</td>
                                                             <td width="30px" class="text-center">:</td>
-                                                            <td class="strong w-70"><?php echo ($ddi->jumlah_subsistem) ? $ddi->jumlah_subsistem : '0'; ?> Km</td>
+                                                            <td class="strong w-70"><?php echo ($ddi->jumlah_subsistem) ?> </td>
                                                         </tr>
                                                         <tr style="vertical-align:top">
                                                             <td class="strong w-20">Data AKNOP</td>
@@ -309,7 +309,7 @@
                                                                                 <td><?php echo $lk->lok_distrik;?></td>
                                                                                 <td><?php echo $lk->titik_koordinat;?></td>
                                                                                 <td><?php echo $lk->output_produk;?></td>
-                                                                                <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a></td>
+                                                                                <td><a href="<?php echo base_url('daerahirigasi/download_dokumentasi/').$lk->dokumentasi;?>"><i class="bi bi-file-earmark-pdf"></i></a></td>
                                                                             </tr>
                                                                         <?php } ?>
                                                                             </tbody>
