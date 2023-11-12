@@ -107,7 +107,7 @@
                     <!-- <i class="flaticon-worker"></i> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN PUSAT</h3>
-                        <p>Sebanyak 3 Daerah Irigasi dengan luas total 9666 Ha</p>
+                        <p>Sebanyak <strong>3 Daerah Irigasi</strong> dengan luas total <strong>9666 Ha</strong></p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN PROVINSI</h3>
-                        <p>Sebanyak 11 Daerah Irigasi dengan luas total 15.010 Ha</p>
+                        <p>Sebanyak <strong>11 Daerah Irigasi</strong> dengan luas total <strong>15.010 Ha</strong></p>
 
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     </div> -->
                     <div class="feature-text">
                         <h3>KEWENANGAN KAB/KOTA</h3>
-                        <p>Sebanyak 16 Daerah Irigasi dengan luas total 5.371 Ha</p>
+                        <p>Sebanyak <strong>16 Daerah Irigasi</strong> dengan luas total <strong>5.371 Ha</strong></p>
 
                     </div>
                 </div>
