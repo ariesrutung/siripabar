@@ -13,7 +13,7 @@ class Daerahirigasi extends CI_Controller
         //     redirect('Auth');
         // }
         // $this->load->library(['ion_auth', 'form_validation']);
-        $this->load->model(['M_daerahirigasi','M_emonitoring']);
+        $this->load->model(['M_daerahirigasi', 'M_emonitoring', 'M_laporankinerja']);
     }
 
     public function index()
@@ -31,7 +31,7 @@ class Daerahirigasi extends CI_Controller
         $data['_view'] = "company/daerahirigasipusat";
         $this->load->view('company/layout', $data);
     }
-    
+
     public function provinsi()
     {
         $data['daerahirigasi'] = $this->M_daerahirigasi->get_by_kewenangan("Provinsi");
@@ -57,10 +57,12 @@ class Daerahirigasi extends CI_Controller
     }
 
     public function detail($kode)
-    { 
+    {
+
         $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
         $data['datakontrak'] = $this->M_daerahirigasi->get_datakontrak($kode);
-        $data['laporan'] = $this->M_daerahirigasi->get_laporan_by_kode($kode);
+        $data['lapkinerja'] = $this->M_laporankinerja->get_by_kode($kode);
+
         $data['title'] = 'DETAIL DAERAH IRIGASI';
         $data['_view'] = "company/detail_daerahirigasi";
         $this->load->view('company/layout', $data);
@@ -68,13 +70,13 @@ class Daerahirigasi extends CI_Controller
 
     public function download_skema($namafile)
     {
-        $url = "upload/skema_DI/".$namafile;
-        force_download($url,NULL);
+        $url = "upload/skema_DI/" . $namafile;
+        force_download($url, NULL);
     }
 
-    public function download_dokumentasi($namafile)
+    public function download_lapkinerja($namafile)
     {
-        $url = "upload/datakontrak/".$namafile;
-        force_download($url,NULL);
+        $url = "upload/lapkinerja/" . $namafile;
+        force_download($url, NULL);
     }
 }
