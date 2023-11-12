@@ -171,9 +171,10 @@
                                                         <td><?php echo $dk->no_kontrak; ?></td>
                                                         <td><?php echo date_indo($dk->tgl_kontrak); ?></td>
                                                         <td><?php echo $dk->no_spmk; ?></td>
-                                                        <td><?php echo date_indo($dk->tgl_spmk); ?></td>
-                                                        <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
+                                                        <td><?php echo date_indo($dk->tgl_spmk); ?></td> 
                                                         <td><?php echo rupiah($dk->nilai_kontrak); ?></td>
+                                                        <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
+                                                       
                                                         <td><?php echo $dk->lok_kabupaten; ?></td>
                                                         <td><?php echo $dk->lok_distrik; ?></td>
                                                         <td><?php echo $dk->titik_koordinat; ?></td>
