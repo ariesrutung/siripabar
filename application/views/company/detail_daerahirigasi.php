@@ -303,7 +303,7 @@
                                                                                 <td><?php echo $lk->no_kontrak;?></td>
 
                                                                                 <td><?php echo $lk->tgl_kontrak;?></td>
-                                                                                <td><?php echo $lk->nilai_kontrak;?></td>
+                                                                                <td><?php echo rupiah($lk->nilai_kontrak);?></td>
                                                                                 <td><?php echo $lk->sumber_dana." ".$lk->tahun_sumberdana;?></td>
                                                                                 <td><?php echo $lk->lok_kabupaten;?></td>
                                                                                 <td><?php echo $lk->lok_distrik;?></td>
