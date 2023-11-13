@@ -7,155 +7,111 @@ class Berita extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // is_logged_in();
-        // if (!$this->session->userdata('username')) {
-        //     redirect('Auth');
-        // }
-        // $this->load->library(['ion_auth', 'form_validation']);
-        $this->load->model(['M_berita']);
+        if (!$this->ion_auth->is_admin()) {
+            redirect('Auth');
+        }
+        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->model(['M_beritanew']);
     }
 
     public function index()
     {
 
-        $data['berita'] = $this->M_berita->get_all();
-        $data['list_kategori'] = $this->M_berita->get_kategori();
-
+        $data['berita'] = $this->M_beritanew->get_all_berita();
         $data['title'] = 'BERITA';
-        $data['_view'] = "admin/berita";
+        $data['_view'] = "admin/beritanew";
         $this->load->view('admin/layout', $data);
     }
 
-    public function generateidberita()
+    public function add_berita()
     {
-        $last_idbr = $this->M_berita->get_lastrow();
-        if ($last_idbr->num_rows > 0) {
-            $idberita = (int)$last_idbr->row()->idberita + 1;
-        } else {
-            $idberita = 1;
-        }
-        return $idberita = $idberita;
-        $idberita = $idberita;
-    }
+        $config['upload_path'] = './upload/berita';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 10000;
 
-    public function kategori($cat)
-    {
-        $data['title'] = "BERITA - " . $cat;
-        $data['berita'] = $this->M_berita->get_all(NULL, $cat);
-        $data['list_kategori'] = $this->M_berita->get_kategori();
-        $data['_view'] = "public/berita";
-        $this->load->view('public/layout', $data);
-    }
-
-    public function detail($slug)
-    {
-        $data['title'] = "DETAIL BERITA";
-        $data['detail'] = $this->M_berita->get_by_slug($slug);
-        $data['list_kategori'] = $this->M_berita->get_kategori();
-        $data['_view'] = "public/detail_berita";
-        $this->load->view('public/layout', $data);
-    }
-
-    public function switchslider($sliderstatus)
-    {
-        $idberita = $this->input->post('idberita');
-        if ($this->M_berita->switchslider($idberita, $sliderstatus)) {
-            echo json_encode(array('status' => TRUE));
-        } else {
-            echo json_encode(array('status' => FALSE));
-        }
-    }
-
-    public function deleteberita()
-    {
-        $idberita = $this->input->post('idberita');
-        if ($this->M_berita->deletedata($idberita)) {
-            echo json_encode(array('status' => TRUE, 'info' => 'Berhasil hapus berita'));
-        } else {
-            echo json_encode(array('status' => FALSE, 'info' => 'Gagal hapus berita'));
-        }
-    }
-
-    public function add()
-    {
-        $data['idberita'] = date("YmdHis");
-        $data['menu'] = "admin/navbar";
-        $this->load->view('admin/berita_add', $data);
-    }
-
-    public function edit($idberita)
-    {
-        $data['berita'] = $this->M_berita->get_by_id($idberita);
-        $data['_view'] = "admin/berita_edit";
-        $this->load->view('admin/layout', $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Silakan kembali ke halaman berita dengan menekan menu Berita yang ada di bagian sibebar halaman ini.</div>');
-        echo json_encode(array('status' => TRUE));
-    }
-
-    public function saveberita()
-    {
-        $slug =  url_title($this->input->post('judulberita'), 'dash', true);
-        $params = array(
-            'tanggal' => date("Y-m-d H:i:s"),
-            'judul' => $this->input->post('judulberita'),
-            'isi' => $this->input->post('isiberita'),
-            'slug' => $slug,
-            'kategori' => $this->input->post('kategoriberita'),
-            'id' => $this->input->post('idberita'),
-        );
-
-
-        $this->M_berita->add_berita($params);
-
-        $this->session->set_flashdata('message', '<div class="alert alert-success d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24"  height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>
-          Silakan kembali ke halaman berita dengan menekan menu Berita yang ada di bagian sibebar halaman ini.
-        </div>
-      </div>');
-        echo json_encode(array('status' => TRUE));
-    }
-
-    public function updateberita()
-    {
-        $slug =  url_title($this->input->post('judulberita'), 'dash', true);
-        $id = $this->input->post('idberita');
-
-        $params = array(
-            'tanggal' => date("Y-m-d H:i:s"),
-            'judul' => $this->input->post('judulberita'),
-            'isi' => $this->input->post('isiberita'),
-            'slug' => $slug,
-            'kategori' => $this->input->post('kategoriberita'),
-            'id' => $this->input->post('idberita'),
-        );
-
-
-        $this->M_berita->edit($params);
-
-        $this->session->set_flashdata('message', '<div class="alert alert-success d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24"  height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>
-          Silakan kembali ke halaman berita dengan menekan menu Berita yang ada di bagian sibebar halaman ini.
-        </div>
-      </div>');
-        echo json_encode(array('status' => TRUE));
-    }
-
-
-    public function uploadgbrberita()
-    {
-        $config['upload_path']   = FCPATH . '/upload/berita/';
-        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('gambar_berita')) {
-            $idberita = $this->input->post('idberita');
-            $file_name = $this->upload->data('file_name');
-            $slider = $this->input->post('slider');
-            $uploaded_on = date("Y-m-d H:i:s");
-            $this->db->insert('galeriberita', array('idberita' => $idberita, 'nama_file' => $file_name, 'slider' => $slider, 'uploaded_on' => $uploaded_on));
+        if (!$this->upload->do_upload('gambar')) {
+            $error = array('error' => $this->upload->display_errors());
+            print_r($error);
+        } else {
+            $slug = url_title($this->input->post('judul'), 'dash', TRUE); // Generate slug from title
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'isiberita' => $this->input->post('isiberita'),
+                'tanggal' => $this->input->post('tanggal'),
+                'kategori' => 'Irigasi',
+                'slug' => $slug,
+                'gambar' => $this->upload->data('file_name'),
+            );
+
+            $this->M_beritanew->insert_berita($data);
+            redirect('admin/beritanew');
         }
+    }
+
+    public function get_berita_ajax($id)
+    {
+        $berita = $this->M_beritanew->get_berita_by_id($id);
+        echo json_encode($berita);
+    }
+
+    public function update_berita()
+    {
+        $idBerita = $this->input->post('id_berita');
+        $data = array(
+            'judul' => $this->input->post('edit_judul'),
+            'isiberita' => $this->input->post('edit_isiberita'),
+            'tanggal' => $this->input->post('edit_tanggal'),
+        );
+
+        // Memproses gambar jika ada yang diunggah
+        if (!empty($_FILES['edit_gambar']['name'])) {
+            $config['upload_path'] = './upload/berita';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 10000;
+
+            // Mendapatkan ekstensi file
+            $fileExt = pathinfo($_FILES['edit_gambar']['name'], PATHINFO_EXTENSION);
+
+            // Menyusun nama file baru dengan tambahan timestamp
+            $newFileName = 'berita_' . date('YmdHis') . '.' . $fileExt;
+            $config['file_name'] = $newFileName;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('edit_gambar')) {
+                // Hapus gambar lama sebelum menyimpan yang baru
+                $beritaLama = $this->M_beritanew->get_berita_by_id($idBerita);
+                if (!empty($beritaLama->gambar) && file_exists($beritaLama->gambar)) {
+                    unlink($beritaLama->gambar);
+                }
+
+                $data['gambar'] = $newFileName;
+            } else {
+                // Handle error jika upload gagal
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+                return;
+            }
+        }
+
+        $this->M_beritanew->update_berita($idBerita, $data);
+        // Tambahkan pesan flashdata atau tindakan lain yang sesuai
+        redirect('admin/beritanew');
+    }
+
+    public function delete_berita()
+    {
+        $idBerita = $this->input->post('id_berita');
+
+        // Panggil model untuk menghapus berita
+        $this->M_beritanew->delete_berita($idBerita);
+
+        // Kirim pesan flashdata atau tindakan lain yang sesuai
+        // (opsional)...
+
+        // Redirect ke halaman berita setelah penghapusan
+        redirect('admin/beritanew');
     }
 }
