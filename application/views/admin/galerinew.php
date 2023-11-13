@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="alert alert-info" role="alert">
-                                Untuk menambahkan gambar baru ke dalam galeri yang sudah ada, ketikan nama galeri tersebut pada inputan Nama Folder pada modal Tambah Galeri.
+                                Untuk menambahkan gambar baru ke dalam galeri yang sudah ada, ketikan nama galeri tersebut pada inputan Nama Galeri pada modal Tambah Galeri.
                             </div>
 
                             <!-- Modal -->
@@ -110,9 +110,9 @@
                                             <div class="row modal-content-scrollable">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <label class="text-label">Nama Folder</label><br>
+                                                        <label class="text-label">Nama Galeri</label><br>
                                                         <input type="text" class="form-control" name="nama_folder" required>
-                                                        <p class="info">Nama yang diinput di sini akan muncul sebagai nama kategori di halaman ini dan halaman galeri web.</p>
+                                                        <!-- <p class="info">Nama yang diinput di sini akan muncul sebagai nama kategori di halaman ini dan halaman galeri web.</p> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
