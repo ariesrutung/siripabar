@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="alert alert-info" role="alert">
-                                Untuk menambahkan gambar baru ke dalam galeri DIREKSI KEET, ketikan nama DIREKSI KEET pada inputan Nama Folder pada modal Tambah Galeri. Berlaku hal yang sama untuk galeri lain.
+                                Untuk menambahkan gambar baru ke dalam galeri yang sudah ada, ketikan nama galeri tersebut pada inputan Nama Folder pada modal Tambah Galeri.
                             </div>
 
                             <!-- Modal -->
