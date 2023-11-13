@@ -32,7 +32,8 @@
         color: #fff;
     }
 
-    table.table * {
+    table.table th,
+    table.table td {
         color: #000;
     }
 
@@ -96,6 +97,21 @@
         justify-content: center;
         align-items: center;
     }
+
+    a.btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .text-white-50 {
+        color: rgba(255, 255, 255, 0.5) !important;
+        margin: 2px 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -138,7 +154,12 @@
                                                 <div class="w-100">
                                                     <input type="checkbox" class="js-switch" data-id="<?= $slider->id ?>" <?= $slider->status == 1 ? 'checked' : '' ?>>
                                                 </div>
-                                                <a href="<?= base_url('admin/slider/hapus/' . $slider->id) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus slider ini?')">Hapus</a>
+                                                <a href="<?= base_url('admin/slider/hapus/' . $slider->id) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus slider ini?')">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fa fa-trash"></i>
+                                                    </span>
+                                                    <span class="text"> Hapus</span>
+                                                </a>
 
                                             </td>
                                         </tr>

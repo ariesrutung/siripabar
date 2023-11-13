@@ -56,6 +56,12 @@
         font-size: 12px;
         color: #0c5460 !important;
     }
+
+    .alert-info {
+        color: #0c5460;
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -84,6 +90,10 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="alert alert-info" role="alert">
+                                Untuk menambahkan gambar baru ke dalam galeri DIREKSI KEET, ketikan nama DIREKSI KEET pada inputan Nama Folder pada modal Tambah Galeri. Berlaku hal yang sama untuk galeri lain.
                             </div>
 
                             <!-- Modal -->
