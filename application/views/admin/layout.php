@@ -232,7 +232,7 @@
                     <li id="menudatakontrak"><a href="<?php echo base_url('admin/datakontrak'); ?>"><i class="ti-file"></i><span class="nav-text"> Data Kontrak</span></a></li>
 
                     <li class="nav-label first">MANAJEMEN WEBSITE</li>
-                    <li id="menuberita"><a href="<?php echo base_url('admin/beritanew'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
+                    <li id="menuberita"><a href="<?php echo base_url('admin/berita'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
                     <li id="menuslider"><a href="<?php echo base_url('admin/slider'); ?>"><i class="ti-camera"></i><span class="nav-text"> Slider</span></a></li>
                     <li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-receipt"></i><span class="nav-text"> Galeri</span></a></li>
                 </ul>
