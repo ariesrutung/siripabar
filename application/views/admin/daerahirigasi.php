@@ -12,7 +12,8 @@
         margin-bottom: 1rem;
     }
 
-    .table-responsive * {
+    .table-responsive th,
+    .table-responsive td {
         color: #000;
     }
 
@@ -90,23 +91,26 @@
                                             <td><?php echo $di->luas_fungsional; ?></td>
                                             <td>
                                                 <div class="aksi">
-                                                    <a href="#" class="btn btn-primary viewDetailDaerahIrigasi" data-backdrop="static" data-iddaerahirigasi="<?php echo $di->id; ?>">
+                                                    <a href="#" class="btn btn-info text-white viewDetailDaerahIrigasi" data-backdrop="static" data-iddaerahirigasi="">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fa fa-eye"></i>
+                                                        </span>
+                                                        <span class="text"> Detail</span>
+                                                    </a>
+                                                    <a href="#" class="btn btn-primary text-white viewDetailDaerahIrigasi" data-backdrop="static" data-iddaerahirigasi="">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-edit"></i>
                                                         </span>
                                                         <span class="text"> Edit</span>
                                                     </a>
 
-                                                    <a href="#" class="btn btn-danger deletedata" data-idberita="<?php echo $news->id; ?>">
+                                                    <a href="#" class="btn  text-white btn-danger deletedata" data-iddaerahirigasi="">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-trash"></i>
                                                         </span>
                                                         <span class="text"> Hapus</span>
                                                     </a>
                                                 </div>
-                                                <a href="#" data-toggle="modal" data-backdrop="static" data-target=".ModalDetailDaerahIrigasi" class="btn btn-sm btn-info text-white"><i class="fa fa-eye text-white"></i> Lihat</a>
-                                                <a href="#" data-toggle="modal" data-target=".modalEditDaerahIrigasi" class="btn btn-sm btn-success"><i class="fa fa-edit text-white"></i> Edit</a>
-                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-danger"><i class="fa fa-trash text-white"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -499,46 +503,6 @@
 <script>
     $(document).ready(function() {
         $('#menudaerahirigasi').last().addClass("active");
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('.viewDetailDaerahIrigasi').on('click', function() {
-            var idBerita = $(this).data('idberita');
-
-            // Tempatkan data berita ke dalam modal
-            $('#edit_id_berita').val(idBerita);
-
-
-            // Mengosongkan input file gambar
-            $('#edit_gambar').val('');
-
-            // Buka modal
-            $('#modalEditBerita').modal('show');
-        });
-
-        $('.deletedata').on('click', function() {
-            var idBerita = $(this).data('idberita');
-
-            // Tampilkan konfirmasi sebelum menghapus
-            if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
-                // Kirim permintaan AJAX untuk penghapusan
-                $.ajax({
-                    url: '<?php echo base_url("admin/berita/delete_berita"); ?>',
-                    type: 'POST',
-                    data: {
-                        id_berita: idBerita
-                    },
-                    success: function(response) {
-                        // Refresh halaman atau lakukan tindakan lain yang diperlukan
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            }
-        });
     });
 </script>
 </body>

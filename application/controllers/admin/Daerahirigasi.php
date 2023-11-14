@@ -14,7 +14,6 @@ class Daerahirigasi extends CI_Controller
     }
     public function index()
     {
-        $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
         $data['wil_kab'] = $this->M_wilayah->get_all_kab();
         $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
 
