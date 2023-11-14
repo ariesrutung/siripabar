@@ -10,10 +10,12 @@ class Daerahirigasi extends CI_Controller
             redirect('Auth');
         }
         $this->load->library(['ion_auth', 'form_validation']);
-        $this->load->model(['M_daerahirigasi']);
+        $this->load->model(['M_daerahirigasi', 'M_wilayah']);
     }
     public function index()
     {
+        $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
+        $data['wil_kab'] = $this->M_wilayah->get_all_kab();
         $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
 
         $data['title'] = 'DAERAH IRIGASI';
@@ -24,6 +26,7 @@ class Daerahirigasi extends CI_Controller
 
     public function tambah_dataskemairigasi()
     {
+        $data['ddi'] = $this->M_daerahirigasi->get_by_kode($kode);
         $config['upload_path'] = './upload/datairigasi';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 10000;
