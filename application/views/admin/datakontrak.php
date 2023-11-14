@@ -627,6 +627,7 @@
 
                                             </div>
                                             <div class="row">
+                                                <!-- <button class="btn btn-primary" id="btnUpdateKurva">Update Kurva</button> -->
                                                 <div class="col-lg-12">
                                                     <canvas class="" id="myChart" style="width:100%"></canvas>
                                                 </div>
@@ -708,7 +709,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <input class="btn btn-primary" type="submit" value="Tambah Data">
+                            <input class="btn btn-primary" type="submit" value="Simpan">
                         </div>
                     </div>
                     <?php echo form_close(); ?>
@@ -729,24 +730,20 @@
 
 <script>
     $(document).on("click", ".modalLaporan", function() {
-        // var pk_jan = $(this).data('jan');
-        // var pk_feb = $(this).data('feb');
-        // var pk_mar = $(this).data('mar');
-        // var pk_apr = $(this).data('apr');
-        // var pk_mei = $(this).data('mei');
-        // var pk_jun = $(this).data('jun');
-        // var pk_jul = $(this).data('jul');
-        // var pk_agu = $(this).data('agu');
-        // var pk_sep = $(this).data('sep');
-        // var pk_okt = $(this).data('okt');
-        // var pk_nov = $(this).data('nov');
-        // var pk_des = $(this).data('des');
+        var pk_jan = $('#pk_januari').val();
+        var pk_feb = $('#pk_februari').val();
+        var pk_mar = $('#pk_maret').val();
+        var pk_apr = $('#pk_april').val();
+        var pk_mei = $('#pk_mei').val();
+        var pk_jun = $('#pk_juni').val();
+        var pk_jul = $('#pk_juli').val();
+        var pk_agu = $('#pk_agustus').val();
+        var pk_sep = $('#pk_september').val();
+        var pk_okt = $('#pk_oktober').val();
+        var pk_nov = $('#pk_november').val();
+        var pk_des = $('#pk_desember').val();
         var namapaket = '';
 
-        function updateConfigByMutating(chart) {
-            chart.options.plugins.title.text = $("input[name='pk_januari']").val();
-            chart.update();
-        }
 
         const xValues = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
         new Chart("myChart", {
@@ -754,8 +751,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    // data: [pk_jan, pk_feb, pk_mar, pk_apr, pk_mei, pk_jun, pk_jul, pk_agu, pk_sep, pk_okt, pk_nov, pk_des],
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    data: [pk_jan, pk_feb, pk_mar, pk_apr, pk_mei, pk_jun, pk_jul, pk_agu, pk_sep, pk_okt, pk_nov, pk_des],
+                    // data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     borderColor: "red",
                     fill: true
                 }]
@@ -792,5 +789,20 @@
 
         });
 
+        function addData(chart, label, newData) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(newData);
+            });
+            chart.update();
+        }
+
+        const label = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+        const newData= [pk_jan, pk_feb, pk_mar, pk_apr, pk_mei, pk_jun, pk_jul, pk_agu, pk_sep, pk_okt, pk_nov, pk_des];
+        $(document).on("click", ".btnUpdateKurva", function() {
+            addData(myChart,label,newData);
+        });
+
     });
+    
 </script>
