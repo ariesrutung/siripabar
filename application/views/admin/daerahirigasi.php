@@ -314,47 +314,7 @@
                                     <td>:</td>
                                     <td><?php echo $ddi->provinsi; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>Kabupaten</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->kabupaten; ?></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Nama Daerah Irigasi</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->nama_di; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Kode Daerah Irigasi</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->kode_di; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Irigasi</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->jenis_di; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Luas Fungsional</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->luas_fungsional; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Luas Alih Fungsi Lahan</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->luas_alih_fungsi_lahan; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Gambar</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->gambar; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Kewenangan</td>
-                                    <td>:</td>
-                                    <td><?php echo $ddi->kewenangan; ?></td>
-                                </tr>
+                                <!-- -->
                             </tbody>
                         </table>
                     </div>
