@@ -22,100 +22,50 @@
         </div>
 
         <div class="row">
+
             <?php
-            $gal_cat = array(
-                'mobilisasi-peralatan' => 'MOBILISASI PERALATAN',
-                'direksi-keet' => 'DIREKSI KEET',
-                'smk3' => 'SMK3',
-                'pekerjaan-galian-saluran' => 'PEKERJAAN GALIAN SALURAN',
-                'penulangan' => 'PENULANGAN',
-                'pekerjaan-bekisting' => 'PEKERJAAN BEKISTING',
-                'pekerjaan-beton' => 'PEKERJAAN BETON',
-                'pekerjaan-jalan-inspeksi' => 'PEKERJAAN JALAN INSPEKSI',
-            );
+            // Ambil nama kategori dari folder
+            $kategori_folders = array_diff(scandir('./upload/galeri'), array('..', '.'));
             ?>
+
             <div class="col-12">
                 <ul id="portfolio-flters" class="controls list-inline">
                     <li class="filter-active" data-filter="*">Semua</li>
-                    <?php foreach ($gal_cat as $gc => $x) {
-                        if ($gc == "mobilisasi-peralatan") {
-                            $active = "active";
-                        } else {
-                            $active = "";
-                        }
-                        echo '<li class="' .  '" data-filter="' . '.' . $gc . '">' . $x . '</li>';
+                    <?php
+                    foreach ($kategori_folders as $kategori) {
+                        $kategori_tampilan = str_replace('_', ' ', $kategori);
+                        echo '<li class="filter-active" data-filter=".' . $kategori . '">' . strtoupper($kategori_tampilan) . '</li>';
                     }
                     ?>
-
                 </ul>
             </div>
+
         </div>
 
         <div class="row portfolio-container">
-            <?php for ($i = 1; $i <= 6; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp direksi-keet">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img  w-100" src="<?php echo base_url(); ?>public/company/img/galeri/direksi-keet/dk (<?php echo $i; ?>).jpg" alt="project-image">
+            <?php
+            foreach ($kategori_folders as $kategori) {
+                $kategori_url = urlencode($kategori);
 
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 6; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp mobilisasi-peralatan">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/mobilisasi-peralatan/mp (<?php echo $i; ?>).jpg" alt="project-image">
+                for ($i = 1; $i <= 6; $i++) {
+                    echo '<div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp ' . $kategori_url . '">';
+                    echo '<div class="portfolio-warp">';
+                    $CI = &get_instance();
+                    $CI->load->model('M_galeri');
+                    // $sl = $CI->M_galeri->get_slider_by_idberita($news->id)->row();
+                    $gambar_data = $CI->M_galeri->get_gambar_by_kategori_dan_index($kategori_url, $i);
 
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 6; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-bekisting">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-bekisting/pb (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 9; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-beton">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-beton/pbt (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 7; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-galian-saluran">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-galian-saluran/pgs (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 12; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp pekerjaan-jalan-inspeksi">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/pekerjaan-jalan-inspeksi/pji (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 9; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp penulangan">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/penulangan/pn (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
-            <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp smk3">
-                    <div class="portfolio-warp">
-                        <img class="portfolio-img w-100" src="<?php echo base_url(); ?>public/company/img/galeri/smk3/sm (<?php echo $i; ?>).jpg" alt="project-image">
-
-                    </div>
-                </div>
-            <?php } ?>
+                    if ($gambar_data) {
+                        $gambar_id = $gambar_data->id; // Ganti ini sesuai dengan kolom ID yang sesuai di tabel gambar
+                        echo '<img class="portfolio-img w-100" src="' . base_url('upload/galeri/' . $kategori_url . '/galeri' . $gambar_id . '.jpg') . '" alt="project-image">';
+                    } else {
+                        echo '<p>Gambar tidak ditemukan</p>';
+                    }
+                    echo '</div>';
+                    echo '</div>';
+                }
+            }
+            ?>
         </div>
     </div>
 </div>

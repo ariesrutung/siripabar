@@ -54,4 +54,4 @@ $route['admin'] = 'admin/dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/slider/hapus/(:num)'] = 'admin/slider/hapus_slider/$1';
-$route['admin/galeri'] = 'admin/galeri';
+// $route['admin/galeri'] = 'admin/galeri';

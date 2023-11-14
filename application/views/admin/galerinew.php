@@ -56,6 +56,12 @@
         font-size: 12px;
         color: #0c5460 !important;
     }
+
+    .alert-info {
+        color: #0c5460;
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -86,6 +92,10 @@
                                 </div>
                             </div>
 
+                            <div class="alert alert-info" role="alert">
+                                Untuk menambahkan gambar baru ke dalam galeri yang sudah ada, ketikan nama galeri tersebut pada inputan Nama Galeri pada modal Tambah Galeri.
+                            </div>
+
                             <!-- Modal -->
                             <!-- Modal -->
                             <div class="modal fade modalTambahSlider" id="modalTambahSlider" tabindex="-1" role="dialog" aria-hidden="true">
@@ -100,9 +110,9 @@
                                             <div class="row modal-content-scrollable">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <label class="text-label">Nama Folder</label><br>
+                                                        <label class="text-label">Nama Galeri</label><br>
                                                         <input type="text" class="form-control" name="nama_folder" required>
-                                                        <p class="info">Nama yang diinput di sini akan muncul sebagai nama kategori di halaman ini dan halaman galeri web.</p>
+                                                        <!-- <p class="info">Nama yang diinput di sini akan muncul sebagai nama kategori di halaman ini dan halaman galeri web.</p> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
