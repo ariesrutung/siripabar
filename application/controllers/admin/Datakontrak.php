@@ -11,12 +11,27 @@ class Datakontrak extends CI_Controller
         }
         $this->load->library(['ion_auth', 'form_validation']);
 
-        $this->load->model('M_emonitoring');
-        $this->load->model('M_daerahirigasi');
+        $this->load->model(['M_emonitoring', 'M_daerahirigasi', 'M_setting', 'M_wilayah']);
     }
 
     public function index()
     {
+        $data['wil_kab'] = $this->M_wilayah->get_all_kab();
+        $setting = $this->M_setting->list_setting();
+        $this->load->library('googlemaps');
+        $config['center'] = "$setting->latitude, $setting->longitude";
+        $config['zoom'] = "$setting->zoom";
+        $config['apiKey'] = "$setting->apikey";
+        $this->googlemaps->initialize($config);
+
+        $marker['position'] = "$setting->latitude, $setting->longitude";
+        $marker['draggable'] = true;
+        $marker['ondragend'] = 'setMapToForm(event.latLng.lat(), event.latLng.lng());';
+        $this->googlemaps->add_marker($marker);
+
+        $map = $this->googlemaps->create_map();
+        $data['map'] = $map;
+
         // $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
         $data['datakontrak'] = $this->M_emonitoring->get_all_datakontrak();
         $data['title'] = 'DATA KONTRAK';
@@ -79,7 +94,7 @@ class Datakontrak extends CI_Controller
         $data['nilai_kontrak'] = $this->input->post('nilai_kontrak');
         $data['lok_kabupaten'] = $this->input->post('lok_kabupaten');
         $data['lok_distrik'] = $this->input->post('lok_distrik');
-        $data['titik_koordinat'] = $this->input->post('titik_koordinat');
+        $data['titik_koordinat'] = $this->input->post('latitude') . ', ' . $this->input->post('longitude');
         $data['output_produk'] = $this->input->post('output_produk');
         $data['tgl_rencanapho'] = $this->input->post('tgl_rencanapho');
         $data['masa_pelaksanaan'] = $this->input->post('masa_pelaksanaan');
@@ -103,5 +118,15 @@ class Datakontrak extends CI_Controller
 
         // Redirect ke halaman yang sesuai
         redirect('admin/datakontrak');
+    }
+
+    function add_ajax_kec($id)
+    {
+        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND LEFT(kode,5) = '$id' ORDER BY kode ASC");
+        $data = "<option value=''> - Pilih Kecamatan/Distrik - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='" . $value->kode . "'>" . $value->nama . "</option>";
+        }
+        echo $data;
     }
 }

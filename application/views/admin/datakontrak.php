@@ -1,3 +1,4 @@
+<?php echo $map['js']; ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style>
     #lapIrigasi {
@@ -519,40 +520,52 @@
                                     <div class="tab-pane fade" id="datalokasi" role="tabpanel">
                                         <div class="pt-4">
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-4">
                                                     <div class="row">
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Kabupaten</label>
-                                                                <input type="text" name="lok_kabupaten" class="form-control">
+                                                                <select class="custom-select" name="lok_kabupaten" id="lok_kabupaten" requireda>
+                                                                    <div class="help-block with-errors"></div>
+                                                                    <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
+                                                                    <?php
+                                                                    foreach ($wil_kab as $kab) {
+                                                                        echo '<option value="' . $kab->kode . '">' . $kab->nama . '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Distrik</label>
-                                                                <input type="text" name="lok_distrik" class="form-control">
+                                                                <select class="custom-select" name="lok_distrik" id="lok_distrik" requireda>
+                                                                    <option value="">Pilih Kecamatan/Distrik</option>
+                                                                </select>
+                                                                <div class="help-block with-errors"></div>
+
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Latitude</label>
-                                                                <input type="text" name="latitude" class="form-control">
+                                                                <input type="text" id="latitude" name="latitude" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Longitude</label>
-                                                                <input type="text" name="longitude" class="form-control">
+                                                                <input type="text" id="longitude" name="longitude" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-8">
                                                     <div class="row">
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Titik Koordinat</label>
-                                                                <div id="map" style="height: 400px;"></div>
+                                                                <?php echo $map['html']; ?>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1109,7 +1122,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjh8gPTMxhsaeTmsxtzxvEhFvVKCcWUFg&callback=initMap" async defer></script>
 
 <script>
     $(document).ready(function() {
@@ -1208,27 +1220,17 @@
 </script>
 
 <script>
-    function setMapToForm(latitude, longitude) {
-        $('input[name="latitude"]').val(latitude);
-        $('input[name="longitude"]').val(longitude);
-    }
-    // Load Maps
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: -0.8770538089140825,
-                lng: 133.82150910272662
-            },
-            zoom: 15
-        });
+    $(document).ready(function() {
+        function setMapToForm(latitude, longitude) {
+            $('input[name="latitude"]').val(latitude);
+            $('input[name="longitude"]').val(longitude);
 
-        var marker = new google.maps.Marker({
-            position: {
-                lat: -0.8770538089140825,
-                lng: 133.82150910272662
-            },
-            map: map,
-            title: 'Your Location'
-        });
-    }
+            $("#lok_kabupaten").change(function() {
+                var url = "<?php echo site_url('datakontrak/add_ajax_kec'); ?>/" + $(this).val();
+                console.log(url); // Add this line to log the URL
+                $('#lok_distrik').load(url);
+                return false;
+            });
+        };
+    })
 </script>
