@@ -19,7 +19,7 @@
             <?php $no = 1;
             foreach ($berita as $news) : ?>
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <a href="<?php echo site_url('berita/detail_berita/') . url_title($news->judul, 'dash', true); ?>">
+                    <a href="<?php echo site_url('beritanew/detail_beritanew/') . url_title($news->judul, 'dash', true); ?>">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <?php if (!empty($news->gambar) && file_exists('upload/berita/' . $news->gambar)) : ?>

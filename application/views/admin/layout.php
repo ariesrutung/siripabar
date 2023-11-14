@@ -225,7 +225,8 @@
 
                     <li class="nav-label first">MANAJEMEN LAPORAN</li>
                     <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
-                    <li id="menuunduhlaporan"><a href="<?php echo base_url('admin/unduhlaporan'); ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li>
+                    <!-- <li id="menuunduhlaporan"><a href="<?php // echo base_url('admin/unduhlaporan'); 
+                                                            ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li> -->
 
                     <li class="nav-label first">MANAJEMEN DAERAH IRIGASI</li>
                     <li id="menudaerahirigasi"><a href="<?php echo base_url('admin/daerahirigasi'); ?>"><i class="ti-location-pin"></i><span class="nav-text"> Daerah Irigasi</span></a></li>

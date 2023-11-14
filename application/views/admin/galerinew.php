@@ -105,20 +105,17 @@
                                             <h5 class="modal-title" id="modalTambahSliderLabel">Tambah Galeri</h5>
                                             <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                         </div>
-                                        <?php echo form_open_multipart('admin/galeri/tambah'); ?>
+                                        <?php echo form_open_multipart('admin/galeri/tambah', array('id' => 'tambahSlider')); ?>
                                         <div class="modal-body">
                                             <div class="row modal-content-scrollable">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="text-label">Nama Galeri</label><br>
-                                                        <input type="text" class="form-control" name="nama_folder" required>
-                                                        <!-- <p class="info">Nama yang diinput di sini akan muncul sebagai nama kategori di halaman ini dan halaman galeri web.</p> -->
+                                                        <input type="text" class="form-control" id="namaGaleri" name="nama_folder" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <!-- <label class="text-label">Nama Galeri</label> -->
-                                                        <!-- Menambahkan input untuk nama galeri -->
                                                         <input type="hidden" class="form-control" name="nama_galeri" value="siripabar" required>
                                                     </div>
                                                 </div>
@@ -184,6 +181,7 @@
         paramName: "userfile",
         dictInvalidFileType: "Type file ini tidak dizinkan",
         addRemoveLinks: true,
+
     });
 
     // Event ketika Memulai mengupload
@@ -237,5 +235,33 @@
                 }
             });
         }
+    });
+</script>
+
+<script>
+    // Mengambil elemen-elemen yang diperlukan
+    var namaGaleriInput = document.getElementById('namaGaleri');
+    var dropzone = document.getElementById('dropzone');
+
+    // Menonaktifkan dropzone awal
+    dropzone.style.pointerEvents = 'none';
+    dropzone.style.opacity = '0.5';
+
+    // Menambahkan event listener untuk input nama galeri
+    namaGaleriInput.addEventListener('input', function() {
+        // Mengaktifkan dropzone jika input nama galeri tidak kosong
+        if (namaGaleriInput.value.trim() !== '') {
+            dropzone.style.pointerEvents = 'auto';
+            dropzone.style.opacity = '1';
+        } else {
+            // Menonaktifkan dropzone jika input nama galeri kosong
+            dropzone.style.pointerEvents = 'none';
+            dropzone.style.opacity = '0.5';
+        }
+    });
+
+    document.getElementById('tambahSlider').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah pengiriman formulir langsung
+        window.location.href = 'galeri';
     });
 </script>

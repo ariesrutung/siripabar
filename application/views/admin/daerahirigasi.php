@@ -42,12 +42,18 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Data Daerah Irigasi</h4>
+                        <a href="#" data-toggle="modal" data-backdrop="static" data-target=".modalSkema" class="btn btn-info btn-sm text-white">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            <span class="text">Tambah Data</span>
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table student-data-table m-t-20">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Provinsi</th>
                                         <th>Kab/Kota</th>
                                         <th>Kode D.I.</th>
@@ -59,7 +65,7 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach ($daerahirigasi as $di) { ?>
-                                        <tr>
+                                        <tr class="text-center">
                                             <td><?php echo $di->provinsi; ?></td>
                                             <td><?php echo $di->kabupaten; ?></td>
                                             <td><?php echo $di->kode_di; ?></td>
@@ -67,9 +73,9 @@
                                             <td><?php echo $di->jenis_di; ?></td>
                                             <td><?php echo $di->luas_fungsional; ?></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-backdrop="static" data-target=".modalSkema" class="btn btn-sm btn-primary text-white"><i class="fa fa-map-marker text-white"></i> Skema</a>
-                                                <!--  <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Laporan</a>
-                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Dok. lain</a> -->
+                                                <a href="#" data-toggle="modal" data-backdrop="static" data-target=".modalSkema" class="btn btn-sm btn-primary text-white"><i class="fa fa-eye text-white"></i> Lihat</a>
+                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-success"><i class="fa fa-edit text-white"></i> Edit</a>
+                                                <a href="#" data-toggle="modal" data-target=".modalLaporan" class="btn btn-sm btn-danger"><i class="fa fa-trash text-white"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

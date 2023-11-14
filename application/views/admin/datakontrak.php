@@ -37,7 +37,8 @@
         text-align: center;
     }
 
-    .table-responsive * {
+    .table-responsive td,
+    .table-responsive th {
         color: #000;
         font-size: 11px;
     }
@@ -52,6 +53,27 @@
         color: #fff;
         text-decoration: none;
     }
+
+    @media (min-width: 992px) {
+
+        .modal-lg,
+        .modal-xl {
+            max-width: 1000px;
+        }
+    }
+
+    .tambahDataKontrak .card-body {
+        padding: 10px;
+    }
+
+    .tambahDataKontrak label {
+        color: #000;
+    }
+
+    * a:hover {
+        text-decoration: none;
+        color: #000;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -60,8 +82,13 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="mb-0">Data Kontrak</h4>
-                        <!-- <a class="btn btn-primary btn-sm" href="">Tambah Data</a> -->
-                        <a href="#" data-toggle="modal" data-target=".modalLaporan" data-backdrop="static" class="btn btn-primary btn-sm"><i class="fa fa-file"></i> Tambah Data</a>
+                        <a href="#" data-toggle="modal" data-target=".modalLaporan" data-backdrop="static" class="btn btn-info btn-sm text-white">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            <span class="text">Tambah Data</span>
+                        </a>
+                        <!-- <a href="#" data-toggle="modal" data-target=".modalLaporan" data-backdrop="static" class="btn btn-primary btn-sm"><i class="fa fa-file"></i> Tambah Data</a> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -335,319 +362,351 @@
                 <div class="modal-content-scrollable">
                     <!-- <form action="#" id="step-form-horizontal" class="step-form-horizontal"> -->
                     <?php echo form_open_multipart('admin/datakontrak/tambah_datakontrak'); ?>
-                    <div>
-                        <section id="lapIrigasi">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Nama Paket</label>
-                                                <input type="text" name="nama_paket" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Nama Penyedia Jasa Konstruksi</label>
-                                                <input type="text" name="penyedia_jasa" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Nomor Kontrak</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="no_kontrak">
+                    <div class="tambahDataKontrak">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#datakontrak">
+                                            <span>
+                                                <i class="ti-home"></i>
+                                            </span>
+                                            <span> Data Kontrak</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#datalokasi">
+                                            <span>
+                                                <i class="ti-user"></i>
+                                            </span>
+                                            <span> Lokasi</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#progres">
+                                            <span>
+                                                <i class="ti-email"></i>
+                                            </span>
+                                            <span> Progres Pelaksanaan</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#dokpendukung">
+                                            <span>
+                                                <i class="ti-email"></i>
+                                            </span>
+                                            <span> Dokumen Pendukung</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content tabcontent-border">
+                                    <div class="tab-pane fade show active" id="datakontrak" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Nama Paket</label>
+                                                                <input type="text" name="nama_paket" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Nama Penyedia Jasa Konstruksi</label>
+                                                                <input type="text" name="penyedia_jasa" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Nomor Kontrak</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" name="no_kontrak">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Tanggal Kontrak</label>
+                                                                <input type="date" name="tgl_kontrak" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Nomor SPMK</label>
+                                                                <input type="text" name="no_spmk" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Tanggal SPMK</label>
+                                                                <div class="input-group">
+                                                                    <input name="tgl_spmk" type="date" class="form-control">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Nilai Kontrak</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" name="nilai_kontrak" class="form-control">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Sumber Dana</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" name="sumber_dana" class="form-control">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Tahun Sumber Dana</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" name="tahun_sumberdana" class="form-control">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Tanggal Kontrak</label>
-                                                <input type="date" name="tgl_kontrak" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Nomor SPMK</label>
-                                                <input type="text" name="no_spmk" class="form-control">
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
+                                    <div class="tab-pane fade" id="datalokasi" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Kabupaten</label>
+                                                                <input type="text" name="lok_kabupaten" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Distrik</label>
+                                                                <input type="text" name="lok_distrik" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Titik Koordinat</label>
+                                                                <input type="text" name="titik_koordinat" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Output/Capaian/Produk Akhir</label>
+                                                                <input type="text" name="output_produk" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="row">
 
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Tanggal SPMK</label>
-                                                <div class="input-group">
-                                                    <input name="tgl_spmk" type="date" class="form-control">
-
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Masa Pelaksanaan (Hari Kalender)</label>
+                                                                <input type="text" name="masa_pelaksanaan" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Tanggal Rencana PHO</label>
+                                                                <input type="text" name="tgl_rencanapho" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Dokumentasi</label>
+                                                                <input type="file" name="dokumentasi" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="progres" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Januari</label>
+                                                                <input type="text" id="pk_januari" name="pk_januari" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Februari</label>
+                                                                <input type="text" id="pk_februari" name="pk_februari" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Maret</label>
+                                                                <input type="text" id="pk_maret" name="pk_maret" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">April</label>
+                                                                <input type="text" id="pk_april" name="pk_april" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Mei</label>
+                                                                <input type="text" id="pk_mei" name="pk_mei" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Juni</label>
+                                                                <input type="text" id="pk_juni" name="pk_juni" class="form-control">
+                                                            </div>
+                                                        </div>
 
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Nilai Kontrak</label>
-                                                <div class="input-group">
-                                                    <input type="text" name="nilai_kontrak" class="form-control">
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Juli</label>
+                                                                <input type="text" id="pk_juli" name="pk_juli" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Agustus</label>
+                                                                <input type="text" id="pk_agustus" name="pk_agustus" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">September</label>
+                                                                <input type="text" id="pk_september" name="pk_september" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Oktober</label>
+                                                                <input type="text" id="pk_oktober" name="pk_oktober" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">November</label>
+                                                                <input type="text" id="pk_november" name="pk_november" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Desember</label>
+                                                                <input type="text" id="pk_desember" name="pk_desember" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <canvas class="" id="myChart" style="width:100%"></canvas>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="dokpendukung" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="row dokpendukung">
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Dokumen Kontrak (Termasuk RAB)</label>
+                                                                <input type="file" name="dp_dokkontrak" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Gambar Rencana</label>
+                                                                <input type="file" name="dp_gbrrencana" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Gambar As Built Drawing</label>
+                                                                <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">MC 0%</label>
+                                                                <input type="file" name="dp_mcnol" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Harian</label>
+                                                                <input type="file" name="dp_lapharian" class="form-control gb">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Mingguan</label>
+                                                                <input type="file" name="dp_lapmingguan" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Bulanan</label>
+                                                                <input type="file" name="dp_lapbulanan" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">MC 100%</label>
+                                                                <input type="file" name="dp_mcseratus" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Dokumentasi</label>
+                                                                <input type="file" name="dp_dokumentasi" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Sumber Dana</label>
-                                                <div class="input-group">
-                                                    <input type="text" name="sumber_dana" class="form-control">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Tahun Sumber Dana</label>
-                                                <div class="input-group">
-                                                    <input type="text" name="tahun_sumberdana" class="form-control">
-
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row mt-4">
-                                <div class="col-lg-12 py-0">
-                                    <h5 class="text-label">Lokasi</h5>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Kabupaten</label>
-                                                <input type="text" name="lok_kabupaten" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Distrik</label>
-                                                <input type="text" name="lok_distrik" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Titik Koordinat</label>
-                                                <input type="text" name="titik_koordinat" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Output/Capaian/Produk Akhir</label>
-                                                <input type="text" name="output_produk" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Masa Pelaksanaan (Hari Kalender)</label>
-                                                <input type="text" name="masa_pelaksanaan" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Tanggal Rencana PHO</label>
-                                                <input type="text" name="tgl_rencanapho" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Dokumentasi</label>
-                                                <input type="file" name="dokumentasi" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Kurva S (mengikuti nilai progress)</label>
-                                                <input type="file" name="kurvas" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-4">
-                                <div class="col-lg-12 py-0">
-                                    <h5 class="text-label">Progres Pelaksanaan</h5>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Januari</label>
-                                                <input type="text" name="pk_januari" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Februari</label>
-                                                <input type="text" name="pk_februari" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Maret</label>
-                                                <input type="text" name="pk_maret" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">April</label>
-                                                <input type="text" name="pk_april" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Mei</label>
-                                                <input type="text" name="pk_mei" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Juni</label>
-                                                <input type="text" name="pk_juni" class="form-control">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Juli</label>
-                                                <input type="text" name="pk_juli" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Agustus</label>
-                                                <input type="text" name="pk_agustus" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">September</label>
-                                                <input type="text" name="pk_september" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Oktober</label>
-                                                <input type="text" name="pk_oktober" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">November</label>
-                                                <input type="text" name="pk_november" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Desember</label>
-                                                <input type="text" name="pk_desember" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-4">
-                                <div class="col-lg-12 py-0">
-                                    <h5 class="text-label">Dokumen Pendukung</h5>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row dokpendukung">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Dokumen Kontrak (Termasuk RAB)</label>
-                                                <input type="file" name="dp_dokkontrak" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Gambar Rencana</label>
-                                                <input type="file" name="dp_gbrrencana" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Gambar As Built Drawing</label>
-                                                <input type="file" name="dp_gbrasbuild" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">MC 0%</label>
-                                                <input type="file" name="dp_mcnol" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Laporan Harian</label>
-                                                <input type="file" name="dp_lapharian" class="form-control gb">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Laporan Mingguan</label>
-                                                <input type="file" name="dp_lapmingguan" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Laporan Bulanan</label>
-                                                <input type="file" name="dp_lapbulanan" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">MC 100%</label>
-                                                <input type="file" name="dp_mcseratus" class="form-control gb">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 py-0">
-                                            <div class="form-group">
-                                                <label class="text-label">Dokumentasi</label>
-                                                <input type="file" name="dp_dokumentasi" class="form-control gb">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
                         <div class="modal-footer">
                             <input class="btn btn-primary" type="submit" value="Tambah Data">
                         </div>
@@ -661,8 +720,77 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#menudatakontrak').last().addClass("active");
+    });
+</script>
+
+<script>
+    $(document).on("click", ".modalLaporan", function() {
+        // var pk_jan = $(this).data('jan');
+        // var pk_feb = $(this).data('feb');
+        // var pk_mar = $(this).data('mar');
+        // var pk_apr = $(this).data('apr');
+        // var pk_mei = $(this).data('mei');
+        // var pk_jun = $(this).data('jun');
+        // var pk_jul = $(this).data('jul');
+        // var pk_agu = $(this).data('agu');
+        // var pk_sep = $(this).data('sep');
+        // var pk_okt = $(this).data('okt');
+        // var pk_nov = $(this).data('nov');
+        // var pk_des = $(this).data('des');
+        var namapaket = '';
+
+        function updateConfigByMutating(chart) {
+            chart.options.plugins.title.text = $("input[name='pk_januari']").val();
+            chart.update();
+        }
+
+        const xValues = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    // data: [pk_jan, pk_feb, pk_mar, pk_apr, pk_mei, pk_jun, pk_jul, pk_agu, pk_sep, pk_okt, pk_nov, pk_des],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    borderColor: "red",
+                    fill: true
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+
+                title: {
+                    display: true,
+                    text: namapaket
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD'
+                                }).format(context.parsed.y);
+                            }
+                            return label;
+                        }
+                    }
+                }
+
+            }
+
+        });
+
     });
 </script>

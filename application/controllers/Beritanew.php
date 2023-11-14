@@ -19,9 +19,25 @@ class Beritanew extends CI_Controller
         $this->load->view('company/layout', $data);
     }
 
-    public function detail_berita($slug)
+    // public function detail_beritanew($slug)
+    // {
+    //     $data['detail'] = $this->M_beritanew->get_berita_by_slug($slug);
+
+    //     $data['title'] = 'DETAIL BERITA';
+    //     $data['_view'] = "company/detail_beritanew";
+    //     $this->load->view('company/layout', $data);
+    // }
+
+    public function detail_beritanew($slug)
     {
-        $data['berita'] = $this->M_beritanew->get_berita_by_slug($slug);
+        $data['berita'] = $this->M_beritanew->get_all_berita();
+        $data['detail'] = $this->M_beritanew->get_berita_by_slug($slug);
+
+        // Mendapatkan ID berita yang sedang ditampilkan
+        $detail = $data['detail']->id;
+
+        // Mendapatkan 4 recent posts
+        $data['recentposts'] = $this->M_beritanew->get_berita_terbaru($detail);
 
         $data['title'] = 'DETAIL BERITA';
         $data['_view'] = "company/detail_beritanew";

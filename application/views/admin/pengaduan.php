@@ -25,7 +25,8 @@
             line-height: 1.7;
         }
 
-        .table-responsive * {
+        .table-responsive th,
+        .table-responsive td {
             color: #000;
         }
 
@@ -46,7 +47,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Data Pengaduan</h4>
+                            <a data-toggle="modal" class="btn btn-info btn-sm text-white">
+                                <span class="icon text-white-50">
+                                    <i class="fa fa-cloud-download"></i>
+                                </span>
+                                <span class="text"> Download Laporan</span>
+                            </a>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table student-data-table m-t-20">
@@ -96,9 +104,9 @@
                                                 <td>
                                                     <?php
                                                     if ($p->status == 'Diterima') {
-                                                        echo '<span class="badge badge-success">Diterima</span>';
+                                                        echo '<span class="badge badge-success text-white">Diterima</span>';
                                                     } elseif ($p->status == 'Ditolak') {
-                                                        echo '<span class="badge badge-danger">Ditolak</span>';
+                                                        echo '<span class="badge badge-danger text-white">Ditolak</span>';
                                                     } else {
                                                         echo '<span class="badge badge-warning">Menunggu</span>';
                                                     }

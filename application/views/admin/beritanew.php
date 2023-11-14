@@ -216,6 +216,18 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
+                            <label class="text-label">Lokasi Berita</label>
+                            <input class="form-control" id="lok_berita" name="lok_berita">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label class="text-label">Tag Berita</label>
+                            <input class="form-control" id="tag" name="tag">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
                             <label class="text-label">Tanggal Publikasi</label>
                             <input type="datetime-local" class="form-control" name="tanggal" required>
                         </div>
@@ -226,6 +238,12 @@
                             <!-- <input type="file" class="form-control" name="gambar" required> -->
                             <input type="file" id="gambar" name="gambar" accept="image/*" onchange="loadFile(event)" required>
                             <img class="w-25" id="gbr" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label class="text-label">Keterangan Gambar</label>
+                            <input class="form-control" id="ket_gambar" name="ket_gambar">
                         </div>
                     </div>
 
@@ -261,147 +279,158 @@
                     <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="edit_tanggal">Waktu Publikasi</label>
-                    <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
+                    <label class="text-label">Lokasi Berita</label>
+                    <input class="form-control" id="edit_lokberita" name="edit_lokberita">
+                    <div class="form-group">
+                        <label class="text-label">Tag Berita</label>
+                        <input class="form-control" id="edit_tag" name="edit_tag">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_tanggal">Waktu Publikasi</label>
+                        <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_gambar">Gambar Berita</label><br>
+                        <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
+                        <img class="w-25" id="output" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text-label">Keterangan Gambar</label>
+                        <input class="form-control" id="edit_ketgambar" name="edit_ketgambar">
+                    </div>
+                    <!-- Tambahkan bidang lainnya sesuai kebutuhan -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary text-white">Simpan Perubahan</button>
+                    </div>
+                    <?php echo form_close(); ?>
                 </div>
-                <div class="form-group">
-                    <label for="edit_gambar">Gambar Berita</label><br>
-                    <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
-                    <img class="w-25" id="output" />
-                </div>
-                <!-- Tambahkan bidang lainnya sesuai kebutuhan -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary text-white">Simpan Perubahan</button>
-                </div>
-                <?php echo form_close(); ?>
             </div>
         </div>
     </div>
-</div>
 
-<!-- jquery vendor -->
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
+    <!-- jquery vendor -->
+    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
 
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
-<!-- nano scroller -->
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
-<!-- sidebar -->
+    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
 
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
-<!-- scripit init-->
-<script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
+    <!-- scripit init-->
+    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
+    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
-<script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#menuberita').last().addClass("active");
-    });
-</script>
+    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#menuberita').last().addClass("active");
+        });
+    </script>
 
-<!-- Tambahkan skrip JavaScript untuk menampilkan data berita ke dalam modal -->
-<script>
-    $(document).ready(function() {
-        $('.editform').on('click', function() {
-            var idBerita = $(this).data('idberita');
-            var judul = $(this).data('judul');
-            var isiberita = $(this).data('isiberita');
-            var tanggal = $(this).data('tanggal');
-            var gambar = $(this).data('gambar');
+    <!-- Tambahkan skrip JavaScript untuk menampilkan data berita ke dalam modal -->
+    <script>
+        $(document).ready(function() {
+            $('.editform').on('click', function() {
+                var idBerita = $(this).data('idberita');
+                var judul = $(this).data('judul');
+                var isiberita = $(this).data('isiberita');
+                var tanggal = $(this).data('tanggal');
+                var gambar = $(this).data('gambar');
 
-            // Tempatkan data berita ke dalam modal
-            $('#edit_id_berita').val(idBerita);
-            $('#edit_judul').val(judul);
-            $('#edit_isiberita').val(isiberita);
-            $('#edit_tanggal').val(tanggal);
-            $('#preview_gambar').attr('src', gambar);
+                // Tempatkan data berita ke dalam modal
+                $('#edit_id_berita').val(idBerita);
+                $('#edit_judul').val(judul);
+                $('#edit_isiberita').val(isiberita);
+                $('#edit_tanggal').val(tanggal);
+                $('#preview_gambar').attr('src', gambar);
 
-            // Mengosongkan input file gambar
-            $('#edit_gambar').val('');
+                // Mengosongkan input file gambar
+                $('#edit_gambar').val('');
 
-            // Buka modal
-            $('#modalEditBerita').modal('show');
+                // Buka modal
+                $('#modalEditBerita').modal('show');
+            });
+
+            $('.deletedata').on('click', function() {
+                var idBerita = $(this).data('idberita');
+
+                // Tampilkan konfirmasi sebelum menghapus
+                if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
+                    // Kirim permintaan AJAX untuk penghapusan
+                    $.ajax({
+                        url: '<?php echo base_url("admin/beritanew/delete_berita"); ?>',
+                        type: 'POST',
+                        data: {
+                            id_berita: idBerita
+                        },
+                        success: function(response) {
+                            // Refresh halaman atau lakukan tindakan lain yang diperlukan
+                            location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('#More').forEach(bttn => {
+            bttn.dataset.state = 0;
+            bttn.addEventListener('click', function(e) {
+                let span = this.previousElementSibling;
+                span.dataset.tmp = span.textContent;
+                span.textContent = span.dataset.content;
+                span.dataset.content = span.dataset.tmp;
+
+                this.innerHTML = this.dataset.state == 1 ? 'Tampil Penuh' : 'Tampil Sebagian';
+                this.dataset.state = 1 - this.dataset.state;
+            })
         });
 
-        $('.deletedata').on('click', function() {
-            var idBerita = $(this).data('idberita');
-
-            // Tampilkan konfirmasi sebelum menghapus
-            if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
-                // Kirim permintaan AJAX untuk penghapusan
-                $.ajax({
-                    url: '<?php echo base_url("admin/beritanew/delete_berita"); ?>',
-                    type: 'POST',
-                    data: {
-                        id_berita: idBerita
-                    },
-                    success: function(response) {
-                        // Refresh halaman atau lakukan tindakan lain yang diperlukan
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(xhr.responseText);
-                    }
-                });
-            }
-        });
-    });
-</script>
-
-<script>
-    document.querySelectorAll('#More').forEach(bttn => {
-        bttn.dataset.state = 0;
-        bttn.addEventListener('click', function(e) {
-            let span = this.previousElementSibling;
-            span.dataset.tmp = span.textContent;
-            span.textContent = span.dataset.content;
-            span.dataset.content = span.dataset.tmp;
-
-            this.innerHTML = this.dataset.state == 1 ? 'Tampil Penuh' : 'Tampil Sebagian';
-            this.dataset.state = 1 - this.dataset.state;
+        document.querySelectorAll('span.p1').forEach(span => {
+            span.dataset.content = span.textContent;
+            span.textContent = span.textContent.substr(0, 100) + '...';
         })
-    });
-
-    document.querySelectorAll('span.p1').forEach(span => {
-        span.dataset.content = span.textContent;
-        span.textContent = span.textContent.substr(0, 100) + '...';
-    })
-</script>
+    </script>
 
 
-<script>
-    var loadFile = function(event) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('output');
-            output.src = reader.result;
+    <script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('gbr');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
         };
-        reader.readAsDataURL(event.target.files[0]);
+    </script>
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('gbr');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    };
-</script>
-
-<script>
-    ClassicEditor
-        .create(document.querySelector('#isiberita'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#edit_isiberita'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#isiberita'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#edit_isiberita'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>

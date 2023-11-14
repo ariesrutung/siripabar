@@ -45,4 +45,16 @@ class M_beritanew extends CI_Model
     {
         return $this->db->get_where('news', array('slug' => $slug))->row();
     }
+
+    public function get_berita_terbaru($detail)
+    {
+        $this->db->select("*")
+            ->from("news as n")
+            ->where('n.id !=', $detail)
+            ->order_by('n.tanggal', 'DESC')
+            ->limit(4);
+
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
