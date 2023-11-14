@@ -82,7 +82,7 @@
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-5 logo">
-                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew4.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew5.png" alt="Logo">
                             </div>
                             <div class="col-xl-7">
                                 <div class="auth-form">

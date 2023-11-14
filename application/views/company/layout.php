@@ -87,7 +87,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="logo">
                             <a href="<?php echo base_url('/'); ?>">
-                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew4.png" alt="Logo">
+                                <img class="w-100" src="<?php echo base_url('/'); ?>/public/company/img/logosiripabarnew5.png" alt="Logo">
                             </a>
                         </div>
                     </div>
