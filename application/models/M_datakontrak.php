@@ -7,4 +7,11 @@ class M_datakontrak extends CI_Model
     {
         $this->db->insert('dtkontrak', $data);
     }
+
+    public function get_by_id($id)
+    {
+
+        $query = $this->db->get_where('data_kontrak', array('id' => $id);
+        return $query->row();
+    }
 }

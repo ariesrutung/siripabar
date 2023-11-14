@@ -109,6 +109,10 @@
         justify-content: center;
         align-items: center;
     }
+
+    .card-header {
+        width: 100%;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -118,8 +122,14 @@
                     <div class="row judulTombol d-flex align-items-center justify-content-between">
                         <div class="card-header">
                             <h4>Daftar Berita</h4>
+                            <a class="btn btn-info btn-sm text-white" data-toggle="modal" data-target=".modalTambahBerita" data-backdrop="static">
+                                <span class="icon text-white-50">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                <span class="text">Tambah Berita</span>
+                            </a>
                         </div>
-                        <a data-toggle="modal" data-target=".modalTambahBerita" data-backdrop="static" class="btn btn-info btn-sm text-white">Tambah Berita</a>
+                        <!-- <a data-toggle="modal" data-target=".modalTambahBerita" data-backdrop="static" class="btn btn-info btn-sm text-white">Tambah Berita</a> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -199,7 +209,7 @@
                 </button>
             </div>
             <?php echo $this->session->flashdata('notif'); ?>
-            <?php echo form_open('admin/beritanew/add_berita', array('method' => 'post', 'enctype' => 'multipart/form-data')); ?>
+            <?php echo form_open('admin/berita/add_berita', array('method' => 'post', 'enctype' => 'multipart/form-data')); ?>
             <div class="modal-body">
                 <div class="row modal-content-scrollable">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -339,15 +349,22 @@
                 var idBerita = $(this).data('idberita');
                 var judul = $(this).data('judul');
                 var isiberita = $(this).data('isiberita');
+                var lok_berita = $(this).data('lok_berita');
+                var tag = $(this).data('tag');
                 var tanggal = $(this).data('tanggal');
                 var gambar = $(this).data('gambar');
+                var ket_gambar = $(this).data('ket_gambar');
 
                 // Tempatkan data berita ke dalam modal
                 $('#edit_id_berita').val(idBerita);
                 $('#edit_judul').val(judul);
                 $('#edit_isiberita').val(isiberita);
+                $('#edit_lokberita').val(lok_berita);
+                $('#edit_tag').val(tag);
                 $('#edit_tanggal').val(tanggal);
                 $('#preview_gambar').attr('src', gambar);
+                $('#edit_ketgambar').val(ket_gambar);
+
 
                 // Mengosongkan input file gambar
                 $('#edit_gambar').val('');
@@ -363,7 +380,7 @@
                 if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
                     // Kirim permintaan AJAX untuk penghapusan
                     $.ajax({
-                        url: '<?php echo base_url("admin/beritanew/delete_berita"); ?>',
+                        url: '<?php echo base_url("admin/berita/delete_berita"); ?>',
                         type: 'POST',
                         data: {
                             id_berita: idBerita

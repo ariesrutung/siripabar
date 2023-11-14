@@ -39,14 +39,17 @@ class Berita extends CI_Controller
             $data = array(
                 'judul' => $this->input->post('judul'),
                 'isiberita' => $this->input->post('isiberita'),
+                'lok_berita' => $this->input->post('lok_berita'),
+                'tag' => $this->input->post('tag'),
                 'tanggal' => $this->input->post('tanggal'),
                 'kategori' => 'Irigasi',
                 'slug' => $slug,
                 'gambar' => $this->upload->data('file_name'),
+                'ket_gambar' => $this->input->post('ket_gambar'),
             );
 
             $this->M_beritanew->insert_berita($data);
-            redirect('admin/beritanew');
+            redirect('admin/berita');
         }
     }
 
@@ -63,6 +66,9 @@ class Berita extends CI_Controller
             'judul' => $this->input->post('edit_judul'),
             'isiberita' => $this->input->post('edit_isiberita'),
             'tanggal' => $this->input->post('edit_tanggal'),
+            'lok_berita' => $this->input->post('edit_lokberita'),
+            'tag' => $this->input->post('edit_tag'),
+            'ket_gambar' => $this->input->post('edit_ketgambar'),
         );
 
         // Memproses gambar jika ada yang diunggah
@@ -112,6 +118,6 @@ class Berita extends CI_Controller
         // (opsional)...
 
         // Redirect ke halaman berita setelah penghapusan
-        redirect('admin/beritanew');
+        redirect('admin/berita');
     }
 }
