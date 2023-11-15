@@ -54,12 +54,20 @@ class M_daerahirigasi extends CI_Model
         return $query->result();
     }
 
-    public function insert_dataskemairigasi($data)
+    public function insert_daerah_irigasi($data)
     {
+        // Simpan data ke tabel daerah_irigasi
+        $this->db->insert('daerah_irigasi', $data);
+    }
+
+    public function insert_skema($data)
+    {
+        // Simpan data ke tabel skema
         $this->db->insert('skema', $data);
     }
 
-    public function get_laporan_by_kode_by_tahun($tahun,$kode)
+
+    public function get_laporan_by_kode_by_tahun($tahun, $kode)
     {
         $this->db->select("*");
         $this->db->from("data_kontrak");
@@ -68,5 +76,33 @@ class M_daerahirigasi extends CI_Model
         $this->db->order_by("tahun_sumberdana", "DESC");
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function getGambarPathById($id)
+    {
+        $this->db->select('gambar'); // Sesuaikan dengan nama kolom gambar pada tabel Anda
+        $this->db->from('daerah_irigasi');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->gambar;
+        }
+
+        return null;
+    }
+
+    public function updateData($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('daerah_irigasi', $data);
+    }
+
+    public function delete_data($id, $table)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete($table);
     }
 }

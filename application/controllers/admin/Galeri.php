@@ -61,6 +61,29 @@ class Galeri extends CI_Controller
         }
     }
 
+    // public function hapus_galeri()
+    // {
+    //     // Ambil ID dari data POST
+    //     $idGaleri = $this->input->post('id');
+
+    //     // Pastikan ID galeri ada di database sebelum menghapus
+    //     if ($this->M_galeri->galeri_exists($idGaleri)) {
+    //         // Hapus galeri dari database dan direktori
+    //         $result = $this->M_galeri->hapus_galeri($idGaleri);
+
+    //         if ($result) {
+    //             // Jika berhasil, kirim respons sukses
+    //             echo json_encode(['status' => 'success', 'message' => 'Galeri berhasil dihapus.']);
+    //         } else {
+    //             // Jika gagal menghapus dari database, kirim respons kesalahan
+    //             echo json_encode(['status' => 'error', 'message' => 'Gagal menghapus galeri dari database.']);
+    //         }
+    //     } else {
+    //         // Jika ID galeri tidak ditemukan, kirim respons kesalahan
+    //         echo json_encode(['status' => 'error', 'message' => 'ID galeri tidak valid.']);
+    //     }
+    // }
+
     public function hapus_galeri()
     {
         // Ambil ID dari data POST
@@ -73,14 +96,20 @@ class Galeri extends CI_Controller
 
             if ($result) {
                 // Jika berhasil, kirim respons sukses
-                echo json_encode(['status' => 'success', 'message' => 'Galeri berhasil dihapus.']);
+                $response = ['status' => 'success', 'message' => 'Galeri berhasil dihapus.'];
             } else {
                 // Jika gagal menghapus dari database, kirim respons kesalahan
-                echo json_encode(['status' => 'error', 'message' => 'Gagal menghapus galeri dari database.']);
+                $response = ['status' => 'error', 'message' => 'Gagal menghapus galeri dari database.'];
             }
         } else {
             // Jika ID galeri tidak ditemukan, kirim respons kesalahan
-            echo json_encode(['status' => 'error', 'message' => 'ID galeri tidak valid.']);
+            $response = ['status' => 'error', 'message' => 'ID galeri tidak valid.'];
         }
+
+        // Output response sebagai JSON
+        $this->output->set_content_type('application/json')->set_output(json_encode($response));
+
+        // Sebagai langkah terakhir, hentikan eksekusi script PHP
+        exit();
     }
 }

@@ -144,7 +144,6 @@
                                             <div class="desc">
                                                 <!-- Tambahkan tombol hapus di dalam loop -->
                                                 <button class="btn btn-danger btn-hapus-galeri" data-galeri-id="<?php echo $glr->id; ?>">Hapus</button>
-
                                             </div>
                                         </div>
                                     </div>
@@ -189,43 +188,65 @@
     $('#modalTambahSlider').on('hidden.bs.modal', function() {
         $(this).find('form')[0].reset();
     });
-</script>
 
-
-<script>
     // Menambahkan event listener untuk perubahan dropdown kategori
     $('#kategoriDropdown').change(function() {
         var selectedKategori = $(this).val();
         var sortDirection = $('#sortDropdown').val();
         window.location.href = "<?php echo base_url('admin/galeri'); ?>?kategori_dropdown=" + selectedKategori + "&sort=" + sortDirection;
     });
-</script>
 
-<script>
     // Tambahkan event listener untuk tombol hapus galeri
     $('.btn-hapus-galeri').click(function() {
         var galeriId = $(this).data('galeri-id');
 
-        // Konfirmasi pengguna sebelum menghapus galeri
-        if (confirm('Apakah Anda yakin ingin menghapus galeri ini?')) {
-            // Kirim permintaan hapus ke server menggunakan AJAX
-            $.ajax({
-                url: "<?php echo base_url('admin/galeri/hapus_galeri'); ?>",
-                type: "POST",
-                data: {
-                    id: galeriId
-                },
-                success: function(response) {
-                    // Tampilkan pesan respons dari server
-                    // alert(response); // Hapus atau komen baris ini
-                    // Refresh halaman atau perbarui konten galeri setelah penghapusan
-                    window.location.reload(); // Contoh: refresh halaman
-                },
-                error: function(xhr, status, error) {
-                    // Tangani kesalahan jika diperlukan
-                    console.error(xhr.responseText);
-                }
-            });
-        }
+        // Tampilkan SweetAlert untuk konfirmasi pengguna
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: 'Galeri ini akan dihapus permanen!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            // Jika pengguna mengonfirmasi
+            if (result.isConfirmed) {
+                // Kirim permintaan hapus ke server menggunakan AJAX
+                $.ajax({
+                    url: "<?php echo base_url('admin/galeri/hapus_galeri'); ?>",
+                    type: "POST",
+                    data: {
+                        id: galeriId
+                    },
+                    success: function(response) {
+                        // Tampilkan pesan respons dari server
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Galeri berhasil dihapus.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            // Check if the user clicked "OK"
+                            if (result.isConfirmed) {
+                                // Refresh halaman atau lakukan tindakan lain yang diperlukan
+                                window.location.reload(); // Contoh: refresh halaman
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        // Tampilkan SweetAlert untuk notifikasi kesalahan
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Gagal menghapus galeri.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
     });
 </script>

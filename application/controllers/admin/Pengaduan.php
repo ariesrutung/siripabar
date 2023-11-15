@@ -10,7 +10,7 @@ class Pengaduan extends CI_Controller
         if (!$this->ion_auth->is_admin()) {
             redirect('Auth');
         }
-        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library(['ion_auth', 'form_validation', 'pdf']);
         $this->load->model('M_pengaduan');
         $this->load->model('M_berita');
         $this->load->model(['M_pengaduan', 'M_wilayah']);
@@ -72,5 +72,27 @@ class Pengaduan extends CI_Controller
     public function get_gbrdokumentasi($kodelaporan)
     {
         $data['upload'] = $this->M_pengaduan->get_image($kodelaporan);
+    }
+
+    public function export_to_pdf()
+    {
+        $data['kodelaporan'] = $this->M_pengaduan->get_kodelaporan(); // Gantilah dengan logika yang sesuai
+        $data['upload'] = $this->M_pengaduan->get_image();
+        $data['pengaduan'] = $this->M_pengaduan->get_all();
+
+        // Load view yang akan di-export ke PDF
+        $html = $this->load->view('admin/downloadpdf', $data, true);
+
+        // Buat objek mpdf
+        $pdf = $this->pdf->load();
+
+        // Set konfigurasi mpdf jika diperlukan
+        // Contoh: $pdf->SetAuthor('Nama Penulis');
+
+        // Generate PDF
+        $pdf->WriteHTML($html);
+        $pdf->Output('laporan_pengaduan.pdf', 'D'); // Download PDF
+
+        // Alternatif: $pdf->Output('path/ke/direktori/laporan_pengaduan.pdf', 'F'); // Simpan di server
     }
 }

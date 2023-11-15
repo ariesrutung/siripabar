@@ -317,68 +317,125 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- jquery vendor -->
-    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
+<!-- jquery vendor -->
+<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
 
-    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
-    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
+<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
+<!-- nano scroller -->
+<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
+<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
+<!-- sidebar -->
 
-    <script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
-    <!-- scripit init-->
-    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
-    <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
-    <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
+<!-- scripit init-->
+<script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
+<script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
+<script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
+<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
-    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#menuberita').last().addClass("active");
-        });
-    </script>
+<script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#menuberita').last().addClass("active");
+    });
+</script>
 
-    <!-- Tambahkan skrip JavaScript untuk menampilkan data berita ke dalam modal -->
-    <script>
-        $(document).ready(function() {
-            $('.editform').on('click', function() {
-                var idBerita = $(this).data('idberita');
-                var judul = $(this).data('judul');
-                var isiberita = $(this).data('isiberita');
-                var lok_berita = $(this).data('lok_berita');
-                var tag = $(this).data('tag');
-                var tanggal = $(this).data('tanggal');
-                var gambar = $(this).data('gambar');
-                var ket_gambar = $(this).data('ket_gambar');
+<!-- Tambahkan skrip JavaScript untuk menampilkan data berita ke dalam modal -->
+<script>
+    $(document).ready(function() {
+        // Get the form element
+        var formTambahBerita = $('#modalTambahBerita form');
 
-                // Tempatkan data berita ke dalam modal
-                $('#edit_id_berita').val(idBerita);
-                $('#edit_judul').val(judul);
-                $('#edit_isiberita').val(isiberita);
-                $('#edit_lokberita').val(lok_berita);
-                $('#edit_tag').val(tag);
-                $('#edit_tanggal').val(tanggal);
-                $('#preview_gambar').attr('src', gambar);
-                $('#edit_ketgambar').val(ket_gambar);
+        // Add a submit event listener to the form
+        formTambahBerita.submit(function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
 
+            // You can perform any additional validation here if needed
 
-                // Mengosongkan input file gambar
-                $('#edit_gambar').val('');
-
-                // Buka modal
-                $('#modalEditBerita').modal('show');
+            // Submit the form using AJAX
+            $.ajax({
+                type: formTambahBerita.attr('method'),
+                url: formTambahBerita.attr('action'),
+                data: new FormData(formTambahBerita[0]),
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Show SweetAlert on success
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Berita added successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        // Check if the user clicked "OK"
+                        if (result.isConfirmed) {
+                            // Close the modal
+                            $('#modalTambahBerita').modal('hide');
+                            // Reload the page or perform other actions if needed
+                            location.reload();
+                        }
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Show SweetAlert on error
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Failed to add berita.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
             });
+        });
 
-            $('.deletedata').on('click', function() {
-                var idBerita = $(this).data('idberita');
+        $('.editform').on('click', function() {
+            var idBerita = $(this).data('idberita');
+            var judul = $(this).data('judul');
+            var isiberita = $(this).data('isiberita');
+            var lok_berita = $(this).data('lok_berita');
+            var tag = $(this).data('tag');
+            var tanggal = $(this).data('tanggal');
+            var gambar = $(this).data('gambar');
+            var ket_gambar = $(this).data('ket_gambar');
 
-                // Tampilkan konfirmasi sebelum menghapus
-                if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
-                    // Kirim permintaan AJAX untuk penghapusan
+            // Tempatkan data berita ke dalam modal
+            $('#edit_id_berita').val(idBerita);
+            $('#edit_judul').val(judul);
+            $('#edit_isiberita').val(isiberita);
+            $('#edit_lokberita').val(lok_berita);
+            $('#edit_tag').val(tag);
+            $('#edit_tanggal').val(tanggal);
+            $('#preview_gambar').attr('src', gambar);
+            $('#edit_ketgambar').val(ket_gambar);
+
+
+            // Mengosongkan input file gambar
+            $('#edit_gambar').val('');
+
+            // Buka modal
+            $('#modalEditBerita').modal('show');
+        });
+
+        $('.deletedata').on('click', function() {
+            var idBerita = $(this).data('idberita');
+
+            // Use SweetAlert for confirmation
+            Swal.fire({
+                title: 'Anda Yakin?',
+                text: 'Data tidak akan kembali setelah dihapus!!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Send AJAX request for deletion
                     $.ajax({
                         url: '<?php echo base_url("admin/berita/delete_berita"); ?>',
                         type: 'POST',
@@ -386,68 +443,84 @@
                             id_berita: idBerita
                         },
                         success: function(response) {
-                            // Refresh halaman atau lakukan tindakan lain yang diperlukan
-                            location.reload();
+                            // Show SweetAlert on success
+                            Swal.fire({
+                                title: 'Sukses!',
+                                text: 'Data Anda berhasil dihapus.',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                // Reload the page after deletion
+                                location.reload();
+                            });
                         },
                         error: function(xhr, status, error) {
                             console.error(xhr.responseText);
+                            // Show SweetAlert on error
+                            Swal.fire({
+                                title: 'Eror!',
+                                text: 'Data gagal dihapus.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
                         }
                     });
                 }
             });
         });
-    </script>
+    });
+</script>
 
-    <script>
-        document.querySelectorAll('#More').forEach(bttn => {
-            bttn.dataset.state = 0;
-            bttn.addEventListener('click', function(e) {
-                let span = this.previousElementSibling;
-                span.dataset.tmp = span.textContent;
-                span.textContent = span.dataset.content;
-                span.dataset.content = span.dataset.tmp;
+<script>
+    document.querySelectorAll('#More').forEach(bttn => {
+        bttn.dataset.state = 0;
+        bttn.addEventListener('click', function(e) {
+            let span = this.previousElementSibling;
+            span.dataset.tmp = span.textContent;
+            span.textContent = span.dataset.content;
+            span.dataset.content = span.dataset.tmp;
 
-                this.innerHTML = this.dataset.state == 1 ? 'Tampil Penuh' : 'Tampil Sebagian';
-                this.dataset.state = 1 - this.dataset.state;
-            })
-        });
-
-        document.querySelectorAll('span.p1').forEach(span => {
-            span.dataset.content = span.textContent;
-            span.textContent = span.textContent.substr(0, 100) + '...';
+            this.innerHTML = this.dataset.state == 1 ? 'Tampil Penuh' : 'Tampil Sebagian';
+            this.dataset.state = 1 - this.dataset.state;
         })
-    </script>
+    });
+
+    document.querySelectorAll('span.p1').forEach(span => {
+        span.dataset.content = span.textContent;
+        span.textContent = span.textContent.substr(0, 100) + '...';
+    })
+</script>
 
 
-    <script>
-        var loadFile = function(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var output = document.getElementById('output');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-
-            var reader = new FileReader();
-            reader.onload = function() {
-                var output = document.getElementById('gbr');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('output');
+            output.src = reader.result;
         };
-    </script>
+        reader.readAsDataURL(event.target.files[0]);
 
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#isiberita'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#edit_isiberita'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('gbr');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#isiberita'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#edit_isiberita'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

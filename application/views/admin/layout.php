@@ -296,6 +296,7 @@
 
 
     <script src="<?php echo base_url(); ?>public/focus-theme/js/dashboard/dashboard-2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Circle progress -->
 
 </body>

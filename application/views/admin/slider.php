@@ -154,13 +154,12 @@
                                                 <div class="w-100">
                                                     <input type="checkbox" class="js-switch" data-id="<?= $slider->id ?>" <?= $slider->status == 1 ? 'checked' : '' ?>>
                                                 </div>
-                                                <a href="<?= base_url('admin/slider/hapus/' . $slider->id) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus slider ini?')">
+                                                <a href="<?= base_url('admin/slider/hapus/' . $slider->id) ?>" class="btn btn-danger deleteSlider" data-id="<?= $slider->id ?>">
                                                     <span class="icon text-white-50">
                                                         <i class="fa fa-trash"></i>
                                                     </span>
                                                     <span class="text"> Hapus</span>
                                                 </a>
-
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -296,6 +295,74 @@
 <script>
     $(document).ready(function() {
         $('#menuslider').last().addClass("active");
+
+        var formTambahSlider = $('.modalTambahSlider form');
+
+        // Add a submit event listener to the form
+        formTambahSlider.submit(function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // You can perform any additional validation here if needed
+
+            // Submit the form using AJAX
+            $.ajax({
+                type: formTambahSlider.attr('method'),
+                url: formTambahSlider.attr('action'),
+                data: new FormData(formTambahSlider[0]),
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Show SweetAlert on success
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: 'Slider berhasil ditambah.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        // Check if the user clicked "OK"
+                        if (result.isConfirmed) {
+                            // Close the modal
+                            $('.modalTambahSlider').modal('hide');
+                            // Reload the page or perform other actions if needed
+                            location.reload();
+                        }
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Show SweetAlert on error
+                    Swal.fire({
+                        title: 'Eror!',
+                        text: 'Gagal menambah slider.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+
+        $('.deleteSlider').on('click', function(event) {
+            event.preventDefault();
+            var deleteUrl = $(this).attr('href');
+            var sliderId = $(this).data('id');
+
+            // Use SweetAlert for confirmation
+            Swal.fire({
+                title: 'Anda Yakin?',
+                text: 'Data tidak akan kembali setelah dihapus!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to the delete URL if the user clicks "Yes"
+                    window.location.href = deleteUrl;
+                }
+            });
+        });
     });
 </script>
 
@@ -307,8 +374,9 @@
             });
 
             $(this).change(function() {
-                var sliderId = $(this).data('id');
-                var status = this.checked ? 1 : 0;
+                var switchElement = this;
+                var sliderId = $(switchElement).data('id');
+                var status = switchElement.checked ? 1 : 0;
 
                 // Lakukan AJAX request untuk mengubah status di database
                 $.ajax({
@@ -320,10 +388,28 @@
                     },
                     success: function(response) {
                         console.log(response);
-                        // Tambahkan logika atau tindakan lain setelah berhasil mengubah status
+                        // Show SweetAlert on success
+                        Swal.fire({
+                            title: 'Sukses!',
+                            // text: 'Status updated successfully.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            // Check if the user clicked "OK"
+                            if (result.isConfirmed) {
+                                // Perform any other actions if needed
+                            }
+                        });
                     },
                     error: function(error) {
                         console.error(error);
+                        // Show SweetAlert on error
+                        Swal.fire({
+                            title: 'Eror!',
+                            // text: 'Failed to update status.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
                     }
                 });
             });

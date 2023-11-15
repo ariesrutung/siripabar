@@ -210,31 +210,91 @@
 </script>
 
 <script>
-    // Tambahkan event listener untuk tombol hapus galeri
     $('.btn-hapus-galeri').click(function() {
-        var galeriId = $(this).data('galeri-id');
+        var galeriId = $(this).data('id_galeri');
 
-        // Konfirmasi pengguna sebelum menghapus galeri
-        if (confirm('Apakah Anda yakin ingin menghapus galeri ini?')) {
-            // Kirim permintaan hapus ke server menggunakan AJAX
-            $.ajax({
-                url: "<?php echo base_url('admin/galeri/hapus_galeri'); ?>",
-                type: "POST",
-                data: {
-                    id: galeriId
-                },
-                success: function(response) {
-                    // Tampilkan pesan respons dari server
-                    // alert(response); // Hapus atau komen baris ini
-                    // Refresh halaman atau perbarui konten galeri setelah penghapusan
-                    window.location.reload(); // Contoh: refresh halaman
-                },
-                error: function(xhr, status, error) {
-                    // Tangani kesalahan jika diperlukan
-                    console.error(xhr.responseText);
-                }
-            });
-        }
+        // Tampilkan SweetAlert untuk konfirmasi pengguna
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: 'Galeri ini akan dihapus permanen!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            // Jika pengguna mengonfirmasi
+            if (result.isConfirmed) {
+                // Kirim permintaan hapus ke server menggunakan AJAX
+                $.ajax({
+                    url: "<?php echo base_url('admin/galeri/hapus_galeri'); ?>",
+                    type: "POST",
+                    data: {
+                        id_galeri: galeriId
+                    },
+                    success: function(response) {
+                        try {
+                            // Cek apakah respons tidak kosong
+                            if (response.trim() !== '') {
+                                // Mem-parsing string JSON
+                                var parsedResponse = JSON.parse(response);
+
+                                // Check apakah parsing berhasil
+                                if (parsedResponse && parsedResponse.status) {
+                                    // Tampilkan SweetAlert sesuai status
+                                    Swal.fire({
+                                        title: parsedResponse.status.charAt(0).toUpperCase() + parsedResponse.status.slice(1), // Capitalize status
+                                        text: parsedResponse.message,
+                                        icon: parsedResponse.status,
+                                        confirmButtonText: 'OK'
+                                    }).then((result) => {
+                                        if (result.isConfirmed && parsedResponse.status === 'success') {
+                                            window.location.reload(); // Contoh: refresh halaman
+                                        }
+                                    });
+                                } else {
+                                    // Tampilkan SweetAlert untuk respons tidak valid
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'Respon tidak valid dari server.',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            } else {
+                                // Respons kosong, mungkin karena tidak ada data untuk dihapus
+                                Swal.fire({
+                                    title: 'Info',
+                                    text: 'Tidak ada data untuk dihapus.',
+                                    icon: 'info',
+                                    confirmButtonText: 'OK'
+                                });
+                            }
+                        } catch (error) {
+                            // Tampilkan SweetAlert untuk kesalahan parsing
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Gagal parsing respons JSON.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                            console.error(error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Tampilkan SweetAlert untuk notifikasi kesalahan
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Gagal menghapus galeri.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
     });
 </script>
 

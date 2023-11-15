@@ -47,7 +47,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Data Pengaduan</h4>
-                            <a data-toggle="modal" class="btn btn-info btn-sm text-white">
+                            <a href="<?php echo base_url('admin/pengaduan/export_to_pdf'); ?>" class="btn btn-info btn-sm text-white">
                                 <span class="icon text-white-50">
                                     <i class="fa fa-cloud-download"></i>
                                 </span>
