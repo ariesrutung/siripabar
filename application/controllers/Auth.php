@@ -462,12 +462,20 @@ class Auth extends CI_Controller
     /**
      * Create a new user
      */
-    public function buat_user_manual($username)
+    public function buat_user_tamu($tamu)
     {
-        $this->ion_auth->register($username, "123", "tamu@gmail.com");
+        $this->ion_auth->register($username, "123", $tamu."@siripabar.com");
         redirect('/', 'refresh');
         
     }
+
+    public function buat_user_operator($operator)
+    {
+        $this->ion_auth->register($operator, "123", $operator."@siripabar.com",NULL,['group_id'=>'3']);
+        // redirect('/', 'refresh');
+        
+    }
+
     public function create_user()
     {
         $this->data['title'] = $this->lang->line('create_user_heading');
