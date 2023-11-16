@@ -85,6 +85,24 @@
         color: #454545;
         padding: 0 2px;
     }
+
+    #ModalDetailDaerahIrigasi table tr td {
+        vertical-align: top;
+        border-color: #eaeaea;
+        padding: 5px 0;
+    }
+
+    #ModalDetailDaerahIrigasi table tr td:nth-child(2) {
+        width: 10px;
+    }
+
+    #ModalDetailDaerahIrigasi table tr td:nth-child(3) {
+        font-weight: bold;
+    }
+
+    #ModalDetailDaerahIrigasi table {
+        margin: 0;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -125,14 +143,14 @@
                                             <td><?php echo $ddi->luas_fungsional; ?></td>
                                             <td>
                                                 <div class="aksi">
-                                                    <a href="#" class="btn btn-info text-white btn-sm viewDetailDaerahIrigasi" data-backdrop="static" data-iddaerahirigasi="<?php echo $ddi->id; ?>" data-provinsi="<?php echo $ddi->provinsi; ?>" data-di_kabupaten="<?php echo $ddi->kabupaten; ?>" data-nama_di="<?php echo $ddi->nama_di; ?>" data-kode_di="<?php echo $ddi->kode_di; ?>" data-jenis_di="<?php echo $ddi->jenis_di; ?>" data-luas_fungsional="<?php echo $ddi->luas_fungsional; ?>" data-luas_alih_fungsi_lahan="<?php echo $ddi->luas_alih_fungsi_lahan; ?>" data-gambar="<?php echo $ddi->gambar; ?>" data-kewenangan="<?php echo $ddi->kewenangan; ?>">
+                                                    <a href="#" class="btn btn-info text-white btn-sm viewDetailDaerahIrigasi" data-backdrop="static" data-iddaerahirigasi="<?php echo $ddi->id; ?>" data-provinsi="<?php echo $ddi->provinsi; ?>" data-di_kabupaten="<?php echo $ddi->kabupaten; ?>" data-nama_di="<?php echo $ddi->nama_di; ?>" data-kode_di="<?php echo $ddi->kode_di; ?>" data-jenis_di="<?php echo $ddi->jenis_di; ?>" data-luas_fungsional="<?php echo $ddi->luas_fungsional; ?>" data-luas_alih_fungsi_lahan="<?php echo $ddi->luas_alih_fungsi_lahan; ?>" data-gambar="<?php echo $ddi->gambar; ?>" data-kewenangan="<?php echo $ddi->kewenangan; ?>" data-jumlah_aset="<?php echo $ddi->jumlah_aset; ?>" data-jumlah_subsistem="<?php echo $ddi->jumlah_subsistem; ?>" data-data_aknop="<?php echo $ddi->data_aknop; ?>" data-saluran_induk="<?php echo $ddi->saluran_induk; ?>" data-saluran_muka="<?php echo $ddi->saluran_muka; ?>" data-pengelak_banjir="<?php echo $ddi->pengelak_banjir; ?>" data-saluran_pembuang_tersier="<?php echo $ddi->saluran_pembuang_tersier; ?>" data-saluran_sekunder="<?php echo $ddi->saluran_sekunder; ?>" data-saluran_pembuang="<?php echo $ddi->saluran_pembuang; ?>" data-saluran_tersier="<?php echo $ddi->saluran_tersier; ?>" data-saluran_suplesi="<?php echo $ddi->saluran_suplesi; ?>" data-saluran_gendong="<?php echo $ddi->saluran_gendong; ?>" data-saluran_kuarter="<?php echo $ddi->saluran_kuarter; ?>" data-dokumen="<?php echo $ddi->dokumen; ?>">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                         <span class="text"> Detail</span>
                                                     </a>
 
-                                                    <a href="#" class="btn btn-primary text-white btn-sm btnEditDaerahIrigasi" data-toggle="modal" data-id="<?php echo $ddi->id; ?>" data-provinsi="<?php echo $ddi->provinsi; ?>" data-kabupaten="<?php echo $ddi->kabupaten; ?>" data-nama_di="<?php echo $ddi->nama_di; ?>" data-kode_di="<?php echo $ddi->kode_di; ?>" data-jenis_di="<?php echo $ddi->jenis_di; ?>" data-luas_fungsional="<?php echo $ddi->luas_fungsional; ?>" data-luas_alih_fungsi_lahan="<?php echo $ddi->luas_alih_fungsi_lahan; ?>" data-gambar="<?php echo $ddi->gambar; ?>" data-kewenangan="<?php echo $ddi->kewenangan; ?>">
+                                                    <a href="#" class="btn btn-primary text-white btn-sm btnEditDaerahIrigasi" data-toggle="modal" data-id="<?php echo $ddi->id; ?>" data-provinsi="<?php echo $ddi->provinsi; ?>" data-kabupaten="<?php echo $ddi->kabupaten; ?>" data-nama_di="<?php echo $ddi->nama_di; ?>" data-kode_di="<?php echo $ddi->kode_di; ?>" data-jenis_di="<?php echo $ddi->jenis_di; ?>" data-luas_fungsional="<?php echo $ddi->luas_fungsional; ?>" data-luas_alih_fungsi_lahan="<?php echo $ddi->luas_alih_fungsi_lahan; ?>" data-gambar="<?php echo $ddi->gambar; ?>" data-kewenangan="<?php echo $ddi->kewenangan; ?>" data-jumlah_aset="<?php echo $ddi->jumlah_aset; ?>" data-jumlah_subsistem="<?php echo $ddi->jumlah_subsistem; ?>" data-data_aknop="<?php echo $ddi->data_aknop; ?>" data-saluran_induk="<?php echo $ddi->saluran_induk; ?>" data-saluran_muka="<?php echo $ddi->saluran_muka; ?>" data-pengelak_banjir="<?php echo $ddi->pengelak_banjir; ?>" data-saluran_pembuang_tersier="<?php echo $ddi->saluran_pembuang_tersier; ?>" data-saluran_sekunder="<?php echo $ddi->saluran_sekunder; ?>" data-saluran_pembuang="<?php echo $ddi->saluran_pembuang; ?>" data-saluran_tersier="<?php echo $ddi->saluran_tersier; ?>" data-saluran_suplesi="<?php echo $ddi->saluran_suplesi; ?>" data-saluran_gendong="<?php echo $ddi->saluran_gendong; ?>" data-saluran_kuarter="<?php echo $ddi->saluran_kuarter; ?>" data-dokumen="<?php echo $ddi->dokumen; ?>">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-edit"></i>
                                                         </span>
@@ -381,7 +399,7 @@
             <div class="modal-body">
                 <div class="modal-content-scrollable">
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <div class="table-responsive">
                                 <table class="table table-borderless student-data-table m-t-20">
                                     <tbody>
@@ -389,122 +407,136 @@
                                             <td id="idDI"></td>
                                         </tr>
                                         <tr>
-                                            <td>Provinsi</td>
-                                            <td>:</td>
+                                            <td class="w-40">Provinsi</td>
+                                            <td>: </td>
                                             <td id="provinsi"></td>
                                         </tr>
                                         <tr>
                                             <td>Kabupaten</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="kabupaten"></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Daerah Irigasi</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="nama_di"></td>
                                         </tr>
                                         <tr>
                                             <td>Kode Daerah Irigasi</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="kode_di"></td>
                                         </tr>
                                         <tr>
                                             <td>Jenis Irigasi</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="jenis_di"></td>
                                         </tr>
                                         <tr>
                                             <td>Luas Fungsional</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="luas_fungsional"></td>
                                         </tr>
                                         <tr>
                                             <td>Luas Alih Fungsi Lahan</td>
-                                            <td>:</td>
+                                            <td>: </td>
                                             <td id="luas_lahan"></td>
-                                        </tr>
-
-                                        <!-- <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="kewenangan"></td>
                                         </tr>
                                         <tr>
                                             <td>Kewenangan</td>
-                                            <td>:</td>
+                                            <td>: </td>
+                                            <td id="kewenangan"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Jumlah Aset</td>
+                                            <td>: </td>
                                             <td id="ja"></td>
                                         </tr>
                                         <tr>
-                                            <td>Kewenangan</td>
+                                            <td>Jumlah Subsistem</td>
                                             <td>:</td>
                                             <td id="js"></td>
                                         </tr>
                                         <tr>
-                                            <td>Kewenangan</td>
+                                            <td>Data AKNOP</td>
                                             <td>:</td>
                                             <td id="da"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="si"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="sm"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="pb"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="st"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="ssk"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="sp"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="st"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="ss"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="sg"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewenangan</td>
-                                            <td>:</td>
-                                            <td id="sk"></td>
-                                        </tr>
-                                        <tr> -->
-                                        <td>Kewenangan</td>
-                                        <td>:</td>
-                                        <td id="k_DI"></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                        <div class="col-lg-6 zoomable-image">
                             <img id="gambarPreview" class="w-100" src="<?php echo base_url(); ?>public/company/img/skema" alt="Gambar Daerah Irigasi">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="table-responsive">
+                                <table class="table table-borderless student-data-table m-t-20">
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="w-40">Panjang Saluran Induk</td>
+                                            <td>:</td>
+                                            <td id="si"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Muka</td>
+                                            <td>:</td>
+                                            <td id="sm"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Tersier</td>
+                                            <td>:</td>
+                                            <td id="st"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Suplesi</td>
+                                            <td>:</td>
+                                            <td id="ss"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PZanjang Saluran Gendong</td>
+                                            <td>:</td>
+                                            <td id="sg"></td>
+                                        </tr>
+                                        <tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="table-responsive">
+                                <table class="table table-borderless student-data-table m-t-20">
+                                    <tbody>
+                                        <td>Panjang Saluran Kuarter</td>
+                                        <td>:</td>
+                                        <td id="sk"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-50">Panjang Saluran Pengelak Banjir</td>
+                                            <td>:</td>
+                                            <td id="pb"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Pembuang (Tersier)</td>
+                                            <td>:</td>
+                                            <td id="st"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Sekunder</td>
+                                            <td>:</td>
+                                            <td id="ssk"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Panjang Saluran Pembuang</td>
+                                            <td>:</td>
+                                            <td id="sp"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -613,61 +645,108 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="tab-pane fade" id="Skema" role="tabpanel">
+                            <div class="tab-pane fade" id="Skema" role="tabpanel">
                                 <div class="pt-4">
                                     <div class="row">
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Jumlah Aset (PAI)</label>
-                                                <input type="text" name="jumlah_aset" class="form-control" required>
+                                                <input type="text" id="edit_jumlah_aset" name="edit_jumlah_aset" class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Jumlah Subsistem</label>
-                                                <input type="text" name="jumlah_subsistem" class="form-control" required>
+                                                <input type="text" id="edit_jumlah_subsistem" name="edit_jumlah_subsistem" class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Data AKNOP</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="data_aknop" required>
+                                                    <input type="text" id="edit_data_aknop" class="form-control" name="edit_data_aknop" required>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Induk</label>
                                                 <div class="input-group">
-                                                    <input type="number" name="saluran_induk" class="form-control" required>
+                                                    <input type="number" id="edit_saluran_induk" name="edit_saluran_induk" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Muka</label>
-                                                <input type="number" name="saluran_muka" class="form-control" required>
+                                                <input type="number" id="edit_saluran_muka" name="edit_saluran_muka" class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Pengelak Banjir</label>
-                                                <input type="number" name="pengelak_banjir" class="form-control" required>
+                                                <input type="number" id="edit_pengelak_banjir" name="edit_pengelak_banjir" class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0">
+                                        <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Pembuang (Tersier)</label>
                                                 <div class="input-group">
-                                                    <input name="saluran_pembuang_tersier" type="number" class="form-control gb" required>
+                                                    <input name="edit_saluran_pembuang_tersier" type="number" id="edit_saluran_pembuang_tersier" class="form-control gb" required>
 
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Sekunder</label>
+                                                <div class="input-group">
+                                                    <input type="number" id="edit_saluran_sekunder" name="edit_saluran_sekunder" class="form-control" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Pembuang</label>
+                                                <input type="number" id="edit_saluran_pembuang" name="edit_saluran_pembuang" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Tersier</label>
+                                                <input type="number" id="edit_saluran_tersier" name="edit_saluran_tersier" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Suplesi</label>
+                                                <input type="number" id="edit_saluran_suplesi" name="edit_saluran_suplesi" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Gendong</label>
+                                                <input type="number" id="edit_saluran_gendong" name="edit_saluran_gendong" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Panjang Saluran Kuarter</label>
+                                                <input type="number" id="edit_saluran_kuarter" name="edit_saluran_kuarter" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 px-0 py-0 Gb">
+                                            <div class="form-group">
+                                                <label class="text-label">Dokumen</label>
+                                                <input type="file" id="edit_dokumen_skema" name="edit_dokumen_skema" class="form-control gb" required>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -724,38 +803,39 @@
             $('#gambarPreview').attr('src', gambarDI);
 
             // Skema
-            // var jumlahAset = $(this).data('jumlah_aset');
-            // var jumlahSubsistem = $(this).data('jumlah_subsistem');
-            // var dataAknop = $(this).data('data_aknop');
-            // var saluranInduk = $(this).data('saluran_induk');
-            // var saluranMuka = $(this).data('saluran_muka');
-            // var pengelakBanjir = $(this).data('pengelak_banjir');
-            // var pembuangTersier = $(this).data('saluran_pembuang_tersier');
-            // var saluranSekunder = $(this).data('saluran_sekunder');
-            // var saluranPembuang = $(this).data('saluran_pembuang');
-            // var saluranTersier = $(this).data('saluran_tersier');
-            // var saluranSuplesi = $(this).data('saluran_suplesi');
-            // var saluranGendong = $(this).data('saluran_gendong');
-            // var saluranKuarter = $(this).data('saluran_kuarter');
-            // var kodeDi = $(this).data('kode_di');
+            var jumlahAset = $(this).data('jumlah_aset');
+            var jumlahSubsistem = $(this).data('jumlah_subsistem');
+            var dataAknop = $(this).data('data_aknop');
+            var saluranInduk = $(this).data('saluran_induk');
+            var saluranMuka = $(this).data('saluran_muka');
+            var pengelakBanjir = $(this).data('pengelak_banjir');
+            var pembuangTersier = $(this).data('saluran_pembuang_tersier');
+            var saluranSekunder = $(this).data('saluran_sekunder');
+            var saluranPembuang = $(this).data('saluran_pembuang');
+            var saluranTersier = $(this).data('saluran_tersier');
+            var saluranSuplesi = $(this).data('saluran_suplesi');
+            var saluranGendong = $(this).data('saluran_gendong');
+            var saluranKuarter = $(this).data('saluran_kuarter');
+
             // var dokumen = $(this).data('dokumen');
 
-            // $('#ja').text(jumlahAset);
-            // $('#js').text(jumlahSubsistem);
-            // $('#da').text(dataAknop);
-            // $('#si').text(saluranInduk);
-            // $('#sm').text(saluranMuka);
-            // $('#pb').text(pengelakBanjir);
-            // $('#pt').text(pembuangTersier);
-            // $('#ssk').text(saluranSekunder);
-            // $('#sp').text(saluranPembuang);
-            // $('#st').text(saluranTersier);
-            // $('#ssp').text(saluranSuplesi);
-            // $('#sg').text(saluranGendong);
-            // $('#sk').text(saluranKuarter);
-            // $('#k_DI').text(kodeDi);
+            $('#ja').text(jumlahAset);
+            $('#js').text(jumlahSubsistem);
+            $('#da').text(dataAknop);
+            $('#si').text(saluranInduk);
+            $('#sm').text(saluranMuka);
+            $('#pb').text(pengelakBanjir);
+            $('#pt').text(pembuangTersier);
+            $('#ssk').text(saluranSekunder);
+            $('#sp').text(saluranPembuang);
+            $('#st').text(saluranTersier);
+            $('#ssp').text(saluranSuplesi);
+            $('#sg').text(saluranGendong);
+            $('#sk').text(saluranKuarter);
+
             // // Atur nilai atribut 'src' dari elemen gambar
             // $('#gambarPreview').attr('src', gambarDI);
+
             // Buka modal
             $('#ModalDetailDaerahIrigasi').modal('show');
 
@@ -791,9 +871,22 @@
             var jenisDI_edit = $(this).data('jenis_di');
             var luasFungsiDI_edit = $(this).data('luas_fungsional');
             var luasAlihDI_edit = $(this).data('luas_alih_fungsi_lahan');
-            var kewenanganDI_edit = $(this).data('kewenangan');
 
-            // Tempatkan data berita ke dalam modal
+            var jumlah_aset = $(this).data('jumlah_aset');
+            var jumlah_subsistem = $(this).data('jumlah_subsistem');
+            var data_aknop = $(this).data('data_aknop');
+            var saluran_induk = $(this).data('saluran_induk');
+            var saluran_muka = $(this).data('saluran_muka');
+            var pengelak_banjir = $(this).data('pengelak_banjir');
+            var saluran_pembuang_tersier = $(this).data('saluran_pembuang_tersier');
+            var saluran_sekunder = $(this).data('saluran_sekunder');
+            var saluran_pembuang = $(this).data('saluran_pembuang');
+            var saluran_tersier = $(this).data('saluran_tersier');
+            var saluran_suplesi = $(this).data('saluran_suplesi');
+            var saluran_gendong = $(this).data('saluran_gendong');
+            var saluran_kuarter = $(this).data('saluran_kuarter');
+            var dokumen = $(this).data('dokumen');
+
             $('#edit_provinsi').val(provinsiDI_edit);
             $('#edit_kabupaten').html(kabDI_edit);
             $('#edit_nama_di').val(namaDI_edit);
@@ -802,7 +895,24 @@
             $('#edit_luas_fungsional').val(luasFungsiDI_edit);
             // $('#preview_gambar').attr('src', gambar);
             $('#edit_luas_alih_fungsi_lahan').val(luasAlihDI_edit);
-            $('#edit_kewenangan').val(kewenanganDI_edit);
+
+            $('#edit_jumlah_aset').val(jumlah_aset);
+            $('#edit_jumlah_subsistem').val(jumlah_subsistem);
+            $('#edit_data_aknop').val(data_aknop);
+            $('#edit_saluran_induk').val(saluran_induk);
+            $('#edit_saluran_muka').val(saluran_muka);
+            $('#edit_pengelak_banjir').val(pengelak_banjir);
+            $('#edit_saluran_pembuang_tersier').val(saluran_pembuang_tersier);
+            $('#edit_saluran_sekunder').val(saluran_sekunder);
+            $('#edit_saluran_pembuang').val(saluran_pembuang);
+            $('#edit_saluran_tersier').val(saluran_tersier);
+            $('#edit_saluran_suplesi').val(saluran_suplesi);
+            $('#edit_saluran_gendong').val(saluran_gendong);
+            $('#edit_saluran_kuarter').val(saluran_kuarter);
+            $('#edit_kode_di').val(kodeDI_edit);
+
+            $('#edit_dokumen').attr(dokumen);
+
 
             // Buka modal edit
             $('#modalEditDaerahIrigasi').modal('show');
@@ -956,6 +1066,15 @@
             // Prevent the form from being submitted in the traditional way
             return false;
         });
+
+        $('.zoomable-image').hover(
+            function() {
+                $(this).find('img').css('transform', 'scale(1.3)');
+            },
+            function() {
+                $(this).find('img').css('transform', 'scale(1)');
+            }
+        );
 
     });
 </script>

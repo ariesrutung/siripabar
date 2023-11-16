@@ -102,6 +102,9 @@
                                     <div class="text-center mt-5">
                                         <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
                                     </div>
+                                    <div class="text-center mt-5">
+                                        <h5>Kembali ke <a href="<?php echo base_url('/') ?>">Beranda</a></h5>
+                                    </div>
                                     <?php echo form_close(); ?>
                                 </div>
                             </div>

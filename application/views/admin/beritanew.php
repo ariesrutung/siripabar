@@ -1,4 +1,4 @@
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.tiny.cloud/1/2onuugfnc4zd46qg4zym8s946ezny033scq014mxt4usgs1q/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 <style>
     .note-toolbar {
@@ -113,6 +113,14 @@
     .card-header {
         width: 100%;
     }
+
+    @media (min-width: 992px) {
+
+        .modal-lg,
+        .modal-xl {
+            max-width: 1000px;
+        }
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -167,7 +175,7 @@
                                             </td>
                                             <td>
                                                 <div class="aksi">
-                                                    <a href="#" class="btn btn-primary editform" data-backdrop="static" data-idberita="<?php echo $news->id; ?>" data-judul="<?php echo $news->judul; ?>" data-isiberita="<?php echo $news->isiberita; ?>" data-tanggal="<?php echo $news->tanggal; ?>" data-gambar="<?php echo $news->gambar; ?>">
+                                                    <a href="#" class="btn btn-primary editform" data-backdrop="static" data-idberita="<?php echo $news->id; ?>" data-judul="<?php echo $news->judul; ?>" data-isiberita="<?php echo $news->isiberita; ?>" data-tanggal="<?php echo $news->tanggal; ?>" data-gambar="<?php echo $news->gambar; ?>" data-lok_berita="<?php echo $news->lok_berita; ?>" data-tag="<?php echo $news->tag; ?>" data-ket_gambar="<?php echo $news->ket_gambar; ?>">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-edit"></i>
                                                         </span>
@@ -200,7 +208,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade modalTambahBerita" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="modalTambahBerita" class="modal fade modalTambahBerita" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -278,45 +286,66 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo form_open('admin/beritanew/update_berita', array('id' => 'formEditBerita', 'method' => 'post', 'enctype' => 'multipart/form-data')); ?>
+                <?php echo form_open('admin/berita/update_berita', array('id' => 'formEditBerita', 'method' => 'post', 'enctype' => 'multipart/form-data')); ?>
                 <input type="hidden" id="edit_id_berita" name="id_berita">
-                <div class="form-group">
-                    <label for="edit_judul">Judul Berita</label>
-                    <input type="text" class="form-control" id="edit_judul" name="edit_judul" required>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="edit_judul">Judul Berita</label>
+                            <input type="text" class="form-control" id="edit_judul" name="edit_judul" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="edit_isiberita">Isi Berita</label>
+                            <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita">
+                    </textarea>
+                            <div class="summernote"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label class="text-label">Lokasi Berita</label>
+                            <input class="form-control" id="edit_lokberita" name="edit_lokberita">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="edit_tanggal">Waktu Publikasi</label>
+                            <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="text-label">Tag Berita</label>
+                            <input class="form-control" id="edit_tag" name="edit_tag">
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="edit_gambar">Gambar Berita</label><br>
+                            <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
+                            <img id="previewGambar" class="w-25" src="<?php echo base_url(); ?>upload/berita" alt="Gambar Daerah Irigasi">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="text-label">Keterangan Gambar</label>
+                            <input class="form-control" id="edit_ketgambar" name="edit_ketgambar">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="edit_isiberita">Isi Berita</label>
-                    <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita"></textarea>
+
+                <!-- Tambahkan bidang lainnya sesuai kebutuhan -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary text-white">Simpan Perubahan</button>
                 </div>
-                <div class="form-group">
-                    <label class="text-label">Lokasi Berita</label>
-                    <input class="form-control" id="edit_lokberita" name="edit_lokberita">
-                    <div class="form-group">
-                        <label class="text-label">Tag Berita</label>
-                        <input class="form-control" id="edit_tag" name="edit_tag">
-                    </div>
-                    <div class="form-group">
-                        <label for="edit_tanggal">Waktu Publikasi</label>
-                        <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="edit_gambar">Gambar Berita</label><br>
-                        <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
-                        <img class="w-25" id="output" />
-                    </div>
-                    <div class="form-group">
-                        <label class="text-label">Keterangan Gambar</label>
-                        <input class="form-control" id="edit_ketgambar" name="edit_ketgambar">
-                    </div>
-                    <!-- Tambahkan bidang lainnya sesuai kebutuhan -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary text-white">Simpan Perubahan</button>
-                    </div>
-                    <?php echo form_close(); ?>
-                </div>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- jquery vendor -->
@@ -335,8 +364,8 @@
 <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
 <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
-<script src="<?php echo base_url(); ?>public/focus-theme/vendor/tinymce/tinymce.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#menuberita').last().addClass("active");
@@ -346,57 +375,11 @@
 <!-- Tambahkan skrip JavaScript untuk menampilkan data berita ke dalam modal -->
 <script>
     $(document).ready(function() {
-        // Get the form element
-        var formTambahBerita = $('#modalTambahBerita form');
-
-        // Add a submit event listener to the form
-        formTambahBerita.submit(function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            // You can perform any additional validation here if needed
-
-            // Submit the form using AJAX
-            $.ajax({
-                type: formTambahBerita.attr('method'),
-                url: formTambahBerita.attr('action'),
-                data: new FormData(formTambahBerita[0]),
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    // Show SweetAlert on success
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Berita added successfully.',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then((result) => {
-                        // Check if the user clicked "OK"
-                        if (result.isConfirmed) {
-                            // Close the modal
-                            $('#modalTambahBerita').modal('hide');
-                            // Reload the page or perform other actions if needed
-                            location.reload();
-                        }
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                    // Show SweetAlert on error
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Failed to add berita.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                }
-            });
-        });
-
         $('.editform').on('click', function() {
             var idBerita = $(this).data('idberita');
             var judul = $(this).data('judul');
             var isiberita = $(this).data('isiberita');
+            console.log(isiberita);
             var lok_berita = $(this).data('lok_berita');
             var tag = $(this).data('tag');
             var tanggal = $(this).data('tanggal');
@@ -406,19 +389,54 @@
             // Tempatkan data berita ke dalam modal
             $('#edit_id_berita').val(idBerita);
             $('#edit_judul').val(judul);
-            $('#edit_isiberita').val(isiberita);
+            // $('#edit_isiberita').val(isiberita);
             $('#edit_lokberita').val(lok_berita);
             $('#edit_tag').val(tag);
             $('#edit_tanggal').val(tanggal);
-            $('#preview_gambar').attr('src', gambar);
             $('#edit_ketgambar').val(ket_gambar);
 
-
+            $('#previewGambar').attr('src', gambar);
             // Mengosongkan input file gambar
-            $('#edit_gambar').val('');
+
+            // var isiberita = $(this).data('isiberita');
+            // tinymce.get('#edit_isiberita').setContent(isiberita);
+
+            // Initialize TinyMCE
+            // Initialize TinyMCE
+            tinymce.init({
+                selector: '#edit_isiberita',
+                plugins: 'autoresize',
+                height: 300,
+                // Add other configurations as needed
+            });
+
+            // Set the content after initialization
+            var isiberita = $(this).data('isiberita');
+            tinymce.get('edit_isiberita').setContent(isiberita);
 
             // Buka modal
             $('#modalEditBerita').modal('show');
+
+            $.ajax({
+                url: 'berita/getGambarDetail/' + idBerita, // Sesuaikan dengan URL controller dan method Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.gambarPath) {
+                        // Atur nilai atribut 'src' dari elemen gambar
+                        $('#previewGambar').attr('src', response.gambarPath);
+                    } else {
+                        // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
+                        $('#previewGambar').attr('src', '<?php echo base_url(); ?>upload/berita/default-image.jpg');
+                    }
+
+                    // Buka modal
+                    $('#modalEditBerita').modal('show');
+                },
+                error: function() {
+                    alert('Error fetching data. Please try again.');
+                }
+            });
         });
 
         $('.deletedata').on('click', function() {
@@ -468,6 +486,7 @@
                 }
             });
         });
+
     });
 </script>
 
@@ -491,36 +510,95 @@
     })
 </script>
 
-
 <script>
-    var loadFile = function(event) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('output');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
+    $(document).ready(function() {
+        // Get the form element
+        var formTambahBerita = $('#modalTambahBerita form');
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('gbr');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    };
-</script>
+        // Add a submit event listener to the form
+        formTambahBerita.submit(function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
 
-<script>
-    ClassicEditor
-        .create(document.querySelector('#isiberita'))
-        .catch(error => {
-            console.error(error);
+            // Submit the form using AJAX
+            $.ajax({
+                type: formTambahBerita.attr('method'),
+                url: formTambahBerita.attr('action'),
+                data: new FormData(formTambahBerita[0]),
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Show SweetAlert on success
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: 'Berita berhasil ditambahkan.',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Close the modal
+                            $('#modalTambahBerita').modal('hide');
+                            // Reload the page or perform other actions if needed
+                            location.reload();
+                        }
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Show SweetAlert on error
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Gagal menambahkan berita.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
         });
-</script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#edit_isiberita'))
-        .catch(error => {
-            console.error(error);
+
+        var formEditBerita = $('#modalEditBerita form');
+
+        // Add a submit event listener to the form
+        formEditBerita.submit(function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Submit the form using AJAX
+            $.ajax({
+                type: formEditBerita.attr('method'),
+                url: formEditBerita.attr('action'),
+                data: new FormData(formEditBerita[0]),
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Show SweetAlert on success
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: 'Berita berhasil ditambahkan.',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Close the modal
+                            $('#modalEditBerita').modal('hide');
+                            // Reload the page or perform other actions if needed
+                            location.reload();
+                        }
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Show SweetAlert on error
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Gagal menambahkan berita.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
         });
+    });
 </script>

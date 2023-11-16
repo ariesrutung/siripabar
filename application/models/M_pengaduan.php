@@ -151,4 +151,22 @@ class M_pengaduan extends CI_Model
         $query = $this->db->query("SELECT * FROM pengaduan WHERE id='$id'");
         return $query->row();
     }
+
+    function get_cetak_pdf()
+    {
+        $this->db->select("p.*");
+        $this->db->select("(SELECT nama FROM wilayah_2020 WHERE kode=p.kab_pelapor) AS nama_kabpelapor");
+        $this->db->select("(SELECT nama FROM wilayah_2020 WHERE kode=p.kec_pelapor) AS nama_kecpelapor");
+        $this->db->select("(SELECT nama FROM wilayah_2020 WHERE kode=p.des_pelapor) AS nama_despelapor");
+        $this->db->select("(SELECT nama FROM wilayah_2020 WHERE kode=p.lokasi_kabkota) AS nama_kabkota");
+        $this->db->select("(SELECT nama FROM wilayah_2020 WHERE kode=p.lokasi_distrik) AS nama_distrik");
+        $this->db->select("(SELECT u1.nama_file FROM upload u1 WHERE u1.kategori ='dokumentasi1' AND u1.kodelaporan = p.kodelaporan LIMIT 1) AS dokumentasi1");
+        $this->db->select("(SELECT u2.nama_file FROM upload u2 WHERE u2.kategori = 'dokumentasi2' AND u2.kodelaporan = p.kodelaporan) AS dokumentasi2");
+        $this->db->select("(SELECT u3.nama_file FROM upload u3 WHERE u3.kategori = 'dokumentasi3' AND u3.kodelaporan = p.kodelaporan) AS dokumentasi3");
+        $this->db->from("pengaduan p");
+
+
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

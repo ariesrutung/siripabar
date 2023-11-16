@@ -6,8 +6,14 @@ class Datakontrak extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->ion_auth->is_admin()) {
+        if (!$this->ion_auth->logged_in()) {
             redirect('Auth');
+        } else {
+            // $userid = $this->ion_auth->get_user_id();
+            $user_groups = $this->ion_auth->get_users_groups()->row();
+            if ($user_groups->name == "members") {
+                redirect('Auth');
+            }
         }
         $this->load->library(['ion_auth', 'form_validation']);
 
@@ -31,9 +37,16 @@ class Datakontrak extends CI_Controller
 
         $map = $this->googlemaps->create_map();
         $data['map'] = $map;
+        $user_groups = $this->ion_auth->get_users_groups()->row();
+
+        if ($user_groups->name == "admin") {
+            $data['datakontrak'] = $this->M_emonitoring->get_all_datakontrak();
+        } elseif ($user_groups->name == "operator") {
+            $data['datakontrak'] = $this->M_emonitoring->get_dk_by_user_id($this->ion_auth->user()->row()->id);
+        }
 
         // $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
-        $data['datakontrak'] = $this->M_emonitoring->get_all_datakontrak();
+        // $data['datakontrak'] = $this->M_emonitoring->get_all_datakontrak();
         $data['title'] = 'DATA KONTRAK';
         $data['_view'] = "admin/datakontrak";
         $this->load->view('admin/layout', $data);

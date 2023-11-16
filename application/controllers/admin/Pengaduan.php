@@ -74,25 +74,10 @@ class Pengaduan extends CI_Controller
         $data['upload'] = $this->M_pengaduan->get_image($kodelaporan);
     }
 
-    public function export_to_pdf()
+    public function cetak_pdf()
     {
-        $data['kodelaporan'] = $this->M_pengaduan->get_kodelaporan(); // Gantilah dengan logika yang sesuai
-        $data['upload'] = $this->M_pengaduan->get_image();
-        $data['pengaduan'] = $this->M_pengaduan->get_all();
-
-        // Load view yang akan di-export ke PDF
-        $html = $this->load->view('admin/downloadpdf', $data, true);
-
-        // Buat objek mpdf
-        $pdf = $this->pdf->load();
-
-        // Set konfigurasi mpdf jika diperlukan
-        // Contoh: $pdf->SetAuthor('Nama Penulis');
-
-        // Generate PDF
-        $pdf->WriteHTML($html);
-        $pdf->Output('laporan_pengaduan.pdf', 'D'); // Download PDF
-
-        // Alternatif: $pdf->Output('path/ke/direktori/laporan_pengaduan.pdf', 'F'); // Simpan di server
+        $this->load->library('Pdf');
+        $data['pengaduan'] = $this->M_pengaduan->get_cetak_pdf();
+        $this->load->view('admin/downloadpdf', $data);
     }
 }

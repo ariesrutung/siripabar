@@ -6,8 +6,14 @@ class Daerahirigasi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->ion_auth->is_admin()) {
+        if (!$this->ion_auth->logged_in()) {
             redirect('Auth');
+        } else {
+            // $userid = $this->ion_auth->get_user_id();
+            $user_groups = $this->ion_auth->get_users_groups()->row();
+            if ($user_groups->name == "members") {
+                redirect('Auth');
+            }
         }
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->model(['M_daerahirigasi', 'M_wilayah']);
@@ -15,13 +21,18 @@ class Daerahirigasi extends CI_Controller
     public function index()
     {
         $data['wil_kab'] = $this->M_wilayah->get_all_kab();
-        $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
+        $user_groups = $this->ion_auth->get_users_groups()->row();
+
+        if ($user_groups->name == "admin") {
+            $data['daerahirigasi'] = $this->M_daerahirigasi->get_di();
+        } elseif ($user_groups->name == "operator") {
+            $data['daerahirigasi'] = $this->M_daerahirigasi->get_di_by_user_id($this->ion_auth->user()->row()->id);
+        }
 
         $data['title'] = 'DAERAH IRIGASI';
         $data['_view'] = "admin/daerahirigasi";
         $this->load->view('admin/layout', $data);
     }
-
 
     public function getGambarDetail($id)
     {
@@ -46,7 +57,7 @@ class Daerahirigasi extends CI_Controller
         // Ambil data dari form
         $data = array(
             'provinsi' => $this->input->post('provinsi'),
-            'kabupaten_di' => $this->input->post('kabupaten_di'),
+            'kabupaten' => $this->input->post('kabupaten_di'),
             'nama_di' => $this->input->post('nama_di'),
             'kode_di' => $this->input->post('kode_di'),
             'jenis_di' => $this->input->post('jenis_di'),
@@ -85,6 +96,7 @@ class Daerahirigasi extends CI_Controller
             'luas_fungsional' => $this->input->post('luas_fungsional'),
             'luas_alih_fungsi_lahan' => $this->input->post('luas_alih_fungsi_lahan'),
             'kewenangan' => $this->input->post('kewenangan'),
+            'user_id' => $this->ion_auth->user()->row()->id
         );
 
         // Upload gambar di daerah irigasi

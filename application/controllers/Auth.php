@@ -34,7 +34,7 @@ class Auth extends CI_Controller
         {
             // redirect them to the home page because they must be an administrator to view this
             // show_error('You must be an administrator to view this page.');
-            
+
             redirect('auth/login', 'refresh');
         } else {
             $this->data['title'] = $this->lang->line('index_heading');
@@ -176,7 +176,7 @@ class Auth extends CI_Controller
         $this->ion_auth->logout();
 
         // redirect them to the login page
-        redirect('/', 'refresh');
+        redirect('auth/login', 'refresh');
     }
 
     /**
@@ -464,16 +464,15 @@ class Auth extends CI_Controller
      */
     public function buat_user_tamu($tamu)
     {
-        $this->ion_auth->register($username, "123", $tamu."@siripabar.com");
+        $this->ion_auth->register($username, "123", $tamu . "@siripabar.com");
         redirect('/', 'refresh');
-        
     }
 
     public function buat_user_operator($operator)
     {
-        $this->ion_auth->register($operator, "123", $operator."@siripabar.com",NULL,['group_id'=>'3']);
+        $this->ion_auth->register($operator, "123", $operator . "@siripabar.com", NULL, ['group_id' => '3']);
         // redirect('/', 'refresh');
-        
+
     }
 
     public function create_user()

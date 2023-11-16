@@ -189,7 +189,9 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-account"></i>
+
+                                    <span><?php $user = $this->ion_auth->user()->row();
+                                            echo $user->username; ?></span> <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="#" class="dropdown-item">
@@ -221,21 +223,29 @@
         <div class="quixnav">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i><span class="nav-text"> Dashboard </span> </a></li>
+                    <?php if ($this->ion_auth->is_admin()) { ?>
+                        <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i><span class="nav-text"> Dashboard </span> </a></li>
 
-                    <li class="nav-label first">MANAJEMEN LAPORAN</li>
-                    <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
-                    <!-- <li id="menuunduhlaporan"><a href="<?php // echo base_url('admin/unduhlaporan'); 
-                                                            ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li> -->
+                        <li class="nav-label first">MANAJEMEN LAPORAN</li>
+                        <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
+                        <!-- <li id="menuunduhlaporan"><a href="<?php // echo base_url('admin/unduhlaporan'); 
+                                                                ?>"><i class="ti-import"></i><span class="nav-text"> Unduh Laporan Pengaduan</span></a></li> -->
 
+                    <?php } ?>
                     <li class="nav-label first">MANAJEMEN DAERAH IRIGASI</li>
                     <li id="menudaerahirigasi"><a href="<?php echo base_url('admin/daerahirigasi'); ?>"><i class="ti-location-pin"></i><span class="nav-text"> Daerah Irigasi</span></a></li>
                     <li id="menudatakontrak"><a href="<?php echo base_url('admin/datakontrak'); ?>"><i class="ti-file"></i><span class="nav-text"> Data Kontrak</span></a></li>
+                    <?php if ($this->ion_auth->is_admin()) { ?>
+                        <li class="nav-label first">MANAJEMEN WEBSITE</li>
+                        <li id="menuberita"><a href="<?php echo base_url('admin/berita'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
+                        <li id="menuslider"><a href="<?php echo base_url('admin/slider'); ?>"><i class="ti-camera"></i><span class="nav-text"> Slider</span></a></li>
+                        <li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-receipt"></i><span class="nav-text"> Galeri</span></a></li>
+                    <?php } ?>
 
-                    <li class="nav-label first">MANAJEMEN WEBSITE</li>
-                    <li id="menuberita"><a href="<?php echo base_url('admin/berita'); ?>"><i class="ti-comment-alt"></i><span class="nav-text"> Berita</span></a></li>
-                    <li id="menuslider"><a href="<?php echo base_url('admin/slider'); ?>"><i class="ti-camera"></i><span class="nav-text"> Slider</span></a></li>
-                    <li id="menugaleri"><a href="<?php echo base_url('admin/galeri'); ?>"><i class="ti-receipt"></i><span class="nav-text"> Galeri</span></a></li>
+                    <?php if ($this->ion_auth->is_admin()) { ?>
+                        <li class="nav-label first">MANAJEMEN USER</li>
+                        <li id="menuoperator"><a href="<?php echo base_url('admin/operator'); ?>"><i class="ti-settings"></i><span class="nav-text"> Operator</span></a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

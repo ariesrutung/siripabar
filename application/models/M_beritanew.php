@@ -57,4 +57,20 @@ class M_beritanew extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getGambarPathById($id)
+    {
+        $this->db->select('gambar'); // Sesuaikan dengan nama kolom gambar pada tabel Anda
+        $this->db->from('news');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->gambar;
+        }
+
+        return null;
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 10:16 PM
+-- Generation Time: Nov 14, 2023 at 10:10 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -37,49 +37,49 @@ CREATE TABLE `daerah_irigasi` (
   `luas_fungsional` varchar(45) DEFAULT NULL,
   `luas_alih_fungsi_lahan` varchar(45) DEFAULT NULL,
   `gambar` text NOT NULL,
-  `kewenangan` varchar(45) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `kewenangan` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `daerah_irigasi`
 --
 
-INSERT INTO `daerah_irigasi` (`id`, `provinsi`, `kabupaten`, `nama_di`, `kode_di`, `jenis_di`, `luas_fungsional`, `luas_alih_fungsi_lahan`, `gambar`, `kewenangan`, `user_id`) VALUES
-(1, 'Prov. Papua Barat', 'Kab. Sorong', 'Makbusun', '91000006', 'Permukaan', '1200', NULL, 'skema-maksubun.png', 'Provinsi', 0),
-(2, 'Prov. Papua Barat', 'Kab. Sorong', 'Matawolot', '91000008', 'Permukaan', '1140', NULL, 'skema-matawolot.png', 'Provinsi', 0),
-(3, 'Prov. Papua Barat', 'Kab. Sorong', 'Majener', '91000009', 'Permukaan', '1235', NULL, 'skema-majener.png', 'Provinsi', 0),
-(4, 'Prov. Papua Barat', 'Kab. Manokwari', 'Aimasi', '91000003', 'Permukaan', '1700', NULL, 'skema-aimasi.png', '-', 0),
-(6, 'Prov. Papua Barat', 'Kab. Teluk Bintuni', 'Muturi', '91000004', 'Permukaan', '1500', NULL, 'skema-muturi.png', 'Provinsi', 0),
-(7, 'Prov. Papua Barat', 'Kab. Sorong', 'Mariat', '91000010', 'Permukaan', '1500', NULL, 'skema-mariat.png', 'Provinsi', 0),
-(8, 'Prov. Papua Barat', 'Kab. Sorong', 'Majaran', '91000007', 'Permukaan', '1235', NULL, 'skema-majaran.png', 'Provinsi', 0),
-(9, 'Prov. Papua Barat', 'Kab. Manokwari', 'Prafi', '91000001', 'Permukaan', '1500', NULL, 'skema-prafi.png', 'Provinsi', 0),
-(10, 'Prov. Papua Barat', 'Kab. Fakfak', 'Bomberay', '91000005', 'Permukaan', '1200', NULL, 'skema-bomberay.png', 'Provinsi', 0),
-(11, 'Prov. Papua Barat', 'Sorong Selatan', 'Waigo / Moswaren', '91000011', 'Permukaan', '1500', NULL, 'noimage.png', 'Provinsi', 0),
-(12, 'Prov. Papua Barat', 'Kab. Manokwari', 'Sidey', 'sidey', 'Permukaan', '2000', NULL, 'skema-sidey.png', 'Non Status', 0),
-(13, 'Prov. Papua Barat', 'Kab. Manokwari', 'Wariori', 'wariori', 'Permukaan', '3450', NULL, 'skema-wariori.png', 'Pusat', 0),
-(14, 'Prov. Papua Barat', 'Kab. Manokwari Selatan', 'Oransbari', 'oransbari', 'Permukaan', '3016', NULL, 'skema-oransbari.png', 'Pusat', 0),
-(15, 'Prov. Papua Barat', 'Kab. Manokwari', 'Kassi', 'kassi', 'Permukaan', '250', NULL, 'skema-kassi.jpg', 'Kabupaten/Kota', 0),
-(16, 'Prov. Papua Barat', 'Kab. Teluk Wondama', 'Sobey', 'sobey', 'Permukaan', '300', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(17, 'Prov. Papua Barat', 'Kab. Teluk Wondama', 'Werianggi', 'werianggi', 'Permukaan', '400', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(18, 'Prov. Papua Barat', 'Kab. Fakfak', 'Mbima Jaya', 'mbima-jaya', 'Permukaan', '130', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(19, 'Prov. Papua Barat', 'Kab. Fakfak', 'Warisa Mulya', 'warisa-mulya', 'Permukaan', '100', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(20, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waijan', 'waijan', 'Permukaan', '159', NULL, 'skema-waijan.png', 'Kabupaten/Kota', 0),
-(21, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Kalobo', 'kalobo', 'Permukaan', '84', NULL, 'skema-kalobo.png', 'Kabupaten/Kota', 0),
-(22, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waibu', 'waibu', 'Permukaan', '140', NULL, 'skema-waibu.png', 'Kabupaten/Kota', 0),
-(23, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waimeci', 'waimeci', 'Permukaan', '20', NULL, 'skema-waimeci.png', 'Kabupaten/Kota', 0),
-(24, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Limalas', 'limalas', 'Permukaan', '51', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(25, 'Prov. Papua Barat', 'Kab. Sorong', 'Aimas Cs', 'aimas', 'Permukaan', '54', NULL, 'skema-aimascs.png', 'Pusat', 0),
-(26, 'Prov. Papua Barat', 'Kab. Sorong', 'Modan II / Malaos', 'modan2-malaos', 'Permukaan', '815', NULL, 'skema-modan2.png', 'Kabupaten/Kota', 0),
-(27, 'Prov. Papua Barat', 'Kab. Sorong', 'Sisipan', 'sisipan', 'Permukaan', '300', NULL, 'skema-sisipan.png', 'Kabupaten/Kota', 0),
-(28, 'Prov. Papua Barat', 'Kab. Sorong', 'Klamalu', 'klamalu', 'Permukaan', '150', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(29, 'Prov. Papua Barat', 'Kab. Sorong', 'Klamono', 'klamono', 'Permukaan', '682', NULL, 'skema-klamono.png', 'Kabupaten/Kota', 0),
-(30, 'Prov. Papua Barat', 'Kab. Sorong', 'Makbalim', 'makbalim', 'Permukaan', '800', NULL, 'skema-makbalim.png', 'Kabupaten/Kota', 0),
-(31, 'Prov. Papua Barat', 'Kab. Sorong', 'Makotyamsa', 'makotyamsa', 'Permukaan', '700', NULL, 'skema-makotyamsa.png', 'Kabupaten/Kota', 0),
-(32, 'Prov. Papua Barat', 'Kab. Sorong', 'Malawele', 'malawele', 'Permukaan', '208', NULL, 'skema-malawele.png', 'Kabupaten/Kota', 0),
-(33, 'Prov. Papua Barat', 'Kab. Sorong', 'Malawili', 'malawili', 'Permukaan', '319', NULL, 'noimage.png', 'Kabupaten/Kota', 0),
-(34, 'Prov. Papua Barat', 'Kab. Sorong', 'Modan I / Walal', 'modan1-walal', 'Permukaan', '532', NULL, 'skema-modan1.png', 'Kabupaten/Kota', 0),
-(118, 'Prov. Papua Barat', 'Kab. Teluk Bintuni', 'ertertert', '345345', '34534', '345', 'ertret', 'Snapinsta_app_399627456_1140777510218354_2830202967402013963_n_1080.jpg', 'ertertret', 6);
+INSERT INTO `daerah_irigasi` (`id`, `provinsi`, `kabupaten`, `nama_di`, `kode_di`, `jenis_di`, `luas_fungsional`, `luas_alih_fungsi_lahan`, `gambar`, `kewenangan`) VALUES
+(1, 'Prov. Papua Barat', 'Kab. Sorong', 'Makbusun', '91000006', 'Permukaan', '1200', NULL, 'skema-maksubun.png', 'Provinsi'),
+(2, 'Prov. Papua Barat', 'Kab. Sorong', 'Matawolot', '91000008', 'Permukaan', '1140', NULL, 'skema-matawolot.png', 'Provinsi'),
+(3, 'Prov. Papua Barat', 'Kab. Sorong', 'Majener', '91000009', 'Permukaan', '1235', NULL, 'skema-majener.png', 'Provinsi'),
+(4, 'Prov. Papua Barat', 'Kab. Manokwari', 'Aimasi', '91000003', 'Permukaan', '1700', NULL, 'skema-aimasi.png', '-'),
+(6, 'Prov. Papua Barat', 'Kab. Teluk Bintuni', 'Muturi', '91000004', 'Permukaan', '1500', NULL, 'skema-muturi.png', 'Provinsi'),
+(7, 'Prov. Papua Barat', 'Kab. Sorong', 'Mariat', '91000010', 'Permukaan', '1500', NULL, 'skema-mariat.png', 'Provinsi'),
+(8, 'Prov. Papua Barat', 'Kab. Sorong', 'Majaran', '91000007', 'Permukaan', '1235', NULL, 'skema-majaran.png', 'Provinsi'),
+(9, 'Prov. Papua Barat', 'Kab. Manokwari', 'Prafi', '91000001', 'Permukaan', '1500', NULL, 'skema-prafi.png', 'Provinsi'),
+(10, 'Prov. Papua Barat', 'Kab. Fakfak', 'Bomberay', '91000005', 'Permukaan', '1200', NULL, 'skema-bomberay.png', 'Provinsi'),
+(11, 'Prov. Papua Barat', 'Sorong Selatan', 'Waigo / Moswaren', '91000011', 'Permukaan', '1500', NULL, 'noimage.png', 'Provinsi'),
+(12, 'Prov. Papua Barat', 'Kab. Manokwari', 'Sidey', 'sidey', 'Permukaan', '2000', NULL, 'skema-sidey.png', 'Non Status'),
+(13, 'Prov. Papua Barat', 'Kab. Manokwari', 'Wariori', 'wariori', 'Permukaan', '3450', NULL, 'skema-wariori.png', 'Pusat'),
+(14, 'Prov. Papua Barat', 'Kab. Manokwari Selatan', 'Oransbari', 'oransbari', 'Permukaan', '3016', NULL, 'skema-oransbari.png', 'Pusat'),
+(15, 'Prov. Papua Barat', 'Kab. Manokwari', 'Kassi', 'kassi', 'Permukaan', '250', NULL, 'skema-kassi.jpg', 'Kabupaten/Kota'),
+(16, 'Prov. Papua Barat', 'Kab. Teluk Wondama', 'Sobey', 'sobey', 'Permukaan', '300', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(17, 'Prov. Papua Barat', 'Kab. Teluk Wondama', 'Werianggi', 'werianggi', 'Permukaan', '400', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(18, 'Prov. Papua Barat', 'Kab. Fakfak', 'Mbima Jaya', 'mbima-jaya', 'Permukaan', '130', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(19, 'Prov. Papua Barat', 'Kab. Fakfak', 'Warisa Mulya', 'warisa-mulya', 'Permukaan', '100', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(20, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waijan', 'waijan', 'Permukaan', '159', NULL, 'skema-waijan.png', 'Kabupaten/Kota'),
+(21, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Kalobo', 'kalobo', 'Permukaan', '84', NULL, 'skema-kalobo.png', 'Kabupaten/Kota'),
+(22, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waibu', 'waibu', 'Permukaan', '140', NULL, 'skema-waibu.png', 'Kabupaten/Kota'),
+(23, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Waimeci', 'waimeci', 'Permukaan', '20', NULL, 'skema-waimeci.png', 'Kabupaten/Kota'),
+(24, 'Prov. Papua Barat', 'Kab. Raja Ampat', 'Limalas', 'limalas', 'Permukaan', '51', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(25, 'Prov. Papua Barat', 'Kab. Sorong', 'Aimas Cs', 'aimas', 'Permukaan', '54', NULL, 'skema-aimascs.png', 'Pusat'),
+(26, 'Prov. Papua Barat', 'Kab. Sorong', 'Modan II / Malaos', 'modan2-malaos', 'Permukaan', '815', NULL, 'skema-modan2.png', 'Kabupaten/Kota'),
+(27, 'Prov. Papua Barat', 'Kab. Sorong', 'Sisipan', 'sisipan', 'Permukaan', '300', NULL, 'skema-sisipan.png', 'Kabupaten/Kota'),
+(28, 'Prov. Papua Barat', 'Kab. Sorong', 'Klamalu', 'klamalu', 'Permukaan', '150', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(29, 'Prov. Papua Barat', 'Kab. Sorong', 'Klamono', 'klamono', 'Permukaan', '682', NULL, 'skema-klamono.png', 'Kabupaten/Kota'),
+(30, 'Prov. Papua Barat', 'Kab. Sorong', 'Makbalim', 'makbalim', 'Permukaan', '800', NULL, 'skema-makbalim.png', 'Kabupaten/Kota'),
+(31, 'Prov. Papua Barat', 'Kab. Sorong', 'Makotyamsa', 'makotyamsa', 'Permukaan', '700', NULL, 'skema-makotyamsa.png', 'Kabupaten/Kota'),
+(32, 'Prov. Papua Barat', 'Kab. Sorong', 'Malawele', 'malawele', 'Permukaan', '208', NULL, 'skema-malawele.png', 'Kabupaten/Kota'),
+(33, 'Prov. Papua Barat', 'Kab. Sorong', 'Malawili', 'malawili', 'Permukaan', '319', NULL, 'noimage.png', 'Kabupaten/Kota'),
+(34, 'Prov. Papua Barat', 'Kab. Sorong', 'Modan I / Walal', 'modan1-walal', 'Permukaan', '532', NULL, 'skema-modan1.png', 'Kabupaten/Kota'),
+(36, 'Prov. Papua Barat', 'Kab. Sorong', 'Klasafet', 'klasafet', 'Permukaan', NULL, NULL, 'noimage.png', 'Provinsi'),
+(37, 'Prov. Papua Barat', 'Kab. Sorong', 'Klasagum', 'klasagum', 'Permukaan', NULL, NULL, 'noimage.png', 'Provinsi');
 
 -- --------------------------------------------------------
 
@@ -162,9 +162,7 @@ INSERT INTO `data_kontrak` (`id`, `nama_paket`, `penyedia_jasa`, `no_kontrak`, `
 (66, 'fsdfsdf', 'sdfdsf', 'dsfdsf', '2023-11-17', 'sdfsdf', '2023-11-07', 'sdfdsf', 2011, 0, 'dsfdsf', 'dsfdsf', 'sdfdf', 'dsfdf', '0000-00-00', 'sdfdsf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, '', '', '', '', '', NULL, 0),
 (67, 'Operasi dan Pemeliharaan Jaringan Irigasi D I Muturi (Pemeliharaan Berkala D I Muturi Paket 6)', 'SADASD', 'SADSA', '2023-11-10', 'ASDSD', '2023-11-16', 'ASDSD', 0000, 0, 'ASDSAD', 'ASDSAD', 'ASDASD', 'ASDASD', '0000-00-00', 'SADASD', 41, 21, 41, 665, 412, 12, 53232, 22, 1010, 22, 22, 33, '17143.png', 'banner_c5.jpg', 'banner_b3.jpg', 'banner_a1.jpg', 'banner_b2.jpg', '17144.png', 'dok_hewan_1.png', 'dok_he.png', 'doctor-189afe01ded0ecc6d81203846182ef0b.png', NULL, 0),
 (68, '', '', '', '0000-00-00', '', '0000-00-00', '', 0000, 0, '', '', '-0.8620534089679833, 134.06400306347658', '', '0000-00-00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, '', '', '', '', '', NULL, 0),
-(69, '', '', '', '0000-00-00', '', '0000-00-00', '', 0000, 0, '92.02', '', '-0.8582772842503358, 134.07104117993165', '', '0000-00-00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, '', '', '', '', '', NULL, 0),
-(70, 'afsdf', 'sdfsdf', 'sdfsdf', '2023-11-04', 'sdfsdf', '2023-11-25', 'sdfsdf', 0000, 0, '92.03', '', 'sdfsdf, sdfsdf', 'sdfsdf', '0000-00-00', 'sdfsfd', 10, 10, 114, 545, 545, 5454, 4, 4, 4245, 5, 455, 4, 'doctor-189afe01ded0ecc6d81203846182ef0b1.png', '326695613_1195641434404563_7418961195075706148_n-removebg-preview.png', '326695613_1195641434404563_7418961195075706148_n-removebg-preview1.png', 'fcr.jpg', 'ilybro1.png', 'prof.png', 'banner_a2.jpg', 'icon_gpib.jpg', 'hidra-bro_premiks.png', NULL, 6),
-(71, 'asdd', 'sdfsdf', 'sdfsdf', '0000-00-00', 'sdfsdf', '0000-00-00', 'fdsfsd', 0000, 0, '', '', ', ', 'sdfsdf', '0000-00-00', 'sdfdsf', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, '', '', '', '', '', NULL, 0);
+(69, '', '', '', '0000-00-00', '', '0000-00-00', '', 0000, 0, '92.02', '', '-0.8582772842503358, 134.07104117993165', '', '0000-00-00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL, NULL, NULL, '', '', '', '', '', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -325,7 +323,12 @@ INSERT INTO `galeri` (`id`, `nama_galeri`, `nama_folder`, `tanggal`, `gambar`) V
 (337, 'galeri1699885983522', 'PENULANGAN', '2023-11-13 15:33:03', 'galeri337.jpg'),
 (338, 'galeri1699885983605', 'PENULANGAN', '2023-11-13 15:33:03', 'galeri338.jpg'),
 (339, 'galeri1699885983823', 'PENULANGAN', '2023-11-13 15:33:03', 'galeri339.jpg'),
-(340, 'galeri1699885983933', 'PENULANGAN', '2023-11-13 15:33:04', 'galeri340.jpg');
+(340, 'galeri1699885983933', 'PENULANGAN', '2023-11-13 15:33:04', 'galeri340.jpg'),
+(386, 'galeri1699975447386', 'KENANGAN_KITA', '2023-11-14 16:24:07', 'galeri386.jpg'),
+(387, 'galeri1699975447387', 'KENANGAN_KITA', '2023-11-14 16:24:07', 'galeri387.jpg'),
+(388, 'galeri1699975447623', 'KENANGAN_KITA', '2023-11-14 16:24:07', 'galeri388.jpg'),
+(389, 'galeri1699975447850', 'KENANGAN_KITA', '2023-11-14 16:24:07', 'galeri389.jpg'),
+(390, 'galeri1699975448040', 'KENANGAN_KITA', '2023-11-14 16:24:08', 'galeri390.jpg');
 
 -- --------------------------------------------------------
 
@@ -345,8 +348,7 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User'),
-(3, 'operator', 'Operator');
+(2, 'members', 'General User');
 
 -- --------------------------------------------------------
 
@@ -385,13 +387,6 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(14, '::1', 'ruangbelajar', 1700159191);
-
 -- --------------------------------------------------------
 
 --
@@ -419,7 +414,9 @@ INSERT INTO `news` (`id`, `judul`, `isiberita`, `lok_berita`, `tanggal`, `katego
 (11, 'Irigasi Muturi Kembali Alirkan Air ke BBI Bintuni, Warga Ucapkan Terima Kasih ke Paulus Waterpauw', 'Sempat kesulitan pasokan air, Balai Benih Ikan (BBI) Kabupaten Teluk Bintuni, di SP 1, Waraitama, Distrik Manimeri, Kabupaten Teluk Bintuni kembali berproduksi.\n\nSetelah Dinas PUPR Provinsi Papua Barat memulai proyek rehabilitasi jaringan Daerah Irigasi Muturi, BBI Bintuni kembali menerima suplai air.\n\nPlt Kadis PUPR Papua Barat Yohanis Momot meninjau perkembangan proyek yang telah dimulai dua bulan lalu, itu pada Jumat (15/9/2023).\n\n Baca juga: Yohanis Momot Cek Proyek Perbaikan Jaringan Irigasi Bintuni: Target Desember Rampung\n\n Baca juga: APBD Perubahan 2023, Dinas PUPR Papua Barat Programkan Bangun Rumah OAP di Pegunungan Arfak\n\nYohanis Momot juga menyempatkan melihat budidaya perikanan darat di BBI Kabupaten Teluk Bintuni.\n\nDalam kesempatan itu, Kepala Seksi Produksi Budidaya Dinas Perikanan Kabupaten Teluk Bintuni Feri Kambuaya meluapkan rasa terima kasihnya.\n\nTerutama kepada Pj Gubernur Papua Barat Paulus Waterapauw yang telah memberi mandat, kepada Dinas PUPR Papua Barat untuk mengerjakan rehabilitasi Daerah Irigrasi Muturi.\n\n“Saya mewakili Kepala Dinas Perikanan (Teluk Bintuni) mengucapkan terima kasih sebesar-besarnya kepada Bapak Gubernur (Paulus Waterpauw) sudah bantu kami dengan Irigasi Muturi,” jelas Feri Kambuaya.\n\nDiketahui, Daerah Irigasi Muturi sempat mandek beberapa tahun terakhir.\n\n\nSehingga, mengganggu produktivitas pertanian di daerah persawahan satuan permukiman (SP) 1 dan SP 4, Distrik Manimeri, Kabupaten Teluk Bintuni.\n\nSerta, menurunkan produktivitas budidaya perikanan darat di BBI Teluk Bintuni.\n\nYohanis Momot berharap, perbaikan Daerah Irigasi Muturi bisa meningkatkan taraf kehidupan masyarakat setempat.\n\nMelalui keberlimpahan panen dari sektor persawahan dan budidaya perikanan darat.\n\n“Menjadi solusi jitu mengentas kemisikinan ekstrim sekaligus penurunan angka stunting,” ujar Yohanis Momot.\n\nIa merinci, rehabilitasi jaringan di Daerah Irigasi Muturi terdiri dari pembangunan 2.400 meter saluran primer dan 1.400 meter saluran sekunder. Saluran primer atau saluran induk merupakan saluran yang membawa air dari bangunan utama ke saluran sekunder dan petak-petak yang diari.\n\nSaluran primer dimulai dari bangunan utama dan berakhir pada bangunan yang terakhir.\n\nSementara, saluran sekunder membawa air dari saluran primer ke petak-petak yang dilayani oleh saluran sekunder tersebut.\n\nSaluran dimulai dari bangunan bagi atau sadap di saluran primer dan berakhir pada bangunan sadap terakhir di saluran sekunder.\n\n“Kita targetkan Desember tuntas supaya bisa dimanfaatkan masyarakat,” ucap Yohanis Momot.\n\nMelansir laman data LPSE Provinsi Papua Barat, proyek rehabilitasi jaringan irigasi Daerah Irigasi Muturi yang bersumber dari dana alokasi khusus (DAK) APBD 2023 memiliki pagu anggaran sebesar Rp19,855 miliar.\n\n(*)', 'Manokwari', '2023-09-15 00:00:00', 0, 'irigasi-muturi-kembali-alirkan-air-ke-bbi-bintuni-warga-ucapkan-terima-kasih-ke-paulus-waterpauw', 'gbr_(4).jpg', 'YOHANIS MOMOT - Pelaksana Tugas Kepala Dinas PUPR Papua Barat Yohanis Momot mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, Teluk Bintuni, pada Selasa (12/9/2023). ', 'Manokwari, Irigasi, Rusak'),
 (12, 'Yohanis Momot Cek Proyek Perbaikan Jaringan Irigasi Bintuni: Target Desember Rampung', 'Mulai dua bulan lalu, Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Provinsi Papua Barat mengerjakan proyek perbaikan jaringan daerah Irigasi Muturi, Kabupaten Teluk Bintuni.\n\nPlt Kepala Dinas PUPR Papua Barat Yohanis Momot, mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, pada Jumat (15/9/2023).\n\nDi tengah rintik gerimis, Yohanis Momot yang mengenakan setelan pekerja konstruksi khas PUPR, itu tampak saksama melihat saluran irigasi yang dibangun.\n\n Baca juga: Berikut Total Anggaran yang Digunakan Dinas PUPR Papua Barat Bangun 15 Sumur Bor\n\n Baca juga: APBD Perubahan 2023, Dinas PUPR Papua Barat Programkan Bangun Rumah OAP di Pegunungan Arfak\n\nIa mengaku, perbaikan jaringan irigasi Muturi sebagai salah satu strategi pemerintah untuk penurunan stunting dan kemiskinan ekstrim di Teluk Bintuni.\n\nAdapun Daerah Irigasi Muturi sempat mandek beberapa tahun terakhir.\n\nSehingga, mengganggu produktivitas pertanian di daerah persawahan satuan permukiman (SP) 1 dan SP 4, Distrik Manimeri, Kabupaten Teluk Bintuni.\n\n“Saluran irigasi membaik, para petani mulai menggarap sawah lagi supaya bisa swasembada pangan. Penghasilan bertambah dan kebutuhan pangan terpenuhi,” jelas Yohanis Momot.\n\nSelain untuk persawahan, ucapnya, jika saluran irigasi Muturi kembali normal, maka membantu produktivitas Balai Benih Ikan (BBI) di SP 1.\n\n\nSehingga, masyarakat setempat mampu memenuhi sendiri kebutuhan protein dan karbohidat, khususnya bagi anak stunting, dari panen sawah dan tambak ikan.\n\nIa merinci, rehabilitasi jaringan di daerah Irigasi Muturi terdiri dari pembangunan 2.400 meter saluran primer dan 1.400 meter saluran sekunder.\n\nSaluran primer atau saluran induk merupakan saluran yang membawa air dari bangunan utama ke saluran sekunder dan petak-petak yang diari.\n\nSaluran primer dimulai dari bangunan utama dan berakhir pada bangunan yang terakhir.\n\nSementara, saluran sekunder membawa air dari saluran primer ke petak-petak yang dilayani oleh saluran sekunder tersebut.\n\nSaluran dimulai dari bangunan bagi atau sadap di saluran primer dan berakhir pada bangunan sadap terakhir di saluran sekunder.\n\n“Kita targetkan Desember tuntas supaya bisa dimanfaatkan masyarakat,” ucap Yohanis Momot.\n\nMelansir laman data LPSE Provinsi Papua Barat, proyek rehabilitasi jaringan irigasi Daerah Irigasi Muturi yang bersumber dari dana alokasi khusus (DAK) APBD 2023 memiliki pagu anggaran sebesar Rp19,855 miliar.\n\n(*)', 'Bintuni', '2023-09-28 00:00:00', 0, 'yohanis-momot-cek-proyek-perbaikan-jaringan-irigasi-bintuni-target-desember-rampung', 'gbr_(1).jpg', 'YOHANIS MOMOT - Pelaksana Tugas Kepala Dinas PUPR Papua Barat Yohanis Momot mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, Teluk Bintuni, pada Selasa (12/9/2023). ', 'Manokwari, Irigasi, Rusak'),
 (13, 'Tanggul Bendungan Muturi Jebol, Bibit Padi Bantuan Pemerintah Masih Dikarung', 'Bendungan Muturi sebagai sumber air untuk keperluan irigasi yang mengairi persawahan Kampung Waraitama (SP 1) dan Kampung Banjar Ausoy (SP 4) jebol sejak bulan Juli Akhir.\n\n\nKondisi talud bendungan Muturi (gambar Istimewa)\nKetika di konfirmasi  Muh. Yunus Laicing Pengurus P3A Kampung Banjar Ausoy bendungan Muturi sudah jebol sejak bulan Juli akhir Juli lalu, akhirnya air tidak mengalir ke sawah ujarnya , Jumat ( 27/8/2021).\n\nMuh. Yunus berdasarkan dari penjelasannya akibat jebolnya bendungan tersebut, dia bersama Ketua P3A Cipta Lestari Kampung Waraitama pada tanggal 25 Agustus lalu menuju bendungan untuk melihat kondisi bendungan dan mengambil data.\n\nSaya sama-sama Pak Cucu kemarin dulu ada ukur bendungan yang rusak setelah itu kita langsung kirim ke Provinsi.\n\n” Ya syukur dari PU Provinsi dan Balai wilayah sungai Provinsi Papua Barat ada datang kemarin langsung ke bendungan, kata mereka dapat informasi dari media ” sebut Cucu.\n\n\nPersawahan Kampung Banjar Ausoy (27/8) MPR.\nMenurut Yunus jebolnya tanggul itu karena tidak adanya pembesian, sehingga tanggul jebol.\n\nHal ini dibenarkan oleh Ketua P3A Cipta Lestari Kampung Waraitama Cucu Setiawan, dia menerangkan kondisi tanggul saat ini ada sekitar 51 meter yang rusak dan 31 meter mengalami kerusakan fatal.\n\n” Kami sudah di suruh ukur sama pihak balai , nanti tanggal 30 Agustus mereka akan datang lagi ” kata Ketua P3A Waraitama.\n\nAkibat jebolnya tanggul Bendungan Muturi tersebut , aktivitas petani mengalami kevakuman , hal ini disampaikan oleh salah satu Ketua Kelompok Tani (Jaya Makmur) yang ada di Kampung Banjar Ausoy , Pak Kasirin.\n\nSebagai Ketua kelompok Tani Kasirin  mengeluhkan, akibat air tidak mengalir kami tidak menggarap sawah lagi , padahal kami sudah mendapatkan bibit padi dari Pemerintah Provinsi Barat.\n\nKetua dari  47 orang petani ini mengakui bantuan bibit , dan pupuk subsidi lancar dari pemerintah , tapi karena tidak ada air , bibit tidak di tanam.\n\n” Ini bibit mikongga putih ukuran 25 kilo gram, jadi petani mendapatkan satu zak untuk setiap hektarnya.\n\nJadi kami sangat berharap air segera mengalir, takut nanti bibitnya kadaluarsa di karung dan kasihan juga untuk Anggota saya yang memelihara ikan. Ikannya pada mati ” pungkas Kasirin.\n\nPantauan wartawan di lapangan, Kondisi persawahan di tumbuhi rerumputan , tidak tampak aktivitas petani menggarap sawah.\n\n(Haiser Situmorang)', 'Prafi', '2023-11-08 00:00:00', 0, 'tanggul-bendungan-muturi-jebol-bibit-padi-bantuan-pemerintah-masih-dikarung', 'gbr_(2)1.jpg', 'YOHANIS MOMOT - Pelaksana Tugas Kepala Dinas PUPR Papua Barat Yohanis Momot mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, Teluk Bintuni, pada Selasa (12/9/2023). ', 'Manokwari, Irigasi, Rusak'),
-(14, 'Irigasi Muturi Teluk Bintuni Rusak, Komisi B DPRD Minta Diselesaikan Cepat Agar Petani Tidak Beralih Profesi', 'Ketua Komisi B DPRD Teluk Bintuni Markus Maboro meminta pemerintah daerah secara khusus Dinas Pekerjaan Umum (PU)  agar membangun komunikasi dengan pihak PU provinsi serta Balai Wilayah sungai Papua Barat Kementerian PUPR Direktorat Jenderal Sumber Daya Air untuk membenahni irigrasi Muturi yang rusak agar air dapat mengalir lancar ke daerah persawahan petani di SP-4 Kampung Banjar Ausoy Distrik Manimeri.\n\nSetelah mendapatkan informasi terkait kerusakan pada irigasi muturi di SP-1 (depan SMK Negeri), kata Markus Maboro, pihaknya dari Komisi B yang menangani pembangunan dan kesejahteraan masyarakat langsung mengecek ke lokasi tersebut. “\n\nTerkait dengan masalah air tidak bisa mengalir ke SP-4 sementara air sangat dibutuhkan oleh masyarakat petani sehingga kami dari Komisi B bersama Wakil Ketua 2 DPRD (Yohanis Pongtuluran, S.Sos red) turun lapangan melihat kondisi yang terjadi nah ternyata di SP-1 di depan SMK disitu irigasi putus atau rusak, air tidak bisa masuk sp4 tapi masuk ke dalam kali,” ungkap Markus Maboro, Jumat (17/9/2021).\n\n\nKetua Komisi B DPRD Teluk Bintuni Markus Maboro\n\nDi temui di ruang komisi B Kantor DPRD Sementara di penginapan Kartini Ruko Panjang Bintuni Timur, politisi partai Golkar yang sudah dua periode menjadi anggota Dewan itu menyatakan harapan mereka agar Dinas PU Teluk Bintuni segera turun lapangan untuk melihat kondisi yang terjadi dan bangun komunikasi dengan PU Provinsi Papua Barat serta PUPR Pusat khususnya Balai Wilayah Sungai Papua Barat untuk melakukan perbaikan irigasi yang rusak tersebut.\n\n\n\nDia pun menyarankan agar di buatkan taluk atau plat deker jembatan diatas kali untuk menghindari terjadinya kerusakan irigasi itu. “Menurut kami mungkin mereka buatkan dulu taluk kali itu atau plat deker, baru irigasi itu jalan di atas, sebab kalau tidak buat begitu kedepan bisa rusak lagi,” ungkapnya.\n\nMenurutnya, penanganan kerusakan irigasi muturi itu perlu mendapatkan prioritas agar petani tidak menganggur dan memilih bekerja di sektor lain. “Bila air tidak mengalir masyarakat petani bisa beralih profesi dari pekerjaan utama sebagai petani,” sebutnya.\n\nSelain itu, hal lain yang perlu di perhatikan tentang kesersihan saluran irigasi yang menurutnya, perlu rutin dibersihkan dan juga pengawasan agar mencegah oknum-oknum yang tidak bertanggungjawab yang bisa sengaja merusakan irigasi itu.\n\nTerakhir, menurut Markus Maboro, pemerintah perlu memperhatikan dan menyelesaikan persoalan hak ulayat masyarakat agar pekerjaan irigasi itu bisa diselesaikan. “Mereka harus bicara baik supaya ada soluasi pekerjaan itu bisa jalan. Meski irigasi ini kewenangan oleh provinsi kami berharap agar Dinas PU bisa bangun komunikasi baik dengan permerintah provinsi,” tandasnya. [Azrul/dmd]', 'Mansel', '2023-11-17 00:00:00', 0, 'irigasi-muturi-teluk-bintuni-rusak-komisi-b-dprd-minta-diselesaikan-cepat-agar-petani-tidak-beralih-profesi', 'gbr_(3).jpg', 'YOHANIS MOMOT - Pelaksana Tugas Kepala Dinas PUPR Papua Barat Yohanis Momot mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, Teluk Bintuni, pada Selasa (12/9/2023). ', 'Manokwari, Irigasi, Rusak');
+(14, 'Irigasi Muturi Teluk Bintuni Rusak, Komisi B DPRD Minta Diselesaikan Cepat Agar Petani Tidak Beralih Profesi', 'Ketua Komisi B DPRD Teluk Bintuni Markus Maboro meminta pemerintah daerah secara khusus Dinas Pekerjaan Umum (PU)  agar membangun komunikasi dengan pihak PU provinsi serta Balai Wilayah sungai Papua Barat Kementerian PUPR Direktorat Jenderal Sumber Daya Air untuk membenahni irigrasi Muturi yang rusak agar air dapat mengalir lancar ke daerah persawahan petani di SP-4 Kampung Banjar Ausoy Distrik Manimeri.\n\nSetelah mendapatkan informasi terkait kerusakan pada irigasi muturi di SP-1 (depan SMK Negeri), kata Markus Maboro, pihaknya dari Komisi B yang menangani pembangunan dan kesejahteraan masyarakat langsung mengecek ke lokasi tersebut. “\n\nTerkait dengan masalah air tidak bisa mengalir ke SP-4 sementara air sangat dibutuhkan oleh masyarakat petani sehingga kami dari Komisi B bersama Wakil Ketua 2 DPRD (Yohanis Pongtuluran, S.Sos red) turun lapangan melihat kondisi yang terjadi nah ternyata di SP-1 di depan SMK disitu irigasi putus atau rusak, air tidak bisa masuk sp4 tapi masuk ke dalam kali,” ungkap Markus Maboro, Jumat (17/9/2021).\n\n\nKetua Komisi B DPRD Teluk Bintuni Markus Maboro\n\nDi temui di ruang komisi B Kantor DPRD Sementara di penginapan Kartini Ruko Panjang Bintuni Timur, politisi partai Golkar yang sudah dua periode menjadi anggota Dewan itu menyatakan harapan mereka agar Dinas PU Teluk Bintuni segera turun lapangan untuk melihat kondisi yang terjadi dan bangun komunikasi dengan PU Provinsi Papua Barat serta PUPR Pusat khususnya Balai Wilayah Sungai Papua Barat untuk melakukan perbaikan irigasi yang rusak tersebut.\n\n\n\nDia pun menyarankan agar di buatkan taluk atau plat deker jembatan diatas kali untuk menghindari terjadinya kerusakan irigasi itu. “Menurut kami mungkin mereka buatkan dulu taluk kali itu atau plat deker, baru irigasi itu jalan di atas, sebab kalau tidak buat begitu kedepan bisa rusak lagi,” ungkapnya.\n\nMenurutnya, penanganan kerusakan irigasi muturi itu perlu mendapatkan prioritas agar petani tidak menganggur dan memilih bekerja di sektor lain. “Bila air tidak mengalir masyarakat petani bisa beralih profesi dari pekerjaan utama sebagai petani,” sebutnya.\n\nSelain itu, hal lain yang perlu di perhatikan tentang kesersihan saluran irigasi yang menurutnya, perlu rutin dibersihkan dan juga pengawasan agar mencegah oknum-oknum yang tidak bertanggungjawab yang bisa sengaja merusakan irigasi itu.\n\nTerakhir, menurut Markus Maboro, pemerintah perlu memperhatikan dan menyelesaikan persoalan hak ulayat masyarakat agar pekerjaan irigasi itu bisa diselesaikan. “Mereka harus bicara baik supaya ada soluasi pekerjaan itu bisa jalan. Meski irigasi ini kewenangan oleh provinsi kami berharap agar Dinas PU bisa bangun komunikasi baik dengan permerintah provinsi,” tandasnya. [Azrul/dmd]', 'Mansel', '2023-11-17 00:00:00', 0, 'irigasi-muturi-teluk-bintuni-rusak-komisi-b-dprd-minta-diselesaikan-cepat-agar-petani-tidak-beralih-profesi', 'gbr_(3).jpg', 'YOHANIS MOMOT - Pelaksana Tugas Kepala Dinas PUPR Papua Barat Yohanis Momot mengecek perkembangan proyek rehabilitasi jaringan irigasi di Muturi, Teluk Bintuni, pada Selasa (12/9/2023). ', 'Manokwari, Irigasi, Rusak'),
+(18, 'asdasd', '<p>asdasd</p>', 'asdsad', '2023-11-15 02:51:00', 0, 'asdasd', 'serbu-voucher-diskon-50-alodokter-hanya-bayar-1-rupiah-di-aplikasi-motionpay-brSM9mFw2f2.jpg', 'asdasd asdsad asdasd', 'asdsad'),
+(19, 'asdasd', '<p>asdasd</p>', 'asd ', '2023-11-15 02:52:00', 0, 'asdasd', 'serbu-voucher-diskon-50-alodokter-hanya-bayar-1-rupiah-di-aplikasi-motionpay-brSM9mFw2f3.jpg', 'asdas', 'a asd asd');
 
 -- --------------------------------------------------------
 
@@ -503,22 +500,7 @@ INSERT INTO `skema` (`id`, `jumlah_aset`, `jumlah_subsistem`, `data_aknop`, `sal
 (9, '53 Saluran / 84 Bangunan / 8 Nonfisik / 48 Nonjaringan / 46 Petak Tersier', '0', '132 Bangunan / 53 Saluran', '6.09', '0', '0', '0', '2.48', '0.01', '0.81', '0', '0', '0', '91000008', 'DI_MATAWOLOT.pdf'),
 (10, '7 Slauran / 16 BAngunan / 0 Nonfisik / 3 Nonjaringan / 0 Petak Tersier', '0', '18 Bangunan / 7 Slauran', '1.08', '0', '0', '0', '0', '0', '0.01', '0', '0', '0', '91000006', 'DI_MAKBUSUN_BARU.pdf'),
 (11, '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'klasafet', ''),
-(12, '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'klasagum', ''),
-(13, 'asdasd', 'asdsad', 'asdsad', '572', '75', '572', '752', NULL, NULL, NULL, NULL, NULL, NULL, 'asdasd', 'banner_a.jpg'),
-(14, 'dfgfdg', 'gfdfg', 'dfgfdg', '4554', '554', '453', '455', NULL, NULL, NULL, NULL, NULL, NULL, 'dfgfdg', 'prof1.png'),
-(15, 'SDFDSF', 'SDFSDF', 'SDFDSF', '155', '45', '458', '778', NULL, NULL, NULL, NULL, NULL, NULL, 'MAMAMIA', 'unnamed.jpg'),
-(16, 'sdfsd', 'sdfsd', 'sdfdsf', '44', '3243', '3434', '343', '343', '34', '34', '243', '43', '645', '456', '1714.png'),
-(17, 'sdfsdf', 'sdfsd', 'sdfsdf', '4325', '345', '345', '345435', '34543', '345', '435', '345', '34', '345', '345', 'prof.png'),
-(18, 'asdsa', 'asdsad', 'asdasd', '43354', '345345', '435345', '345435', '345435', '345435', '345435', '43543', '345435', '34534', '435435', 'doctor-189afe01ded0ecc6d81203846182ef0b.png'),
-(19, 'asdsa', 'asdasd', 'asdsad', '324', '23423', '23434', '234324', '234', '234', '23', '23', '452', '45', '45', 'prof1.png'),
-(20, 'ertret', 'ertret', 'ertert', '456', '546', '4564', '464', '4564', '456', '456', '456', '456', '675', '657', 'slider6.png'),
-(21, 'werwer', 'ewrwer', 'werewr', '76', '435', '354', '567', '567', '567', '5675', '56756', '56756', '657', '76768', 'slider4.png'),
-(22, 'ertert', 'erter', 'ert', '54', '546', '4545', '45', '456', '34', '33', '34', '345', '566', '454', 'slider61.png'),
-(23, 'sdfsd', 'sdfsdf', 'sfdsdf', '345', '345', '344', '345', '345', '345', '345', '325', '2345', '25', '25', 'dok_hewan_1.png'),
-(24, 'asdads', 'asdas', 'asdsa', '543', '25', '2234', '234', '234', '234', '234', '234', '234', '234', '234', 'doctor-189afe01ded0ecc6d81203846182ef0b.png'),
-(25, 'DFGFDG', 'FDGFDG', 'FDFDG', '534', '654', '654', '365', '54', '354', '45', '64', '6', '65', '6', 'dok_he.png'),
-(26, 'retr', 'ertt', 'retrt', '56', '8', '8', '8', '8', '8', '6', '6', '68', '68', '6', 'doctor-189afe01ded0ecc6d81203846182ef0b1.png'),
-(27, 'terter', 'erter', 'ertert', '345435', '345', '34534', '34534', '345345', '345', '345', '23423', '3453453', '345345', '345345', 'Snapinsta_app_400198940_683196667115843_4092275957157152031_n_1080.jpg');
+(12, '-', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'klasagum', '');
 
 -- --------------------------------------------------------
 
@@ -703,11 +685,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$mKyaEDKqyLsP4s.5dTVst.dgDt5sIG39E5zVBOExl4aW/KfE2VAca', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1700164917, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+(1, '127.0.0.1', 'administrator', '$2y$10$mKyaEDKqyLsP4s.5dTVst.dgDt5sIG39E5zVBOExl4aW/KfE2VAca', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1699967876, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 (4, '::1', 'wendywendy', '$2y$10$eDnNNBCQZ9gpi9Bj72Gnqunogz2mVhILx7AeIVQyVVwD2vkg9Bv12', 'wendy@sisdapabar.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1637214145, 1637562841, 1, 'Wendy', 'Wendy', 'SISDA-PABAR', '081212981189'),
-(5, '2001:448a:70c0:6fba:88f5:c6cb:d1e8:56ae', 'tamu', '$2y$10$CKesL45rirq35D62Nmm8QuIcF2Wmk9uGFVsjdzrZ28tZx1sl2qDou', 'tamu@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1699667103, 1699810190, 1, NULL, NULL, NULL, NULL),
-(6, '::1', 'operator1', '$2y$10$RoOdK7NuzPIJV8KdBEwKtOs76aNbyvG9eVFhv7nkZ1XlDSKlWTjCq', 'operator1@siripabar.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1700155323, 1700169065, 1, NULL, NULL, NULL, NULL),
-(9, '', 'sdfsdf', '', 'sdfsd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 'sdsdf', 'sdfs', 'sdfsdf', 'sdfsdf');
+(5, '2001:448a:70c0:6fba:88f5:c6cb:d1e8:56ae', 'tamu', '$2y$10$CKesL45rirq35D62Nmm8QuIcF2Wmk9uGFVsjdzrZ28tZx1sl2qDou', 'tamu@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1699667103, 1699810190, 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -731,8 +711,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (3, 2, 2),
 (4, 3, 2),
 (5, 4, 2),
-(6, 5, 2),
-(7, 6, 3);
+(6, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -92141,13 +92120,13 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT for table `daerah_irigasi`
 --
 ALTER TABLE `daerah_irigasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `data_kontrak`
 --
 ALTER TABLE `data_kontrak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `data_kontrak_old`
@@ -92159,13 +92138,13 @@ ALTER TABLE `data_kontrak_old`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=460;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=391;
 
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `laporan_kinerja`
@@ -92177,13 +92156,13 @@ ALTER TABLE `laporan_kinerja`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `pengaduan`
@@ -92195,13 +92174,13 @@ ALTER TABLE `pengaduan`
 -- AUTO_INCREMENT for table `skema`
 --
 ALTER TABLE `skema`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tbl_setting`
@@ -92219,13 +92198,13 @@ ALTER TABLE `upload`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

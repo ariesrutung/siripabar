@@ -104,7 +104,7 @@ class Berita extends CI_Controller
 
         $this->M_beritanew->update_berita($idBerita, $data);
         // Tambahkan pesan flashdata atau tindakan lain yang sesuai
-        redirect('admin/beritanew');
+        redirect('admin/berita');
     }
 
     public function delete_berita()
@@ -119,5 +119,23 @@ class Berita extends CI_Controller
 
         // Redirect ke halaman berita setelah penghapusan
         redirect('admin/berita');
+    }
+
+    public function getGambarDetail($id)
+    {
+        // Ambil data gambar dari database berdasarkan ID
+        $gambarPath = $this->M_beritanew->getGambarPathById($id);
+
+        // Lakukan validasi jika data tidak ditemukan atau kosong
+        if ($gambarPath) {
+            // Tentukan path lengkap gambar
+            $gambarFullPath = base_url('upload/berita/') . $gambarPath;
+
+            // Kirim path gambar sebagai response
+            echo json_encode(['gambarPath' => $gambarFullPath]);
+        } else {
+            // Kirim response jika gambar tidak ditemukan
+            echo json_encode(['gambarPath' => null]);
+        }
     }
 }

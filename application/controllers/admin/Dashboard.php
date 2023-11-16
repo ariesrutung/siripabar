@@ -6,11 +6,12 @@ class Dashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->ion_auth->logged_in()) {
-            
-            $userid = $this->ion_auth->get_user_id();
-            $user_groups = $this->ion_auth->get_users_groups($userid)->row();
-            if($user_groups->name=="members") {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('Auth');
+        } else {
+            // $userid = $this->ion_auth->get_user_id();
+            $user_groups = $this->ion_auth->get_users_groups()->row();
+            if ($user_groups->name == "members") {
                 redirect('Auth');
             }
         }
