@@ -92,9 +92,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="<?php echo base_url('admin'); ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logopabar.png" alt="">
-                <img class="logo-compact" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logotext.png" alt="">
-                <img style="max-width: 180px !important;" class="brand-title" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logotext.png" alt="">
+                <img class="logo-abbr" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logosiripabar-img.png" alt="">
+                <img class="logo-compact" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logosiripabar-text.png" alt="">
+                <img style="max-width: 180px !important;" class="brand-title" src="<?php echo base_url(); ?>public/focus-theme/images/logo/logosiripabar-text.png" alt="">
             </a>
 
             <div class="nav-control">

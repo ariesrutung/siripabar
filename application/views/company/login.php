@@ -70,6 +70,12 @@
             text-align: center !important;
             font-weight: bold;
         }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
     </style>
 
 </head>
@@ -87,6 +93,7 @@
                             <div class="col-xl-7">
                                 <div class="auth-form">
                                     <h2 class="text-center mb-4 strong">SELAMAT DATANG</h2>
+                                    <!-- <?php echo $this->session->flashdata('message'); ?></p> -->
                                     <?php echo form_open("auth/login"); ?>
                                     <div class="form-group">
                                         <label class=""><strong>Email</strong></label>
@@ -123,7 +130,6 @@
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-
 </body>
 
 </html>

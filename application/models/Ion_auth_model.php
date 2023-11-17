@@ -2623,4 +2623,28 @@ class Ion_auth_model extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->delete('users');
 	}
+
+	public function is_email_exists($email)
+	{
+		return $this->db->where('email', $email)->count_all_results('users') > 0;
+	}
+
+	public function get_user_data($user_id)
+	{
+		// Query untuk mengambil data user berdasarkan $user_id
+		$query = $this->db->get_where('users', array('id' => $user_id));
+
+		// Mengembalikan hasil query sebagai objek
+		return $query->row();
+	}
+
+	public function update_user($user_id, $data)
+	{
+		// Query untuk mengupdate data user berdasarkan $user_id
+		$this->db->where('id', $user_id);
+		$this->db->update('users', $data);
+
+		// Mengembalikan TRUE jika proses update berhasil
+		return $this->db->affected_rows() > 0;
+	}
 }

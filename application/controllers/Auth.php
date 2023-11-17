@@ -477,8 +477,8 @@ class Auth extends CI_Controller
 
     public function create_user()
     {
-        $this->data['title'] = $this->lang->line('create_user_heading');
-
+        // $this->data['title'] = $this->lang->line('create_user_heading');
+        $data['operator'] = $this->ion_auth->users()->result();
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
             redirect('auth', 'refresh');
         }
@@ -517,7 +517,7 @@ class Auth extends CI_Controller
             // check to see if we are creating the user
             // redirect them back to the admin page
             $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect("admin/akunpengguna", 'refresh');
+            redirect("admin/operator", 'refresh');
         } else {
             // display the create user form
             // set the flash data error message if there is one
@@ -573,8 +573,11 @@ class Auth extends CI_Controller
             ];
 
             // $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
-            $this->data['_view'] = 'admin/akunpengguna';
-            $this->load->view('admin/layout', $this->data);
+            // $this->data['_view'] = 'admin/operator';
+            // $this->load->view('admin/layout', $this->data);
+            $data['title'] = 'OPERATOR';
+            $data['_view'] = "admin/operator";
+            $this->load->view('admin/layout', $data);
         }
     }
     /**
