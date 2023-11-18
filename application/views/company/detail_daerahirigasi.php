@@ -237,7 +237,6 @@
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong"><?php echo ($ddi->saluran_kuarter) ? $ddi->saluran_kuarter : '0'; ?> Km</td>
                                                         </tr>
-
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -247,7 +246,6 @@
                                 </div>
                             </div>
                             <div id="laporan" class="container tab-pane fade">
-
                                 <!-- FAQs Start -->
                                 <div class="faqs">
                                     <div id="faqs" class="container">
@@ -270,7 +268,6 @@
                                                                 <tr>
                                                                     <td><?php echo $lk->tahun; ?></td>
                                                                     <td>
-
                                                                         <a href="<?php echo base_url('daerahirigasi/download_lapkinerja/') . $lk->laporan_kinerja; ?>"><i class="bi bi-file-earmark-pdf"></i></a>
                                                                     </td>
                                                                     <td>

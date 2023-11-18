@@ -34,10 +34,29 @@ class Daerahirigasi extends CI_Controller
         $this->load->view('admin/layout', $data);
     }
 
-    public function getGambarDetail($id)
+
+    public function getGambarDetail($kode_di)
     {
         // Ambil data gambar dari database berdasarkan ID
-        $gambarPath = $this->M_daerahirigasi->getGambarPathById($id);
+        $gambarPath = $this->M_daerahirigasi->getGambarPathById($kode_di);
+
+        // Lakukan validasi jika data tidak ditemukan atau kosong
+        if ($gambarPath) {
+            // Tentukan path lengkap gambar
+            $gambarFullPath = base_url('public/company/img/skema/') . $gambarPath;
+
+            // Kirim path gambar sebagai response
+            echo json_encode(['gambarPath' => $gambarFullPath]);
+        } else {
+            // Kirim response jika gambar tidak ditemukan
+            echo json_encode(['gambarPath' => null]);
+        }
+    }
+
+    public function getDokumenDetail($kode_di)
+    {
+        // Ambil data gambar dari database berdasarkan ID
+        $gambarPath = $this->M_daerahirigasi->getDokPathById($kode_di);
 
         // Lakukan validasi jika data tidak ditemukan atau kosong
         if ($gambarPath) {

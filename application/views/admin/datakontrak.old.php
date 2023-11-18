@@ -596,6 +596,76 @@
                                 </div>
                             </div>
                             <hr>
+                            <!-- <div class="tab-pane fade" id="DetailDokpendukung" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="row dokpendukung">
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Dokumen Kontrak (Termasuk RAB)</label>
+                                                                <input type="file" name="dp_dokkontrak" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Gambar Rencana</label>
+                                                                <input type="file" name="dp_gbrrencana" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Gambar As Built Drawing</label>
+                                                                <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">MC 0%</label>
+                                                                <input type="file" name="dp_mcnol" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Harian</label>
+                                                                <input type="file" name="dp_lapharian" class="form-control gb">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Mingguan</label>
+                                                                <input type="file" name="dp_lapmingguan" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Laporan Bulanan</label>
+                                                                <input type="file" name="dp_lapbulanan" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">MC 100%</label>
+                                                                <input type="file" name="dp_mcseratus" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 py-0">
+                                                            <div class="form-group">
+                                                                <label class="text-label">Dokumentasi</label>
+                                                                <input type="file" name="dp_dokumentasi" class="form-control gb">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
                             <div class="row dokpendukung">
                                 <div class="col-lg-6">
                                     <div class="row">

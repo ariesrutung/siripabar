@@ -103,6 +103,13 @@
     #ModalDetailDaerahIrigasi table {
         margin: 0;
     }
+
+    .col-lg-6.px-0.py-0.edit_gambarPreview .form-control {
+        background: transparent;
+        border: 0;
+        color: #454545;
+        padding: 0;
+    }
 </style>
 <div class="content-body">
     <div class="container-fluid">
@@ -467,7 +474,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 zoomable-image">
-                            <img id="gambarPreview" class="w-100" src="<?php echo base_url(); ?>public/company/img/skema" alt="Gambar Daerah Irigasi">
+                            <img id="gambarPreview" class="w-100" src="<?php echo base_url(); ?>public/company/img/skema/" alt="Gambar Daerah Irigasi">
                         </div>
                     </div>
                     <div class="row">
@@ -497,7 +504,7 @@
                                             <td id="ss"></td>
                                         </tr>
                                         <tr>
-                                            <td>PZanjang Saluran Gendong</td>
+                                            <td>Panjang Saluran Gendong</td>
                                             <td>:</td>
                                             <td id="sg"></td>
                                         </tr>
@@ -534,6 +541,19 @@
                                             <td>:</td>
                                             <td id="sp"></td>
                                         </tr>
+                                        <!-- <tr>
+                                            <td class="align-middle">Dokumen</td>
+                                            <td>:</td>
+                                            <td>
+                                                <a id="dok_skema" href="<?php // echo base_url(); 
+                                                                        ?>upload/datairigasi/" class="btn btn-primary btn-sm text-white">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fa fa-cloud-download"></i>
+                                                    </span>
+                                                    <span class="text"> Dokumen Daerah Irigasi</span>
+                                                </a>
+                                            </td>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -632,16 +652,22 @@
                                         </div>
                                         <div class="col-lg-6 px-0 py-0">
                                             <div class="form-group">
-                                                <label class="text-label">Gambar</label>
-                                                <input type="file" name="gambar" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 px-0 py-0">
-                                            <div class="form-group">
                                                 <label class="text-label">Kewenangan</label>
                                                 <input type="text" name="edit_kewenangan" id="edit_kewenangan" class="form-control" required>
                                             </div>
                                         </div>
+                                        <div class="col-lg-6 px-0 py-0 edit_gambarPreview">
+                                            <div class="form-group">
+                                                <label class="text-label">Gambar</label>
+                                                <input type="file" name="gambar" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 px-0 py-0 edit_gambarPreview">
+                                            <div class="form-group">
+                                                <img id="edit_gambarPreview" class="w-25" src="<?php echo base_url(); ?>public/company/img/skema/" alt="Gambar Daerah Irigasi">
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -816,6 +842,7 @@
             var saluranSuplesi = $(this).data('saluran_suplesi');
             var saluranGendong = $(this).data('saluran_gendong');
             var saluranKuarter = $(this).data('saluran_kuarter');
+            var DokSkema = $(this).data('dokumen');
 
             // var dokumen = $(this).data('dokumen');
 
@@ -832,6 +859,7 @@
             $('#ssp').text(saluranSuplesi);
             $('#sg').text(saluranGendong);
             $('#sk').text(saluranKuarter);
+            $('#dok_skema').attr(DokSkema);
 
             // // Atur nilai atribut 'src' dari elemen gambar
             // $('#gambarPreview').attr('src', gambarDI);
@@ -841,7 +869,7 @@
 
             // Panggil fungsi AJAX di dalam event click
             $.ajax({
-                url: 'daerahirigasi/getGambarDetail/' + daerahIrigasiID, // Sesuaikan dengan URL controller dan method Anda
+                url: 'daerahirigasi/getGambarDetail/' + kodeDI, // Sesuaikan dengan URL controller dan method Anda
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -850,7 +878,7 @@
                         $('#gambarPreview').attr('src', response.gambarPath);
                     } else {
                         // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
-                        $('#gambarPreview').attr('src', '<?php echo base_url(); ?>public/company/img/default-image.jpg');
+                        $('#gambarPreview').attr('src', '<?php echo base_url(); ?>public/company/img/skema/noimage.png');
                     }
 
                     // Buka modal
@@ -860,6 +888,27 @@
                     alert('Error fetching data. Please try again.');
                 }
             });
+
+            // $.ajax({
+            //     url: 'daerahirigasi/download_skema/' + DokSkema, // Sesuaikan dengan URL controller dan method Anda
+            //     type: 'GET',
+            //     dataType: 'json',
+            //     success: function(response) {
+            //         if (response.gambarPath) {
+            //             // Atur nilai atribut 'src' dari elemen gambar
+            //             $('#dok_skema').attr('src', response.gambarPath);
+            //         } else {
+            //             // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
+            //             $('#dok_skema').attr('src', '<?php echo base_url(); ?>upload/datairigasi/dok.png');
+            //         }
+
+            //         // Buka modal
+            //         $('#ModalDetailDaerahIrigasi').modal('show');
+            //     },
+            //     error: function() {
+            //         alert('Error fetching data. Please try again.');
+            //     }
+            // });
         });
 
         $('.btnEditDaerahIrigasi').on('click', function() {
@@ -871,6 +920,8 @@
             var jenisDI_edit = $(this).data('jenis_di');
             var luasFungsiDI_edit = $(this).data('luas_fungsional');
             var luasAlihDI_edit = $(this).data('luas_alih_fungsi_lahan');
+            var kewenanganDI_edit = $(this).data('kewenangan');
+            var gambarDI_edit = $(this).data('gambar');
 
             var jumlah_aset = $(this).data('jumlah_aset');
             var jumlah_subsistem = $(this).data('jumlah_subsistem');
@@ -895,6 +946,29 @@
             $('#edit_luas_fungsional').val(luasFungsiDI_edit);
             // $('#preview_gambar').attr('src', gambar);
             $('#edit_luas_alih_fungsi_lahan').val(luasAlihDI_edit);
+            $('#edit_kewenangan').val(kewenanganDI_edit);
+            $('#edit_gambarPreview').attr('src', gambarDI_edit);
+
+            $.ajax({
+                url: 'daerahirigasi/getGambarDetail/' + kodeDI_edit, // Sesuaikan dengan URL controller dan method Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.gambarPath) {
+                        // Atur nilai atribut 'src' dari elemen gambar
+                        $('#edit_gambarPreview').attr('src', response.gambarPath);
+                    } else {
+                        // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
+                        $('#edit_gambarPreview').attr('src', '<?php echo base_url(); ?>public/company/img/skema/noimage.png');
+                    }
+
+                    // Buka modal
+                    $('#modalEditDaerahIrigasi').modal('show');
+                },
+                error: function() {
+                    alert('Error fetching data. Please try again.');
+                }
+            });
 
             $('#edit_jumlah_aset').val(jumlah_aset);
             $('#edit_jumlah_subsistem').val(jumlah_subsistem);

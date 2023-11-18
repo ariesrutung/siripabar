@@ -41,9 +41,45 @@ class M_emonitoring extends CI_Model
         return $query->result();
     }
 
-
     public function insert_datakontrak($data)
     {
         $this->db->insert('data_kontrak', $data);
+    }
+
+    // public function delete_datakontrak($idDatakontrak)
+    // {
+    //     $this->db->where('id', $idDatakontrak);
+    //     $this->db->delete('data_kontrak');
+    // }
+
+    public function delete_datakontrak($idDatakontrak)
+    {
+        $idDatakontrak = intval($idDatakontrak);
+
+        // Ambil nama file-file yang akan dihapus
+        $filesToDelete = $this->db->select('dp_dokkontrak, dp_gbrrencana, dp_gbrasbuild, dp_mcnol, dp_lapharian, dp_lapmingguan, dp_lapbulanan, dp_mcseratus, dp_dokumentasi')
+            ->where('id', $idDatakontrak)
+            ->get('data_kontrak')
+            ->row_array();
+
+        // Hapus data kontrak dari tabel
+        $this->db->where('id', $idDatakontrak);
+        $this->db->delete('data_kontrak');
+
+        // Hapus file-file terkait
+        foreach ($filesToDelete as $field => $filename) {
+            if (!empty($filename)) {
+                $filepath = FCPATH . './upload/dokumendatakontrak/' . $filename;
+                if (file_exists($filepath)) {
+                    unlink($filepath);
+                }
+            }
+        }
+    }
+    public function get_data_by_id($idDatakontrak)
+    {
+        return $this->db->where('id', $idDatakontrak)
+            ->get('data_kontrak')
+            ->row_array();
     }
 }

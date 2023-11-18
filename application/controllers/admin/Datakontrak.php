@@ -45,8 +45,6 @@ class Datakontrak extends CI_Controller
             $data['datakontrak'] = $this->M_emonitoring->get_dk_by_user_id($this->ion_auth->user()->row()->id);
         }
 
-        // $data['daerahirigasi'] = $this->M_daerahirigasi->get_all();
-        // $data['datakontrak'] = $this->M_emonitoring->get_all_datakontrak();
         $data['title'] = 'DATA KONTRAK';
         $data['_view'] = "admin/datakontrak";
         $this->load->view('admin/layout', $data);
@@ -54,26 +52,23 @@ class Datakontrak extends CI_Controller
 
     public function tambah_datakontrak()
     {
-        $config['upload_path'] = FCPATH . './upload/dtkontrak';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['upload_path'] = FCPATH . './upload/dokumendatakontrak';
+        $config['allowed_types'] = 'pdf';
         $config['max_size'] = 10000;
 
         $this->load->library('upload', $config);
 
         // Daftar nama field input gambar yang ingin Anda proses
         $gambar_fields = array(
-            'dokumentasi',
             'dp_dokkontrak',
             'dp_gbrrencana',
             'dp_lapharian',
             'dp_lapmingguan',
             'dp_lapbulanan',
             'dp_dokumentasi',
-            'dp_lapharian',
             'dp_gbrasbuild',
             'dp_mcnol',
             'dp_mcseratus',
-            'kurvas',
         );
 
         // Inisialisasi data array
@@ -83,6 +78,9 @@ class Datakontrak extends CI_Controller
         foreach ($gambar_fields as $field) {
             if (!empty($_FILES[$field]['name'])) {
                 $_FILES['userfile'] = $_FILES[$field];
+
+                // Menambahkan kondisi untuk mereplace spasi dengan underscore pada nama file
+                $config['file_name'] = str_replace(' ', '_', $_FILES['userfile']['name']);
 
                 if ($this->upload->do_upload('userfile')) {
                     $data[$field] = $this->upload->file_name;
@@ -94,7 +92,6 @@ class Datakontrak extends CI_Controller
                 }
             }
         }
-
         // Proses input data non-gambar   
         $data['nama_paket'] = $this->input->post('nama_paket');
         $data['penyedia_jasa'] = $this->input->post('penyedia_jasa');
@@ -125,6 +122,8 @@ class Datakontrak extends CI_Controller
         $data['pk_desember'] = $this->input->post('pk_desember');
         // $data['kurvas'] = $this->input->post('kurvas');
         $data['kode_di'] = $this->input->post('kode_di');
+        $data['user_id'] = $this->ion_auth->user()->row()->id;
+
 
         // Panggil fungsi insert_datakontrak pada model
         $this->M_emonitoring->insert_datakontrak($data);
@@ -141,5 +140,51 @@ class Datakontrak extends CI_Controller
             $data .= "<option value='" . $value->kode . "'>" . $value->nama . "</option>";
         }
         echo $data;
+    }
+
+    public function download_dok_datakontrak($namafile)
+    {
+        $url = "upload/dokumendatakontrak/" . $namafile;
+        force_download($url, NULL);
+    }
+
+
+    public function delete_data_kontrak()
+    {
+        $idDatakontrak = $this->input->post('id_datakontrak');
+
+        // Panggil model untuk menghapus berita
+        $this->M_emonitoring->delete_datakontrak($idDatakontrak);
+
+        // Redirect ke halaman berita setelah penghapusan
+        redirect('admin/datakontrak');
+    }
+
+    public function get_data_by_id()
+    {
+        $data['wil_kab'] = $this->M_wilayah->get_all_kab();
+        $setting = $this->M_setting->list_setting();
+        $this->load->library('googlemaps');
+        $config['center'] = "$setting->latitude, $setting->longitude";
+        $config['zoom'] = "$setting->zoom";
+        $config['apiKey'] = "$setting->apikey";
+        $this->googlemaps->initialize($config);
+
+        $marker['position'] = "$setting->latitude, $setting->longitude";
+        $marker['draggable'] = true;
+        $marker['ondragend'] = 'setMapToForm(event.latLng.lat(), event.latLng.lng());';
+        $this->googlemaps->add_marker($marker);
+
+        $map = $this->googlemaps->create_map();
+        $data['map'] = $map;
+
+        $idDatakontrak = $this->input->post('id_datakontrak');
+        $data['result'] = $this->M_emonitoring->get_data_by_id($idDatakontrak);
+
+        // Load view dengan data yang diterima dari model
+        $html = $this->load->view('admin/datakontrak_form', $data, TRUE);
+
+        // Mengembalikan data HTML ke JavaScript
+        echo json_encode(array('html' => $html));
     }
 }

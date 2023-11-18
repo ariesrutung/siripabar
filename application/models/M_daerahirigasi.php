@@ -96,11 +96,26 @@ class M_daerahirigasi extends CI_Model
         return $query->result();
     }
 
-    public function getGambarPathById($id)
+    public function getGambarPathById($kode_di)
     {
         $this->db->select('gambar'); // Sesuaikan dengan nama kolom gambar pada tabel Anda
         $this->db->from('daerah_irigasi');
-        $this->db->where('id', $id);
+        $this->db->where('kode_di', $kode_di);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->gambar;
+        }
+
+        return null;
+    }
+    public function getDokPathById($kode_di)
+    {
+        $this->db->select('dokumen'); // Sesuaikan dengan nama kolom gambar pada tabel Anda
+        $this->db->from('skema');
+        $this->db->where('kode_di', $kode_di);
 
         $query = $this->db->get();
 

@@ -40,8 +40,8 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Nama</th>
-                                        <th>Username</th>
                                         <th>Email</th>
+                                        <th>Username</th>
                                         <th>Level</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
@@ -57,14 +57,14 @@
                                                 <?php echo $op->first_name; ?> <?php echo $op->last_name; ?>
                                             </td>
                                             <td>
-                                                <?php echo $op->last_name; ?>
-                                            </td>
-                                            <td>
                                                 <?php echo $op->email; ?>
 
                                             </td>
                                             <td>
                                                 <?php echo $op->username; ?>
+                                            </td>
+                                            <td>
+
                                             </td>
                                             <td class="text-center">
 
@@ -116,14 +116,24 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="first_name">Nama Depan</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo set_value('first_name'); ?>">
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo set_value('first_name'); ?>" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
-
                         <div class="form-group">
                             <label for="last_name">Nama Belakang</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo set_value('last_name'); ?>">
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo set_value('last_name'); ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="last_name">Level</label>
+                            <select class="form-control" name="user_level" id="user_level" required>
+                                <option value="">Pilih</option>
+                                <option value="1">Admin</option>
+                                <option value="3">Operator</option>
+                                <option value="2">Tamu</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -141,14 +151,14 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="email">Alamat Email</label>
-                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?php echo set_value('email'); ?>">
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?php echo set_value('email'); ?>" required>
                         </div>
 
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="phone">Nomor HP</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo set_value('phone'); ?>">
+                            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo set_value('phone'); ?>" required>
                         </div>
 
                     </div>
@@ -156,7 +166,7 @@
                         <div class="form-group">
                             <label for="password">Kata Sandi</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" id="password" name="password" value="<?php echo set_value('password'); ?>">
+                                <input type="password" class="form-control" id="password" name="password" value="<?php echo set_value('password'); ?>" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="toggle-password">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
@@ -174,7 +184,7 @@
                         <div class="form-group">
                             <label for="password_confirm">Konfirmasi Kata Sandi</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" id="password_confirm" name="password_confirm" value="<?php echo set_value('password_confirm'); ?>">
+                                <input type="password" class="form-control" id="password_confirm" name="password_confirm" value="<?php echo set_value('password_confirm'); ?>" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="toggle-password-confirm">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
@@ -317,6 +327,7 @@
             });
         });
 
+
         $('.deleteOperator').on('click', function(e) {
             e.preventDefault();
 
@@ -363,51 +374,48 @@
         $('#menuoperator').last().addClass("active");
 
         // Add an event listener to the form submit button
-        $('form').submit(function(event) {
-            // Array to store error messages
-            var errorMessages = [];
-            var email = $('#email').val();
+        // $('form').submit(function(event) {
+        //     // Array to store error messages
+        //     var errorMessages = [];
+        //     var email = $('#email').val();
 
+        //     // Check if any of the required fields are empty
+        //     $(this).find('input[type="text"], input[type="email"], input[type="password"]').each(function() {
+        //         if ($(this).val() === '') {
+        //             var fieldName = $(this).attr('name');
+        //             errorMessages.push(capitalizeFirstLetter(fieldName) + ' belum diisi.');
+        //         }
+        //     });
 
+        //     // Check if the password and password_confirm fields match
+        //     var password = $('#password').val();
+        //     var passwordConfirm = $('#password_confirm').val();
 
+        //     if (password !== passwordConfirm) {
+        //         errorMessages.push('Password dan konfirmasi password tidak sesuai.');
+        //     }
 
-            // Check if any of the required fields are empty
-            $(this).find('input[type="text"], input[type="email"], input[type="password"]').each(function() {
-                if ($(this).val() === '') {
-                    var fieldName = $(this).attr('name');
-                    errorMessages.push(capitalizeFirstLetter(fieldName) + ' belum diisi.');
-                }
-            });
+        //     // Check password complexity (uppercase, lowercase, number, and special character)
+        //     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+        //     if (!passwordRegex.test(password)) {
+        //         errorMessages.push('Password harus mengandung gabungan huruf besar, huruf kecil, angka, dan karakter khusus.');
+        //     }
 
-            // Check if the password and password_confirm fields match
-            var password = $('#password').val();
-            var passwordConfirm = $('#password_confirm').val();
+        //     // Check password length (minimum 6 characters)
+        //     if (password.length < 6) {
+        //         errorMessages.push('Password harus memiliki minimal 6 karakter.');
+        //     }
 
-            if (password !== passwordConfirm) {
-                errorMessages.push('Password dan konfirmasi password tidak sesuai.');
-            }
-
-            // Check password complexity (uppercase, lowercase, number, and special character)
-            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
-            if (!passwordRegex.test(password)) {
-                errorMessages.push('Password harus mengandung gabungan huruf besar, huruf kecil, angka, dan karakter khusus.');
-            }
-
-            // Check password length (minimum 6 characters)
-            if (password.length < 6) {
-                errorMessages.push('Password harus memiliki minimal 6 karakter.');
-            }
-
-            // Display SweetAlert if there are any error messages
-            if (errorMessages.length > 0) {
-                event.preventDefault(); // prevent form submission
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    html: errorMessages.join('<br>')
-                });
-            }
-        });
+        //     // Display SweetAlert if there are any error messages
+        //     if (errorMessages.length > 0) {
+        //         event.preventDefault(); // prevent form submission
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Oops...',
+        //             html: errorMessages.join('<br>')
+        //         });
+        //     }
+        // });
 
         // Function to capitalize the first letter of a string
         function capitalizeFirstLetter(string) {

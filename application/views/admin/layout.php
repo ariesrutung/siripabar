@@ -62,6 +62,11 @@
             background-color: #343a40 !important;
             border-color: #343a40 !important;
         }
+
+        li.nav-item.dropdown.header-profile span {
+            font-size: 12px;
+            text-transform: capitalize;
+        }
     </style>
 </head>
 
@@ -113,8 +118,8 @@
         <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <!-- <div class="header-left">
                             <div class="search_bar dropdown">
                                 <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
                                     <i class="mdi mdi-magnify"></i>
@@ -124,8 +129,8 @@
                                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                                     </form>
                                 </div>
-                            </div>
-                        </div>
+                    </div>
+            </div> -->
 
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown notification_dropdown">
@@ -187,27 +192,30 @@
                                     <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                            <?php if ($this->ion_auth->logged_in()) : ?>
+                                <!-- Your user-related dropdown code here -->
 
-                                    <span><?php $user = $this->ion_auth->user()->row();
-                                            echo $user->username; ?></span> <i class="mdi mdi-account"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
+                                <li class="nav-item dropdown header-profile show">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                        <span><?php $user = $this->ion_auth->user()->row();
+                                                echo $user->username; ?></span> <i class="mdi mdi-account"></i>
                                     </a>
-                                    <a href="#" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
-                                    <a href="<?php echo base_url('auth/logout'); ?>" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
-                                </div>
-                            </li>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item">
+                                            <i class="icon-user"></i>
+                                            <span class="ml-2">Profile</span>
+                                        </a>
+                                        <a href="#" class="dropdown-item">
+                                            <i class="icon-envelope-open"></i>
+                                            <span class="ml-2">Inbox</span>
+                                        </a>
+                                        <a href="<?php echo base_url('auth/logout'); ?>" class="dropdown-item">
+                                            <i class="icon-key"></i>
+                                            <span class="ml-2">Logout</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </nav>
@@ -223,9 +231,8 @@
         <div class="quixnav">
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
+                    <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i><span class="nav-text"> Dashboard </span> </a></li>
                     <?php if ($this->ion_auth->is_admin()) { ?>
-                        <li id="menudashboard"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="ti-desktop"></i><span class="nav-text"> Dashboard </span> </a></li>
-
                         <li class="nav-label first">MANAJEMEN LAPORAN</li>
                         <li id="menupengaduan"><a href="<?php echo base_url('admin/pengaduan'); ?>"><i class="ti-user"></i><span class="nav-text"> Data Pengaduan</span></a></li>
                         <!-- <li id="menuunduhlaporan"><a href="<?php // echo base_url('admin/unduhlaporan'); 
