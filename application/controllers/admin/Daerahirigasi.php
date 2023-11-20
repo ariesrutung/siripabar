@@ -16,7 +16,7 @@ class Daerahirigasi extends CI_Controller
             }
         }
         $this->load->library(['ion_auth', 'form_validation']);
-        $this->load->model(['M_daerahirigasi', 'M_wilayah']);
+        $this->load->model(['M_daerahirigasi', 'M_wilayah', 'M_log']);
     }
     public function index()
     {
@@ -74,6 +74,8 @@ class Daerahirigasi extends CI_Controller
     public function updateData($id)
     {
         // Ambil data dari form
+        $user_name = $this->session->userdata('username');
+        $this->M_log->add("<strong>" . $user_name . "</strong> mengubah 1 daerah irigasi di");
         $data = array(
             'provinsi' => $this->input->post('provinsi'),
             'kabupaten' => $this->input->post('kabupaten_di'),
@@ -102,6 +104,9 @@ class Daerahirigasi extends CI_Controller
         $config_daerah_irigasi['upload_path'] = './upload/datairigasi/';
         $config_daerah_irigasi['allowed_types'] = 'gif|jpg|png';
         $config_daerah_irigasi['max_size'] = 10000;
+
+        $user_name = $this->session->userdata('username');
+        $this->M_log->add("<strong>" . $user_name . "</strong> menambahkan 1 daerah irigasi di" . $selected_nama_kabupaten);
 
         $this->upload->initialize($config_daerah_irigasi);
 
@@ -173,6 +178,9 @@ class Daerahirigasi extends CI_Controller
 
     public function delete_data()
     {
+        $user_name = $this->session->userdata('username');
+        $this->M_log->add("<strong>" . $user_name . "</strong> menghapus 1 daerah irigasi di");
+
         $id = $this->input->post('id');
 
         // Nama tabel untuk daerah_irigasi

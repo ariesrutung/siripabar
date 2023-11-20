@@ -138,4 +138,23 @@ class M_daerahirigasi extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete($table);
     }
+
+    public function count_by_kewenangan($kewenangan)
+    {
+        $this->db->select("COUNT(*) as total");
+        $this->db->from("daerah_irigasi");
+        $this->db->where("kewenangan", $kewenangan);
+        $query = $this->db->get();
+        $result = $query->row_array();
+        return $result['total'];
+    }
+
+    public function count_di_by_kabupaten()
+    {
+        $this->db->select("kabupaten, COUNT(*) as jumlah_daerah_irigasi");
+        $this->db->from("daerah_irigasi");
+        $this->db->group_by("kabupaten");
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

@@ -46,12 +46,6 @@ class M_emonitoring extends CI_Model
         $this->db->insert('data_kontrak', $data);
     }
 
-    // public function delete_datakontrak($idDatakontrak)
-    // {
-    //     $this->db->where('id', $idDatakontrak);
-    //     $this->db->delete('data_kontrak');
-    // }
-
     public function delete_datakontrak($idDatakontrak)
     {
         $idDatakontrak = intval($idDatakontrak);
@@ -76,10 +70,121 @@ class M_emonitoring extends CI_Model
             }
         }
     }
+    // public function get_data_by_id($idDatakontrak)
+    // {
+    //     return $this->db->where('id', $idDatakontrak)
+    //         ->get('data_kontrak')
+    //         ->row_array();
+    // }
+
     public function get_data_by_id($idDatakontrak)
     {
-        return $this->db->where('id', $idDatakontrak)
+        $result = $this->db->where('id', $idDatakontrak)
             ->get('data_kontrak')
             ->row_array();
+
+        return $result;
+    }
+
+    public function update_datakontrak(
+        $idDatakontrak,
+        $namaPaket,
+        $penyediaJasa,
+        $noKontrak,
+        $tglKontrak,
+        $noSpmk,
+        $tglSpmk,
+        $sumberDana,
+        $tahunSumberDana,
+        $nilaiKontrak,
+        $lokKabupaten,
+        $lokDistrik,
+        $titikKoordinat,
+        $outputProduk,
+        $tglRencanaPho,
+        $masaPelaksanaan,
+        $pkJanuari,
+        $pkFebruari,
+        $pkMaret,
+        $pkApril,
+        $pkMei,
+        $pkJuni,
+        $pkJuli,
+        $pkAgustus,
+        $pkSeptember,
+        $pkOktober,
+        $pkNovember,
+        $pkDesember,
+        $dpDokkontrak,
+        $dpGbrRencana,
+        $dpGbrAsbuild,
+        $dpMcnol,
+        $dp_LapHarian,
+        $dpLapMingguan,
+        $dpLapBulanan,
+        $dpMcSeratus,
+        $dpDokumentasi,
+        $kodeDi,
+        $userId
+    ) {
+        $data = array(
+            'nama_paket' => $namaPaket,
+            'penyedia_jasa' => $penyediaJasa,
+            'no_kontrak' => $noKontrak,
+            'tgl_kontrak' => $tglKontrak,
+            'no_spmk' => $noSpmk,
+            'tgl_spmk' => $tglSpmk,
+            'sumber_dana' => $sumberDana,
+            'tahun_sumberdana' => $tahunSumberDana,
+            'nilai_kontrak' => $nilaiKontrak,
+            'lok_kabupaten' => $lokKabupaten,
+            'lok_distrik' => $lokDistrik,
+            'titik_koordinat' => $titikKoordinat,
+            'output_produk' => $outputProduk,
+            'tgl_rencanapho' => $tglRencanaPho,
+            'masa_pelaksanaan' => $masaPelaksanaan,
+            'pk_januari' => $pkJanuari,
+            'pk_februari' => $pkFebruari,
+            'pk_maret' => $pkMaret,
+            'pk_april' => $pkApril,
+            'pk_mei' => $pkMei,
+            'pk_juni' => $pkJuni,
+            'pk_juli' => $pkJuli,
+            'pk_agustus' => $pkAgustus,
+            'pk_september' => $pkSeptember,
+            'pk_oktober' => $pkOktober,
+            'pk_november' => $pkNovember,
+            'pk_desember' => $pkDesember,
+            'dp_dokkontrak' => $dpDokkontrak,
+            'dp_gbrrencana' => $dpGbrRencana,
+            'dp_gbrasbuild' => $dpGbrAsbuild,
+            'dp_mcnol' => $dpMcnol,
+            'dp_lapharian' => $dp_LapHarian,
+            'dp_lapmingguan' => $dpLapMingguan,
+            'dp_lapbulanan' => $dpLapBulanan,
+            'dp_mcseratus' => $dpMcSeratus,
+            'dp_dokumentasi' => $dpDokumentasi,
+            'kode_di' => $kodeDi,
+            'user_id' => $userId
+        );
+
+        $this->db->where('id', $idDatakontrak);
+        $this->db->update('data_kontrak', $data);
+    }
+
+    public function update_datakontrak_files($idDatakontrak, $data)
+    {
+        $this->db->where('id', $idDatakontrak);
+        $this->db->set($data);
+        $this->db->update('data_kontrak');
+    }
+
+    public function get_data_kontrak_by_tahun_sumberdana()
+    {
+        $this->db->select("tahun_sumberdana, COUNT(*) as jumlah_kontrak");
+        $this->db->from("data_kontrak");
+        $this->db->group_by("tahun_sumberdana");
+        $query = $this->db->get();
+        return $query->result();
     }
 }

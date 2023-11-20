@@ -252,6 +252,7 @@
                     <?php if ($this->ion_auth->is_admin()) { ?>
                         <li class="nav-label first">MANAJEMEN USER</li>
                         <li id="menuoperator"><a href="<?php echo base_url('admin/operator'); ?>"><i class="ti-settings"></i><span class="nav-text"> Operator</span></a></li>
+                        <li id="menulog"><a href="<?php echo base_url('admin/log'); ?>"><i class="ti-agenda"></i><span class="nav-text"> Log Users</span></a></li>
                     <?php } ?>
                 </ul>
             </div>

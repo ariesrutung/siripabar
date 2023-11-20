@@ -1,3 +1,16 @@
+<style>
+    .countJumlah .card {
+        margin-bottom: 1.875rem;
+        background-color: #fff;
+        transition: all .5s ease-in-out;
+        position: relative;
+        border: 1px solid #d2d9f9;
+        border-radius: 0.25rem;
+        box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+        height: 160px;
+    }
+</style>
+
 <div class="content-body">
     <div class="container-fluid">
         <div class="row page-titles mx-0">
@@ -6,16 +19,16 @@
                     <h4>Hi, Selamat Datang Kembali!</h4>
                 </div>
             </div>
-            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
                     <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
                 </ol>
-            </div>
+            </div> -->
         </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-sm-4">
+        <div class="row countJumlah">
+            <div class="col-lg-3 col-sm-3">
                 <div class="card">
                     <div class="stat-widget-one card-body">
                         <div class="stat-icon d-inline-block">
@@ -23,12 +36,12 @@
                         </div>
                         <div class="stat-content d-inline-block">
                             <div class="stat-text">D. I. Kewenangan Pusat</div>
-                            <div class="stat-digit">1,012</div>
+                            <div class="stat-digit"><?php echo $jumlahPusat; ?></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-4">
+            <div class="col-lg-3 col-sm-3">
                 <div class="card">
                     <div class="stat-widget-one card-body">
                         <div class="stat-icon d-inline-block">
@@ -36,12 +49,12 @@
                         </div>
                         <div class="stat-content d-inline-block">
                             <div class="stat-text">D. I. Kewenangan Provinsi</div>
-                            <div class="stat-digit">961</div>
+                            <div class="stat-digit"><?php echo $jumlahProvinsi; ?></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-4">
+            <div class="col-lg-3 col-sm-3">
                 <div class="card">
                     <div class="stat-widget-one card-body">
                         <div class="stat-icon d-inline-block">
@@ -49,7 +62,22 @@
                         </div>
                         <div class="stat-content d-inline-block">
                             <div class="stat-text">D. I. Kewenangan Kab/Kota</div>
-                            <div class="stat-digit">770</div>
+                            <div class="stat-digit"><?php echo $jumlahKabKota; ?></Php>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <div class="card">
+                    <div class="stat-widget-one card-body">
+                        <div class="stat-icon d-inline-block">
+                            <i class="ti-layout-grid2 text-pink border-pink"></i>
+                        </div>
+                        <div class="stat-content d-inline-block">
+                            <div class="stat-text">D. I. Non Status</div>
+                            <div class="stat-digit"><?php echo $jumlahNonStatus; ?></Php>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,14 +91,19 @@
                         <h4 class="card-title">Data Kontrak</h4>
                     </div>
                     <div class="card-body">
-                        <div class="ct-bar-chart mt-5"></div>
+                        <!-- <div class="ct-bar-chart mt-5"></div> -->
+                        <canvas id="barChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Daerah Irigasi per Kab/Kota</h4>
+                    </div>
                     <div class="card-body">
-                        <div class="ct-pie-chart"></div>
+                        <!-- <div class="ct-pie-chart"></div> -->
+                        <canvas id="pieChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -587,3 +620,74 @@
         </div> -->
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Parse data from PHP to JavaScript
+    var dataKontrak = <?php echo $dataKontrak; ?>;
+
+    // Prepare data for Chart.js
+    var labels = [];
+    var data = [];
+    var colors = [];
+
+    for (var i = 0; i < dataKontrak.length; i++) {
+        labels.push(dataKontrak[i].tahun_sumberdana);
+        data.push(dataKontrak[i].jumlah_kontrak);
+        // Generate random color for each bar
+        colors.push('rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ', 0.7)');
+    }
+
+    // Create Bar Chart using Chart.js
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Jumlah Kontrak',
+                data: data,
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 3
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    beginAtZero: true
+                },
+                y: {
+                    min: 0
+                }
+            }
+        }
+    });
+
+    var di_kabkota = <?php echo $di_kabkota; ?>;
+
+    // Prepare data for Chart.js
+    var labels = [];
+    var data = [];
+    var colors = [];
+
+    for (var i = 0; i < di_kabkota.length; i++) {
+        labels.push(di_kabkota[i].kabupaten);
+        data.push(di_kabkota[i].jumlah_daerah_irigasi);
+        // Generate random color for each slice
+        colors.push('rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ', 0.7)');
+    }
+
+    // Create Pie Chart using Chart.js
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors
+            }]
+        }
+    });
+</script>

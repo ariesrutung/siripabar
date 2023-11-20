@@ -14,7 +14,22 @@
     div#editModalContent {
         padding: 15px 30px;
     }
+
+    div#DokPendukung .form-control {
+        height: auto !important;
+    }
+
+    a.btn.btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a.btn.btn-primary i.bi.bi-eye {
+        margin: 0 10px;
+    }
 </style>
+
 <form id="editForm" action="<?php echo base_url('admin/datakontrak/update_data'); ?>" method="post">
     <!-- Tempatkan elemen formulir di sini -->
     <?php if (isset($result['id'])) : ?>
@@ -274,58 +289,140 @@
             </div>
             <div class="tab-pane fade show" id="DokPendukung" role="tabpanel">
                 <div class="row mt-4">
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Dokumen Kontrak (Termasuk RAB)</label>
-                            <input type="file" name="dp_dokkontrak" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_dokkontrak" class="form-control gb">
+                                <?php if (!empty($result['dp_dokkontrak'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_dokkontrak']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Gambar Rencana</label>
-                            <input type="file" name="dp_gbrrencana" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_gbrrencana" class="form-control gb">
+                                <?php if (!empty($result['dp_gbrrencana'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_gbrrencana']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Gambar As Built Drawing</label>
-                            <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                                <?php if (!empty($result['dp_gbrasbuild'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_gbrasbuild']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">MC 0%</label>
-                            <input type="file" name="dp_mcnol" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_mcnol" class="form-control gb">
+                                <?php if (!empty($result['dp_mcnol'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_mcnol']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Laporan Harian</label>
-                            <input type="file" name="dp_lapharian" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_lapharian" class="form-control gb">
+                                <?php if (!empty($result['dp_lapharian'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapharian']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Laporan Mingguan</label>
-                            <input type="file" name="dp_lapmingguan" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_lapmingguan" class="form-control gb">
+                                <?php if (!empty($result['dp_lapmingguan'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapmingguan']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Laporan Bulanan</label>
-                            <input type="file" name="dp_lapbulanan" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_lapbulanan" class="form-control gb">
+                                <?php if (!empty($result['dp_lapbulanan'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapbulanan']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">MC 100%</label>
-                            <input type="file" name="dp_mcseratus" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_mcseratus" class="form-control gb">
+                                <?php if (!empty($result['dp_mcseratus'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_mcseratus']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 py-0">
+                    <div class="col-lg-6 py-0">
                         <div class="form-group">
                             <label class="text-label">Dokumentasi</label>
-                            <input type="file" name="dp_dokumentasi" class="form-control gb">
+                            <div class="input-group">
+                                <input type="file" name="dp_dokumentasi" class="form-control gb">
+                                <?php if (!empty($result['dp_dokumentasi'])) : ?>
+                                    <div class="input-group-append">
+                                        <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_dokumentasi']); ?>" target="_blank">
+                                            <i class="bi bi-eye"></i> Lihat Dokumen
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
