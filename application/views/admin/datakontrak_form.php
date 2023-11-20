@@ -293,7 +293,7 @@
                         <div class="form-group">
                             <label class="text-label">Dokumen Kontrak (Termasuk RAB)</label>
                             <div class="input-group">
-                                <input type="file" name="dp_dokkontrak" class="form-control gb">
+                                <input type="file" name="edit_dp_dokkontrak" class="form-control gb">
                                 <?php if (!empty($result['dp_dokkontrak'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_dokkontrak']); ?>" target="_blank">
@@ -309,7 +309,7 @@
                         <div class="form-group">
                             <label class="text-label">Gambar Rencana</label>
                             <div class="input-group">
-                                <input type="file" name="dp_gbrrencana" class="form-control gb">
+                                <input type="file" name="edit_dp_gbrrencana" class="form-control gb">
                                 <?php if (!empty($result['dp_gbrrencana'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_gbrrencana']); ?>" target="_blank">
@@ -324,7 +324,7 @@
                         <div class="form-group">
                             <label class="text-label">Gambar As Built Drawing</label>
                             <div class="input-group">
-                                <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                                <input type="file" name="edit_dp_gbrasbuild" class="form-control gb">
                                 <?php if (!empty($result['dp_gbrasbuild'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_gbrasbuild']); ?>" target="_blank">
@@ -339,7 +339,7 @@
                         <div class="form-group">
                             <label class="text-label">MC 0%</label>
                             <div class="input-group">
-                                <input type="file" name="dp_mcnol" class="form-control gb">
+                                <input type="file" name="edit_dp_mcnol" class="form-control gb">
                                 <?php if (!empty($result['dp_mcnol'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_mcnol']); ?>" target="_blank">
@@ -354,7 +354,7 @@
                         <div class="form-group">
                             <label class="text-label">Laporan Harian</label>
                             <div class="input-group">
-                                <input type="file" name="dp_lapharian" class="form-control gb">
+                                <input type="file" name="edit_dp_lapharian" class="form-control gb">
                                 <?php if (!empty($result['dp_lapharian'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapharian']); ?>" target="_blank">
@@ -369,7 +369,7 @@
                         <div class="form-group">
                             <label class="text-label">Laporan Mingguan</label>
                             <div class="input-group">
-                                <input type="file" name="dp_lapmingguan" class="form-control gb">
+                                <input type="file" name="edit_dp_lapmingguan" class="form-control gb">
                                 <?php if (!empty($result['dp_lapmingguan'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapmingguan']); ?>" target="_blank">
@@ -384,7 +384,7 @@
                         <div class="form-group">
                             <label class="text-label">Laporan Bulanan</label>
                             <div class="input-group">
-                                <input type="file" name="dp_lapbulanan" class="form-control gb">
+                                <input type="file" name="edit_dp_lapbulanan" class="form-control gb">
                                 <?php if (!empty($result['dp_lapbulanan'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_lapbulanan']); ?>" target="_blank">
@@ -399,7 +399,7 @@
                         <div class="form-group">
                             <label class="text-label">MC 100%</label>
                             <div class="input-group">
-                                <input type="file" name="dp_mcseratus" class="form-control gb">
+                                <input type="file" name="edit_dp_mcseratus" class="form-control gb">
                                 <?php if (!empty($result['dp_mcseratus'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_mcseratus']); ?>" target="_blank">
@@ -414,7 +414,7 @@
                         <div class="form-group">
                             <label class="text-label">Dokumentasi</label>
                             <div class="input-group">
-                                <input type="file" name="dp_dokumentasi" class="form-control gb">
+                                <input type="file" name="edit_dp_dokumentasi" class="form-control gb">
                                 <?php if (!empty($result['dp_dokumentasi'])) : ?>
                                     <div class="input-group-append">
                                         <a class="btn btn-primary" href="<?php echo base_url('upload/dokumendatakontrak/' . $result['dp_dokumentasi']); ?>" target="_blank">

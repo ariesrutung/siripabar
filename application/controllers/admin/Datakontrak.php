@@ -15,7 +15,7 @@ class Datakontrak extends CI_Controller
                 redirect('Auth');
             }
         }
-        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library(['ion_auth', 'form_validation', 'Loguserlib']);
 
         $this->load->model(['M_emonitoring', 'M_daerahirigasi', 'M_setting', 'M_wilayah', 'M_log']);
     }
@@ -52,8 +52,6 @@ class Datakontrak extends CI_Controller
 
     public function tambah_datakontrak()
     {
-        $user_name = $this->session->userdata('username');
-        $this->M_log->add("<strong>" . $user_name . "</strong> menambahkan 1 data kontrak");
 
         $config['upload_path'] = FCPATH . './upload/dokumendatakontrak';
         $config['allowed_types'] = 'pdf';
@@ -129,8 +127,14 @@ class Datakontrak extends CI_Controller
 
 
         // Panggil fungsi insert_datakontrak pada model
-        $this->M_emonitoring->insert_datakontrak($data);
-
+        if ($this->M_emonitoring->insert_datakontrak($data)) {
+            // $this->Loguser->add_activity('6', 'menambahkan data kontrak');
+            // Tambah Activity User
+            $user_id = $this->ion_auth->user()->row()->id;
+            $user_name = $this->ion_auth->user()->row()->username;
+            $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menambahkan Data Kontrak No. " . $this->input->post('no_kontrak');
+            $this->loguserlib->add_activity($user_id, $user_act);
+        }
         // Redirect ke halaman yang sesuai
         redirect('admin/datakontrak');
     }
@@ -150,7 +154,6 @@ class Datakontrak extends CI_Controller
         $url = "upload/dokumendatakontrak/" . $namafile;
         force_download($url, NULL);
     }
-
 
     public function delete_data_kontrak()
     {
@@ -202,7 +205,6 @@ class Datakontrak extends CI_Controller
         $idDatakontrak = $this->input->post('id_datakontrak');
         $data = $this->M_emonitoring->get_data_by_id($idDatakontrak);
 
-        $this->handleFileUpload($idDatakontrak, $data);
         // Tangkap data yang dikirimkan dari formulir
         $namaPaket = $this->input->post('nama_paket');
         $penyediaJasa = $this->input->post('penyedia_jasa');
@@ -231,15 +233,15 @@ class Datakontrak extends CI_Controller
         $pkOktober = $this->input->post('pk_oktober');
         $pkNovember = $this->input->post('pk_november');
         $pkDesember = $this->input->post('pk_desember');
-        $dpDokkontrak = $this->input->post('dp_dokkontrak');
-        $dpGbrRencana = $this->input->post('dp_gbrrencana');
-        $dpGbrAsbuild = $this->input->post('dp_gbrasbuild');
-        $dpMcnol = $this->input->post('dp_mcnol');
-        $dp_LapHarian = $this->input->post('dp_lapharian');
-        $dpLapMingguan = $this->input->post('dp_lapmingguan');
-        $dpLapBulanan = $this->input->post('dp_lapbulanan');
-        $dpMcSeratus = $this->input->post('dp_mcseratus');
-        $dpDokumentasi = $this->input->post('dp_dokumentasi');
+        $dpDokkontrak = $this->input->post('edit_dp_dokkontrak');
+        $dpGbrRencana = $this->input->post('edit_dp_gbrrencana');
+        $dpGbrAsbuild = $this->input->post('edit_dp_gbrasbuild');
+        $dpMcnol = $this->input->post('edit_dp_mcnol');
+        $dp_LapHarian = $this->input->post('edit_dp_lapharian');
+        $dpLapMingguan = $this->input->post('edit_dp_lapmingguan');
+        $dpLapBulanan = $this->input->post('edit_dp_lapbulanan');
+        $dpMcSeratus = $this->input->post('edit_dp_mcseratus');
+        $dpDokumentasi = $this->input->post('edit_dp_dokumentasi');
         $kodeDi = $this->input->post('kode_di');
         $userId = $this->ion_auth->user()->row()->id;
 
@@ -285,78 +287,7 @@ class Datakontrak extends CI_Controller
             $kodeDi,
             $userId
         );
-
         // Redirect ke halaman yang sesuai atau kirim respons JSON sesuai kebutuhan
         redirect('admin/datakontrak');
-    }
-
-    private function handleFileUpload($idDatakontrak, $data)
-    {
-        // Daftar nama field input gambar yang ingin Anda proses
-        $gambarFields = array(
-            'dp_dokkontrak',
-            'dp_gbrrencana',
-            'dp_lapharian',
-            'dp_lapmingguan',
-            'dp_lapbulanan',
-            'dp_dokumentasi',
-            'dp_gbrasbuild',
-            'dp_mcnol',
-            'dp_mcseratus',
-        );
-
-        // Melakukan proses upload gambar untuk setiap field
-        foreach ($gambarFields as $field) {
-            if (!empty($_FILES[$field]['name'])) {
-                $_FILES['userfile'] = $_FILES[$field];
-
-                // Ubah nama file sesuai format yang diinginkan
-                $newFileName = 'Dokumen_' . $field . '_' . $idDatakontrak;
-
-                // Menambahkan ekstensi file (jika tidak ada)
-                $ext = pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION);
-                $newFileNameWithExt = $newFileName . ($ext ? '.' . $ext : '');
-
-                // Menambahkan kondisi untuk mereplace spasi dengan underscore pada nama file
-                $config['file_name'] = str_replace(' ', '_', $newFileNameWithExt);
-
-                $config['upload_path'] = FCPATH . './upload/dokumendatakontrak';
-                $config['allowed_types'] = 'pdf'; // Sesuaikan dengan tipe file yang diizinkan
-                $config['max_size'] = 10000;
-
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('userfile')) {
-                    $data[$field] = $config['file_name'];
-                } else {
-                    // Tangani kesalahan unggah, misalnya:
-                    $error = array('error' => $this->upload->display_errors());
-                    print_r($error);
-                    return; // Hentikan proses jika terjadi kesalahan unggah
-                }
-            }
-        }
-
-        // Update the data in the database with the new file names or existing file names
-        $this->M_emonitoring->update_datakontrak_files($idDatakontrak, $data);
-    }
-
-
-
-    private function deleteOldFile($idDatakontrak, $field)
-    {
-        // // Ambil nama file lama
-        // $oldFilename = $this->db->select($field)
-        //     ->where('id', $idDatakontrak)
-        //     ->get('data_kontrak')
-        //     ->row_array()[$field];
-
-        // // Hapus file lama jika ada
-        // if (!empty($oldFilename)) {
-        //     $filepath = FCPATH . './upload/dokumendatakontrak/' . $oldFilename;
-        //     if (file_exists($filepath)) {
-        //         unlink($filepath);
-        //     }
-        // }
     }
 }

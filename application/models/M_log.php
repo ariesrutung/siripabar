@@ -31,4 +31,15 @@ class M_log extends CI_Model
         $this->db->insert('log_users', $data);
         return $this->db->insert_id();
     }
+
+    public function addlog($user, $activity)
+    {
+        $data = array(
+            'user_id' => $user,
+            'activity' => $activity
+        );
+
+        $this->db->insert('log_users', $data);
+        return $this->db->insert_id();
+    }
 }

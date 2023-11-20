@@ -16,6 +16,7 @@ class Auth extends CI_Controller
         $this->load->database();
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->helper(['url', 'language']);
+        $this->load->model(['M_log']);
 
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -163,6 +164,9 @@ class Auth extends CI_Controller
      */
     public function logout()
     {
+        // $user_name = $this->session->unset_userdata('username');
+        // $this->M_log->add("<strong>" . $user_name . "</strong> telah berhasil logout");
+
         $this->data['title'] = "Logout";
 
         $this->session->unset_userdata('username');

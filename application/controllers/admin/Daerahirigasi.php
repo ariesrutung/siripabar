@@ -15,7 +15,8 @@ class Daerahirigasi extends CI_Controller
                 redirect('Auth');
             }
         }
-        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library(['ion_auth', 'form_validation', 'loguserlib']);
+
         $this->load->model(['M_daerahirigasi', 'M_wilayah', 'M_log']);
     }
     public function index()
@@ -105,8 +106,9 @@ class Daerahirigasi extends CI_Controller
         $config_daerah_irigasi['allowed_types'] = 'gif|jpg|png';
         $config_daerah_irigasi['max_size'] = 10000;
 
-        $user_name = $this->session->userdata('username');
-        $this->M_log->add("<strong>" . $user_name . "</strong> menambahkan 1 daerah irigasi di" . $selected_nama_kabupaten);
+        // $user_name = $this->session->userdata('username');
+        // $this->M_log->add("<strong>" . $user_name . "</strong> menambahkan 1 daerah irigasi di" . $selected_nama_kabupaten);
+
 
         $this->upload->initialize($config_daerah_irigasi);
 
@@ -130,6 +132,11 @@ class Daerahirigasi extends CI_Controller
             // Simpan data daerah irigasi ke tabel
             $this->M_daerahirigasi->insert_daerah_irigasi($dataDaerahIrigasi);
 
+            // Tambah Activity User
+            $user_id = $this->ion_auth->user()->row()->id;
+            $user_name = $this->ion_auth->user()->row()->username;
+            $user_act = $user_name . " menambahkan Daerah Irigasi " . $this->input->post('nama_di') . " di " . $selected_nama_kabupaten_formatted;
+            $this->loguserlib->add_activity($user_id, $user_act);
             // Konfigurasi upload untuk gambar di skema
             $config_skema['upload_path'] = './public/company/img/skema/';
             $config_skema['allowed_types'] = 'gif|jpg|png';

@@ -58,7 +58,7 @@
                             <table class="table student-data-table m-t-20">
                                 <thead>
                                     <tr>
-                                        <th>User ID</th>
+                                        <th class="text-center w-5">User ID</th>
                                         <th>Waktu</th>
                                         <th>Aktivitas</th>
                                         <th class="text-center">Aksi</th>
@@ -67,7 +67,7 @@
                                 <tbody>
                                     <?php foreach ($logs as $log) : ?>
                                         <tr>
-                                            <td><?= $log->user_id ?></td>
+                                            <td class="text-center"><?= $log->user_id ?></td>
                                             <td><?= $log->waktu ?></td>
                                             <td><?= $log->activity ?></td>
                                             <td class="text-center">

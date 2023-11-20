@@ -44,6 +44,7 @@ class M_emonitoring extends CI_Model
     public function insert_datakontrak($data)
     {
         $this->db->insert('data_kontrak', $data);
+        return TRUE;
     }
 
     public function delete_datakontrak($idDatakontrak)
@@ -124,65 +125,88 @@ class M_emonitoring extends CI_Model
         $dpLapBulanan,
         $dpMcSeratus,
         $dpDokumentasi,
-        $kodeDi,
-        $userId
+        $kodeDi
+        // $userId
     ) {
+        // Get the existing data from the database
+        $existingData = $this->db->get_where('data_kontrak', array('id' => $idDatakontrak))->row_array();
+
+        // Compare each field with the new value and update only if it has changed
         $data = array(
-            'nama_paket' => $namaPaket,
-            'penyedia_jasa' => $penyediaJasa,
-            'no_kontrak' => $noKontrak,
-            'tgl_kontrak' => $tglKontrak,
-            'no_spmk' => $noSpmk,
-            'tgl_spmk' => $tglSpmk,
-            'sumber_dana' => $sumberDana,
-            'tahun_sumberdana' => $tahunSumberDana,
-            'nilai_kontrak' => $nilaiKontrak,
-            'lok_kabupaten' => $lokKabupaten,
-            'lok_distrik' => $lokDistrik,
-            'titik_koordinat' => $titikKoordinat,
-            'output_produk' => $outputProduk,
-            'tgl_rencanapho' => $tglRencanaPho,
-            'masa_pelaksanaan' => $masaPelaksanaan,
-            'pk_januari' => $pkJanuari,
-            'pk_februari' => $pkFebruari,
-            'pk_maret' => $pkMaret,
-            'pk_april' => $pkApril,
-            'pk_mei' => $pkMei,
-            'pk_juni' => $pkJuni,
-            'pk_juli' => $pkJuli,
-            'pk_agustus' => $pkAgustus,
-            'pk_september' => $pkSeptember,
-            'pk_oktober' => $pkOktober,
-            'pk_november' => $pkNovember,
-            'pk_desember' => $pkDesember,
-            'dp_dokkontrak' => $dpDokkontrak,
-            'dp_gbrrencana' => $dpGbrRencana,
-            'dp_gbrasbuild' => $dpGbrAsbuild,
-            'dp_mcnol' => $dpMcnol,
-            'dp_lapharian' => $dp_LapHarian,
-            'dp_lapmingguan' => $dpLapMingguan,
-            'dp_lapbulanan' => $dpLapBulanan,
-            'dp_mcseratus' => $dpMcSeratus,
-            'dp_dokumentasi' => $dpDokumentasi,
-            'kode_di' => $kodeDi,
-            'user_id' => $userId
+            'nama_paket' => ($namaPaket != $existingData['nama_paket']) ? $namaPaket : $existingData['nama_paket'],
+            'penyedia_jasa' => ($penyediaJasa != $existingData['penyedia_jasa']) ? $penyediaJasa : $existingData['penyedia_jasa'],
+            'no_kontrak' => ($noKontrak != $existingData['no_kontrak']) ? $noKontrak : $existingData['no_kontrak'],
+            'tgl_kontrak' => ($tglKontrak != $existingData['tgl_kontrak']) ? $tglKontrak : $existingData['tgl_kontrak'],
+            'no_spmk' => ($noSpmk != $existingData['no_spmk']) ? $noSpmk : $existingData['no_spmk'],
+            'tgl_spmk' => ($tglSpmk != $existingData['tgl_spmk']) ? $tglSpmk : $existingData['tgl_spmk'],
+            'sumber_dana' => ($sumberDana != $existingData['sumber_dana']) ? $sumberDana : $existingData['sumber_dana'],
+            'tahun_sumberdana' => ($tahunSumberDana != $existingData['tahun_sumberdana']) ? $tahunSumberDana : $existingData['tahun_sumberdana'],
+            'nilai_kontrak' => ($nilaiKontrak != $existingData['nilai_kontrak']) ? $nilaiKontrak : $existingData['nilai_kontrak'],
+            'lok_kabupaten' => ($lokKabupaten != $existingData['lok_kabupaten']) ? $lokKabupaten : $existingData['lok_kabupaten'],
+            'lok_distrik' => ($lokDistrik != $existingData['lok_distrik']) ? $lokDistrik : $existingData['lok_distrik'],
+            'titik_koordinat' => ($titikKoordinat != $existingData['titik_koordinat']) ? $titikKoordinat : $existingData['titik_koordinat'],
+            'output_produk' => ($outputProduk != $existingData['output_produk']) ? $outputProduk : $existingData['output_produk'],
+            'tgl_rencanapho' => ($tglRencanaPho != $existingData['tgl_rencanapho']) ? $tglRencanaPho : $existingData['tgl_rencanapho'],
+            'masa_pelaksanaan' => ($masaPelaksanaan != $existingData['masa_pelaksanaan']) ? $masaPelaksanaan : $existingData['masa_pelaksanaan'],
+            'pk_januari' => ($pkJanuari != $existingData['pk_januari']) ? $pkJanuari : $existingData['pk_januari'],
+            'pk_februari' => ($pkFebruari != $existingData['pk_februari']) ? $pkFebruari : $existingData['pk_februari'],
+            'pk_maret' => ($pkMaret != $existingData['pk_maret']) ? $pkMaret : $existingData['pk_maret'],
+            'pk_april' => ($pkApril != $existingData['pk_april']) ? $pkApril : $existingData['pk_april'],
+            'pk_mei' => ($pkMei != $existingData['pk_mei']) ? $pkMei : $existingData['pk_mei'],
+            'pk_juni' => ($pkJuni != $existingData['pk_juni']) ? $pkJuni : $existingData['pk_juni'],
+            'pk_juli' => ($pkJuli != $existingData['pk_juli']) ? $pkJuli : $existingData['pk_juli'],
+            'pk_agustus' => ($pkAgustus != $existingData['pk_agustus']) ? $pkAgustus : $existingData['pk_agustus'],
+            'pk_september' => ($pkSeptember != $existingData['pk_september']) ? $pkSeptember : $existingData['pk_september'],
+            'pk_oktober' => ($pkOktober != $existingData['pk_oktober']) ? $pkOktober : $existingData['pk_oktober'],
+            'pk_november' => ($pkNovember != $existingData['pk_november']) ? $pkNovember : $existingData['pk_november'],
+            'pk_desember' => ($pkDesember != $existingData['pk_desember']) ? $pkDesember : $existingData['pk_desember'],
+            'dp_dokkontrak' => ($dpDokkontrak != $existingData['dp_dokkontrak']) ? $dpDokkontrak : $existingData['dp_dokkontrak'],
+            'dp_gbrrencana' => ($dpGbrRencana != $existingData['dp_gbrrencana']) ? $dpGbrRencana : $existingData['dp_gbrrencana'],
+            'dp_gbrasbuild' => ($dpGbrAsbuild != $existingData['dp_gbrasbuild']) ? $dpGbrAsbuild : $existingData['dp_gbrasbuild'],
+            'dp_mcnol' => ($dpMcnol != $existingData['dp_mcnol']) ? $dpMcnol : $existingData['dp_mcnol'],
+            'dp_lapharian' => ($dp_LapHarian != $existingData['dp_lapharian']) ? $dp_LapHarian : $existingData['dp_lapharian'],
+            'dp_lapmingguan' => ($dpLapMingguan != $existingData['dp_lapmingguan']) ? $dpLapMingguan : $existingData['dp_lapmingguan'],
+            'dp_lapbulanan' => ($dpLapBulanan != $existingData['dp_lapbulanan']) ? $dpLapBulanan : $existingData['dp_lapbulanan'],
+            'dp_mcseratus' => ($dpMcSeratus != $existingData['dp_mcseratus']) ? $dpMcSeratus : $existingData['dp_mcseratus'],
+            'dp_dokumentasi' => ($dpDokumentasi != $existingData['dp_dokumentasi']) ? $dpDokumentasi : $existingData['dp_dokumentasi'],
+            'kode_di' => ($kodeDi != $existingData['kode_di']) ? $kodeDi : $existingData['kode_di']
+            // 'user_id' => $userId
         );
+
+        // Get the existing data from the database
+        $existingData = $this->db->get_where('data_kontrak', array('id' => $idDatakontrak))->row_array();
+
+        // Debugging: Output existing and new data for comparison
+        echo "Existing Data: ";
+        print_r($existingData);
+
+        // Compare each field with the new value and update only if it has changed
+        $data = array(
+            'nama_paket' => ($namaPaket != $existingData['nama_paket']) ? $namaPaket : $existingData['nama_paket'],
+            'penyedia_jasa' => ($penyediaJasa != $existingData['penyedia_jasa']) ? $penyediaJasa : $existingData['penyedia_jasa'],
+            // Repeat this for each field
+        );
+
+        // Debugging: Output the new data after comparison
+        echo "New Data: ";
+        print_r($data);
 
         $this->db->where('id', $idDatakontrak);
         $this->db->update('data_kontrak', $data);
     }
 
-    public function update_datakontrak_files($idDatakontrak, $data)
-    {
-        $this->db->where('id', $idDatakontrak);
-        $this->db->set($data);
-        $this->db->update('data_kontrak');
-    }
+    // public function update_datakontrak_files($idDatakontrak, $data)
+    // {
+    //     $this->db->where('id', $idDatakontrak);
+    //     $this->db->set($data);
+    //     $this->db->update('data_kontrak');
+    // }
 
     public function get_data_kontrak_by_tahun_sumberdana()
     {
         $this->db->select("tahun_sumberdana, COUNT(*) as jumlah_kontrak");
         $this->db->from("data_kontrak");
+        $this->db->where_not_in("tahun_sumberdana", "0000");
         $this->db->group_by("tahun_sumberdana");
         $query = $this->db->get();
         return $query->result();
