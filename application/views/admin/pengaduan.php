@@ -310,10 +310,6 @@
             </div>
         </div>
     </div>
-    <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
-    <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
-    <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-
 
     <script>
         $(document).ready(function() {

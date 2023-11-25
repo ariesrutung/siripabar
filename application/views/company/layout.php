@@ -72,6 +72,11 @@
             width: 100% !important;
             justify-content: center;
         }
+
+        /* .navbar-nav.mr-auto a {
+            padding: 5px 20px !important;
+            font-size: 16px;
+        } */
     </style>
 </head>
 

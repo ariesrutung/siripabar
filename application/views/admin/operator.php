@@ -61,6 +61,10 @@
 
                                             </td>
                                             <td>
+                                                <?php echo $op->email; ?>
+
+                                            </td>
+                                            <td>
                                                 <?php echo $op->username; ?>
                                             </td>
                                             <td>
@@ -69,7 +73,7 @@
                                             <td class="text-center">
 
                                                 <div class="aksi">
-                                                    <a href="#" class="btn btn-primary btnEditOperator" data-toggle="modal" data-target="#modalEditOperator" data-user-id="<?php echo $op->id; ?>">
+                                                    <a href="#" class="btn btn-primary btnEditOperator" data-user_id="<?php echo $op->id; ?>" data-first_name="<?php echo $op->first_name; ?>" data-last_name="<?php echo $op->last_name; ?>" data-email="<?php echo $op->email; ?>" data-username="<?php echo $op->username; ?>" data-company="<?php echo $op->company; ?>" data-phone="<?php echo $op->phone; ?>">
                                                         <span class="icon text-white-50">
                                                             <i class="fa fa-edit"></i>
                                                         </span>
@@ -217,89 +221,96 @@
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body">
-                <?php if (isset($user_data)) : ?>
-                    <!-- Your existing content that uses $user_data goes here -->
-
-                    <?php echo $this->session->flashdata('message'); ?>
-                    <?php echo form_open("admin/operator/update_user/{$user_data->id}"); ?>
-                    <input type="hidden" name="user_id" value="<?php echo $user_data->id; ?>">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="first_name">Nama Depan</label>
-                                <input type="text" class="form-control" name="first_name" value="<?php echo set_value('first_name', $user_data->first_name); ?>">
-                            </div>
+                <?php echo $this->session->flashdata('message'); ?>
+                <?php echo form_open_multipart('admin/operator/update_data_user'); ?>
+                <input type="hidden" name="user_id" id="id_user_edit">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="first_name">Nama Depan</label>
+                            <input type="text" class="form-control" name="first_name" id="first_name_edit">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="last_name">Nama Belakang</label>
-                                <input type="text" class="form-control" name="last_name" value="<?php echo set_value('last_name', $user_data->last_name); ?>">
-                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="last_name">Nama Belakang</label>
+                            <input type="text" class="form-control" name="last_name" id="last_name_edit">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" value="<?php echo set_value('username', $user_data->username); ?>">
-                            </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="last_name">Level</label>
+                            <select class="form-control" name="user_level" id="user_level_edit" required>
+                                <option value="">Pilih</option>
+                                <option value="1">Admin</option>
+                                <option value="3">Operator</option>
+                                <option value="2">Tamu</option>
+                            </select>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="company">Nama Kantor/Perusahaan</label>
-                                <input type="text" class="form-control" name="company" value="<?php echo set_value('company', 'SIRIPABAR'); ?>" readonly>
-                            </div>
+                    </div> -->
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" readonly id="username_edit">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="email">Alamat Email</label>
-                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="<?php echo set_value('email', $user_data->email); ?>">
-                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="company">Nama Kantor/Perusahaan</label>
+                            <input type="text" class="form-control" name="company" readonly id="company_edit">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="phone">Nomor HP</label>
-                                <input type="text" class="form-control" name="phone" value="<?php echo set_value('phone', $user_data->phone); ?>">
-                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" class="form-control" name="email" readonly id="email_edit">
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="password">Kata Sandi</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="phone">Nomor HP</label>
+                            <input type="text" class="form-control" name="phone" id="phone_edit">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="password">Kata Sandi</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="password" id="password_edit">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </span>
                                 </div>
-                                <?php if (form_error('password')) : ?>
-                                    <div class="alert alert-danger mt-2">
-                                        <?php echo form_error('password'); ?>
-                                    </div>
-                                <?php endif; ?>
                             </div>
+                            <?php if (form_error('password')) : ?>
+                                <div class="alert alert-danger mt-2">
+                                    <?php echo form_error('password'); ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="password_confirm">Konfirmasi Kata Sandi</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password_confirm" value="<?php echo set_value('password_confirm'); ?>">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="password_confirm">Konfirmasi Kata Sandi</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="password_confirm" id="password_confirm_edit">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-12  d-flex justify-content-end">
-                            <button type="submit" name="submit" class="btn btn-primary">Update</button>
-                        </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12  d-flex justify-content-end">
+                        <button id="btnSubmitEditOperator" type="submit" name="submit" class="btn btn-primary">Update</button>
                     </div>
-                    <?php echo form_close(); ?>
-                <?php endif; ?>
+                </div>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>
@@ -308,26 +319,6 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.btnEditOperator').on('click', function() {
-            var userId = $(this).data('user-id');
-
-            // Fetch user data using Ajax
-            $.ajax({
-                type: 'GET',
-                url: 'operator/edit_user/' + userId,
-                success: function(response) {
-                    // Inject the fetched HTML into the modal body
-                    $('#modalEditOperator .modal-body').html(response);
-                    // Open the modal
-                    $('#modalEditOperator').modal('show');
-                },
-                error: function() {
-                    // Handle error if necessary
-                }
-            });
-        });
-
-
         $('.deleteOperator').on('click', function(e) {
             e.preventDefault();
 
@@ -373,50 +364,6 @@
 
         $('#menuoperator').last().addClass("active");
 
-        // Add an event listener to the form submit button
-        // $('form').submit(function(event) {
-        //     // Array to store error messages
-        //     var errorMessages = [];
-        //     var email = $('#email').val();
-
-        //     // Check if any of the required fields are empty
-        //     $(this).find('input[type="text"], input[type="email"], input[type="password"]').each(function() {
-        //         if ($(this).val() === '') {
-        //             var fieldName = $(this).attr('name');
-        //             errorMessages.push(capitalizeFirstLetter(fieldName) + ' belum diisi.');
-        //         }
-        //     });
-
-        //     // Check if the password and password_confirm fields match
-        //     var password = $('#password').val();
-        //     var passwordConfirm = $('#password_confirm').val();
-
-        //     if (password !== passwordConfirm) {
-        //         errorMessages.push('Password dan konfirmasi password tidak sesuai.');
-        //     }
-
-        //     // Check password complexity (uppercase, lowercase, number, and special character)
-        //     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
-        //     if (!passwordRegex.test(password)) {
-        //         errorMessages.push('Password harus mengandung gabungan huruf besar, huruf kecil, angka, dan karakter khusus.');
-        //     }
-
-        //     // Check password length (minimum 6 characters)
-        //     if (password.length < 6) {
-        //         errorMessages.push('Password harus memiliki minimal 6 karakter.');
-        //     }
-
-        //     // Display SweetAlert if there are any error messages
-        //     if (errorMessages.length > 0) {
-        //         event.preventDefault(); // prevent form submission
-        //         Swal.fire({
-        //             icon: 'error',
-        //             title: 'Oops...',
-        //             html: errorMessages.join('<br>')
-        //         });
-        //     }
-        // });
-
         // Function to capitalize the first letter of a string
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -441,5 +388,76 @@
         });
 
         // Rest of your existing JavaScript code...
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.btnEditOperator').on('click', function() {
+
+            var user_id = $(this).data('user_id');
+            var first_name = $(this).data('first_name');
+            var last_name = $(this).data('last_name');
+            var username = $(this).data('username');
+            var company = $(this).data('company');
+            var email = $(this).data('email');
+            var phone = $(this).data('phone');
+
+            $('#id_user_edit').val(user_id);
+            $('#first_name_edit').val(first_name);
+            $('#last_name_edit').val(last_name);
+            $('#username_edit').val(username);
+            $('#company_edit').val(company);
+            $('#email_edit').val(email);
+            $('#phone_edit').val(phone);
+
+            $('#modalEditOperator').modal('show');
+
+
+            $('#btnSubmitEditOperator').on('click', function() {
+                // Implementasikan logika penyimpanan data di sini
+                var id = $('#id_user_edit').val();
+                var first_name = $('#first_name_edit').val();
+                var last_name = $('#last_name_edit').val();
+                var username = $('#username_edit').val();
+                var company = $('#company_edit').val();
+                var email = $('#email_edit').val();
+                var phone = $('#phone_edit').val();
+                var password = $('#password_edit').val();
+                // var password_confirm = $('#password_confirm_edit').val();
+
+                // Kirim data ke controller untuk disimpan/update di database
+                $.ajax({
+                    url: 'operator/update_data_user/' + user_id, // Include the user_id in the URL
+                    type: 'POST',
+                    data: {
+                        user_id: user_id, // Include user_id in the data being sent
+                        first_name: first_name,
+                        last_name: last_name,
+                        username: username,
+                        company: company,
+                        email: email,
+                        phone: phone,
+                        password: password,
+                        // password_confirm: password_confirm,
+                    },
+                    success: function(response) {
+                        // Tampilkan pesan sukses atau sesuaikan dengan kebutuhan
+                        alert('Data berhasil diupdate.');
+
+                        // Tutup modal
+                        $('#modalEditOperator').modal('hide');
+
+                        // Refresh halaman atau lakukan tindakan lainnya
+                        location.reload();
+                    },
+                    error: function() {
+                        // Tampilkan pesan kesalahan atau sesuaikan dengan kebutuhan
+                        alert('Error updating data. Please try again.');
+                    }
+                });
+            });
+
+        });
     });
 </script>

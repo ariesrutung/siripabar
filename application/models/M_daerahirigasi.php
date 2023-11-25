@@ -127,11 +127,11 @@ class M_daerahirigasi extends CI_Model
         return null;
     }
 
-    public function updateData($id, $data)
-    {
-        $this->db->where('id', $id);
-        $this->db->update('daerah_irigasi', $data);
-    }
+    // public function updateData($id, $data)
+    // {
+    //     $this->db->where('id', $id);
+    //     $this->db->update('daerah_irigasi', $data);
+    // }
 
     public function delete_data($id, $table)
     {
@@ -156,5 +156,17 @@ class M_daerahirigasi extends CI_Model
         $this->db->group_by("kabupaten");
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function updateDaerahIrigasi($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('daerah_irigasi', $data);
+    }
+
+    public function updateSkemaDaerahIrigasi($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('skema', $data);
     }
 }

@@ -223,7 +223,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="text-label">Judul Berita</label>
-                            <input type="text" class="form-control" name="judul" required>
+                            <input type="text" class="form-control" name="judul">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -232,29 +232,29 @@
                             <textarea class="form-control" id="isiberita" name="isiberita"></textarea>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="text-label">Lokasi Berita</label>
                             <input class="form-control" id="lok_berita" name="lok_berita">
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="text-label">Tag Berita</label>
                             <input class="form-control" id="tag" name="tag">
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="text-label">Tanggal Publikasi</label>
-                            <input type="datetime-local" class="form-control" name="tanggal" required>
+                            <input type="datetime-local" class="form-control" name="tanggal">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="text-label">Gambar Berita</label><br>
                             <!-- <input type="file" class="form-control" name="gambar" required> -->
-                            <input type="file" id="gambar" name="gambar" accept="image/*" onchange="loadFile(event)" required>
+                            <input type="file" id="gambar" name="gambar" accept="image/*" onchange="loadFile(event)">
                             <img class="w-25" id="gbr" />
                         </div>
                     </div>
@@ -292,30 +292,28 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="edit_judul">Judul Berita</label>
-                            <input type="text" class="form-control" id="edit_judul" name="edit_judul" required>
+                            <input type="text" class="form-control" id="edit_judul" name="edit_judul">
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="edit_isiberita">Isi Berita</label>
-                            <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita">
-                    </textarea>
-                            <div class="summernote"></div>
+                            <textarea type="text" class="form-control" id="edit_isiberita" name="edit_isiberita"></textarea>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label class="text-label">Lokasi Berita</label>
                             <input class="form-control" id="edit_lokberita" name="edit_lokberita">
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label for="edit_tanggal">Waktu Publikasi</label>
-                            <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal" required>
+                            <input type="datetime-local" class="form-control" id="edit_tanggal" name="edit_tanggal">
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label class="text-label">Tag Berita</label>
                             <input class="form-control" id="edit_tag" name="edit_tag">
@@ -325,7 +323,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="edit_gambar">Gambar Berita</label><br>
-                            <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)" required>
+                            <input type="file" id="edit_gambar" name="edit_gambar" accept="image/*" onchange="loadFile(event)">
                             <img id="previewGambar" class="w-25" src="<?php echo base_url(); ?>upload/berita" alt="Gambar Daerah Irigasi">
                         </div>
                     </div>
@@ -348,20 +346,6 @@
 </div>
 </div>
 
-<!-- jquery vendor -->
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.min.js"></script>
-
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/jquery.nanoscroller.min.js"></script>
-<!-- nano scroller -->
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/menubar/sidebar.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/lib/preloader/pace.min.js"></script>
-<!-- sidebar -->
-
-<script src="<?php echo base_url(); ?>public/focus-theme/assets/js/scripts.js"></script>
-<!-- scripit init-->
-<script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
-<script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
 <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -369,6 +353,13 @@
 <script>
     $(document).ready(function() {
         $('#menuberita').last().addClass("active");
+    });
+
+    tinymce.init({
+        selector: '#isiberita',
+        plugins: 'autoresize',
+        height: 300,
+        // Add other configurations as needed
     });
 </script>
 
@@ -379,7 +370,6 @@
             var idBerita = $(this).data('idberita');
             var judul = $(this).data('judul');
             var isiberita = $(this).data('isiberita');
-            console.log(isiberita);
             var lok_berita = $(this).data('lok_berita');
             var tag = $(this).data('tag');
             var tanggal = $(this).data('tanggal');

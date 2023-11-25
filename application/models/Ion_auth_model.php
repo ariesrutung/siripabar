@@ -2639,13 +2639,9 @@ class Ion_auth_model extends CI_Model
 		return $query->row();
 	}
 
-	public function update_user($user_id, $data)
+	public function updateDataUser($id, $data)
 	{
-		// Query untuk mengupdate data user berdasarkan $user_id
-		$this->db->where('id', $user_id);
+		$this->db->where('id', $id);
 		$this->db->update('users', $data);
-
-		// Mengembalikan TRUE jika proses update berhasil
-		return $this->db->affected_rows() > 0;
 	}
 }

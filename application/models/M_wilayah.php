@@ -15,4 +15,10 @@ class M_wilayah extends CI_Model
         $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND LEFT(kode,2) = '92'");
         return $query->result();
     }
+
+    public function get_distrik_by_kabupaten($kode_kab)
+    {
+        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 6 AND LEFT(kode, 5) = '$kode_kab'");
+        return $query->result();
+    }
 }

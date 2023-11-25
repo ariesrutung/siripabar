@@ -67,6 +67,25 @@
             font-size: 12px;
             text-transform: capitalize;
         }
+
+        li.nav-item.dropdown.header-profile a.nav-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li.nav-item.dropdown.header-profile i.mdi.mdi-account {
+            padding: 0 5px;
+        }
+
+        li.nav-item.dropdown.header-profile i.ti-angle-down {
+            padding: 0 10px;
+            font-size: 12px;
+        }
+
+        .dropdown-menu.dropdown-menu-right {
+            top: 85%;
+        }
     </style>
 </head>
 
@@ -133,7 +152,7 @@
             </div> -->
 
                         <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
+                            <!-- <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <i class="mdi mdi-bell"></i>
                                     <div class="pulse-css"></div>
@@ -191,27 +210,27 @@
                                     </ul>
                                     <a class="all-notification" href="#">See all notifications <i class="ti-arrow-right"></i></a>
                                 </div>
-                            </li>
+                            </li> -->
                             <?php if ($this->ion_auth->logged_in()) : ?>
-                                <!-- Your user-related dropdown code here -->
-
+                                <!-- Kode dropdown terkait pengguna di sini -->
                                 <li class="nav-item dropdown header-profile show">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                        <i class="mdi mdi-account"></i>
                                         <span><?php $user = $this->ion_auth->user()->row();
-                                                echo $user->username; ?></span> <i class="mdi mdi-account"></i>
+                                                echo $user->username; ?></span><i class="ti-angle-down"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">
+                                        <!-- <a href="#" class="dropdown-item">
                                             <i class="icon-user"></i>
-                                            <span class="ml-2">Profile</span>
+                                            <span class="ml-2">Profil</span>
                                         </a>
                                         <a href="#" class="dropdown-item">
                                             <i class="icon-envelope-open"></i>
-                                            <span class="ml-2">Inbox</span>
-                                        </a>
+                                            <span class="ml-2">Kotak Masuk</span>
+                                        </a> -->
                                         <a href="<?php echo base_url('auth/logout'); ?>" class="dropdown-item">
                                             <i class="icon-key"></i>
-                                            <span class="ml-2">Logout</span>
+                                            <span class="ml-2">Keluar</span>
                                         </a>
                                     </div>
                                 </li>
@@ -306,7 +325,6 @@
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
-
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/chartist/js/chartist.min.js"></script>
 
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/moment/moment.min.js"></script>

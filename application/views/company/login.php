@@ -75,6 +75,27 @@
             color: #721c24;
             background-color: #f8d7da;
             border-color: #f5c6cb;
+            font-size: 12px;
+        }
+
+        .input-group-text i {
+            color: #030f27 !important;
+        }
+
+        .input-group-text {
+            background: #e8f0fe;
+            color: #030f27 !important;
+            border: 1px solid transparent;
+            min-width: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-control {
+            background: #fff;
+            border: transparent !important;
+            color: #454545;
+            height: 50px;
         }
     </style>
 
@@ -93,15 +114,22 @@
                             <div class="col-xl-7">
                                 <div class="auth-form">
                                     <h2 class="text-center mb-4 strong">SELAMAT DATANG</h2>
-                                    <!-- <?php echo $this->session->flashdata('message'); ?></p> -->
+                                    <p><?php echo $this->session->flashdata('message'); ?></p>
                                     <?php echo form_open("auth/login"); ?>
                                     <div class="form-group">
-                                        <label class=""><strong>Email</strong></label>
+                                        <label class=""><strong>Username</strong></label>
                                         <input type="text" name="identity" class="form-control" id="identity" required placeholder="Ketik email Anda di sini">
                                     </div>
                                     <div class="form-group">
                                         <label><strong>Kata Sandi</strong></label>
-                                        <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
+                                        <div class="input-group">
+                                            <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="toggle-password">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
                                         <a href="page-forgot-password.html">Lupa Kata Sandi?</a>
@@ -130,6 +158,19 @@
     <script src="<?php echo base_url(); ?>public/focus-theme/vendor/global/global.min.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/quixnav-init.js"></script>
     <script src="<?php echo base_url(); ?>public/focus-theme/js/custom.min.js"></script>
+
+    <script>
+        function togglePasswordVisibility(inputField, toggleButton) {
+            var type = inputField.attr('type') === 'password' ? 'text' : 'password';
+            inputField.attr('type', type);
+            toggleButton.children('i').toggleClass('fa-eye fa-eye-slash');
+        }
+        // Toggle password visibility for the password field
+        $('#toggle-password').on('click', function() {
+            var passwordField = $('#password');
+            togglePasswordVisibility(passwordField, $(this));
+        });
+    </script>
 </body>
 
 </html>

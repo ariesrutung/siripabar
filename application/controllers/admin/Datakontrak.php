@@ -9,7 +9,6 @@ class Datakontrak extends CI_Controller
         if (!$this->ion_auth->logged_in()) {
             redirect('Auth');
         } else {
-            // $userid = $this->ion_auth->get_user_id();
             $user_groups = $this->ion_auth->get_users_groups()->row();
             if ($user_groups->name == "members") {
                 redirect('Auth');
@@ -52,7 +51,6 @@ class Datakontrak extends CI_Controller
 
     public function tambah_datakontrak()
     {
-
         $config['upload_path'] = FCPATH . './upload/dokumendatakontrak';
         $config['allowed_types'] = 'pdf';
         $config['max_size'] = 10000;
@@ -80,11 +78,20 @@ class Datakontrak extends CI_Controller
             if (!empty($_FILES[$field]['name'])) {
                 $_FILES['userfile'] = $_FILES[$field];
 
-                // Menambahkan kondisi untuk mereplace spasi dengan underscore pada nama file
-                $config['file_name'] = str_replace(' ', '_', $_FILES['userfile']['name']);
+                $namaPaket = $this->input->post('nama_paket');
+                $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . $namaPaket;
+
+                // Jika subfolder belum ada, buat subfolder
+                if (!is_dir($subfolderPath)) {
+                    mkdir($subfolderPath, 0777, true);
+                }
+
+                $config['upload_path'] = $subfolderPath;  // Ganti path upload ke subfolder
+                $this->upload->initialize($config);
 
                 if ($this->upload->do_upload('userfile')) {
-                    $data[$field] = $this->upload->file_name;
+                    // Simpan nama file di dalam data
+                    $data[$field] = $_FILES[$field]['name'];
                 } else {
                     // Tangani kesalahan unggah, misalnya:
                     $error = array('error' => $this->upload->display_errors());
@@ -93,7 +100,9 @@ class Datakontrak extends CI_Controller
                 }
             }
         }
-        // Proses input data non-gambar   
+
+
+        // Proses input data non-gambar
         $data['nama_paket'] = $this->input->post('nama_paket');
         $data['penyedia_jasa'] = $this->input->post('penyedia_jasa');
         $data['no_kontrak'] = $this->input->post('no_kontrak');
@@ -121,53 +130,60 @@ class Datakontrak extends CI_Controller
         $data['pk_oktober'] = $this->input->post('pk_oktober');
         $data['pk_november'] = $this->input->post('pk_november');
         $data['pk_desember'] = $this->input->post('pk_desember');
-        // $data['kurvas'] = $this->input->post('kurvas');
         $data['kode_di'] = $this->input->post('kode_di');
         $data['user_id'] = $this->ion_auth->user()->row()->id;
 
 
         // Panggil fungsi insert_datakontrak pada model
         if ($this->M_emonitoring->insert_datakontrak($data)) {
-            // $this->Loguser->add_activity('6', 'menambahkan data kontrak');
+            // Membuat folder sesuai dengan nama_paket
+            $folder_path = './upload/dokumendatakontrak/' . $data['nama_paket'];
+            if (!is_dir($folder_path)) {
+                mkdir($folder_path, 0777, true);
+            }
+
             // Tambah Activity User
             $user_id = $this->ion_auth->user()->row()->id;
             $user_name = $this->ion_auth->user()->row()->username;
             $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menambahkan Data Kontrak No. " . $this->input->post('no_kontrak');
             $this->loguserlib->add_activity($user_id, $user_act);
         }
+
         // Redirect ke halaman yang sesuai
         redirect('admin/datakontrak');
     }
 
-    function add_ajax_kec($id)
+    public function unduh_dokumen($nama_paket, $nama_file)
     {
-        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND LEFT(kode,5) = '$id' ORDER BY kode ASC");
-        $data = "<option value=''> - Pilih Kecamatan/Distrik - </option>";
-        foreach ($query->result() as $value) {
-            $data .= "<option value='" . $value->kode . "'>" . $value->nama . "</option>";
-        }
-        echo $data;
-    }
+        $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . str_replace(' ', '_', $nama_paket);
+        $filePath = $subfolderPath . '/' . $nama_file;
 
-    public function download_dok_datakontrak($namafile)
-    {
-        $url = "upload/dokumendatakontrak/" . $namafile;
-        force_download($url, NULL);
+        // Pastikan file ada sebelum diunduh
+        if (file_exists($filePath)) {
+            header('Content-Type: application/pdf');
+            header('Content-Disposition: inline; filename="' . $nama_file . '"');
+            readfile($filePath);
+        } else {
+            echo "File not found.";
+        }
     }
 
     public function delete_data_kontrak()
     {
-        $user_name = $this->session->userdata('username');
-        $this->M_log->add("<strong>" . $user_name . "</strong> menghapus 1 data kontrak");
-
         $idDatakontrak = $this->input->post('id_datakontrak');
 
         // Panggil model untuk menghapus berita
         $this->M_emonitoring->delete_datakontrak($idDatakontrak);
 
+        $user_id = $this->ion_auth->user()->row()->id;
+        $user_name = $this->ion_auth->user()->row()->username;
+        $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menghapus Data Kontrak dengan id " . $idDatakontrak;
+        $this->loguserlib->add_activity($user_id, $user_act);
+
         // Redirect ke halaman berita setelah penghapusan
         redirect('admin/datakontrak');
     }
+
 
     public function get_data_by_id()
     {
@@ -199,95 +215,120 @@ class Datakontrak extends CI_Controller
 
     public function update_data()
     {
-        $user_name = $this->session->userdata('username');
-        $this->M_log->add("<strong>" . $user_name . "</strong> mengubah 1 data kontrak");
-
-        $idDatakontrak = $this->input->post('id_datakontrak');
-        $data = $this->M_emonitoring->get_data_by_id($idDatakontrak);
-
-        // Tangkap data yang dikirimkan dari formulir
-        $namaPaket = $this->input->post('nama_paket');
-        $penyediaJasa = $this->input->post('penyedia_jasa');
-        $noKontrak = $this->input->post('no_kontrak');
-        $tglKontrak = $this->input->post('tgl_kontrak');
-        $noSpmk = $this->input->post('no_spmk');
-        $tglSpmk = $this->input->post('tgl_spmk');
-        $sumberDana = $this->input->post('sumber_dana');
-        $tahunSumberDana = $this->input->post('tahun_sumberdana');
-        $nilaiKontrak = $this->input->post('nilai_kontrak');
-        $lokKabupaten = $this->input->post('lok_kabupaten');
-        $lokDistrik = $this->input->post('lok_distrik');
-        $titikKoordinat = $this->input->post('titik_koordinat');
-        $outputProduk = $this->input->post('output_produk');
-        $tglRencanaPho = $this->input->post('tgl_rencanapho');
-        $masaPelaksanaan = $this->input->post('masa_pelaksanaan');
-        $pkJanuari = $this->input->post('pk_januari');
-        $pkFebruari = $this->input->post('pk_februari');
-        $pkMaret = $this->input->post('pk_maret');
-        $pkApril = $this->input->post('pk_april');
-        $pkMei = $this->input->post('pk_mei');
-        $pkJuni = $this->input->post('pk_juni');
-        $pkJuli = $this->input->post('pk_juli');
-        $pkAgustus = $this->input->post('pk_agustus');
-        $pkSeptember = $this->input->post('pk_september');
-        $pkOktober = $this->input->post('pk_oktober');
-        $pkNovember = $this->input->post('pk_november');
-        $pkDesember = $this->input->post('pk_desember');
-        $dpDokkontrak = $this->input->post('edit_dp_dokkontrak');
-        $dpGbrRencana = $this->input->post('edit_dp_gbrrencana');
-        $dpGbrAsbuild = $this->input->post('edit_dp_gbrasbuild');
-        $dpMcnol = $this->input->post('edit_dp_mcnol');
-        $dp_LapHarian = $this->input->post('edit_dp_lapharian');
-        $dpLapMingguan = $this->input->post('edit_dp_lapmingguan');
-        $dpLapBulanan = $this->input->post('edit_dp_lapbulanan');
-        $dpMcSeratus = $this->input->post('edit_dp_mcseratus');
-        $dpDokumentasi = $this->input->post('edit_dp_dokumentasi');
-        $kodeDi = $this->input->post('kode_di');
-        $userId = $this->ion_auth->user()->row()->id;
-
-        // Panggil model untuk melakukan pembaruan data
-        $this->M_emonitoring->update_datakontrak(
-            $idDatakontrak,
-            $namaPaket,
-            $penyediaJasa,
-            $noKontrak,
-            $tglKontrak,
-            $noSpmk,
-            $tglSpmk,
-            $sumberDana,
-            $tahunSumberDana,
-            $nilaiKontrak,
-            $lokKabupaten,
-            $lokDistrik,
-            $titikKoordinat,
-            $outputProduk,
-            $tglRencanaPho,
-            $masaPelaksanaan,
-            $pkJanuari,
-            $pkFebruari,
-            $pkMaret,
-            $pkApril,
-            $pkMei,
-            $pkJuni,
-            $pkJuli,
-            $pkAgustus,
-            $pkSeptember,
-            $pkOktober,
-            $pkNovember,
-            $pkDesember,
-            $dpDokkontrak,
-            $dpGbrRencana,
-            $dpGbrAsbuild,
-            $dpMcnol,
-            $dp_LapHarian,
-            $dpLapMingguan,
-            $dpLapBulanan,
-            $dpMcSeratus,
-            $dpDokumentasi,
-            $kodeDi,
-            $userId
+        $id = $this->input->post('edit_id_datakontrak');
+        $data = array(
+            'nama_paket' => $this->input->post('edit_nama_paket'),
+            'penyedia_jasa' => $this->input->post('edit_penyedia_jasa'),
+            'no_kontrak' => $this->input->post('edit_no_kontrak'),
+            'tgl_kontrak' => $this->input->post('edit_tgl_kontrak'),
+            'no_spmk' => $this->input->post('edit_no_spmk'),
+            'tgl_spmk' => $this->input->post('edit_tgl_spmk'),
+            'sumber_dana' => $this->input->post('edit_sumber_dana'),
+            'tahun_sumberdana' => $this->input->post('edit_tahun_sumberdana'),
+            'nilai_kontrak' => $this->input->post('edit_nilai_kontrak'),
+            'lok_kabupaten' => $this->input->post('edit_lok_kabupaten'),
+            'lok_distrik' => $this->input->post('edit_lok_distrik'),
+            'titik_koordinat' => $this->input->post('edit_titik_koordinat'),
+            'output_produk' => $this->input->post('edit_output_produk'),
+            'tgl_rencanapho' => $this->input->post('edit_tgl_rencanapho'),
+            'masa_pelaksanaan' => $this->input->post('edit_masa_pelaksanaan'),
+            'pk_januari' => $this->input->post('edit_pk_januari'),
+            'pk_februari' => $this->input->post('edit_pk_februari'),
+            'pk_maret' => $this->input->post('edit_pk_maret'),
+            'pk_april' => $this->input->post('edit_pk_april'),
+            'pk_mei' => $this->input->post('edit_pk_mei'),
+            'pk_juni' => $this->input->post('edit_pk_juni'),
+            'pk_juli' => $this->input->post('edit_pk_juli'),
+            'pk_agustus' => $this->input->post('edit_pk_agustus'),
+            'pk_september' => $this->input->post('edit_pk_september'),
+            'pk_oktober' => $this->input->post('edit_pk_oktober'),
+            'pk_november' => $this->input->post('edit_pk_november'),
+            'pk_desember' => $this->input->post('edit_pk_desember'),
         );
-        // Redirect ke halaman yang sesuai atau kirim respons JSON sesuai kebutuhan
+
+        // Proses upload untuk setiap kolom yang memerlukan upload
+        $uploadColumns = array('dp_dokkontrak', 'dp_gbrrencana', 'dp_gbrasbuild', 'dp_mcnol', 'dp_lapharian', 'dp_lapmingguan', 'dp_lapbulanan', 'dp_mcseratus', 'dp_dokumentasi');
+
+        foreach ($uploadColumns as $column) {
+            // Memproses file jika ada yang diunggah
+            if (!empty($_FILES['edit_' . $column]['name'])) {
+                // Tentukan path folder yang akan menjadi tujuan upload atau update
+                $namaPaket = $data['nama_paket'];
+                $folderPath = FCPATH . 'upload/dokumendatakontrak/' . $namaPaket;
+                $config['upload_path'] = $folderPath;
+                $config['allowed_types'] = 'pdf';
+                $config['max_size'] = 10000;
+
+                // Pastikan folder tujuan sudah ada atau buat folder baru
+                if (!is_dir($folderPath)) {
+                    mkdir($folderPath, 0777, true);
+                }
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('edit_' . $column)) {
+                    // Hapus file lama dari sistem file
+                    $dokLama = $this->M_emonitoring->getGambarPathById($id);
+                    if (!empty($dokLama->$column)) {
+                        $filePath = FCPATH . 'upload/dokumendatakontrak/' . $namaPaketFolder . '/' . $dokLama->$column;
+                        if (file_exists($filePath) && unlink($filePath)) {
+                            echo 'File lama berhasil dihapus.';
+                        } else {
+                            echo 'Gagal menghapus file lama.';
+                        }
+                    }
+
+                    // Perbarui nama file di database
+                    $data[$column] = $_FILES['edit_' . $column]['name'];
+                } else {
+                    // Handle error jika upload gagal
+                    $error = array('error' => $this->upload->display_errors());
+                    print_r($error);
+                    return;
+                }
+            }
+        }
+
+        $this->M_emonitoring->update_data_kontrak($id, $data);
+        // Tambah Activity User
+        $user_id = $this->ion_auth->user()->row()->id;
+        $user_name = $this->ion_auth->user()->row()->username;
+        $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " mengubah Data Kontrak No. " . $this->input->post('edit_no_kontrak');
+        $this->loguserlib->add_activity($user_id, $user_act);
         redirect('admin/datakontrak');
+    }
+
+
+
+    public function get_distrik_by_kabupaten()
+    {
+        $kode_kab = $this->input->post('kode_kab');
+        $data = $this->M_wilayah->get_distrik_by_kabupaten($kode_kab);
+        echo json_encode($data);
+    }
+
+    public function getGambarDetail($id)
+    {
+        // Ambil data gambar dari database berdasarkan ID
+        $gambarPath = $this->M_emonitoring->getGambarPathById($id);
+
+        // Lakukan validasi jika data tidak ditemukan atau kosong
+        if ($gambarPath) {
+            // Kirim path gambar sebagai response
+            echo json_encode([
+                'dp_dokkontrak' => $gambarPath->dp_dokkontrak,
+                'dp_gbrrencana' => $gambarPath->dp_gbrrencana,
+                'dp_gbrasbuild' => $gambarPath->dp_gbrasbuild,
+                'dp_mcnol' => $gambarPath->dp_mcnol,
+                'dp_lapharian' => $gambarPath->dp_lapharian,
+                'dp_lapmingguan' => $gambarPath->dp_lapmingguan,
+                'dp_lapbulanan' => $gambarPath->dp_lapbulanan,
+                'dp_mcseratus' => $gambarPath->dp_mcseratus,
+                'dp_dokumentasi' => $gambarPath->dp_dokumentasi,
+            ]);
+        } else {
+            // Kirim response jika gambar tidak ditemukan
+            echo json_encode(['gambarPath' => null]);
+        }
     }
 }

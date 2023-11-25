@@ -26,11 +26,6 @@
         color: #fff;
         background: #030f27;
     }
-
-    .navbar-nav.mr-auto a {
-        padding: 5px 20px !important;
-        font-size: 18px;
-    }
 </style>
 
 <!-- Carousel Start -->

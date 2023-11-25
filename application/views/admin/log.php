@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+
 <style>
     #lapIrigasi {
         padding: 10px;
@@ -55,36 +58,20 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table student-data-table m-t-20">
+                            <table class="table datatable m-t-20" id="activityTable">
                                 <thead>
                                     <tr>
-                                        <th class="text-center w-5">User ID</th>
+                                        <th class="text-center w-5">No</th>
                                         <th>Waktu</th>
                                         <th>Aktivitas</th>
-                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($logs as $log) : ?>
+                                    <?php foreach ($logs as $key => $log) : ?>
                                         <tr>
-                                            <td class="text-center"><?= $log->user_id ?></td>
+                                            <td class="text-center"><?= $key + 1 ?></td>
                                             <td><?= $log->waktu ?></td>
-                                            <td><?= $log->activity ?></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-info btn-sm">
-                                                    <span class="icon">
-                                                        <i class="fa fa-eye text-white"></i>
-                                                    </span>
-                                                    <span class="text-white"> Detail</span>
-                                                </a>
-
-                                                <a href="#" class="btn btn-primary btn-sm">
-                                                    <span class="icon">
-                                                        <i class="fa fa-user text-white"></i>
-                                                    </span>
-                                                    <span class="text-white"> User</span>
-                                                </a>
-                                            </td>
+                                            <td onclick="filterByUser('<?= $log->user_id ?>')"><?= $log->activity ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -100,10 +87,18 @@
     </div>
 </div>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer="defer"></script>
 
 <script>
     $(document).ready(function() {
         $('#menulog').last().addClass("active");
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Inisialisasi DataTable
+        var table = $('#activityTable').DataTable();
     });
 </script>
 </body>

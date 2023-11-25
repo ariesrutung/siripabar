@@ -14,7 +14,7 @@ class Auth extends CI_Controller
         parent::__construct();
         // backButtonHandle();
         $this->load->database();
-        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library(['ion_auth', 'form_validation', 'loguserlib']);
         $this->load->helper(['url', 'language']);
         $this->load->model(['M_log']);
 
@@ -85,7 +85,7 @@ class Auth extends CI_Controller
                 // if the login was un-successful
                 // redirect them back to the login page
                 // $this->session->set_flashdata('message', $this->ion_auth->errors());
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username/Password salah</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username atau password Anda salah, silakan diperiksa kembali!</div>');
                 redirect('auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
             }
         } else {
@@ -878,12 +878,18 @@ class Auth extends CI_Controller
         }
     }
 
+
     public function hapus_user()
     {
         $id = $this->input->post('id');
         $this->ion_auth_model->deleteuser($id);
 
         if ($this->db->affected_rows() > 0) {
+            $user_id = $this->ion_auth->user()->row()->id;
+            $user_name = $this->ion_auth->user()->row()->username;
+            $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menghapus user ";
+            $this->loguserlib->add_activity($user_id, $user_act);
+
             echo "<script>alert('Data Berhasil Dihapus')</script>";
         }
         echo "<script>window.location='" . site_url('admin/akunpengguna') . "';</script>";

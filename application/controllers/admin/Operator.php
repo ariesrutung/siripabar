@@ -9,7 +9,8 @@ class Operator extends CI_Controller
         if (!$this->ion_auth->is_admin()) {
             redirect('Auth');
         }
-        $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library(['ion_auth', 'form_validation', 'loguserlib']);
+        $this->load->model(['Ion_auth_model']);
     }
     public function index()
     {
@@ -26,26 +27,44 @@ class Operator extends CI_Controller
 
     public function hapus_user($id)
     {
-
-        // Panggil fungsi delete_user dari model Ion Auth
-        $delete_user = $this->ion_auth->delete_user($id);
+        // Ambil informasi pengguna sebelum dihapus
+        $user_info = $this->ion_auth->user($id)->row();
 
         // Buat respons JSON untuk Ajax
         $response = array();
 
-        if ($delete_user) {
-            // Jika penghapusan berhasil
-            $response['status'] = 'success';
-            $response['message'] = 'Pengguna berhasil dihapus.';
-        } else {
-            // Jika penghapusan gagal
+        if (!$user_info) {
+            // Jika pengguna tidak ditemukan, kembalikan pesan kesalahan
             $response['status'] = 'error';
-            $response['message'] = 'Gagal menghapus pengguna.';
+            $response['message'] = 'Pengguna tidak ditemukan.';
+        } else {
+            // Simpan informasi pengguna sebelum dihapus
+            $user_first_name = $user_info->first_name;
+
+            // Panggil fungsi delete_user dari model Ion Auth
+            $delete_user = $this->ion_auth->delete_user($id);
+
+            if ($delete_user) {
+                // Jika penghapusan berhasil
+                $response['status'] = 'success';
+                $response['message'] = 'Administrator menghapus user ' . $user_first_name;
+
+                $user_id = $this->ion_auth->user()->row()->id;
+                $user_name = $this->ion_auth->user()->row()->username;
+
+                $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menghapus user " . "<strong>" . $user_first_name . "</strong>";
+                $this->loguserlib->add_activity($user_id, $user_act);
+            } else {
+                // Jika penghapusan gagal
+                $response['status'] = 'error';
+                $response['message'] = 'Gagal menghapus pengguna.';
+            }
         }
 
         // Mengembalikan respons JSON
         echo json_encode($response);
     }
+
 
     public function check_email_availability()
     {
@@ -74,23 +93,6 @@ class Operator extends CI_Controller
         $identity_column = $this->config->item('identity', 'ion_auth');
         $this->data['identity_column'] = $identity_column;
 
-        // validate form input
-        // $this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
-        // $this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
-
-        // if ($identity_column !== 'email') {
-        //     $this->form_validation->set_rules('identity', $this->lang->line('create_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identity_column . ']');
-        //     $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email');
-        // } else {
-        //     $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
-        // }
-
-        // $this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
-        // $this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
-        // $this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|matches[password_confirm]');
-        // $this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
-
-        // if ($this->form_validation->run() === TRUE) {
         $email = strtolower($this->input->post('email'));
 
         // Check if the email already exists
@@ -112,107 +114,55 @@ class Operator extends CI_Controller
                 'phone' => $this->input->post('phone'),
             ];
 
-            $user_level = $this->input->post('user_level');
+            $user_level_id = $this->input->post('user_level');
+
+            $user_levels = array(
+                '1' => 'Admin',
+                '2' => 'General User',
+                '3' => 'Operator', // Atur sesuai dengan nama level yang sesuai
+                // tambahkan level lainnya sesuai kebutuhan
+            );
+
+            // Pastikan bahwa $user_level_id ada dalam array $user_levels
+            if (array_key_exists($user_level_id, $user_levels)) {
+                $user_level_name = $user_levels[$user_level_id];
+            } else {
+                // Jika $user_level_id tidak ditemukan dalam array, berikan nilai default atau lakukan tindakan lain sesuai kebutuhan Anda
+                $user_level_name = 'Unknown Level';
+            }
+
             if ($user_id = $this->ion_auth->register($identity, $password, $email, $additional_data)) {
-                $this->ion_auth->add_to_group($user_level, $user_id);
+                $this->ion_auth->add_to_group($user_level_id, $user_id);
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
+
+                $user_id = $this->ion_auth->user()->row()->id;
+                $user_name = $this->ion_auth->user()->row()->username;
+                $user_act = "<strong>" . ucwords($user_name) . "</strong>" . " menambahkan user " . "<strong>" . $this->input->post('first_name') . "</strong>" . " sebagai " . "<strong>" . $user_level_name . "</strong>";
+                $this->loguserlib->add_activity($user_id, $user_act);
+
                 redirect('admin/operator');
             }
         }
-        // }
-
-        // display the create user form
-        // $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-
-        // $this->data['first_name'] = [
-        //     'name' => 'first_name',
-        //     'id' => 'first_name',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('first_name'),
-        // ];
-
-        // $this->data['last_name'] = [
-        //     'name' => 'last_name',
-        //     'id' => 'last_name',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('last_name'),
-        // ];
-
-        // $this->data['identity'] = [
-        //     'name' => 'identity',
-        //     'id' => 'identity',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('identity'),
-        // ];
-
-        // $this->data['email'] = [
-        //     'name' => 'email',
-        //     'id' => 'email',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('email'),
-        // ];
-
-        // $this->data['company'] = [
-        //     'name' => 'company',
-        //     'id' => 'company',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('company'),
-        // ];
-
-        // $this->data['phone'] = [
-        //     'name' => 'phone',
-        //     'id' => 'phone',
-        //     'type' => 'text',
-        //     'value' => $this->form_validation->set_value('phone'),
-        // ];
-
-        // $this->data['password'] = [
-        //     'name' => 'password',
-        //     'id' => 'password',
-        //     'type' => 'password',
-        //     'value' => $this->form_validation->set_value('password'),
-        // ];
-
-        // $this->data['password_confirm'] = [
-        //     'name' => 'password_confirm',
-        //     'id' => 'password_confirm',
-        //     'type' => 'password',
-        //     'value' => $this->form_validation->set_value('password_confirm'),
-        // ];
 
         $data['title'] = 'OPERATOR';
         $data['_view'] = "admin/operator";
         $this->load->view('admin/layout', $data);
     }
 
-    public function edit_user($user_id)
+    // Fungsi untuk update user
+    public function update_data_user($id)
     {
-        // Mengambil data user berdasarkan $user_id dari model
-        $data['user_data'] = $this->ion_auth->get_user_data($user_id);
-
-        // Menampilkan view edit_user dengan data user yang diambil
-        $this->load->view('edit_user', $data);
-    }
-
-    public function update_user($user_id)
-    {
-
-        // Mendapatkan data dari formulir edit
         $data = array(
             'first_name' => $this->input->post('first_name'),
-            'last_name'  => $this->input->post('last_name'),
-            // Tambahkan kolom-kolom lain sesuai kebutuhan
+            'last_name' => $this->input->post('last_name'),
+            'username' => $this->input->post('username'),
+            'company' => $this->input->post('company'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
+            'password' => $this->input->post('password'),
         );
 
-        // Memanggil fungsi update_user pada model untuk mengupdate data user
-        $result = $this->ion_auth->update_user($user_id, $data);
-
-        if ($result) {
-            // Jika update berhasil, redirect ke halaman lain atau tampilkan pesan sukses
-            redirect('halaman_sukses');
-        } else {
-            // Jika update gagal, tampilkan pesan error atau redirect ke halaman lain
-            redirect('halaman_error');
-        }
+        $this->Ion_auth_model->updateDataUser($id, $data);
+        redirect('admin/operator');
     }
 }

@@ -7,8 +7,13 @@ class Pengaduan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->ion_auth->is_admin()) {
+        if (!$this->ion_auth->logged_in()) {
             redirect('Auth');
+        } else {
+            $user_groups = $this->ion_auth->get_users_groups()->row();
+            if ($user_groups->name == "members") {
+                redirect('Auth');
+            }
         }
         $this->load->library(['ion_auth', 'form_validation', 'pdf']);
         $this->load->model('M_pengaduan');

@@ -70,168 +70,227 @@
 
         <div class="row justify-content-center align-items-center">
             <?php if (!$this->session->userdata('username')) { ?>
-            <div class="col-md-6">
-                <div class="auth-form">
-                    <h4 class="text-center mb-4 strong">ANDA HARUS LOGIN <br>UNTUK MENGAKSES MENU E-MONITORING PELAKSANAAN</h4>
-                    <?php echo form_open("auth/logintamu"); ?>
-                    <div class="form-group">
-                        <label class=""><strong>Email</strong></label>
-                        <input type="text" name="identity" class="form-control" id="identity" required placeholder="Ketik email Anda di sini">
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Kata Sandi</strong></label>
-                        <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
-                    </div>
-                    <!-- <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
+                <div class="col-md-6">
+                    <div class="auth-form">
+                        <h4 class="text-center mb-4 strong">ANDA HARUS LOGIN <br>UNTUK MENGAKSES MENU E-MONITORING PELAKSANAAN</h4>
+                        <?php echo form_open("auth/logintamu"); ?>
+                        <div class="form-group">
+                            <label class=""><strong>Email</strong></label>
+                            <input type="text" name="identity" class="form-control" id="identity" required placeholder="Ketik email Anda di sini">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Kata Sandi</strong></label>
+                            <input type="password" name="password" class="form-control" id="password" required placeholder="Ketik kata sandi Anda di sini">
+                        </div>
+                        <!-- <div class="text-center form-row d-flex justify-content-center mt-4 mb-2">
                         <a href="page-forgot-password.html">Lupa Kata Sandi?</a>
                     </div> -->
-                    <div class="text-center mt-5">
-                        <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+                        <div class="text-center mt-5">
+                            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+                        </div>
+                        <?php echo form_close(); ?>
                     </div>
-                    <?php echo form_close(); ?>
                 </div>
-            </div>
             <?php } ?>
             <?php if ($this->session->userdata('username')) { ?>
 
-            <div class="col-md-12">
-                <div id="accordion-1">
-                    <?php
-                    $delay = 0.1;
-                    foreach ($emonitoring as $emon) {
-                    ?>
-                        <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
-                            <div class="card-header">
-                                <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $emon->tahun_sumberdana; ?>">
-                                    <?php echo $emon->tahun_sumberdana; ?>
-                                </a>
-                            </div>
-                            <div id="collapse<?php echo $emon->tahun_sumberdana; ?>" class="collapse" data-parent="#accordion-1">
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table-bordered table-striped text-small" style="width:100%">
-                                            <thead>
-                                                <?php
-                                                $CI = &get_instance();
-                                                $CI->load->model('M_emonitoring');
+                <div class="col-md-12">
+                    <div id="accordion-1">
+                        <?php
+                        $delay = 0.1;
+                        foreach ($emonitoring as $emon) {
+                        ?>
+                            <div class="card wow fadeInLeft" data-wow-delay="<?php echo $delay += 0.5; ?>s">
+                                <div class="card-header">
+                                    <a class="card-link collapsed" data-toggle="collapse" href="#collapse<?php echo $emon->tahun_sumberdana; ?>">
+                                        <?php echo $emon->tahun_sumberdana; ?>
+                                    </a>
+                                </div>
+                                <div id="collapse<?php echo $emon->tahun_sumberdana; ?>" class="collapse" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table-bordered table-striped text-small" style="width:100%">
+                                                <thead>
+                                                    <?php
+                                                    $CI = &get_instance();
+                                                    $CI->load->model('M_emonitoring');
 
-                                                $datakontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($emon->tahun_sumberdana);
-                                                ?>
-                                                <tr class="tex-small" style="background-color:#00008B; color:white">
-                                                    <th rowspan="2">Nama Paket</th>
-                                                    <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
-                                                    <th rowspan="2">No Kontrak</th>
-                                                    <th rowspan="2">Tgl Kontrak</th>
-                                                    <th rowspan="2">No SPMK</th>
-                                                    <th rowspan="2">Tgl SPMK</th>
-                                                    <th rowspan="2">Nilai Kontrak</th>
-                                                    <th rowspan="2">Sumber Dana</th>
-                                                    <th style="padding:2.5px;" colspan="3">Lokasi</th>
-                                                    <th rowspan="2">Output/Capaian/Produk Akhir </th>
-                                                    <th rowspan="2">Masa Pelaksanaan</th>
-                                                    <th rowspan="2">Tanggal Rencana PHO</th>
-                                                    <th colspan="12">Progress Pelaksanaan</th>
-                                                    <th rowspan="2">Kurva S</th>
-                                                    <th colspan="9">Dokumen Pendukung </th>
-                                                </tr>
-                                                <tr style="background-color:#00008B; color:white">
-                                                    <th>Kab.</th>
-                                                    <th>Kec.</th>
-                                                    <th>Koordinat</th>
-                                                    <th>Jan</th>
-                                                    <th>Feb</th>
-                                                    <th>Mar</th>
-                                                    <th>Apr</th>
-                                                    <th>Mei</th>
-                                                    <th>Jun</th>
-                                                    <th>Jul</th>
-                                                    <th>Ags</th>
-                                                    <th>Sept</th>
-                                                    <th>Okt</th>
-                                                    <th>Nov</th>
-                                                    <th>Des</th>
-
-                                                    <th>Dokumen Kontrak (Termasuk RAB)</th>
-                                                    <th>Gambar Rencana</th>
-                                                    <th>Gambar As Built Drawing</th>
-                                                    <th>MC 0%</th>
-                                                    <th>Lap. Harian</th>
-                                                    <th>Lap. Mingguan</th>
-                                                    <th>Lap. Bulanan</th>
-                                                    <th>MC 100%</th>
-                                                    <th>Dokumentasi</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <?php foreach ($datakontrak as $dk) { ?>
-                                                    <tr>
-                                                        <td style="text-align: left !important"><?php echo $dk->nama_paket; ?></td>
-                                                        <td><?php echo $dk->penyedia_jasa; ?></td>
-                                                        <td><?php echo $dk->no_kontrak; ?></td>
-                                                        <td><?php echo date_indo($dk->tgl_kontrak); ?></td>
-                                                        <td><?php echo $dk->no_spmk; ?></td>
-                                                        <td><?php echo date_indo($dk->tgl_spmk); ?></td> 
-                                                        <td><?php echo rupiah($dk->nilai_kontrak); ?></td>
-                                                        <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
-                                                       
-                                                        <td><?php echo $dk->lok_kabupaten; ?></td>
-                                                        <td><?php echo $dk->lok_distrik; ?></td>
-                                                        <td><?php echo $dk->titik_koordinat; ?></td>
-                                                        <td><?php echo $dk->output_produk; ?></td>
-                                                        <td><?php echo $dk->masa_pelaksanaan; ?></td>
-                                                        <td><?php echo date_indo($dk->tgl_rencanapho); ?></td>
-                                                        <td><?php echo $dk->pk_januari; ?></td>
-                                                        <td><?php echo $dk->pk_februari; ?></td>
-                                                        <td><?php echo $dk->pk_maret; ?></td>
-                                                        <td><?php echo $dk->pk_april; ?></td>
-                                                        <td><?php echo $dk->pk_mei; ?></td>
-                                                        <td><?php echo $dk->pk_juni; ?></td>
-                                                        <td><?php echo $dk->pk_juli; ?></td>
-                                                        <td><?php echo $dk->pk_agustus; ?></td>
-                                                        <td><?php echo $dk->pk_september; ?></td>
-                                                        <td><?php echo $dk->pk_oktober; ?></td>
-                                                        <td><?php echo $dk->pk_november; ?></td>
-                                                        <td><?php echo $dk->pk_desember; ?></td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-info open-modalkurva" data-toggle="modal" data-jan="<?php echo $dk->pk_januari; ?>" data-feb="<?php echo $dk->pk_februari; ?>" data-mar="<?php echo $dk->pk_maret; ?>" data-apr="<?php echo $dk->pk_april; ?>" data-mei="<?php echo $dk->pk_mei; ?>" data-jun="<?php echo $dk->pk_juni; ?>" data-jul="<?php echo $dk->pk_juli; ?>" data-agu="<?php echo $dk->pk_agustus; ?>" data-sep="<?php echo $dk->pk_september; ?>" data-okt="<?php echo $dk->pk_oktober; ?>" data-nov="<?php echo $dk->pk_november; ?>" data-des="<?php echo $dk->pk_desember; ?>" data-namapaket="<?php echo $dk->nama_paket; ?>" href="#modalKurva"><i class="bi bi-bar-chart-line"></i></a>
-                                                        </td>
-                                                        <td><a target="_blank" href="<?php echo base_url();?>upload/dokumendatakontrak/<?php echo $dk->dp_dokkontrak; ?>"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                          </td>
-                                                        <td>
-                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                            <!-- <?php // echo $dk->dp_gbrrencana; 
-                                                                    ?> -->
-                                                        </td>
-                                                        <td>
-                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                            <!-- <?php // echo $dk->dp_gbrasbuild; 
-                                                                    ?> -->
-                                                        </td>
-                                                        <td>
-                                                            <a href="#"><i class="bi bi-file-earmark-pdf"></i></a>
-                                                            <!-- <?php // echo $dk->dp_mcnol; 
-                                                                    ?> -->
-                                                        </td>
-                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapharian; ?></td>
-                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapmingguan; ?></td>
-                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_lapbulanan; ?></td>
-                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_mcseratus; ?></td>
-                                                        <td><a href="#"><i class="bi bi-file-earmark-pdf"></i></a><?php //echo $dk->dp_dokumentasi; ?></td>
+                                                    $datakontrak = $CI->M_emonitoring->get_by_tahun_sumberdana($emon->tahun_sumberdana);
+                                                    ?>
+                                                    <tr class="tex-small" style="background-color:#00008B; color:white">
+                                                        <th rowspan="2">Nama Paket</th>
+                                                        <th rowspan="2">Nama Penyedia Jasa Konstruksi</th>
+                                                        <th rowspan="2">No Kontrak</th>
+                                                        <th rowspan="2">Tgl Kontrak</th>
+                                                        <th rowspan="2">No SPMK</th>
+                                                        <th rowspan="2">Tgl SPMK</th>
+                                                        <th rowspan="2">Nilai Kontrak</th>
+                                                        <th rowspan="2">Sumber Dana</th>
+                                                        <th style="padding:2.5px;" colspan="3">Lokasi</th>
+                                                        <th rowspan="2">Output/Capaian/Produk Akhir </th>
+                                                        <th rowspan="2">Masa Pelaksanaan</th>
+                                                        <th rowspan="2">Tanggal Rencana PHO</th>
+                                                        <th colspan="12">Progress Pelaksanaan</th>
+                                                        <th rowspan="2">Kurva S</th>
+                                                        <th colspan="9">Dokumen Pendukung </th>
                                                     </tr>
-                                                <?php } ?>
-                                            </tbody>
+                                                    <tr style="background-color:#00008B; color:white">
+                                                        <th>Kab.</th>
+                                                        <th>Kec.</th>
+                                                        <th>Koordinat</th>
+                                                        <th>Jan</th>
+                                                        <th>Feb</th>
+                                                        <th>Mar</th>
+                                                        <th>Apr</th>
+                                                        <th>Mei</th>
+                                                        <th>Jun</th>
+                                                        <th>Jul</th>
+                                                        <th>Ags</th>
+                                                        <th>Sept</th>
+                                                        <th>Okt</th>
+                                                        <th>Nov</th>
+                                                        <th>Des</th>
 
-                                        </table>
+                                                        <th>Dokumen Kontrak (Termasuk RAB)</th>
+                                                        <th>Gambar Rencana</th>
+                                                        <th>Gambar As Built Drawing</th>
+                                                        <th>MC 0%</th>
+                                                        <th>Lap. Harian</th>
+                                                        <th>Lap. Mingguan</th>
+                                                        <th>Lap. Bulanan</th>
+                                                        <th>MC 100%</th>
+                                                        <th>Dokumentasi</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <?php foreach ($datakontrak as $dk) { ?>
+                                                        <tr>
+                                                            <td style="text-align: left !important"><?php echo $dk->nama_paket; ?></td>
+                                                            <td><?php echo $dk->penyedia_jasa; ?></td>
+                                                            <td><?php echo $dk->no_kontrak; ?></td>
+                                                            <td><?php echo date_indo($dk->tgl_kontrak); ?></td>
+                                                            <td><?php echo $dk->no_spmk; ?></td>
+                                                            <td><?php echo date_indo($dk->tgl_spmk); ?></td>
+                                                            <td><?php echo rupiah($dk->nilai_kontrak); ?></td>
+                                                            <td><?php echo $dk->sumber_dana . " " . $dk->tahun_sumberdana; ?></td>
+
+                                                            <td><?php echo $dk->lok_kabupaten; ?></td>
+                                                            <td><?php echo $dk->lok_distrik; ?></td>
+                                                            <td><?php echo $dk->titik_koordinat; ?></td>
+                                                            <td><?php echo $dk->output_produk; ?></td>
+                                                            <td><?php echo $dk->masa_pelaksanaan; ?></td>
+                                                            <td><?php echo date_indo($dk->tgl_rencanapho); ?></td>
+                                                            <td><?php echo $dk->pk_januari; ?></td>
+                                                            <td><?php echo $dk->pk_februari; ?></td>
+                                                            <td><?php echo $dk->pk_maret; ?></td>
+                                                            <td><?php echo $dk->pk_april; ?></td>
+                                                            <td><?php echo $dk->pk_mei; ?></td>
+                                                            <td><?php echo $dk->pk_juni; ?></td>
+                                                            <td><?php echo $dk->pk_juli; ?></td>
+                                                            <td><?php echo $dk->pk_agustus; ?></td>
+                                                            <td><?php echo $dk->pk_september; ?></td>
+                                                            <td><?php echo $dk->pk_oktober; ?></td>
+                                                            <td><?php echo $dk->pk_november; ?></td>
+                                                            <td><?php echo $dk->pk_desember; ?></td>
+                                                            <td>
+                                                                <a class="btn btn-sm btn-info open-modalkurva" data-toggle="modal" data-jan="<?php echo $dk->pk_januari; ?>" data-feb="<?php echo $dk->pk_februari; ?>" data-mar="<?php echo $dk->pk_maret; ?>" data-apr="<?php echo $dk->pk_april; ?>" data-mei="<?php echo $dk->pk_mei; ?>" data-jun="<?php echo $dk->pk_juni; ?>" data-jul="<?php echo $dk->pk_juli; ?>" data-agu="<?php echo $dk->pk_agustus; ?>" data-sep="<?php echo $dk->pk_september; ?>" data-okt="<?php echo $dk->pk_oktober; ?>" data-nov="<?php echo $dk->pk_november; ?>" data-des="<?php echo $dk->pk_desember; ?>" data-namapaket="<?php echo $dk->nama_paket; ?>" href="#modalKurva"><i class="bi bi-bar-chart-line"></i></a>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_dokkontrak != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_dokkontrak; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_gbrrencana != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_gbrrencana; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_gbrasbuild != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_gbrasbuild; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_mcnol != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_mcnol; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_lapharian != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapharian; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_lapmingguan != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapmingguan; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_lapbulanan != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapbulanan; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_mcseratus != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_mcseratus; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($dk->dp_dokumentasi != '') : ?>
+                                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_dokumentasi; ?>" target="_blank">
+                                                                        <i class="bi bi-file-earmark-pdf"></i>
+                                                                    </a>
+                                                                <?php else : ?>
+                                                                    <i class="bi bi-x"></i>
+                                                                <?php endif; ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    <?php } ?>
+                        <?php } ?>
 
+                    </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
     </div>
@@ -298,20 +357,23 @@
                     text: namapaket
                 },
                 tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        let label = context.dataset.label || '';
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
 
-                        if (label) {
-                            label += ': ';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD'
+                                }).format(context.parsed.y);
+                            }
+                            return label;
                         }
-                        if (context.parsed.y !== null) {
-                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-                        }
-                        return label;
                     }
                 }
-            }
 
             }
 
