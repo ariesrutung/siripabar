@@ -78,8 +78,13 @@ class Datakontrak extends CI_Controller
             if (!empty($_FILES[$field]['name'])) {
                 $_FILES['userfile'] = $_FILES[$field];
 
-                $namaPaket = $this->input->post('nama_paket');
-                $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . $namaPaket;
+                $noKontrak = $this->input->post('no_kontrak');
+
+                $noKontrak1 = str_replace('/', '-', $noKontrak);
+                $noKontrak2 = str_replace(' ', '', $noKontrak1);
+
+                // $namaPaket = $this->input->post('nama_paket');
+                $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . $noKontrak2;
 
                 // Jika subfolder belum ada, buat subfolder
                 if (!is_dir($subfolderPath)) {
@@ -137,7 +142,12 @@ class Datakontrak extends CI_Controller
         // Panggil fungsi insert_datakontrak pada model
         if ($this->M_emonitoring->insert_datakontrak($data)) {
             // Membuat folder sesuai dengan nama_paket
-            $folder_path = './upload/dokumendatakontrak/' . $data['nama_paket'];
+            $noKontrak = $this->input->post('no_kontrak');
+
+            $noKontrak1 = str_replace('/', '-', $noKontrak);
+            $noKontrak2 = str_replace(' ', '', $noKontrak1);
+
+            $folder_path = './upload/dokumendatakontrak/' . $noKontrak2;
             if (!is_dir($folder_path)) {
                 mkdir($folder_path, 0777, true);
             }
@@ -155,7 +165,7 @@ class Datakontrak extends CI_Controller
 
     public function unduh_dokumen($nama_paket, $nama_file)
     {
-        $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . str_replace(' ', '_', $nama_paket);
+        $subfolderPath = FCPATH . './upload/dokumendatakontrak/' . str_replace(' ', ' ', $nama_paket);
         $filePath = $subfolderPath . '/' . $nama_file;
 
         // Pastikan file ada sebelum diunduh

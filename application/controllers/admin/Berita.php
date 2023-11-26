@@ -21,7 +21,6 @@ class Berita extends CI_Controller
 
     public function index()
     {
-
         $data['berita'] = $this->M_beritanew->get_all_berita();
         $data['title'] = 'BERITA';
         $data['_view'] = "admin/beritanew";

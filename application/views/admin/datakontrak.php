@@ -80,6 +80,8 @@
     }
 
     /* Modal Detail CSS */
+    #modalTambahDatakontrak td,
+    #modalTambahDatakontrak th,
     #modalViewDetailDatakontrak td,
     #modalViewDetailDatakontrak th {
         color: #000;
@@ -184,7 +186,7 @@
                                             <td><?php echo $dk->lok_kabupaten; ?></td>
                                             <td>
                                                 <?php if ($dk->dp_dokkontrak != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_dokkontrak; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_dokkontrak; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -193,7 +195,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_gbrrencana != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_gbrrencana; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_gbrrencana; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -202,7 +204,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_gbrasbuild != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_gbrasbuild; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_gbrasbuild; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -211,7 +213,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_mcnol != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_mcnol; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_mcnol; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -220,7 +222,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_lapharian != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapharian; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_lapharian; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -229,7 +231,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_lapmingguan != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapmingguan; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_lapmingguan; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -238,7 +240,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_lapbulanan != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_lapbulanan; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_lapbulanan; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -247,7 +249,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_mcseratus != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_mcseratus; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_mcseratus; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -256,7 +258,7 @@
                                             </td>
                                             <td>
                                                 <?php if ($dk->dp_dokumentasi != '') : ?>
-                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', '_', $dk->nama_paket) . '/' . $dk->dp_dokumentasi; ?>" target="_blank">
+                                                    <a href="<?= base_url("admin/datakontrak/unduh_dokumen/") . str_replace(' ', ' ', $dk->nama_paket) . '/' . $dk->dp_dokumentasi; ?>" target="_blank">
                                                         <i class="bi bi-file-earmark-pdf"></i>
                                                     </a>
                                                 <?php else : ?>
@@ -500,74 +502,74 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="row">
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Januari</label>
                                                                 <input type="text" id="pk_januari" name="pk_januari" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Februari</label>
                                                                 <input type="text" id="pk_februari" name="pk_februari" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Maret</label>
                                                                 <input type="text" id="pk_maret" name="pk_maret" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">April</label>
                                                                 <input type="text" id="pk_april" name="pk_april" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Mei</label>
                                                                 <input type="text" id="pk_mei" name="pk_mei" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Juni</label>
                                                                 <input type="text" id="pk_juni" name="pk_juni" class="form-control">
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Juli</label>
                                                                 <input type="text" id="pk_juli" name="pk_juli" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Agustus</label>
                                                                 <input type="text" id="pk_agustus" name="pk_agustus" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">September</label>
                                                                 <input type="text" id="pk_september" name="pk_september" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Oktober</label>
                                                                 <input type="text" id="pk_oktober" name="pk_oktober" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">November</label>
                                                                 <input type="text" id="pk_november" name="pk_november" class="form-control">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3 py-0">
+                                                        <div class="col-lg-2 py-0">
                                                             <div class="form-group">
                                                                 <label class="text-label">Desember</label>
                                                                 <input type="text" id="pk_desember" name="pk_desember" class="form-control">
@@ -587,7 +589,77 @@
                                     <div class="tab-pane fade" id="dokpendukung" role="tabpanel">
                                         <div class="pt-4">
                                             <div class="row dokpendukung">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table student-data-table m-t-20">
+                                                            <thead>
+                                                                <tr class="w-50">
+                                                                    <th>Nama Dokumen</th>
+                                                                    <th>Aksi</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Dokumen Kontrak (Termasuk RAB)</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_dokkontrak" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Gambar Rencana</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_gbrrencana" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Gambar As Built Drawing</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_gbrasbuild" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>MC 0%</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_mcnol" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Laporan Harian</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_lapharian" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Laporan Mingguan</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_lapmingguan" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Laporan Bulanan</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_lapbulanan" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>MC 100%</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_mcseratus" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Dokumentasi</td>
+                                                                    <td>
+                                                                        <input type="file" name="dp_dokumentasi" class="form-control gb">
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="col-lg-6">
                                                     <div class="row">
                                                         <div class="col-lg-12 py-0">
                                                             <div class="form-group">
@@ -648,7 +720,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -1797,14 +1869,27 @@
                 error: function(xhr, status, error) {
                     // Tangani kesalahan AJAX jika diperlukan
                     console.error(xhr.responseText);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Terjadi kesalahan saat menyimpan atau mengupdate data kontrak.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
+
+                    // Cek apakah pesan error mengandung informasi bahwa nomor kontrak sudah ada
+                    if (xhr.responseText.includes('Nomor kontrak sudah ada di database.')) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Nomor kontrak sudah ada di database. Silakan gunakan nomor kontrak yang berbeda.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    } else {
+                        // Pesan error umum jika tidak terkait dengan nomor kontrak
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Terjadi kesalahan saat menyimpan atau mengupdate data kontrak.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
                 }
             });
         });
+
     });
 </script>

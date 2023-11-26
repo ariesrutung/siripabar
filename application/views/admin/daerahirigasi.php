@@ -614,8 +614,7 @@
                                                     <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
                                                     <?php
                                                     foreach ($wil_kab as $kab) {
-                                                        $selected = ($kab->kode == $ddi->kabupaten) ? 'selected' : '';
-                                                        echo '<option value="' . $kab->kode . '" ' . $selected . '>' . $kab->nama . '</option>';
+                                                        echo '<option value="' . $kab->nama . '">' . $kab->nama . '</option>';
                                                     }
                                                     ?>
                                                 </select>
@@ -896,13 +895,14 @@
 
             var kab_edit = $(this).data('edit_kabupaten');
 
+
             // Simpan opsi yang sudah ada
             var existingOptions = $('#id_kabupaten').html();
 
             // Tambahkan opsi baru ke dropdown jika belum ada
-            if ($('#id_kabupaten option[value="' + kab_edit + '"]').length === 0) {
-                $('#id_kabupaten').html(existingOptions + '<option value="' + kab_edit + '">' + kab_edit + '</option>');
-            }
+            // if ($('#id_kabupaten option[value="' + kab_edit + '"]').length === 0) {
+            //     $('#id_kabupaten').html(existingOptions + '<option value="' + kab_edit + '">' + kab_edit + '</option>');
+            // }
 
             var edit_nama_di = $(this).data('edit_nama_di');
             var edit_kode_di = $(this).data('edit_kode_di');
@@ -929,7 +929,7 @@
             // Set values in the modal
             $('#id_id_daerahirigasi').val(edit_id_daerahirigasi);
             $('#id_provinsi').val(prov_edit);
-            $('#id_kabupaten').val(kab_edit);
+            $('#id_kabupaten').val(kab_edit.toUpperCase()).change();
             $('#id_nama_di').val(edit_nama_di);
             $('#id_kode_di').val(edit_kode_di);
             $('#id_jenis_di').val(edit_jenis_di);
@@ -954,6 +954,26 @@
 
             $('#modalEditDaerahIrigasi').modal('show');
 
+            $.ajax({
+                url: 'daerahirigasi/getGambarDetail/' + kodeDI, // Sesuaikan dengan URL controller dan method Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.gambarPath) {
+                        // Atur nilai atribut 'src' dari elemen gambar
+                        $('#gambarPreview').attr('src', response.gambarPath);
+                    } else {
+                        // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
+                        $('#gambarPreview').attr('src', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
+                    }
+
+                    // Buka modal
+                    $('#modalEditDaerahIrigasi').modal('show');
+                },
+                error: function() {
+                    alert('Error fetching data. Please try again.');
+                }
+            });
             // $('#edit_submitBtn').on('click', function() {
             //     // Implement logic for saving data here
 

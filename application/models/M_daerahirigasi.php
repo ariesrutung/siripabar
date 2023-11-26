@@ -13,17 +13,17 @@ class M_daerahirigasi extends CI_Model
     public function get_di()
     {
         $this->db->select("*");
-        $this->db->from("daerah_irigasi di");
-        $this->db->join("skema sk", "sk.kode_di = di.kode_di");
+        $this->db->from("daerah_irigasi");
+        // $this->db->join("skema sk", "sk.kode_di = di.kode_di");
         $query = $this->db->get();
         return $query->result();
     }
     public function get_di_by_user_id($user_id)
     {
         $this->db->select("*");
-        $this->db->from("daerah_irigasi di");
-        $this->db->join("skema sk", "sk.kode_di = di.kode_di");
-        $this->db->where("di.user_id", $user_id);
+        $this->db->from("daerah_irigasi");
+        // $this->db->join("skema sk", "sk.kode_di = di.kode_di");
+        $this->db->where("user_id", $user_id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -42,10 +42,10 @@ class M_daerahirigasi extends CI_Model
     public function get_by_kode($kode)
     {
 
-        $this->db->select("di.*, sk.*");
-        $this->db->from("daerah_irigasi di");
-        $this->db->join("skema sk", "sk.kode_di=di.kode_di", "LEFT");
-        $this->db->where("sk.kode_di", $kode);
+        $this->db->select("*");
+        $this->db->from("daerah_irigasi");
+        // $this->db->join("skema sk", "sk.kode_di=di.kode_di", "LEFT");
+        $this->db->where("kode_di", $kode);
         $query = $this->db->get();
         return $query->row();
     }
