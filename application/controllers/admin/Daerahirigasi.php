@@ -77,14 +77,11 @@ class Daerahirigasi extends CI_Controller
         $selected_nama_kabupaten = $this->input->post('kabupaten_di_nama');
         $selected_nama_kabupaten_formatted = ucwords(strtolower($selected_nama_kabupaten));
         $this->load->library('upload');
+
         // Konfigurasi upload untuk gambar di daerah irigasi
         $config_daerah_irigasi['upload_path'] = './upload/datairigasi/';
-        $config_daerah_irigasi['allowed_types'] = 'gif|jpg|png';
+        $config_daerah_irigasi['allowed_types'] = 'jpeg|jpg|png';
         $config_daerah_irigasi['max_size'] = 10000;
-
-        // $user_name = $this->session->userdata('username');
-        // $this->M_log->add("<strong>" . $user_name . "</strong> menambahkan 1 daerah irigasi di" . $selected_nama_kabupaten);
-
 
         $this->upload->initialize($config_daerah_irigasi);
 
@@ -98,57 +95,51 @@ class Daerahirigasi extends CI_Controller
             'luas_fungsional' => $this->input->post('luas_fungsional'),
             'luas_alih_fungsi_lahan' => $this->input->post('luas_alih_fungsi_lahan'),
             'kewenangan' => $this->input->post('kewenangan'),
-            'user_id' => $this->ion_auth->user()->row()->id
+            'user_id' => $this->ion_auth->user()->row()->id,
+            'jumlah_aset' => $this->input->post('jumlah_aset'),
+            'jumlah_subsistem' => $this->input->post('jumlah_subsistem'),
+            'data_aknop' => $this->input->post('data_aknop'),
+            'saluran_induk' => $this->input->post('saluran_induk'),
+            'saluran_muka' => $this->input->post('saluran_muka'),
+            'pengelak_banjir' => $this->input->post('pengelak_banjir'),
+            'saluran_pembuang_tersier' => $this->input->post('saluran_pembuang_tersier'),
+            'saluran_sekunder' => $this->input->post('saluran_sekunder'),
+            'saluran_pembuang' => $this->input->post('saluran_pembuang'),
+            'saluran_tersier' => $this->input->post('saluran_tersier'),
+            'saluran_suplesi' => $this->input->post('saluran_suplesi'),
+            'saluran_gendong' => $this->input->post('saluran_gendong'),
+            'kode_di' => $this->input->post('kode_di'),
+            'saluran_kuarter' => $this->input->post('saluran_kuarter'),
         );
 
         // Upload gambar di daerah irigasi
         if ($this->upload->do_upload('gambar_di')) {
             $dataDaerahIrigasi['gambar'] = $this->upload->data('file_name');
 
-            // Simpan data daerah irigasi ke tabel
-            $this->M_daerahirigasi->insert_daerah_irigasi($dataDaerahIrigasi);
+            // Konfigurasi upload untuk dokumen di skema
+            $config_daerah_irigasi['upload_path'] = './upload/datairigasi/';
+            $config_daerah_irigasi['allowed_types'] = 'pdf';
+            $config_daerah_irigasi['max_size'] = 10000;
 
-            // Tambah Activity User
-            $user_id = $this->ion_auth->user()->row()->id;
-            $user_name = $this->ion_auth->user()->row()->username;
-            $user_act = $user_name . " menambahkan Daerah Irigasi " . $this->input->post('nama_di') . " di " . $selected_nama_kabupaten_formatted;
-            $this->loguserlib->add_activity($user_id, $user_act);
-            // Konfigurasi upload untuk gambar di skema
-            $config_skema['upload_path'] = './upload/datairigasi/';
-            $config_skema['allowed_types'] = 'gif|jpg|png';
-            $config_skema['max_size'] = 10000;
+            // Inisialisasi objek upload untuk dokumen di skema
+            $this->upload->initialize($config_daerah_irigasi);
 
-            // Inisialisasi objek upload untuk skema
-            $this->upload->initialize($config_skema);
+            // Upload dokumen di skema
+            if ($this->upload->do_upload('dokumen')) {
+                $dataDaerahIrigasi['dokumen'] = $this->upload->data('file_name');
 
-            // Formulir untuk Skema
-            $dataSkema = array(
-                'jumlah_aset' => $this->input->post('jumlah_aset'),
-                'jumlah_subsistem' => $this->input->post('jumlah_subsistem'),
-                'data_aknop' => $this->input->post('data_aknop'),
-                'saluran_induk' => $this->input->post('saluran_induk'),
-                'saluran_muka' => $this->input->post('saluran_muka'),
-                'pengelak_banjir' => $this->input->post('pengelak_banjir'),
-                'saluran_pembuang_tersier' => $this->input->post('saluran_pembuang_tersier'),
-                'saluran_sekunder' => $this->input->post('saluran_sekunder'),
-                'saluran_pembuang' => $this->input->post('saluran_pembuang'),
-                'saluran_tersier' => $this->input->post('saluran_tersier'),
-                'saluran_suplesi' => $this->input->post('saluran_suplesi'),
-                'saluran_gendong' => $this->input->post('saluran_gendong'),
-                'kode_di' => $this->input->post('kode_di'),
-                'saluran_kuarter' => $this->input->post('saluran_kuarter'),
-            );
+                // Simpan data daerah irigasi ke tabel
+                $this->M_daerahirigasi->insert_daerah_irigasi($dataDaerahIrigasi);
 
-            // Upload gambar di skema
-            if ($this->upload->do_upload('dokumen_skema')) {
-                $dataSkema['dokumen'] = $this->upload->data('file_name');
-
-                // Simpan data skema ke tabel
-                $this->M_daerahirigasi->insert_skema($dataSkema);
+                // Tambah Activity User
+                $user_id = $this->ion_auth->user()->row()->id;
+                $user_name = $this->ion_auth->user()->row()->username;
+                $user_act = $user_name . " menambahkan Daerah Irigasi " . $this->input->post('nama_di') . " di " . $selected_nama_kabupaten_formatted;
+                $this->loguserlib->add_activity($user_id, $user_act);
 
                 redirect('admin/daerahirigasi');
             } else {
-                // Jika upload gambar di skema gagal, tampilkan pesan kesalahan
+                // Jika upload dokumen di skema gagal, tampilkan pesan kesalahan
                 $error = array('error' => $this->upload->display_errors());
                 print_r($error);
             }
@@ -172,14 +163,6 @@ class Daerahirigasi extends CI_Controller
             'luas_alih_fungsi_lahan' => $this->input->post('edit_luas_alih_fungsi_lahan'),
             'kewenangan' => $this->input->post('edit_kewenangan'),
             'gambar' => $this->input->post('edit_gambar'),
-        );
-
-        // Update data in the 'daerah_irigasi' table
-        $this->M_daerahirigasi->updateDaerahIrigasi($data);
-
-        // Update data in the 'skema' table
-        $skemaData = array(
-            'id' => $this->input->post('edit_id_daerahirigasi'),
             'jumlah_aset' => $this->input->post('edit_jumlah_aset'),
             'jumlah_subsistem' => $this->input->post('edit_jumlah_subsistem'),
             'data_aknop' => $this->input->post('edit_data_aknop'),
@@ -193,9 +176,11 @@ class Daerahirigasi extends CI_Controller
             'saluran_suplesi' => $this->input->post('edit_saluran_suplesi'),
             'saluran_gendong' => $this->input->post('edit_saluran_gendong'),
             'saluran_kuarter' => $this->input->post('edit_saluran_kuarter'),
+            'dokumen' => $this->input->post('edit_dokumen_skema'),
         );
 
-        $this->M_daerahirigasi->updateSkemaDaerahIrigasi($skemaData);
+        // Update data in the 'daerah_irigasi' table
+        $this->M_daerahirigasi->updateDaerahIrigasi($data);
 
         redirect('admin/daerahirigasi'); // Redirect to the desired page after updating
     }
@@ -227,9 +212,6 @@ class Daerahirigasi extends CI_Controller
 
         // Nama tabel untuk daerah_irigasi
         $this->M_daerahirigasi->delete_data($id, 'daerah_irigasi');
-
-        // Nama tabel untuk skema
-        $this->M_daerahirigasi->delete_data($id, 'skema');
 
         // Kirim respons ke klien (misalnya JSON)
         echo json_encode(['status' => 'success', 'message' => 'Data berhasil dihapus']);

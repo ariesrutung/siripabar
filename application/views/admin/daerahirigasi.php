@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 <style>
     #lapIrigasi {
         padding: 10px;
@@ -115,6 +116,36 @@
         background: none;
         border-color: #eaeaea;
         color: #454545 !important;
+    }
+
+    #gambarLink {
+        position: relative;
+        display: inline-block;
+    }
+
+    #gambarLink::after {
+        content: ' Klik untuk Preview';
+        font-size: 12px;
+        color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        width: 25%;
+        text-align: center;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    #gambarLink:hover::after {
+        opacity: 1;
     }
 </style>
 <div class="content-body">
@@ -389,7 +420,7 @@
                             <div class="col-lg-3 px-0 py-0 Gb">
                                 <div class="form-group">
                                     <label class="text-label">Dokumen</label>
-                                    <input type="file" name="dokumen_skema" class="form-control gb">
+                                    <input type="file" name="dokumen" class="form-control gb">
                                 </div>
                             </div>
                         </div>
@@ -664,7 +695,10 @@
                                         </div>
                                         <div class="col-lg-6 px-0 py-0 edit_gbrPreviewDI">
                                             <div class="form-group">
-                                                <img id="id_gbrPreviewDI" class="w-25" src="<?php echo base_url(); ?>upload/datairigasi/" alt="Gambar Daerah Irigasi">
+                                                <label class="text-label">Gambar Lama</label>
+                                                <a id="gambarLink" href="#" target="_blank">
+                                                    <img id="id_gbrPreviewDI" class="w-25" src="<?php echo base_url(); ?>upload/datairigasi/noimage.png" alt="Gambar Daerah Irigasi">
+                                                </a>
                                             </div>
                                         </div>
 
@@ -770,12 +804,6 @@
                                                 <input type="file" id="id_dokumen_skema" name="edit_dokumen_skema" class="form-control gb">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 px-0 py-0 edit_dokDI">
-                                            <div class="form-group">
-                                                <img id="id_dokDI" class="w-25" src="<?php echo base_url(); ?>upload/datairigasi/" alt="Dok Daerah Irigasi">
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -804,7 +832,7 @@
     $(document).ready(function() {
         // // Menyembunyikan elemen dengan ID 'idDI'
         $('#idDI').hide();
-        // $('#id_id_daerahirigasi').hide();
+        $('#id_id_daerahirigasi').hide();
 
         $('.viewDetailDaerahIrigasi').on('click', function() {
             // Daerah Irigasi
@@ -898,12 +926,6 @@
 
             // Simpan opsi yang sudah ada
             var existingOptions = $('#id_kabupaten').html();
-
-            // Tambahkan opsi baru ke dropdown jika belum ada
-            // if ($('#id_kabupaten option[value="' + kab_edit + '"]').length === 0) {
-            //     $('#id_kabupaten').html(existingOptions + '<option value="' + kab_edit + '">' + kab_edit + '</option>');
-            // }
-
             var edit_nama_di = $(this).data('edit_nama_di');
             var edit_kode_di = $(this).data('edit_kode_di');
             var edit_jenis_di = $(this).data('edit_jenis_di');
@@ -925,6 +947,7 @@
             var edit_saluran_suplesi = $(this).data('edit_saluran_suplesi');
             var edit_saluran_gendong = $(this).data('edit_saluran_gendong');
             var edit_saluran_kuarter = $(this).data('edit_saluran_kuarter');
+            var edit_dokumen = $(this).data('edit_dokumen');
 
             // Set values in the modal
             $('#id_id_daerahirigasi').val(edit_id_daerahirigasi);
@@ -936,7 +959,7 @@
             $('#id_luas_fungsional').val(edit_luas_fungsional);
             $('#id_luas_alih_fungsi_lahan').val(edit_luas_alih_fungsi_lahan);
             $('#id_kewenangan').val(edit_kewenangan);
-            $('#edit_gambar').attr('src', edit_gambar);
+            $('#id_gbrPreviewDI').attr('src', edit_gambar);
 
             $('#id_jumlah_aset').val(edit_jumlah_aset);
             $('#id_jumlah_subsistem').val(edit_jumlah_subsistem);
@@ -951,101 +974,30 @@
             $('#id_saluran_suplesi').val(edit_saluran_suplesi);
             $('#id_saluran_gendong').val(edit_saluran_gendong);
             $('#id_saluran_kuarter').val(edit_saluran_kuarter);
+            // $('#id_saluran_kuarter').val(edit_dokumen);
+            $('#edit_dokumen_skema').attr('src', edit_dokumen);
 
             $('#modalEditDaerahIrigasi').modal('show');
 
             $.ajax({
-                url: 'daerahirigasi/getGambarDetail/' + kodeDI, // Sesuaikan dengan URL controller dan method Anda
+                url: 'daerahirigasi/getGambarDetail/' + edit_kode_di, // Sesuaikan dengan URL controller dan method Anda
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
                     if (response.gambarPath) {
-                        // Atur nilai atribut 'src' dari elemen gambar
-                        $('#gambarPreview').attr('src', response.gambarPath);
+                        // Atur nilai atribut 'src' dan 'href' dari elemen gambar dan tautan
+                        $('#id_gbrPreviewDI').attr('src', response.gambarPath);
+                        $('#gambarLink').attr('href', response.gambarPath);
                     } else {
-                        // Atur nilai atribut 'src' ke gambar default jika tidak ada gambar
-                        $('#gambarPreview').attr('src', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
+                        // Atur nilai atribut 'src' dan 'href' ke gambar default jika tidak ada gambar
+                        $('#id_gbrPreviewDI').attr('src', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
+                        $('#gambarLink').attr('href', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
                     }
-
-                    // Buka modal
-                    $('#modalEditDaerahIrigasi').modal('show');
                 },
                 error: function() {
-                    alert('Error fetching data. Please try again.');
+                    alert('Error fetching gambar data. Please try again.');
                 }
             });
-            // $('#edit_submitBtn').on('click', function() {
-            //     // Implement logic for saving data here
-
-            //     // Daerah Irigasi tab
-            //     var edit_id_daerahirigasi = $('#id_id_daerahirigasi').val();
-            //     var prov_edit = $('#id_provinsi').val();
-            //     var kab_edit = $('#id_kabupaten').val();
-            //     var edit_nama_di = $('#id_nama_di').val();
-            //     var edit_kode_di = $('#id_kode_di').val();
-            //     var edit_jenis_di = $('#id_jenis_di').val();
-            //     var edit_luas_fungsional = $('#id_luas_fungsional').val();
-            //     var edit_luas_alih_fungsi_lahan = $('#id_luas_alih_fungsi_lahan').val();
-            //     var edit_kewenangan = $('#id_kewenangan').val();
-            //     // var edit_gambar_di= $('#id_gambarPreview').attr('src'); // Use the correct element and attribute
-
-            //     // Skema tab
-            //     var edit_jumlah_aset = $('#id_jumlah_aset').val();
-            //     var edit_jumlah_subsistem = $('#id_jumlah_subsistem').val();
-            //     var edit_data_aknop = $('#id_data_aknop').val();
-            //     var edit_saluran_induk = $('#id_saluran_induk').val();
-            //     var edit_saluran_muka = $('#id_saluran_muka').val();
-            //     var edit_pengelak_banjir = $('#id_pengelak_banjir').val();
-            //     var edit_saluran_pembuang_tersier = $('#id_saluran_pembuang_tersier').val();
-            //     var edit_saluran_sekunder = $('#id_saluran_sekunder').val();
-            //     var edit_saluran_pembuang = $('#id_saluran_pembuang').val();
-            //     var edit_saluran_tersier = $('#id_saluran_tersier').val();
-            //     var edit_saluran_suplesi = $('#id_saluran_suplesi').val();
-            //     var edit_saluran_gendong = $('#id_saluran_gendong').val();
-            //     var edit_saluran_kuarter = $('#id_saluran_kuarter').val();
-            //     // var edit_dokumen = $('#id_dokumen_skema').val();
-
-            //     // Send data to the controller for saving/update in the database
-            //     $.ajax({
-            //         url: 'daerahirigasi/updateData/' + id_id_daerahirigasi,
-            //         type: 'POST',
-            //         data: {
-            //             id_id_daerahirigasi: id_id_daerahirigasi,
-            //             prov_edit: prov_edit,
-            //             kab_edit: kab_edit,
-            //             edit_nama_di: edit_nama_di,
-            //             edit_kode_di: edit_kode_di,
-            //             edit_jenis_di: edit_jenis_di,
-            //             edit_luas_fungsional: edit_luas_fungsional,
-            //             edit_luas_alih_fungsi_lahan: edit_luas_alih_fungsi_lahan,
-            //             edit_kewenangan: edit_kewenangan,
-            //             // edit_gambar: gambarDI,
-            //             edit_jumlah_aset: edit_jumlah_aset,
-            //             edit_jumlah_subsistem: edit_jumlah_subsistem,
-            //             edit_data_aknop: edit_data_aknop,
-            //             edit_saluran_induk: edit_saluran_induk,
-            //             edit_saluran_muka: edit_saluran_muka,
-            //             edit_pengelak_banjir: edit_pengelak_banjir,
-            //             edit_saluran_pembuang_tersier: edit_saluran_pembuang_tersier,
-            //             edit_saluran_sekunder: edit_saluran_sekunder,
-            //             edit_saluran_pembuang: edit_saluran_pembuang,
-            //             edit_saluran_tersier: edit_saluran_tersier,
-            //             edit_saluran_suplesi: edit_saluran_suplesi,
-            //             edit_saluran_gendong: edit_saluran_gendong,
-            //             edit_saluran_kuarter: edit_saluran_kuarter,
-            //             // dokumen: dokumen,
-            //             // Add other data as needed
-            //         },
-            //         success: function(response) {
-            //             alert('Data successfully updated.');
-            //             $('#modalEditDaerahIrigasi').modal('hide');
-            //             location.reload(); // Refresh the page or perform other actions
-            //         },
-            //         error: function() {
-            //             alert('Error updating data. Please try again.');
-            //         }
-            //     });
-            // });
         });
 
 
