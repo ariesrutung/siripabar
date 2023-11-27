@@ -136,10 +136,14 @@
                                                             <td class="strong">PROV. PABAR</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Download Skema Jaringan</td>
+                                                            <td class="strong">Download Skema Jaringan</td>
                                                             <td width="30px" class="text-center">:</td>
                                                             <td class="strong">
-                                                                <a href="<?php echo base_url('daerahirigasi/download_skema/') . $ddi->dokumen; ?>" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
+                                                                <?php if (!empty($ddi->dokumen)) : ?>
+                                                                    <a href="<?php echo base_url('daerahirigasi/download_skema/') . $ddi->dokumen; ?>" class="btn btn-primary btn-sm"><i class="bi bi-cloud-download"></i> Download</a>
+                                                                <?php else : ?>
+                                                                    -
+                                                                <?php endif; ?>
                                                             </td>
                                                         </tr>
 

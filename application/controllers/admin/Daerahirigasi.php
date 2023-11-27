@@ -44,7 +44,7 @@ class Daerahirigasi extends CI_Controller
         // Lakukan validasi jika data tidak ditemukan atau kosong
         if ($gambarPath) {
             // Tentukan path lengkap gambar
-            $gambarFullPath = base_url('upload/datairigasi/') . $gambarPath;
+            $gambarFullPath = base_url('upload/datairigasi/gambar/') . $gambarPath;
 
             // Kirim path gambar sebagai response
             echo json_encode(['gambarPath' => $gambarFullPath]);
@@ -62,7 +62,7 @@ class Daerahirigasi extends CI_Controller
         // Lakukan validasi jika data tidak ditemukan atau kosong
         if ($gambarPath) {
             // Tentukan path lengkap gambar
-            $gambarFullPath = base_url('upload/datairigasi/') . $gambarPath;
+            $gambarFullPath = base_url('upload/datairigasi/dokumen/') . $gambarPath;
 
             // Kirim path gambar sebagai response
             echo json_encode(['gambarPath' => $gambarFullPath]);
@@ -79,7 +79,7 @@ class Daerahirigasi extends CI_Controller
         $this->load->library('upload');
 
         // Konfigurasi upload untuk gambar di daerah irigasi
-        $config_daerah_irigasi['upload_path'] = './upload/datairigasi/';
+        $config_daerah_irigasi['upload_path'] = './upload/datairigasi/gambar/';
         $config_daerah_irigasi['allowed_types'] = 'jpeg|jpg|png';
         $config_daerah_irigasi['max_size'] = 10000;
 
@@ -117,7 +117,7 @@ class Daerahirigasi extends CI_Controller
             $dataDaerahIrigasi['gambar'] = $this->upload->data('file_name');
 
             // Konfigurasi upload untuk dokumen di skema
-            $config_daerah_irigasi['upload_path'] = './upload/datairigasi/';
+            $config_daerah_irigasi['upload_path'] = './upload/datairigasi/dokumen/';
             $config_daerah_irigasi['allowed_types'] = 'pdf';
             $config_daerah_irigasi['max_size'] = 10000;
 
@@ -152,7 +152,52 @@ class Daerahirigasi extends CI_Controller
 
     public function updateData()
     {
-        $data = array(
+        // Ambil nama gambar lama dan dokumen lama
+        $gambar_lama = $this->M_daerahirigasi->getGambarLama($this->input->post('edit_id_daerahirigasi'));
+        $dokumen_lama = $this->M_daerahirigasi->getDokumenLama($this->input->post('edit_id_daerahirigasi'));
+
+        // File upload configuration for 'gambar'
+        $config['upload_path'] = './upload/datairigasi/gambar/';
+        $config['allowed_types'] = 'jpeg|jpg|png'; // Adjust file types as needed
+
+        $this->load->library('upload', $config);
+
+        // Handle 'gambar' file upload
+        if (!empty($_FILES['edit_gambar']['name']) && $this->upload->do_upload('edit_gambar')) {
+            $upload_data = $this->upload->data();
+            $data['gambar'] = $upload_data['file_name'];
+
+            // Cek dan hapus gambar lama jika ada
+            if (!empty($gambar_lama)) {
+                unlink('./upload/datairigasi/gambar/' . $gambar_lama);
+            }
+        } else {
+            // Jika tidak ada gambar baru dipilih, gunakan gambar lama
+            $data['gambar'] = $gambar_lama;
+        }
+
+        // File upload configuration for 'dokumen'
+        $config_dokumen['upload_path'] = './upload/datairigasi/dokumen/';
+        $config_dokumen['allowed_types'] = 'pdf|doc|docx'; // Adjust file types as needed
+
+        $this->upload->initialize($config_dokumen);
+
+        // Handle 'dokumen' file upload
+        if (!empty($_FILES['edit_dokumen_skema']['name']) && $this->upload->do_upload('edit_dokumen_skema')) {
+            $upload_data_dokumen = $this->upload->data();
+            $data['dokumen'] = $upload_data_dokumen['file_name'];
+
+            // Cek dan hapus dokumen lama jika ada
+            if (!empty($dokumen_lama)) {
+                unlink('./upload/datairigasi/dokumen/' . $dokumen_lama);
+            }
+        } else {
+            // Jika tidak ada dokumen baru dipilih, gunakan dokumen lama
+            $data['dokumen'] = $dokumen_lama;
+        }
+
+
+        $form_data = array(
             'id' => $this->input->post('edit_id_daerahirigasi'),
             'provinsi' => $this->input->post('edit_provinsi'),
             'kabupaten' => $this->input->post('edit_kabupaten'),
@@ -179,29 +224,33 @@ class Daerahirigasi extends CI_Controller
             'dokumen' => $this->input->post('edit_dokumen_skema'),
         );
 
+        // Merge the arrays
+        $data = array_merge($form_data, $data);
+
         // Update data in the 'daerah_irigasi' table
         $this->M_daerahirigasi->updateDaerahIrigasi($data);
 
         redirect('admin/daerahirigasi'); // Redirect to the desired page after updating
     }
 
-    private function uploadImage($inputName)
-    {
-        $config['upload_path'] = './upload/datairigasi/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2048; // 2MB
 
-        $this->load->library('upload', $config);
+    // private function uploadImage($inputName)
+    // {
+    //     $config['upload_path'] = './upload/datairigasi/';
+    //     $config['allowed_types'] = 'gif|jpg|png';
+    //     $config['max_size'] = 2048; // 2MB
 
-        if ($this->upload->do_upload($inputName)) {
-            return $this->upload->data('file_name');
-        } else {
-            $error = $this->upload->display_errors();
-            // Handle the error as needed (e.g., show an error message)
-            $this->session->set_flashdata('error', $error);
-            redirect('admin/daerahirigasi'); // Redirect back to the form
-        }
-    }
+    //     $this->load->library('upload', $config);
+
+    //     if ($this->upload->do_upload($inputName)) {
+    //         return $this->upload->data('file_name');
+    //     } else {
+    //         $error = $this->upload->display_errors();
+    //         // Handle the error as needed (e.g., show an error message)
+    //         $this->session->set_flashdata('error', $error);
+    //         redirect('admin/daerahirigasi'); // Redirect back to the form
+    //     }
+    // }
 
     public function delete_data()
     {

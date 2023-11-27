@@ -14,7 +14,6 @@ class M_daerahirigasi extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("daerah_irigasi");
-        // $this->db->join("skema sk", "sk.kode_di = di.kode_di");
         $query = $this->db->get();
         return $query->result();
     }
@@ -22,7 +21,6 @@ class M_daerahirigasi extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("daerah_irigasi");
-        // $this->db->join("skema sk", "sk.kode_di = di.kode_di");
         $this->db->where("user_id", $user_id);
         $query = $this->db->get();
         return $query->result();
@@ -44,7 +42,6 @@ class M_daerahirigasi extends CI_Model
 
         $this->db->select("*");
         $this->db->from("daerah_irigasi");
-        // $this->db->join("skema sk", "sk.kode_di=di.kode_di", "LEFT");
         $this->db->where("kode_di", $kode);
         $query = $this->db->get();
         return $query->row();
@@ -74,16 +71,8 @@ class M_daerahirigasi extends CI_Model
 
     public function insert_daerah_irigasi($data)
     {
-        // Simpan data ke tabel daerah_irigasi
         $this->db->insert('daerah_irigasi', $data);
     }
-
-    // public function insert_skema($data)
-    // {
-    //     // Simpan data ke tabel skema
-    //     $this->db->insert('skema', $data);
-    // }
-
 
     public function get_laporan_by_kode_by_tahun($tahun, $kode)
     {
@@ -111,6 +100,7 @@ class M_daerahirigasi extends CI_Model
 
         return null;
     }
+
     public function getDokPathById($kode_di)
     {
         $this->db->select('dokumen'); // Sesuaikan dengan nama kolom gambar pada tabel Anda
@@ -121,17 +111,11 @@ class M_daerahirigasi extends CI_Model
 
         if ($query->num_rows() > 0) {
             $result = $query->row();
-            return $result->gambar;
+            return $result->dokumen;
         }
 
         return null;
     }
-
-    // public function updateData($id, $data)
-    // {
-    //     $this->db->where('id', $id);
-    //     $this->db->update('daerah_irigasi', $data);
-    // }
 
     public function delete_data($id, $table)
     {
@@ -164,9 +148,31 @@ class M_daerahirigasi extends CI_Model
         $this->db->update('daerah_irigasi', $data);
     }
 
-    // public function updateSkemaDaerahIrigasi($data)
-    // {
-    //     $this->db->where('id', $data['id']);
-    //     $this->db->update('skema', $data);
-    // }
+    public function getGambarLama($id_daerah)
+    {
+        $this->db->select('gambar');
+        $this->db->where('id', $id_daerah);
+        $query = $this->db->get('daerah_irigasi');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->gambar;
+        }
+
+        return null;
+    }
+
+    public function getDokumenLama($id_daerah)
+    {
+        $this->db->select('dokumen');
+        $this->db->where('id', $id_daerah);
+        $query = $this->db->get('daerah_irigasi');
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->dokumen;
+        }
+
+        return null;
+    }
 }

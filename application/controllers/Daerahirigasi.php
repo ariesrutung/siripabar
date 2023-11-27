@@ -70,7 +70,7 @@ class Daerahirigasi extends CI_Controller
 
     public function download_skema($namafile)
     {
-        $url = "upload/skema_DI/" . $namafile;
+        $url = "upload/datairigasi/dokumen/" . $namafile;
         force_download($url, NULL);
     }
 

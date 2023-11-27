@@ -118,7 +118,7 @@
         color: #454545 !important;
     }
 
-    #gambarLink {
+    /* #gambarLink {
         position: relative;
         display: inline-block;
     }
@@ -146,6 +146,19 @@
 
     #gambarLink:hover::after {
         opacity: 1;
+    } */
+
+    i.bi.bi-card-image,
+    i.bi.bi-file-earmark-pdf {
+        font-size: 28px;
+        color: #ff6868;
+    }
+
+    a#gambarLink,
+    a#id_DokPreviewDI {
+        height: 30px;
+        display: flex;
+        align-items: center;
     }
 </style>
 <div class="content-body">
@@ -345,27 +358,27 @@
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Induk</label>
                                     <div class="input-group">
-                                        <input type="number" name="saluran_induk" class="form-control">
+                                        <input type="number" step="any" name="saluran_induk" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Muka</label>
-                                    <input type="number" name="saluran_muka" class="form-control">
+                                    <input type="number" step="any" name="saluran_muka" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Pengelak Banjir</label>
-                                    <input type="number" name="pengelak_banjir" class="form-control">
+                                    <input type="number" step="any" name="pengelak_banjir" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Pembuang (Tersier)</label>
                                     <div class="input-group">
-                                        <input name="saluran_pembuang_tersier" type="number" class="form-control gb">
+                                        <input name="saluran_pembuang_tersier" type="number" step="any" class="form-control gb">
 
                                     </div>
                                 </div>
@@ -375,7 +388,7 @@
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Sekunder</label>
                                     <div class="input-group">
-                                        <input type="number" name="saluran_sekunder" class="form-control">
+                                        <input type="number" step="any" name="saluran_sekunder" class="form-control">
 
                                     </div>
                                 </div>
@@ -383,32 +396,32 @@
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Pembuang</label>
-                                    <input type="number" name="saluran_pembuang" class="form-control">
+                                    <input type="number" step="any" name="saluran_pembuang" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Tersier</label>
-                                    <input type="number" name="saluran_tersier" class="form-control">
+                                    <input type="number" step="any" name="saluran_tersier" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Suplesi</label>
-                                    <input type="number" name="saluran_suplesi" class="form-control">
+                                    <input type="number" step="any" name="saluran_suplesi" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Gendong</label>
-                                    <input type="number" name="saluran_gendong" class="form-control">
+                                    <input type="number" step="any" name="saluran_gendong" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-3 px-0 py-0">
                                 <div class="form-group">
                                     <label class="text-label">Panjang Saluran Kuarter</label>
-                                    <input type="number" name="saluran_kuarter" class="form-control">
+                                    <input type="number" step="any" name="saluran_kuarter" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3 px-0 py-0">
@@ -497,7 +510,6 @@
                                             <td>: </td>
                                             <td id="kewenangan"></td>
                                         </tr>
-
                                         <tr>
                                             <td>Jumlah Aset</td>
                                             <td>: </td>
@@ -518,7 +530,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 zoomable-image">
-                            <img id="gambarPreview" class="w-100" src="<?php echo base_url(); ?>upload/datairigasi/" alt="Gambar Daerah Irigasi">
+                            <img id="gambarPreview" class="w-100" src="<?php echo base_url(); ?>upload/datairigasi/gambar/" alt="Gambar Daerah Irigasi">
                         </div>
                     </div>
                     <div class="row">
@@ -584,6 +596,18 @@
                                             <td>Panjang Saluran Pembuang</td>
                                             <td>:</td>
                                             <td id="sp"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Download Skema Jaringan</td>
+                                            <td>: </td>
+                                            <td>
+                                                <?php if (!empty($ddi->dokumen)) : ?>
+                                                    <a class="btn btn-primary btn-sm" id="dok_skema" href="#" target="_blank" alt="Dokumen Kontrak"><i class="bi bi-cloud-download" title="Dokumen Skema Jaringan"> Download</i>
+                                                    <?php else : ?>
+                                                        -
+                                                    <?php endif; ?>
+                                                    </a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -695,13 +719,11 @@
                                         </div>
                                         <div class="col-lg-6 px-0 py-0 edit_gbrPreviewDI">
                                             <div class="form-group">
-                                                <label class="text-label">Gambar Lama</label>
-                                                <a id="gambarLink" href="#" target="_blank">
-                                                    <img id="id_gbrPreviewDI" class="w-25" src="<?php echo base_url(); ?>upload/datairigasi/noimage.png" alt="Gambar Daerah Irigasi">
+                                                <label class="text-label">Gambar Lama</label><br>
+                                                <a id="gambarLink" href="#" target="_blank" alt="Dokumen Kontrak"><i class="bi bi-card-image" title="Klik untuk Preview Gambar"></i>
                                                 </a>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -732,27 +754,27 @@
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Induk</label>
                                                 <div class="input-group">
-                                                    <input type="number" id="id_saluran_induk" name="edit_saluran_induk" class="form-control">
+                                                    <input type="number" step="any" id="id_saluran_induk" name="edit_saluran_induk" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Muka</label>
-                                                <input type="number" id="id_saluran_muka" name="edit_saluran_muka" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_muka" name="edit_saluran_muka" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Pengelak Banjir</label>
-                                                <input type="number" id="id_pengelak_banjir" name="edit_pengelak_banjir" class="form-control">
+                                                <input type="number" step="any" id="id_pengelak_banjir" name="edit_pengelak_banjir" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Pembuang (Tersier)</label>
                                                 <div class="input-group">
-                                                    <input name="edit_saluran_pembuang_tersier" type="number" id="id_saluran_pembuang_tersier" class="form-control gb">
+                                                    <input name="edit_saluran_pembuang_tersier" type="number" step="any" id="id_saluran_pembuang_tersier" class="form-control gb">
 
                                                 </div>
                                             </div>
@@ -762,7 +784,7 @@
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Sekunder</label>
                                                 <div class="input-group">
-                                                    <input type="number" id="id_saluran_sekunder" name="edit_saluran_sekunder" class="form-control">
+                                                    <input type="number" step="any" id="id_saluran_sekunder" name="edit_saluran_sekunder" class="form-control">
 
                                                 </div>
                                             </div>
@@ -770,32 +792,32 @@
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Pembuang</label>
-                                                <input type="number" id="id_saluran_pembuang" name="edit_saluran_pembuang" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_pembuang" name="edit_saluran_pembuang" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Tersier</label>
-                                                <input type="number" id="id_saluran_tersier" name="edit_saluran_tersier" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_tersier" name="edit_saluran_tersier" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Suplesi</label>
-                                                <input type="number" id="id_saluran_suplesi" name="edit_saluran_suplesi" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_suplesi" name="edit_saluran_suplesi" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Gendong</label>
-                                                <input type="number" id="id_saluran_gendong" name="edit_saluran_gendong" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_gendong" name="edit_saluran_gendong" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4 px-0 py-0">
                                             <div class="form-group">
                                                 <label class="text-label">Panjang Saluran Kuarter</label>
-                                                <input type="number" id="id_saluran_kuarter" name="edit_saluran_kuarter" class="form-control">
+                                                <input type="number" step="any" id="id_saluran_kuarter" name="edit_saluran_kuarter" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 px-0 py-0 Gb">
@@ -804,6 +826,16 @@
                                                 <input type="file" id="id_dokumen_skema" name="edit_dokumen_skema" class="form-control gb">
                                             </div>
                                         </div>
+                                        <div class="col-lg-4 px-0 py-0">
+                                            <div class="form-group">
+                                                <label class="text-label">Dokumen Lama</label><br>
+                                                <a id="id_DokPreviewDI" href="#" target="_blank" alt="Dokumen Kontrak"><i class="bi bi-file-earmark-pdf" title="Klik untuk Preview Dokumen"></i>
+                                                    <!-- <img id="DokPreview" src="<?php // echo base_url(); 
+                                                                                    ?>upload/datairigasi/dokumen/dok.png" alt="Dokumen Daerah Irigasi"> -->
+                                                </a>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -889,7 +921,8 @@
             $('#ssp').text(saluranSuplesi);
             $('#sg').text(saluranGendong);
             $('#sk').text(saluranKuarter);
-            $('#dok_skema').attr(DokSkema);
+            // $('#dok_skema').attr(DokSkema);
+            $('#dok_skema').attr('src', DokSkema);
 
             // Buka modal
             $('#ModalDetailDaerahIrigasi').modal('show');
@@ -915,14 +948,30 @@
                     alert('Error fetching data. Please try again.');
                 }
             });
+
+            $.ajax({
+                url: 'daerahirigasi/getDokumenDetail/' + kodeDI, // Sesuaikan dengan URL controller dan method Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.gambarPath) {
+                        $('#dok_skema').attr('href', response.gambarPath);
+                    } else {
+                        $('#dok_skema').attr('href', '<?php echo base_url(); ?>upload/datairigasi/dokumen/dok.png');
+                    }
+                },
+                error: function() {
+                    alert('Error fetching gambar data. Please try again.');
+                }
+            });
         });
+
 
         $('.btnEditDaerahIrigasi').on('click', function() {
             var edit_id_daerahirigasi = $(this).data('edit_id');
             var prov_edit = $(this).data('edit_provinsi');
 
             var kab_edit = $(this).data('edit_kabupaten');
-
 
             // Simpan opsi yang sudah ada
             var existingOptions = $('#id_kabupaten').html();
@@ -975,7 +1024,7 @@
             $('#id_saluran_gendong').val(edit_saluran_gendong);
             $('#id_saluran_kuarter').val(edit_saluran_kuarter);
             // $('#id_saluran_kuarter').val(edit_dokumen);
-            $('#edit_dokumen_skema').attr('src', edit_dokumen);
+            $('#DokPreview').attr('src', edit_dokumen);
 
             $('#modalEditDaerahIrigasi').modal('show');
 
@@ -985,12 +1034,8 @@
                 dataType: 'json',
                 success: function(response) {
                     if (response.gambarPath) {
-                        // Atur nilai atribut 'src' dan 'href' dari elemen gambar dan tautan
-                        $('#id_gbrPreviewDI').attr('src', response.gambarPath);
                         $('#gambarLink').attr('href', response.gambarPath);
                     } else {
-                        // Atur nilai atribut 'src' dan 'href' ke gambar default jika tidak ada gambar
-                        $('#id_gbrPreviewDI').attr('src', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
                         $('#gambarLink').attr('href', '<?php echo base_url(); ?>upload/datairigasi/noimage.png');
                     }
                 },
@@ -998,8 +1043,23 @@
                     alert('Error fetching gambar data. Please try again.');
                 }
             });
-        });
 
+            $.ajax({
+                url: 'daerahirigasi/getDokumenDetail/' + edit_kode_di, // Sesuaikan dengan URL controller dan method Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    if (response.gambarPath) {
+                        $('#id_DokPreviewDI').attr('href', response.gambarPath);
+                    } else {
+                        $('#id_DokPreviewDI').attr('href', '<?php echo base_url(); ?>upload/datairigasi/dokumen/dok.png');
+                    }
+                },
+                error: function() {
+                    alert('Error fetching gambar data. Please try again.');
+                }
+            });
+        });
 
         $('.deleteData').on('click', function() {
             var idIrigasi = $(this).data('id');

@@ -23,7 +23,7 @@
                     <a href="<?php echo base_url('daerahirigasi/detail/') . $di->kode_di; ?>">
                         <div class="service-item">
                             <div class="service-img">
-                                <img style="height: 200px;" src="<?php echo  base_url(); ?>/public/company/img/skema/<?php echo $di->gambar; ?>" alt="Image">
+                                <img style="height: 200px;" src="<?php echo  base_url(); ?>/upload/datairigasi/gambar/<?php echo $di->gambar; ?>" alt="Image">
                                 <div class="service-overlay">
                                 </div>
                             </div>

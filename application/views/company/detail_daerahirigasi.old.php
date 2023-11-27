@@ -322,7 +322,7 @@
                                                         <?php }
                                                     } else { ?>
 
-                                                        <center>Belum ada data</center>
+                                                        <p class="text-center">Belum ada data</p>
                                                     <?php } ?>
                                                 </div>
                                             </div>
