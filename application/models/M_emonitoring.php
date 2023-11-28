@@ -47,6 +47,13 @@ class M_emonitoring extends CI_Model
         return TRUE;
     }
 
+    // Di model M_emonitoring
+    public function cek_nomor_kontrak($nomor_kontrak)
+    {
+        $this->db->where('no_kontrak', $nomor_kontrak);
+        return $this->db->count_all_results('data_kontrak');
+    }
+
     public function delete_datakontrak($idDatakontrak)
     {
         $idDatakontrak = intval($idDatakontrak);

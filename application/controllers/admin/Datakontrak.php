@@ -49,6 +49,7 @@ class Datakontrak extends CI_Controller
         $this->load->view('admin/layout', $data);
     }
 
+
     public function tambah_datakontrak()
     {
         $config['upload_path'] = FCPATH . './upload/dokumendatakontrak';
@@ -138,6 +139,12 @@ class Datakontrak extends CI_Controller
         $data['kode_di'] = $this->input->post('kode_di');
         $data['user_id'] = $this->ion_auth->user()->row()->id;
 
+        // Panggil fungsi untuk mengecek nomor kontrak
+        if ($this->cek_nomor_kontrak($data['no_kontrak'])) {
+            // Nomor kontrak sudah ada, tampilkan pesan error
+            echo json_encode(array('status' => 'error', 'message' => 'Nomor kontrak sudah ada.'));
+            return;
+        }
 
         // Panggil fungsi insert_datakontrak pada model
         if ($this->M_emonitoring->insert_datakontrak($data)) {
@@ -162,6 +169,22 @@ class Datakontrak extends CI_Controller
         // Redirect ke halaman yang sesuai
         redirect('admin/datakontrak');
     }
+
+    // Fungsi untuk mengecek nomor kontrak di database
+    private function cek_nomor_kontrak($nomor_kontrak)
+    {
+        $result = $this->M_emonitoring->cek_nomor_kontrak($nomor_kontrak);
+        return $result > 0; // Jika hasil lebih dari 0, berarti nomor kontrak sudah ada
+    }
+
+    // public function cek_nomor_kontrak_ajax()
+    // {
+    //     // Ambil nomor kontrak dari data POST atau GET
+    //     $nomor_kontrak = $this->input->post('nomor_kontrak'); // Sesuaikan dengan metode pengiriman data Anda
+
+    //     // Panggil metode pribadi
+    //     $result = $this->cek_nomor_kontrak($nomor_kontrak);
+    // }
 
     public function unduh_dokumen($nama_paket, $nama_file)
     {

@@ -1,24 +1,20 @@
-    <link href="<?php echo base_url(); ?>public/focus-theme/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>public/focus-theme/vendor/chartist/css/chartist.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>public/focus-theme/css/style.css" rel="stylesheet">
-
     <style>
-        div#detailLap td {
+        div#modalDetailLaporan td {
             text-align: left;
         }
 
-        div#detailLap .card,
+        div#modalDetailLaporan .card,
         div#identity .card {
             padding: 0;
         }
 
-        div#detailLap th,
-        div#detailLap td {
+        div#modalDetailLaporan th,
+        div#modalDetailLaporan td {
             padding: 0 0.55rem !important;
         }
 
         p#isilaporan,
-        div#detailLap span {
+        div#modalDetailLaporan span {
             color: #373757;
             font-family: 'Roboto', sans-serif;
             font-weight: normal;
@@ -35,9 +31,44 @@
             border-bottom: 2px solid #EEEEEE;
         }
 
-        div#detailLap th,
-        div#detailLap span {
+        div#modalDetailLaporan th,
+        div#modalDetailLaporan span {
             color: #000 !important;
+        }
+
+        h4,
+        p {
+            color: #000 !important;
+        }
+
+        div#modalDetailLaporan .card-body {
+            padding: 1.25rem 0;
+        }
+
+        div#modalDetailLaporan .w-100 {
+            width: 100% !important;
+            height: 174px;
+            object-fit: cover;
+        }
+
+        div#IsiLaporan {
+            padding: 0 25px;
+        }
+
+        div#profile .card {
+            margin-bottom: 0;
+        }
+
+        h4#modalDetailLaporanLabel span {
+            font-weight: bold;
+        }
+
+        h4#modalDetailLaporanLabel {
+            font-weight: normal;
+        }
+
+        td a {
+            margin: 3px 0;
         }
     </style>
     <div class="content-body">
@@ -86,8 +117,7 @@
                                             ?>
                                             <tr>
                                                 <td>
-
-                                                    <a id="DetailLap" class="btn btn-info btn-sm mb-1" href="" title="Detail" data-backdrop="static" data-toggle="modal" data-target="#detailLap" data-kodelaporan="<?php echo $p->kodelaporan; ?>" data-nik="<?php echo $p->nik; ?>" data-namapelapor="<?php echo $p->nama_pelapor; ?>" data-alamatpelapor="<?php echo $p->alamat_pelapor; ?>" data-email="<?php echo $p->email; ?>" data-nohp="<?php echo $p->no_hp; ?>" data-tgllaporan="<?php echo $p->tgl_laporan; ?>" data-infrastruktur="<?php echo $p->infrastruktur; ?>" data-koordinatlokasi="<?php echo $p->latitude, $p->longitude; ?>" data-namaruasjalan="<?php echo $p->nama_ruasjalan; ?>" data-namakabkota="<?php echo ucwords(strtolower($kab->nama)); ?>" data-namadistrik="<?php echo $kec->nama; ?>" data-isilaporan="<?php echo $p->isi_laporan; ?>" data-gambarktp="<?php echo $gbktp->nama_file; ?>" data-dokumentasi1="<?php echo $gbdok1->nama_file; ?>" data-dokumentasi2="<?php echo $gbdok2->nama_file; ?>" data-dokumentasi3="<?php echo $gbdok3->nama_file; ?>" data-dokumen_tambahan="<?php echo $dokadd->nama_file; ?>">
+                                                    <a href="#" data-toggle="modal" class="btn btn-sm btn-info btnDetailLaporan" data-kodelaporan="<?php echo $p->kodelaporan; ?>" data-nik="<?php echo $p->nik; ?>" data-namapelapor="<?php echo $p->nama_pelapor; ?>" data-alamatpelapor="<?php echo $p->alamat_pelapor; ?>" data-email="<?php echo $p->email; ?>" data-nohp="<?php echo $p->no_hp; ?>" data-tgllaporan="<?php echo $p->tgl_laporan; ?>" data-infrastruktur="<?php echo $p->infrastruktur; ?>" data-koordinatlokasi="<?php echo $p->latitude, $p->longitude; ?>" data-namaruasjalan="<?php echo $p->nama_ruasjalan; ?>" data-namakabkota="<?php echo ucwords(strtolower($kab->nama)); ?>" data-namadistrik="<?php echo $kec->nama; ?>" data-isilaporan="<?php echo $p->isi_laporan; ?>" data-gambarktp="<?php echo $gbktp->nama_file; ?>" data-dokumentasi1="<?php echo $gbdok1->nama_file; ?>" data-dokumentasi2="<?php echo $gbdok2->nama_file; ?>" data-dokumentasi3="<?php echo $gbdok3->nama_file; ?>" data-dokumen_tambahan="<?php echo $dokadd->nama_file; ?>">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                     <?php if ($p->status == 'Diterima') { ?>
@@ -145,16 +175,23 @@
     </div>
 
 
-    <div class="modal fade" id="detailLap" tabindex="-1" role="dialog" aria-labelledby="detailLapLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDetailLaporan" tabindex="-1" role="dialog" aria-labelledby="modalDetailLaporanLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="detailLapLabel"><i class="bi bi-file-earmark-fill"></i>Detail Laporan
+                    <h4 class="modal-title" id="modalDetailLaporanLabel"><i class="bi bi-file-earmark-fill"></i>Detail Laporan
+                        <span id="kodelaporan"></span> dari <span id="nama_pelapor"></span>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+
+                <!-- <div class="modal-header">
+                    <h3 class="modal-title" id="modalDetailLaporanLabel"><i class="bi bi-file-earmark-fill"></i>Detail Laporan
                         <span id="kodelaporan"></span>
                     </h3>
-                </div>
+                </div> -->
                 <div class="modal-body">
-
                     <div class="default-tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
@@ -233,7 +270,7 @@
                                                         <tr>
                                                             <th>Lokasi</th>
                                                             <td>: </td>
-                                                            <td><a class="btn btn-sm btn-primary" href="<?php echo ('https://www.google.com/maps/place/') . $p->latitude, ',' . $p->longitude; ?>" target="_blank"><i class="fa fa-map-marker"></i> Klik di sini</a></td>
+                                                            <td><a class="btn btn-sm btn-info" href="<?php echo ('https://www.google.com/maps/place/') . $p->latitude, ',' . $p->longitude; ?>" target="_blank"><i class="fa fa-map-marker"></i> Lihat Lokasi</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nama Ruas Jalan</th>
@@ -276,6 +313,9 @@
                                                         <div class="carousel-item">
                                                             <img class="w-100" id="gbdok3">
                                                         </div>
+                                                        <div class="carousel-item">
+                                                            <img class="w-100" id="dokumentambahan">
+                                                        </div>
                                                     </div>
                                                     <a class="carousel-control-prev" href="#dokIndikator" role="button" data-slide="prev">
                                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -291,6 +331,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="row">
                                     <div id="IsiLaporan" class="col-sm-12">
                                         <h4>Isi Laporan:</h4>
@@ -304,16 +345,21 @@
                     </div>
 
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Tutup</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(document).on('click', '#DetailLap', function() {
+            $('#menupengaduan').last().addClass("active");
+
+            $('.btnDetailLaporan').on('click', function() {
+                // $(document).on('click', '#DetailLap', function() {
                 var kodelaporan = $(this).data('kodelaporan');
                 var nik = $(this).data('nik');
                 var namapelapor = $(this).data('namapelapor');
@@ -364,13 +410,8 @@
                 const imgdok = document.getElementById("dokumentambahan");
                 imgdok.src = "<?php echo base_url('upload/dokumen-tambahan/'); ?>" + dokumen_tambahan;
 
+                $('#modalDetailLaporan').modal('show');
             })
-        })
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#menupengaduan').last().addClass("active");
 
             //action button terima laporan/pengaduan
             $('.btnTerima').click(function() {

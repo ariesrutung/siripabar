@@ -36,8 +36,8 @@
     <link href="<?php echo base_url(); ?>/public/company/css/style.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
     <style>
         .footer {
             position: relative;

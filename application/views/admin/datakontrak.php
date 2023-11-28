@@ -132,6 +132,7 @@
         text-align: center !important;
     }
 </style>
+
 <div id="DataKontrak" class="content-body">
     <div class="container-fluid">
         <div class="row">
@@ -1839,8 +1840,8 @@
 
             // Lakukan proses AJAX untuk submit form
             $.ajax({
-                type: 'POST', // Atur metode sesuai dengan kebutuhan Anda
-                url: $(this).attr('action'), // Ambil URL aksi dari form
+                type: 'POST',
+                url: $(this).attr('action'),
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
@@ -1870,26 +1871,21 @@
                     // Tangani kesalahan AJAX jika diperlukan
                     console.error(xhr.responseText);
 
-                    // Cek apakah pesan error mengandung informasi bahwa nomor kontrak sudah ada
-                    if (xhr.responseText.includes('Nomor kontrak sudah ada di database.')) {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Nomor kontrak sudah ada di database. Silakan gunakan nomor kontrak yang berbeda.',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
-                    } else {
-                        // Pesan error umum jika tidak terkait dengan nomor kontrak
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Terjadi kesalahan saat menyimpan atau mengupdate data kontrak.',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
-                    }
+                    // Tambahkan log untuk melihat respons lengkap dari server
+                    console.log(xhr);
+
+                    // Pesan error umum
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat menyimpan atau mengupdate data kontrak.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             });
         });
+
+
 
     });
 </script>
